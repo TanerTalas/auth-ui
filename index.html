@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <!-- nav - start -->
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="./images/icons/logo-icon.svg" alt="Logo" id="navbarLogo">
+            <a href="#">Portföy</a>
+            <a href="#">Projeler</a>
+        </div>
+
+        <div class="nav-right">
+            <a href="#">Giriş Yap</a>
+            <a href="#">Kayıt Ol</a>
+            <button id="modeSwitch"><img src="./images/sun.svg" alt="light mode" id="themeIcon"></button>
+        </div>
+    </nav>
+
+    <!-- nav - end -->
+
+    <!-- main - start -->
+
+    <main>
+
+        <!-- sign in - start -->
+        <section id="sign-in-container">
+            <div class="left" id="sign-in-left">
+                <h3>Welcome Back!</h3>
+                <p>We’ve missed you. Let’s get you signed in.</p>
+                <button class="sign-up-button">New here? <span>Create account</span></button>
+            </div>
+            <div class="right" id="sign-in-right">
+                <h2>Sign In</h2>
+                <form class="sign-in-form">
+                    <!-- Email input -->
+                    <div class="input-group">
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                        <label for="email">Email</label>
+                        <img src="./images/icons/email-icon.svg" alt="email icon" class="input-icon" />
+                    </div>
+                    <!-- Şifre input -->
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" placeholder="••••••••" required />
+                        <label for="password">Password</label>
+                        <img src="./images/icons/password-icon.svg" alt="password icon" class="input-icon" />
+                        <button type="button" class="show-pass"><img src="./images/icons/show-password-icon.svg"
+                                alt="show password icon"></button>
+                    </div>
+                    <!-- Remember me -->
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember" />
+                        <label for="remember">Remember me for 30 days</label>
+                    </div>
+                    <!-- Forgot password -->
+                    <button type="button" class="forgot-pass-btn">Forgot password?</button>
+                    <!-- Submit button -->
+                    <button type="submit">Log in</button>
+                </form>
+            </div>
+        </section>
+        <!-- sign in - end -->
+
+        <!-- forgot password - start -->
+        <section id="forgot-pass-container-1">
+            <div class="left" id="forgot-pass-left">
+                <h3>No worries at all!</h3>
+                <p>You can easily reset your password in just a few simple steps</p>
+            </div>
+            <div class="right" id="forgot-pass-right">
+                <h2>Forgot Password</h2>
+                <p>Step 1</p>
+                <p>We'll send you a link to reset your password. Please enter the email linked to your account.</p>
+                <form class="forgot-pass-form">
+                    <!-- Email input -->
+                    <div class="input-group">
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                        <label for="email">Email</label>
+                        <img src="./images/icons/email-icon.svg" alt="email icon" class="input-icon" />
+                    </div>
+                    <!-- Back - Submit button -->
+                    <div class="forgot-pass-form-buttons">
+                        <button type="button" class="back-btn">Back</button>
+                        <button type="submit" class="next-btn">Next</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- forgot password - end -->
+
+        <!-- sign up - start 
+
+        <section id="sign-up-container">
+            <div></div>
+            <div></div>
+        </section>
+
+        sign up - end -->
+
+    </main>
+
+    <!-- main - end -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
