@@ -1,17 +1,20 @@
-const togglePassBtn = document.querySelector('.show-pass');
-const passwordInput = document.getElementById('password');
-const togglePassIcon = togglePassBtn.querySelector('img');
+const togglePassButtons = document.querySelectorAll('.show-pass');
 
-togglePassBtn.addEventListener('click', () => {
-  const isPassword = passwordInput.type === 'password';
+togglePassButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const inputGroup = btn.closest('.input-group');
+    const input = inputGroup.querySelector('input'); 
+    const icon = btn.querySelector('img');
 
-  passwordInput.type = isPassword ? 'text' : 'password';
-
-  togglePassIcon.src = isPassword
-    ? './images/icons/hide-password-icon.svg'  
-    : './images/icons/show-password-icon.svg';
-
-  togglePassIcon.alt = isPassword ? 'hide password icon' : 'show password icon';
+    const isPassword = input.type === 'password';
+    input.type = isPassword ? 'text' : 'password';
+    icon.src = isPassword
+      ? './images/icons/hide-password-icon.svg'
+      : './images/icons/show-password-icon.svg';
+    icon.alt = isPassword
+      ? 'hide password icon'
+      : 'show password icon';
+  });
 });
 
 const codeInput = document.getElementById("verification-code");

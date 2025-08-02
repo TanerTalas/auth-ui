@@ -170,10 +170,7 @@ main {
     box-shadow: 0 0 8px rgba(0, 0, 0, 25%);
 }
 
-#sign-in-left,
-#sign-in-right,
-#forgot-pass-left,
-#forgot-pass-right {
+.left, .right {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -182,11 +179,19 @@ main {
     text-align: center;
 }
 
+.left {
+    color: #FFFFFF;
+    padding: 0 32px;
+}
+
+.right {
+    background-color: #FFFFFF;
+    padding: 54px 64px;
+}
+
 #sign-in-left {
     position: relative;
     background: linear-gradient(to bottom, #6F7C57, #4793B1);
-    color: #FFFFFF;
-    padding: 0 32px;
 }
 
 .sign-up-button {
@@ -205,11 +210,6 @@ main {
 
 .sign-up-button span {
     color: #FF44F3;
-}
-
-#sign-in-right {
-    background-color: #fff;
-    padding: 54px 64px;
 }
 
 .sign-in-form {
@@ -358,8 +358,7 @@ input:focus {
 /* forgot password - start */
 /* step1 */
 #forgot-pass-container-1 {
-    display: none;
-    /* görünür olduğunda flex olacak */
+    display: none; /* görünür olduğunda flex olacak */
     justify-content: space-between;
     align-items: stretch;
     max-width: 1000px;
@@ -369,15 +368,8 @@ input:focus {
     box-shadow: 0 0 8px rgba(0, 0, 0, 25%);
 }
 
-#forgot-pass-left {
+#forgot-pass-left1 {
     background: linear-gradient(to bottom, #62CE94, #55AACC);
-    color: #FFFFFF;
-    padding: 0 32px;
-}
-
-#forgot-pass-right {
-    background-color: #fff;
-    padding: 54px 64px;
 }
 
 .forgot-pass-form-buttons {
@@ -390,7 +382,7 @@ input:focus {
 }
 
 .back-btn,
-.next-btn {
+.next-btn, .verify-btn, .done-btn {
     height: auto;
     padding: 12px 16px;
     color: white;
@@ -415,8 +407,7 @@ input:focus {
 
 /* step2 */
 #forgot-pass-container-2 {
-    display: flex;
-    /* görünür olduğunda flex olacak */
+    display: none; /* görünür olduğunda flex olacak */
     justify-content: space-between;
     align-items: stretch;
     max-width: 1000px;
@@ -424,6 +415,10 @@ input:focus {
     max-height: 480px;
     border-radius: 4px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 25%);
+}
+
+#forgot-pass-left2 {
+    background: linear-gradient(to bottom, #4BD98D, #40ABD5);
 }
 
 #verification-code {
@@ -436,8 +431,25 @@ input:focus {
     transform: translateX(-50%) translateY(-50%);
 }
 
-.input-group+button {
-    margin-top: 112px;
+/* step3 */
+#forgot-pass-container-3 {
+    display: flex; /* görünür olduğunda flex olacak */
+    justify-content: space-between;
+    align-items: stretch;
+    max-width: 1000px;
+    width: 100%;
+    max-height: 480px;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 25%);
 }
 
+#forgot-pass-left3 {
+    background: linear-gradient(to bottom, #32F48D, #36BFF5);
+}
+
+.done-btn {
+    width: 200px;
+    margin-top: 40px;
+    background-color: #B3B3B3;
+}
 /* forgot password - end */

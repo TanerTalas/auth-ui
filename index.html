@@ -48,13 +48,15 @@
                 <form class="sign-in-form">
                     <!-- Email input -->
                     <div class="input-group">
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="off" />
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required
+                            autocomplete="off" />
                         <label for="email">Email</label>
                         <img src="./images/icons/email-icon.svg" alt="email icon" class="input-icon" />
                     </div>
-                    <!-- Şifre input -->
+                    <!-- Password input -->
                     <div class="input-group">
-                        <input type="password" id="password" name="password" placeholder="••••••••" required autocomplete="off" />
+                        <input type="password" id="password" name="password" placeholder="••••••••" required
+                            autocomplete="off" />
                         <label for="password">Password</label>
                         <img src="./images/icons/password-icon.svg" alt="password icon" class="input-icon" />
                         <button type="button" class="show-pass"><img src="./images/icons/show-password-icon.svg"
@@ -77,18 +79,19 @@
         <!-- forgot password - start -->
         <!-- step1 -->
         <section id="forgot-pass-container-1">
-            <div class="left" id="forgot-pass-left">
+            <div class="left" id="forgot-pass-left1">
                 <h3>No worries at all!</h3>
                 <p>You can easily reset your password in just a few simple steps</p>
             </div>
-            <div class="right" id="forgot-pass-right">
+            <div class="right" id="forgot-pass-right1">
                 <h2>Forgot Password</h2>
                 <p>Step 1</p>
                 <p>We'll send you a link to reset your password. Please enter the email linked to your account.</p>
                 <form class="forgot-pass-form">
                     <!-- Email input -->
                     <div class="input-group">
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="off" />
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required
+                            autocomplete="off" />
                         <label for="email">Email</label>
                         <img src="./images/icons/email-icon.svg" alt="email icon" class="input-icon" />
                     </div>
@@ -102,22 +105,57 @@
         </section>
         <!-- step2 -->
         <section id="forgot-pass-container-2">
-            <div class="left" id="forgot-pass-left">
+            <div class="left" id="forgot-pass-left2">
                 <h3>Your code is on its way!</h3>
                 <p>For your security, we’ve sent a one-time code to your email address.</p>
             </div>
-            <div class="right" id="forgot-pass-right">
+            <div class="right" id="forgot-pass-right2">
                 <h2>Verify Your Email</h2>
                 <p>Step 2</p>
                 <p>We emailed you a code. Please check your inbox or spam folder.</p>
                 <form class="forgot-pass-form">
                     <!-- Code input -->
                     <div class="input-group">
-                        <input type="text" id="verification-code" name="verification-code" placeholder="1 2 3 4 5 6" required inputmode="numeric" pattern="\d{1}( \d{1}){5}" maxlength="11" autocomplete="off"  />
+                        <input type="text" id="verification-code" name="verification-code" placeholder="1 2 3 4 5 6"
+                            required inputmode="numeric" pattern="\d{1}( \d{1}){5}" maxlength="11" autocomplete="off" />
                         <label for="verification-code">Code</label>
                     </div>
-                    <!-- Next button -->
-                        <button type="submit" class="next-btn">Verify</button>
+                    <!-- Verify button -->
+                    <button type="submit" class="verify-btn">Verify</button>
+                </form>
+            </div>
+        </section>
+        <!-- step3 -->
+        <section id="forgot-pass-container-3">
+            <div class="left" id="forgot-pass-left3">
+                <h3>You're almost done!</h3>
+                <p>All that’s left is setting a new password. You’re good to go!</p>
+            </div>
+            <div class="right" id="forgot-pass-right3">
+                <h2>Reset Your Password</h2>
+                <p>Step 3</p>
+                <p>Please create a strong password that includes at least one number and one uppercase letter.</p>
+                <form class="forgot-pass-form">
+                    <!-- Password input -->
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" placeholder="••••••••" required
+                            autocomplete="off" />
+                        <label for="password">Password</label>
+                        <img src="./images/icons/password-icon.svg" alt="password icon" class="input-icon" />
+                        <button type="button" class="show-pass"><img src="./images/icons/show-password-icon.svg"
+                                alt="show password icon"></button>
+                    </div>
+                    <!-- Confirm Password input -->
+                    <div class="input-group">
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••" required
+                            autocomplete="off" />
+                        <label for="confirm-password">Confirm Password</label>
+                        <img src="./images/icons/password-icon.svg" alt="password icon" class="input-icon" />
+                        <button type="button" class="show-pass"><img src="./images/icons/show-password-icon.svg"
+                                alt="show password icon"></button>
+                    </div>
+                    <!-- Done button -->
+                    <button type="submit" class="done-btn">Done</button>
                 </form>
             </div>
         </section>
