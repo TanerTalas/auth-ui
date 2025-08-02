@@ -363,7 +363,7 @@ input:focus {
     align-items: stretch;
     max-width: 1000px;
     width: 100%;
-    max-height: 480px;
+    max-height: 476px;
     border-radius: 4px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 25%);
 }
@@ -382,7 +382,7 @@ input:focus {
 }
 
 .back-btn,
-.next-btn, .verify-btn, .done-btn {
+.next-btn, .verify-btn, .done-btn, .sign-in-btn {
     height: auto;
     padding: 12px 16px;
     color: white;
@@ -412,7 +412,7 @@ input:focus {
     align-items: stretch;
     max-width: 1000px;
     width: 100%;
-    max-height: 480px;
+    max-height: 476px;
     border-radius: 4px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 25%);
 }
@@ -433,12 +433,12 @@ input:focus {
 
 /* step3 */
 #forgot-pass-container-3 {
-    display: flex; /* görünür olduğunda flex olacak */
+    display: none; /* görünür olduğunda flex olacak */
     justify-content: space-between;
     align-items: stretch;
     max-width: 1000px;
     width: 100%;
-    max-height: 480px;
+    max-height: 476px;
     border-radius: 4px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 25%);
 }
@@ -451,5 +451,28 @@ input:focus {
     width: 200px;
     margin-top: 40px;
     background-color: #B3B3B3;
+}
+
+/* step4 */
+#forgot-pass-container-4 {
+    display: flex; /* görünür olduğunda flex olacak */
+    justify-content: space-between;
+    align-items: stretch;
+    max-width: 500px;
+    width: 100%;
+    max-height: 476px;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 25%);
+}
+
+#forgot-pass-left4 {
+    padding: 106px 32px;
+    background: linear-gradient(to bottom, #00FF77, #07BDFF);
+}
+
+.sign-in-btn {
+    width: 200px;
+    background-color: #00FF5E;
+    margin-top: 54px;
 }
 /* forgot password - end */
