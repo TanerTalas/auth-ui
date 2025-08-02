@@ -48,13 +48,13 @@
                 <form class="sign-in-form">
                     <!-- Email input -->
                     <div class="input-group">
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="off" />
                         <label for="email">Email</label>
                         <img src="./images/icons/email-icon.svg" alt="email icon" class="input-icon" />
                     </div>
                     <!-- Şifre input -->
                     <div class="input-group">
-                        <input type="password" id="password" name="password" placeholder="••••••••" required />
+                        <input type="password" id="password" name="password" placeholder="••••••••" required autocomplete="off" />
                         <label for="password">Password</label>
                         <img src="./images/icons/password-icon.svg" alt="password icon" class="input-icon" />
                         <button type="button" class="show-pass"><img src="./images/icons/show-password-icon.svg"
@@ -75,6 +75,7 @@
         <!-- sign in - end -->
 
         <!-- forgot password - start -->
+        <!-- step1 -->
         <section id="forgot-pass-container-1">
             <div class="left" id="forgot-pass-left">
                 <h3>No worries at all!</h3>
@@ -87,11 +88,11 @@
                 <form class="forgot-pass-form">
                     <!-- Email input -->
                     <div class="input-group">
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="off" />
                         <label for="email">Email</label>
                         <img src="./images/icons/email-icon.svg" alt="email icon" class="input-icon" />
                     </div>
-                    <!-- Back - Submit button -->
+                    <!-- Back - Next button -->
                     <div class="forgot-pass-form-buttons">
                         <button type="button" class="back-btn">Back</button>
                         <button type="submit" class="next-btn">Next</button>
@@ -99,7 +100,27 @@
                 </form>
             </div>
         </section>
-
+        <!-- step2 -->
+        <section id="forgot-pass-container-2">
+            <div class="left" id="forgot-pass-left">
+                <h3>Your code is on its way!</h3>
+                <p>For your security, we’ve sent a one-time code to your email address.</p>
+            </div>
+            <div class="right" id="forgot-pass-right">
+                <h2>Verify Your Email</h2>
+                <p>Step 2</p>
+                <p>We emailed you a code. Please check your inbox or spam folder.</p>
+                <form class="forgot-pass-form">
+                    <!-- Code input -->
+                    <div class="input-group">
+                        <input type="text" id="verification-code" name="verification-code" placeholder="1 2 3 4 5 6" required inputmode="numeric" pattern="\d{1}( \d{1}){5}" maxlength="11" autocomplete="off"  />
+                        <label for="verification-code">Code</label>
+                    </div>
+                    <!-- Next button -->
+                        <button type="submit" class="next-btn">Verify</button>
+                </form>
+            </div>
+        </section>
         <!-- forgot password - end -->
 
         <!-- sign up - start 

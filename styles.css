@@ -58,7 +58,7 @@ h2+p {
     opacity: 50%;
 }
 
-h2 + p + p {
+h2+p+p {
     margin-top: 24px;
 }
 
@@ -171,7 +171,9 @@ main {
 }
 
 #sign-in-left,
-#sign-in-right {
+#sign-in-right,
+#forgot-pass-left,
+#forgot-pass-right {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -283,6 +285,16 @@ main {
     transition: var(--transition-fast);
 }
 
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+input:focus-visible {
+  border-color: #563dff;
+  outline: none;
+}
+
 .input-group input:focus+label,
 .input-group input:not(:focus):not(:placeholder-shown)+label,
 input:-webkit-autofill+label {
@@ -344,8 +356,10 @@ input:focus {
 /* sign in - end */
 
 /* forgot password - start */
+/* step1 */
 #forgot-pass-container-1 {
-    display: flex;
+    display: none;
+    /* görünür olduğunda flex olacak */
     justify-content: space-between;
     align-items: stretch;
     max-width: 1000px;
@@ -353,16 +367,6 @@ input:focus {
     max-height: 480px;
     border-radius: 4px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 25%);
-}
-
-#forgot-pass-left,
-#forgot-pass-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 }
 
 #forgot-pass-left {
@@ -409,5 +413,31 @@ input:focus {
     width: 199px;
 }
 
+/* step2 */
+#forgot-pass-container-2 {
+    display: flex;
+    /* görünür olduğunda flex olacak */
+    justify-content: space-between;
+    align-items: stretch;
+    max-width: 1000px;
+    width: 100%;
+    max-height: 480px;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 25%);
+}
+
+#verification-code {
+    width: 139px;
+    padding-left: 32px;
+}
+
+#verification-code+label {
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.input-group+button {
+    margin-top: 112px;
+}
 
 /* forgot password - end */
