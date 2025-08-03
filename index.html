@@ -171,6 +171,7 @@
         <!-- forgot password - end -->
 
         <!-- sign up - start -->
+        <!-- step1 -->
         <section id="sign-up-container1">
             <div class="left" id="sign-up-left1">
                 <h3>Let’s get started!</h3>
@@ -211,6 +212,28 @@
                         <button type="button" class="back-btn">Back</button>
                         <button type="submit" class="next-btn">Next</button>
                     </div>
+                </form>
+            </div>
+        </section>
+        <!-- step2 -->
+        <section id="sign-up-container2">
+            <div class="left" id="sign-up-left2">
+                <h3>Your code is on its way!</h3>
+                <p>For your security, we’ve sent a one-time code to your email address.</p>
+            </div>
+            <div class="right" id="sign-up-right2">
+                <h2>Verify Your Email</h2>
+                <p>Step 2</p>
+                <p>We emailed you a code. Please check your inbox or spam folder.</p>
+                <form class="forgot-pass-form">
+                    <!-- Code input -->
+                    <div class="input-group">
+                        <input type="text" id="verification-code" name="verification-code" placeholder="1 2 3 4 5 6"
+                            required inputmode="numeric" pattern="\d{1}( \d{1}){5}" maxlength="11" autocomplete="off" />
+                        <label for="verification-code">Code</label>
+                    </div>
+                    <!-- Verify button -->
+                    <button type="submit" class="verify-btn">Verify</button>
                 </form>
             </div>
         </section>

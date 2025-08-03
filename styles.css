@@ -481,8 +481,9 @@ input:focus {
 /* forgot password - end */
 
 /* sign up - start */
+/* step1 */
 #sign-up-container1 {
-    display: flex;
+    display: none;
     /* görünür olduğunda flex olacak */
     justify-content: space-between;
     align-items: stretch;
@@ -505,4 +506,25 @@ input:focus {
     margin-top: 32px;
 }
 
+/* step2 */
+#sign-up-container2 {
+    display: flex;
+    /* görünür olduğunda flex olacak */
+    justify-content: space-between;
+    align-items: stretch;
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 25%);
+}
+
+#sign-up-left2 {
+    background: linear-gradient(to bottom, #E4E163, #5E47B1);
+}
+
+.verify-btn {
+    width: 200px;
+    background-color: #B3B3B3;
+    margin-top: 32px
+}
 /* sign up - end */
