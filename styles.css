@@ -170,7 +170,8 @@ main {
     box-shadow: 0 0 8px rgba(0, 0, 0, 25%);
 }
 
-.left, .right {
+.left,
+.right {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -291,8 +292,8 @@ input:-webkit-autofill {
 }
 
 input:focus-visible {
-  border-color: #563dff;
-  outline: none;
+    border-color: #563dff;
+    outline: none;
 }
 
 .input-group input:focus+label,
@@ -339,18 +340,11 @@ input:focus {
     text-decoration: underline;
 }
 
-.sign-in-form button[type="submit"] {
-    font-size: 22px;
-    line-height: 28px;
-    color: white;
+.log-in-btn {
     background-color: #B3B3B3;
     padding: 12px 16px;
     margin: 16px auto 0;
     width: 200px;
-    border: none;
-    border-radius: var(--input-radius);
-    font-weight: bold;
-    cursor: pointer;
 }
 
 /* sign in - end */
@@ -358,7 +352,8 @@ input:focus {
 /* forgot password - start */
 /* step1 */
 #forgot-pass-container-1 {
-    display: none; /* görünür olduğunda flex olacak */
+    display: none;
+    /* görünür olduğunda flex olacak */
     justify-content: space-between;
     align-items: stretch;
     max-width: 1000px;
@@ -382,11 +377,15 @@ input:focus {
 }
 
 .back-btn,
-.next-btn, .verify-btn, .done-btn, .sign-in-btn {
+.next-btn,
+.verify-btn,
+.done-btn,
+.sign-in-btn,
+.log-in-btn {
     height: auto;
     padding: 12px 16px;
     color: white;
-    border-radius: 6px;
+    border-radius: var(--input-radius);
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(142, 142, 142, 0.15);
     font-size: 22px;
@@ -407,7 +406,8 @@ input:focus {
 
 /* step2 */
 #forgot-pass-container-2 {
-    display: none; /* görünür olduğunda flex olacak */
+    display: none;
+    /* görünür olduğunda flex olacak */
     justify-content: space-between;
     align-items: stretch;
     max-width: 1000px;
@@ -433,7 +433,8 @@ input:focus {
 
 /* step3 */
 #forgot-pass-container-3 {
-    display: none; /* görünür olduğunda flex olacak */
+    display: none;
+    /* görünür olduğunda flex olacak */
     justify-content: space-between;
     align-items: stretch;
     max-width: 1000px;
@@ -455,7 +456,8 @@ input:focus {
 
 /* step4 */
 #forgot-pass-container-4 {
-    display: flex; /* görünür olduğunda flex olacak */
+    display: none;
+    /* görünür olduğunda flex olacak */
     justify-content: space-between;
     align-items: stretch;
     max-width: 500px;
@@ -475,4 +477,32 @@ input:focus {
     background-color: #00FF5E;
     margin-top: 54px;
 }
+
 /* forgot password - end */
+
+/* sign up - start */
+#sign-up-container1 {
+    display: flex;
+    /* görünür olduğunda flex olacak */
+    justify-content: space-between;
+    align-items: stretch;
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 25%);
+}
+
+#sign-up-left1 {
+    background: linear-gradient(to bottom, #BEBC53, #5E47B1);
+
+}
+
+.sign-up-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 54px;
+    margin-top: 32px;
+}
+
+/* sign up - end */

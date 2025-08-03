@@ -70,7 +70,7 @@
                     <!-- Forgot password -->
                     <button type="button" class="forgot-pass-btn">Forgot password?</button>
                     <!-- Submit button -->
-                    <button type="submit">Log in</button>
+                    <button type="submit" class="log-in-btn">Log in</button>
                 </form>
             </div>
         </section>
@@ -170,14 +170,51 @@
         </section>
         <!-- forgot password - end -->
 
-        <!-- sign up - start 
-
-        <section id="sign-up-container">
-            <div></div>
-            <div></div>
+        <!-- sign up - start -->
+        <section id="sign-up-container1">
+            <div class="left" id="sign-up-left1">
+                <h3>Let’s get started!</h3>
+                <p>We’re excited to have you with us!</p>
+            </div>
+            <div class="right" id="sign-up-right1">
+                <h2>Create Your Account</h2>
+                <p>Step 1</p>
+                <p>Please create a strong password that includes at least one number and one uppercase letter.</p>
+                <form class="sign-up-form">
+                    <!-- Email input -->
+                    <div class="input-group">
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required
+                            autocomplete="off" />
+                        <label for="email">Email</label>
+                        <img src="./images/icons/email-icon.svg" alt="email icon" class="input-icon" />
+                    </div>
+                    <!-- Password input -->
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" placeholder="••••••••" required
+                            autocomplete="off" />
+                        <label for="password">Password</label>
+                        <img src="./images/icons/password-icon.svg" alt="password icon" class="input-icon" />
+                        <button type="button" class="show-pass"><img src="./images/icons/show-password-icon.svg"
+                                alt="show password icon"></button>
+                    </div>
+                    <!-- Confirm Password input -->
+                    <div class="input-group">
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••"
+                            required autocomplete="off" />
+                        <label for="confirm-password">Confirm Password</label>
+                        <img src="./images/icons/password-icon.svg" alt="password icon" class="input-icon" />
+                        <button type="button" class="show-pass"><img src="./images/icons/show-password-icon.svg"
+                                alt="show password icon"></button>
+                    </div>
+                    <!-- Back - Next button -->
+                    <div class="sign-up-buttons">
+                        <button type="button" class="back-btn">Back</button>
+                        <button type="submit" class="next-btn">Next</button>
+                    </div>
+                </form>
+            </div>
         </section>
-
-        sign up - end -->
+        <!-- sign up - end -->
 
     </main>
 
