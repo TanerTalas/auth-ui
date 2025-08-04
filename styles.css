@@ -415,12 +415,12 @@ input[type=number]::-webkit-outer-spin-button {
     background: linear-gradient(to bottom, #4BD98D, #40ABD5);
 }
 
-#verification-code {
+#forgot-pass-verification-code {
     width: 139px;
     padding-left: 32px;
 }
 
-#verification-code+label {
+#forgot-pass-verification-code+label {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
@@ -464,7 +464,7 @@ input[type=number]::-webkit-outer-spin-button {
 /* sign up - start */
 /* step1 */
 #sign-up-container1 {
-    display: none; /* görünür olduğunda flex olacak */
+    display: flex; /* görünür olduğunda flex olacak */
     overflow: hidden;
 }
 
