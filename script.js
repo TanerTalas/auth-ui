@@ -26,3 +26,9 @@ codeInput.addEventListener("input", (e) => {
   // Boşlukla birleştir
   e.target.value = numbers.join(" ");
 });
+
+const phoneInput = document.getElementById('phone');
+
+phoneInput.addEventListener('input', (e) => {
+  e.target.value = e.target.value.replace(/[^\d+ ]/g, '');
+});
