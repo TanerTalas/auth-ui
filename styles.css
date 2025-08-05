@@ -521,7 +521,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* step3 */
 #sign-up-container3 {
-    display: block;
+    display: none;
     /* görünür olduğunda flex olacak */
     position: relative;
     overflow: hidden;
@@ -750,4 +750,61 @@ input[type=number]::-webkit-outer-spin-button {
     height: 200px;
 }
 
+/* step4 */
+#sign-up-container4 {
+    display: flex;
+    /* görünür olduğunda flex olacak */
+    overflow: hidden;
+}
+
+#sign-up-left4 {
+    background: linear-gradient(to bottom, #FFFB0D, #4714FF);
+}
+
+.checkmark-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.checkmark {
+  width: 200px;
+  height: 200px;
+  stroke: #00FF5E;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  background: none;
+}
+
+.checkmark-circle {
+  stroke: #00FF5E;
+  stroke-dasharray: 339.292;
+  stroke-dashoffset: 339.292;
+  animation: draw-circle 0.8s ease-out forwards;
+}
+
+.checkmark-check {
+  stroke: #00FF5E;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw-check 0.5s ease-out 0.8s forwards;
+}
+
+@keyframes draw-circle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-check {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+#sign-up-right4 .sign-in-btn {
+    margin-top: 32px !important;
+}
 /* sign up - end */
