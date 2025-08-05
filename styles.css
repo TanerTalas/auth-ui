@@ -54,12 +54,9 @@ h2 {
 
 h2+p {
     margin-top: 8px;
+    margin-bottom: 24px;
     font-weight: 500;
     opacity: 0.5;
-}
-
-h2+p+p {
-    margin-top: 24px;
 }
 
 h3 {
@@ -209,23 +206,58 @@ main {
     margin-top: 24px;
 }
 
-.input-group input {
+.input-group input,
+.input-group textarea {
     width: 372px;
     padding: 12px 12px 12px 58px;
-    font-size: 1rem;
     border: 3px solid var(--gray-color);
     border-radius: var(--input-radius);
     outline: none;
+    font-family: inherit;
     transition: border-color var(--transition-fast);
 }
 
-.input-group input::placeholder {
+.input-group textarea {
+    padding-left: 20px;
+    min-height: 120px;
+    resize: none;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
     color: transparent;
     transition: color 0.3s ease;
 }
 
-.input-group input:focus::placeholder {
+.input-group input:focus::placeholder,
+.input-group textarea:focus::placeholder {
     color: var(--gray-color);
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    transform: translateY(-50%);
+    color: var(--gray-color);
+    pointer-events: none;
+    background: #fff;
+    padding: 0 8px;
+    transition: var(--transition-fast);
+}
+
+.input-group textarea+label {
+    left: 20px;
+}
+
+.input-group input:focus+label,
+.input-group input:not(:placeholder-shown)+label,
+input:-webkit-autofill+label,
+.input-group textarea:focus+label,
+.input-group textarea:not(:placeholder-shown)+label {
+    top: 0;
+    transform: translateY(-50%);
+    color: var(--dark-color);
 }
 
 .input-icon {
@@ -258,16 +290,9 @@ main {
     padding-right: 52px;
 }
 
-.input-group label {
-    position: absolute;
-    top: 50%;
-    left: 50px;
-    transform: translateY(-50%);
-    color: #888;
-    pointer-events: none;
-    background: #fff;
-    padding: 0 8px;
-    transition: var(--transition-fast);
+input:focus,
+textarea:focus {
+    border-color: var(--dark-color);
 }
 
 input:-webkit-autofill {
@@ -276,31 +301,22 @@ input:-webkit-autofill {
 }
 
 input:focus-visible {
-    border-color: #563dff;
+    border-color: var(--dark-color);
     outline: none;
 }
 
-.input-group input:focus+label,
-.input-group input:not(:focus):not(:placeholder-shown)+label,
-input:-webkit-autofill+label {
-    top: 0;
-    transform: translateY(-50%);
-    color: var(--dark-color);
-}
-
-input:focus {
-    border-color: var(--dark-color);
-}
-
+/* Number input: ok işaretlerini kaldır */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
+
 /* sign in - start */
 #sign-in-container1 {
-    display: none; /* görünür olduğunda flex olacak */
+    display: none;
+    /* görünür olduğunda flex olacak */
     overflow: hidden;
 }
 
@@ -378,7 +394,8 @@ input[type=number]::-webkit-outer-spin-button {
 /* forgot password - start */
 /* step1 */
 #forgot-pass-container1 {
-    display: none; /* görünür olduğunda flex olacak */
+    display: none;
+    /* görünür olduğunda flex olacak */
     overflow: hidden;
 }
 
@@ -407,7 +424,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* step2 */
 #forgot-pass-container2 {
-    display: none; /* görünür olduğunda flex olacak */
+    display: none;
+    /* görünür olduğunda flex olacak */
     overflow: hidden;
 }
 
@@ -427,7 +445,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* step3 */
 #forgot-pass-container3 {
-    display: none; /* görünür olduğunda flex olacak */
+    display: none;
+    /* görünür olduğunda flex olacak */
     overflow: hidden;
 }
 
@@ -443,7 +462,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* step4 */
 #forgot-pass-container4 {
-    display: none; /* görünür olduğunda flex olacak */
+    display: none;
+    /* görünür olduğunda flex olacak */
     max-width: 500px;
 }
 
@@ -464,7 +484,8 @@ input[type=number]::-webkit-outer-spin-button {
 /* sign up - start */
 /* step1 */
 #sign-up-container1 {
-    display: flex; /* görünür olduğunda flex olacak */
+    display: none;
+    /* görünür olduğunda flex olacak */
     overflow: hidden;
 }
 
@@ -483,7 +504,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* step2 */
 #sign-up-container2 {
-    display: none; /* görünür olduğunda flex olacak */
+    display: none;
+    /* görünür olduğunda flex olacak */
     overflow: hidden;
 }
 
@@ -499,9 +521,31 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* step3 */
 #sign-up-container3 {
-    display: none; /* görünür olduğunda flex olacak */
+    display: block;
+    /* görünür olduğunda flex olacak */
+    position: relative;
     overflow: hidden;
 }
+
+#sign-up-left3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #EFED5A, #593CC3);
+    z-index: 0;
+}
+
+#sign-up-right3 {
+    position: relative;
+    flex: none;
+    margin: auto;
+    width: 500px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0 8px rgba(0, 0, 0, 25%);
+    z-index: 500;
+}
+
+
 
 .sign-up-form3 label {
     left: 20px;
@@ -509,6 +553,201 @@ input[type=number]::-webkit-outer-spin-button {
 
 .sign-up-form3 input {
     padding-left: 20px;
+}
+
+/* Fullname input */
+#sign-up-fullname {
+    display: flex;
+    gap: 8px;
+}
+
+#sign-up-fullname .input-group {
+    margin-top: 8px;
+}
+
+#sign-up-fullname input {
+    width: 182px;
+}
+
+/* Birthday input */
+#sign-up-birthday {
+    display: flex;
+    gap: 28px;
+}
+
+#sign-up-birthday input {
+    width: 106px;
+    text-align: center;
+    padding-left: 8px;
+}
+
+#sign-up-birthday label {
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+/* Profile picture input */
+.profile-pic-container {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.profile-pic-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+    margin: 8px auto 24px;
+    overflow: hidden;
+}
+
+.profile-pic-wrapper label {
+    left: -1px;
+    bottom: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    position: relative;
+}
+
+#profile-preview {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px;
+    height: 63px;
+    object-fit: contain;
+    z-index: 1;
+}
+
+.reset-picture-btn {
+    display: none;
+    /* sadece resim yüklendiğinde gösterilecek */
+    top: 50%;
+    left: 136px;
+    transform: translateY(-50%);
+    position: absolute;
+    background: none;
+    border: none;
+    color: #FF5100;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.reset-picture-btn:hover {
+    color: var(--dark-color);
+}
+
+/* Kullanıcı görseli yüklediğinde geçerli olacak sınıf */
+#profile-preview.uploaded {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.edit-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 4px;
+    z-index: 2;
+    transition: transform 0.4s ease;
+    transform-origin: center center;
+}
+
+.profile-pic-wrapper:hover .edit-icon {
+    transform: translate(-50%, -50%) scale(1.2);
+
+}
+
+#sign-up-profile-picture {
+    display: none;
+}
+
+/* Gender input */
+.gender-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 372px;
+    margin-top: 24px;
+}
+
+.gender-option {
+    left: 0 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: var(--gray-color);
+    cursor: pointer;
+    position: relative;
+}
+
+.gender-option input[type="radio"] {
+    display: none;
+}
+
+.custom-radio {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #8E8E8E;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    transition: border-color 0.4s ease;
+}
+
+.gender-option input[type="radio"]:checked+.custom-radio::after {
+    background-color: #000;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.gender-option input[type="radio"]:checked+.custom-radio {
+    border-color: var(--dark-color);
+}
+
+.custom-radio::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: transform 0.4s ease, background-color 0.4s ease, opacity 0.4s ease;
+}
+
+/* Location input */
+#sign-up-location {
+    display: flex;
+    gap: 91px;
+}
+
+#sign-up-location input {
+    width: 140px;
+}
+
+/* Bio input */
+#sign-up-bio {
+    height: 200px;
 }
 
 /* sign up - end */
