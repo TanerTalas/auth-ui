@@ -444,7 +444,7 @@ setupPasswordValidation('sign-up-password', 'sign-up-confirm-password');
 
 
 // 🔢 6 haneli doğrulama kodları için boşluklu format ve animasyon (sign up & forgot pass)
-["sign-up-verification-code", "forgot-pass-verification-code"].forEach((id) => {
+["sign-up-verification-code", "forgot-pass-verification-code", "sign-up-phone-verification-code"].forEach((id) => {
   const input = document.getElementById(id);
   if (input) {
     input.addEventListener("input", (e) => {

@@ -465,16 +465,16 @@ input[type=number]::-webkit-outer-spin-button {
     background-size: 100% 400%;
 }
 
-#forgot-pass-verification-code, #sign-up-verification-code {
+#forgot-pass-verification-code, #sign-up-verification-code, #sign-up-phone-verification-code {
     width: 139px;
     padding-left: 32px;
 }
 
-#forgot-pass-verification-code.filled, #sign-up-verification-code.filled {
+#forgot-pass-verification-code.filled, #sign-up-verification-code.filled, #sign-up-phone-verification-code.filled {
   border-color: #FFBF00 !important;
 }
 
-#forgot-pass-verification-code+label, #sign-up-verification-code+label {
+#forgot-pass-verification-code+label, #sign-up-verification-code+label, #sign-up-phone-verification-code+label {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
@@ -569,7 +569,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* step3 */
 #sign-up-container3 {
-    display: flex;
+    display: none;
     /* görünür olduğunda flex olacak */
     position: relative;
     overflow: hidden;
@@ -815,12 +815,31 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* step4 */
 #sign-up-container4 {
-    display: none;
+    display: flex;
     /* görünür olduğunda flex olacak */
     overflow: hidden;
 }
 
 #sign-up-left4 {
+    background: linear-gradient(to bottom, #E4E163, #5E47B1);
+    animation: gradientFlowVertical 10s ease-in-out infinite;
+    background-size: 100% 400%;
+}
+
+.verify-btn {
+    width: 200px;
+    background-color: #B3B3B3;
+    margin-top: 32px
+}
+
+/* step5 */
+#sign-up-container5 {
+    display: none;
+    /* görünür olduğunda flex olacak */
+    overflow: hidden;
+}
+
+#sign-up-left5 {
     background: linear-gradient(to bottom, #FFFB0D, #4714FF);
     animation: gradientFlowVertical 10s ease-in-out infinite;
     background-size: 100% 400%;
@@ -857,7 +876,7 @@ input[type=number]::-webkit-outer-spin-button {
     animation: draw-check 0.5s ease-out 0.8s forwards;
 }
 
-#sign-up-right4 .sign-in-btn {
+#sign-up-right5 .sign-in-btn {
     margin-top: 32px !important;
 }
 

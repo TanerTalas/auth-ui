@@ -352,12 +352,35 @@
         <!-- step4 -->
         <section id="sign-up-container4" class="container">
             <div class="left" id="sign-up-left4">
+                <h3>Your verification code is on its way!</h3>
+                <p>To complete your registration, please check your messages for a 6-digit code.</p>
+            </div>
+            <div class="right" id="sign-up-right4">
+                <h2>Verify Your Phone Number</h2>
+                <p>Step 4</p>
+                <p>Please enter the 6-digit code sent to your phone number.</p>
+                <form class="form sign-up-form4">
+                    <!-- Code input -->
+                    <div class="input-group">
+                        <input type="text" id="sign-up-phone-verification-code" name="sign-up-phone-verification-code"
+                            placeholder="1 2 3 4 5 6" required inputmode="numeric" pattern="\d{1}( \d{1}){5}"
+                            maxlength="11" autocomplete="off" />
+                        <label for="sign-up-phone-verification-code">Code</label>
+                    </div>
+                    <!-- Verify button -->
+                    <button type="submit" class="btn verify-btn">Verify</button>
+                </form>
+            </div>
+        </section>
+        <!-- step5 -->
+        <section id="sign-up-container5" class="container">
+            <div class="left" id="sign-up-left5">
                 <h3>Welcome aboard!</h3>
                 <p>Everything’s in place. Let’s log you in and get started!</p>
             </div>
-            <div class="right" id="sign-up-right4">
+            <div class="right" id="sign-up-right5">
                 <h2>You’re All Set!</h2>
-                <p>Step 4</p>
+                <p>Step 5</p>
                 <div class="checkmark-wrapper">
                     <svg class="checkmark" viewBox="0 0 120 120">
                         <circle class="checkmark-circle" cx="60" cy="60" r="54" fill="none" />
