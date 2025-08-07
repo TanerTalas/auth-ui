@@ -248,6 +248,7 @@
                 <p>Step 3</p>
                 <form class="form sign-up-form3">
                     <p style="color: #FF5100;">Required</p>
+                    <p class="input-section-title">Full Name</p>
                     <div id="sign-up-fullname">
                         <!-- Firstname input -->
                         <div class="input-group">
@@ -262,6 +263,7 @@
                             <label for="sign-up-lastname">Last name</label>
                         </div>
                     </div>
+                    <p class="input-section-title">Birthday</p>
                     <div id="sign-up-birthday">
                         <!-- Day input -->
                         <div class="input-group">
@@ -284,14 +286,15 @@
                             <label for="sign-up-year">Year</label>
                         </div>
                     </div>
+                    <p class="input-section-title">Phone</p>
                     <!-- Phone input -->
                     <div class="input-group">
                         <input type="tel" inputmode="numeric" id="sign-up-phone" name="sign-up-phone"
-                            placeholder="+90 552 123 45 67" required pattern="\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}"
-                            autocomplete="off" />
+                            placeholder="512 345 67 89" required autocomplete="off" maxlength="17" pattern="\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}"/>
                         <label for="sign-up-phone">Phone</label>
                     </div>
                     <p style="margin-top: 24px; color: #FF9D00;">Optional</p>
+                    <p class="input-section-title">Profile Picture</p>
                     <!-- Profile picture input -->
                     <div class="profile-pic-container">
                         <div class="profile-pic-wrapper">
@@ -303,6 +306,7 @@
                         </div>
                         <button type="button" class="reset-picture-btn">Remove</button>
                     </div>
+                    <p class="input-section-title">Gender</p>
                     <!-- Gender input -->
                     <div class="gender-group">
                         <label class="gender-option">
@@ -317,29 +321,31 @@
                             Male
                         </label>
                     </div>
+                    <p class="input-section-title">Location</p>
                     <!-- Location input -->
                     <div id="sign-up-location">
                         <!-- Country input -->
                         <div class="input-group">
-                            <input type="text" id="sign-up-country" name="sign-up-country" placeholder="Turkey" required
+                            <input type="text" id="sign-up-country" name="sign-up-country" placeholder="Turkey"
                                 autocomplete="off" />
                             <label for="sign-up-country">Country</label>
                         </div>
                         <!-- City input -->
                         <div class="input-group">
-                            <input type="text" id="sign-up-city" name="sign-up-city" placeholder="Istanbul" required
+                            <input type="text" id="sign-up-city" name="sign-up-city" placeholder="Istanbul"
                                 autocomplete="off" />
                             <label for="sign-up-city">City</label>
                         </div>
                     </div>
+                    <p class="input-section-title">Biography</p>
                     <!-- Bio input -->
                     <div class="input-group">
-                        <textarea id="sign-up-bio" name="sign-up-bio" placeholder="Work in progress..." required
+                        <textarea id="sign-up-bio" name="sign-up-bio" placeholder="Work in progress..."
                             autocomplete="off"></textarea>
                         <label for="sign-up-bio">Bio</label>
                     </div>
                     <!-- Verify button -->
-                    <button type="submit" class="btn verify-btn">Verify</button>
+                    <button type="submit" class="btn next-btn">Next</button>
                 </form>
             </div>
         </section>

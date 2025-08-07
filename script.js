@@ -61,38 +61,216 @@ if (passwordInput) {
 });
 
 // 📞 Telefon numarası inputu: yalnızca rakam, + ve boşluk kabul edilir
-const phoneInput = document.getElementById('sign-up-phone');
+const phoneInput = document.getElementById("sign-up-phone");
 
 if (phoneInput) {
-  phoneInput.addEventListener('input', (e) => {
-    e.target.value = e.target.value.replace(/[^\d+ ]/g, '');
+  let hasInitialized = false;
+
+  phoneInput.addEventListener("focus", function () {
+    if (!hasInitialized) {
+      this.value = "+90 ";
+      hasInitialized = true;
+    }
+  });
+
+  phoneInput.addEventListener("input", function (e) {
+    const input = this;
+    const rawValue = input.value;
+    const cursor = input.selectionStart;
+
+    let digits = rawValue.replace(/[^\d]/g, "");
+
+    if (digits.startsWith("90")) {
+      digits = digits.slice(2);
+    }
+
+    digits = digits.slice(0, 10);
+
+    let formatted = "+90";
+    if (digits.length > 0) formatted += " " + digits.slice(0, 3);
+    if (digits.length > 3) formatted += " " + digits.slice(3, 6);
+    if (digits.length > 6) formatted += " " + digits.slice(6, 8);
+    if (digits.length > 8) formatted += " " + digits.slice(8, 10);
+
+    const oldLength = rawValue.length;
+    const newLength = formatted.length;
+    const diff = newLength - oldLength;
+
+    input.value = formatted;
+
+    let newCursor = cursor + diff;
+    setTimeout(() => {
+      input.setSelectionRange(newCursor, newCursor);
+    }, 0);
+  });
+
+  phoneInput.addEventListener("keydown", function (e) {
+    const cursor = this.selectionStart;
+
+    if (cursor <= 4) {
+      const blockedKeys = ["Backspace", "Delete", "ArrowLeft"];
+      if (blockedKeys.includes(e.key)) {
+        e.preventDefault();
+      }
+    }
+  });
+
+  phoneInput.addEventListener("blur", function () {
+    const digits = this.value.replace(/[^\d]/g, "");
+    const isValid = /^90[5]\d{9}$/.test(digits);
+
+    this.classList.remove("invalid");
+    if (!isValid) {
+      this.classList.add("invalid");
+    }
+  });
+
+  phoneInput.addEventListener("input", function () {
+    const digits = this.value.replace(/[^\d]/g, "");
+    const isValid = /^90[5]\d{9}$/.test(digits);
+    if (isValid) {
+      this.classList.remove("invalid");
+    }
+  });
+
+}
+
+// 📅 Doğum tarihi: geçersiz gün girişini engelle
+const dayInput = document.getElementById('sign-up-day');
+const monthInput = document.getElementById('sign-up-month');
+const yearInput = document.getElementById('sign-up-year');
+
+function validateDate() {
+  const day = parseInt(dayInput.value, 10);
+  const month = parseInt(monthInput.value, 10);
+  const year = parseInt(yearInput.value, 10);
+
+  if (!month || !year) {
+    if (day < 1 || day > 31) {
+      dayInput.classList.add('invalid');
+      dayInput.value = "";
+    } else {
+      dayInput.classList.remove('invalid');
+    }
+    return;
+  }
+
+  if (month < 1 || month > 12 || year < 1900 || year > 2099) {
+    return;
+  }
+
+  const date = new Date(year, month - 1, day);
+
+  const isValid =
+    date.getFullYear() === year &&
+    date.getMonth() === month - 1 &&
+    date.getDate() === day;
+
+  if (!isValid) {
+    dayInput.classList.add('invalid');
+    dayInput.value = "";
+  } else {
+    dayInput.classList.remove('invalid');
+  }
+}
+
+
+[dayInput, monthInput, yearInput].forEach((input) => {
+  input.addEventListener('input', validateDate);
+});
+
+// 📅 Ay inputu (MM): 01–12 arası, geçersizse anında temizle ve uyar
+if (monthInput) {
+  monthInput.addEventListener("input", function () {
+    this.value = this.value.replace(/[^0-9]/g, '');
+
+    if (this.value.length === 2) {
+      if (!/^(0[1-9]|1[0-2])$/.test(this.value)) {
+        this.value = "";
+        this.classList.add("invalid");
+      } else {
+        this.classList.remove("invalid");
+      }
+    } else {
+      this.classList.remove("invalid");
+    }
+  });
+
+  monthInput.addEventListener("blur", function () {
+    let value = this.value.trim();
+
+    if (/^[1-9]$/.test(value)) {
+      value = "0" + value;
+    }
+
+    if (!/^(0[1-9]|1[0-2])$/.test(value)) {
+      this.value = "";
+      this.classList.add("invalid");
+    } else {
+      this.value = value;
+      this.classList.remove("invalid");
+    }
   });
 }
 
-// 📅 Ay inputu (MM): yalnızca 01–12 arasında geçerli değer kabul edilir
-document.addEventListener("DOMContentLoaded", function () {
-  const monthInput = document.getElementById("sign-up-month");
+// 📅 Gün inputu (DD): tek basamaklıysa başına 0 ekle, geçersizse temizle
+if (dayInput) {
+  dayInput.addEventListener("input", function () {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
 
-  if (monthInput) {
-    monthInput.addEventListener("input", function () {
-      this.value = this.value.replace(/[^0-9]/g, '');
-    });
+  dayInput.addEventListener("blur", function () {
+    let value = this.value.trim();
 
-    monthInput.addEventListener("blur", function () {
-      let value = this.value.trim();
+    if (/^[1-9]$/.test(value)) {
+      value = "0" + value;
+    }
 
-      if (/^[1-9]$/.test(value)) {
-        value = "0" + value;
-      }
+    if (!/^(0[1-9]|[12][0-9]|3[01])$/.test(value)) {
+      this.value = "";
+    } else {
+      this.value = value;
+    }
+  });
+}
 
-      if (!/^(0[1-9]|1[0-2])$/.test(value)) {
-        this.value = "";
-      } else {
-        this.value = value;
-      }
-    });
-  }
+// 📅 Yıl inputu: 4 basamaklı değilseg geçersiz kıl
+if (yearInput) {
+  yearInput.addEventListener("input", function () {
+    this.value = this.value.replace(/[^0-9]/g, "");
+
+    if (this.value.length > 4) {
+      this.value = "";
+      this.classList.add("invalid");
+    } else {
+      this.classList.remove("invalid");
+    }
+  });
+
+  yearInput.addEventListener("blur", function () {
+    const value = this.value.trim();
+
+    if (!/^\d{4}$/.test(value) || value < 1900 || value > 2099) {
+      this.value = "";
+      this.classList.add("invalid");
+    } else {
+      this.classList.remove("invalid");
+    }
+  });
+}
+
+// Location sadece harf kabulü
+const countryInput = document.getElementById("sign-up-country");
+const cityInput = document.getElementById("sign-up-city");
+
+function restrictToLetters(input) {
+  input.value = input.value.replace(/[^a-zA-ZğüşıöçĞÜŞİÖÇ\s\-]/g, "");
+}
+
+[countryInput, cityInput].forEach((input) => {
+  input.addEventListener("input", () => restrictToLetters(input));
 });
+
 
 // 🚻 Cinsiyet seçiminde aynı butona tekrar tıklanırsa seçimi kaldır
 let lastSelectedRadio = null;
@@ -295,5 +473,56 @@ setupPasswordValidation('sign-up-password', 'sign-up-confirm-password');
       }
     });
   }
+});
+
+// Inputların lk harfini büyük yapar 
+const capitalizeFields = [
+  "sign-up-firstname",
+  "sign-up-lastname",
+  "sign-up-country",
+  "sign-up-city",
+  "sign-up-bio"
+];
+
+capitalizeFields.forEach((id) => {
+  const input = document.getElementById(id);
+  if (input) {
+    input.addEventListener("input", function () {
+      const cursorPos = this.selectionStart;
+      let value = this.value;
+
+      if (value.length > 0) {
+        const capitalized = value.charAt(0).toUpperCase() + value.slice(1);
+        if (capitalized !== value) {
+          this.value = capitalized;
+          this.setSelectionRange(cursorPos, cursorPos);
+        }
+      }
+    });
+  }
+});
+
+function formatNameInput(input) {
+  input.addEventListener("input", function () {
+    const cursorPos = input.selectionStart;
+    let value = input.value;
+
+    if (value.length > 0) {
+      const formatted =
+        value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+
+      if (formatted !== value) {
+        input.value = formatted;
+        input.setSelectionRange(cursorPos, cursorPos); // imleç yerini korur
+      }
+    }
+  });
+}
+
+const firstNameInput = document.getElementById("sign-up-firstname");
+const lastNameInput = document.getElementById("sign-up-lastname");
+
+[firstNameInput, lastNameInput, countryInput, cityInput].forEach((input) => {
+  if (input) formatNameInput(input);
 });
 
