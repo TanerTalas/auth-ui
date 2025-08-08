@@ -526,3 +526,185 @@ const lastNameInput = document.getElementById("sign-up-lastname");
   if (input) formatNameInput(input);
 });
 
+// Confirmation overlay
+
+// Error overlay
+
+// ========= Button state helpers =========
+const BTN_STATES = ['btn-default','btn-typing','btn-invalid','btn-valid'];
+const fieldValidity = (sel) => (form) => {
+  const el = form.querySelector(sel);
+  return el ? el.checkValidity() : true;
+};
+function setBtnState(btn, state){ // state: 'default'|'typing'|'invalid'|'valid'
+  if(!btn) return;
+  BTN_STATES.forEach(c => btn.classList.remove(c));
+  btn.classList.add(`btn-${state}`);
+}
+
+// Aggregate rule: input/blur eventine göre buton state
+function wireForm({formSel, btnSel, fields, validators}) {
+  const form = document.querySelector(formSel);
+  if(!form) return;
+  const btn = form.querySelector(btnSel);
+  setBtnState(btn, 'default');
+
+  const listenTargets = fields.map(sel => form.querySelector(sel)).filter(Boolean);
+
+  function isAllEmpty(){
+    return listenTargets.every(el => (el.value ?? '').trim() === '');
+  }
+
+  function runValidators(){
+    // Her validator tüm formu değerlendirir → true/false
+    return validators.every(v => v(form));
+  }
+
+  // INPUT: yazarken sarı; tüm kurallar tutuyorsa yeşil
+  function onInput(e){
+    if (runValidators()){
+      setBtnState(btn, 'valid');
+    } else if (isAllEmpty()){
+      setBtnState(btn, 'default');
+    } else {
+      setBtnState(btn, 'typing');
+    }
+  }
+
+  // BLUR: tüm kurallar tamsa yeşil; değilse kırmızı (boşsa gri)
+  function onBlur(e){
+    if (isAllEmpty()){
+      setBtnState(btn, 'default');
+    } else if (runValidators()){
+      setBtnState(btn, 'valid');
+    } else {
+      setBtnState(btn, 'invalid');
+    }
+  }
+
+  listenTargets.forEach(el => {
+    el.addEventListener('input', onInput);
+    el.addEventListener('blur', onBlur);
+  });
+}
+
+// ========= Field validators =========
+const emailOK = (form) => {
+  const el = form.querySelector('input[type="email"]');
+  if(!el) return true;
+  const v = el.value.trim();
+  const re = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+  return v !== '' && re.test(v);
+};
+
+const nonEmpty = (sel) => (form) => {
+  const el = form.querySelector(sel);
+  return el && el.value.trim() !== '';
+};
+
+const otpOK = (sel) => (form) => {
+  const el = form.querySelector(sel);
+  if(!el) return true;
+  const digits = el.value.replace(/\D/g,'');
+  return digits.length === 6;
+};
+
+const passwordStrong = (sel) => (form) => {
+  const el = form.querySelector(sel);
+  if(!el) return true;
+  const v = el.value.trim();
+  const re = /^(?=.*[A-Z])(?=.*\d).{8,}$/; // min 8 + 1 büyük harf + 1 sayı
+  return v !== '' && re.test(v);
+};
+
+const passwordsMatch = (passSel, confirmSel) => (form) => {
+  const p = form.querySelector(passSel);
+  const c = form.querySelector(confirmSel);
+  if(!p || !c) return true;
+  const pv = p.value.trim();
+  const cv = c.value.trim();
+  const strong = /^(?=.*[A-Z])(?=.*\d).{8,}$/.test(pv);
+  return strong && pv !== '' && cv !== '' && pv === cv;
+};
+
+const formRequiredOK = (form) => form.checkValidity(); // required + pattern + min/max vs.
+
+// ========= Wiring (senin HTML’ine göre) =========
+
+// 1) SIGN IN
+wireForm({
+  formSel: '.sign-in-form1',
+  btnSel: '.log-in-btn',
+  fields: ['#sign-in-email','#sign-in-password'],
+  validators: [
+  emailOK,
+  fieldValidity('#sign-in-password')  // minlength dahil tüm HTML5 kuralları
+]
+});
+
+// 2) FORGOT PASS STEP 1 (Email)
+wireForm({
+  formSel: '.forgot-pass-form1',
+  btnSel: '.next-btn',
+  fields: ['#forgot-pass-email'],
+  validators: [ emailOK ]
+});
+
+// 3) FORGOT PASS STEP 2 (OTP)
+wireForm({
+  formSel: '.forgot-pass-form2',
+  btnSel: '.verify-btn',
+  fields: ['#forgot-pass-verification-code'],
+  validators: [ otpOK('#forgot-pass-verification-code') ]
+});
+
+// 4) FORGOT PASS STEP 3 (Password + Confirm)
+wireForm({
+  formSel: '.forgot-pass-form3',
+  btnSel: '.done-btn',
+  fields: ['#forgot-pass-password', '#forgot-pass-confirm-password'],
+  validators: [
+    passwordStrong('#forgot-pass-password'),
+    passwordsMatch('#forgot-pass-password','#forgot-pass-confirm-password')
+  ]
+});
+
+// 5) SIGN UP STEP 1 (Email + Password + Confirm)
+wireForm({
+  formSel: '.sign-up-form1',
+  btnSel: '.next-btn',
+  fields: ['#sign-up-email','#sign-up-password','#sign-up-confirm-password'],
+  validators: [
+    emailOK,
+    passwordStrong('#sign-up-password'),
+    passwordsMatch('#sign-up-password','#sign-up-confirm-password')
+  ]
+});
+
+// 6) SIGN UP STEP 2 (Email OTP)
+wireForm({
+  formSel: '.sign-up-form2',
+  btnSel: '.verify-btn',
+  fields: ['#sign-up-verification-code'],
+  validators: [ otpOK('#sign-up-verification-code') ]
+});
+
+// 7) SIGN UP STEP 3 (Required alanlar dolu mu?)
+wireForm({
+  formSel: '.sign-up-form3',
+  btnSel: '.next-btn',
+  fields: [
+    '#sign-up-firstname','#sign-up-lastname',
+    '#sign-up-day','#sign-up-month','#sign-up-year',
+    '#sign-up-phone'
+  ],
+  validators: [ formRequiredOK ]
+});
+
+// 8) SIGN UP STEP 4 (Phone OTP)
+wireForm({
+  formSel: '.sign-up-form4',
+  btnSel: '.verify-btn',
+  fields: ['#sign-up-phone-verification-code'],
+  validators: [ otpOK('#sign-up-phone-verification-code') ]
+});

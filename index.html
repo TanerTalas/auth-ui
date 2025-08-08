@@ -57,10 +57,10 @@
                     <!-- Password input -->
                     <div class="input-group">
                         <input type="password" id="sign-in-password" name="sign-in-password" placeholder="••••••••"
-                            required autocomplete="off" />
+                            required autocomplete="off" minlength="8" />
                         <label for="sign-in-password">Password</label>
                         <img src="./images/icons/password-icon.svg" alt="Password field icon" class="input-icon" />
-                        <button type="button" class="show-pass" aria-label="Show password"><img
+                        <button type="button" class="show-pass" aria-label="Show password" tabindex="-1"><img
                                 src="./images/icons/show-password-icon.svg" alt="show password icon"></button>
                     </div>
                     <!-- Remember me -->
@@ -141,19 +141,19 @@
                     <!-- Password input -->
                     <div class="input-group">
                         <input type="password" id="forgot-pass-password" name="forgot-pass-password"
-                            placeholder="••••••••" required autocomplete="off" />
+                            placeholder="••••••••" required autocomplete="off" minlength="8" />
                         <label for="forgot-pass-password">Password</label>
                         <img src="./images/icons/password-icon.svg" alt="Password field icon" class="input-icon" />
-                        <button type="button" class="show-pass" aria-label="Show password"><img
+                        <button type="button" class="show-pass" aria-label="Show password" tabindex="-1"><img
                                 src="./images/icons/show-password-icon.svg" alt="show password icon"></button>
                     </div>
                     <!-- Confirm Password input -->
                     <div class="input-group">
                         <input type="password" id="forgot-pass-confirm-password" name="forgot-pass-confirm-password"
-                            placeholder="••••••••" required autocomplete="off" />
+                            placeholder="••••••••" required autocomplete="off" minlength="8" />
                         <label for="forgot-pass-confirm-password">Confirm Password</label>
                         <img src="./images/icons/password-icon.svg" alt="Password field icon" class="input-icon" />
-                        <button type="button" class="show-pass" aria-label="Show password"><img
+                        <button type="button" class="show-pass" aria-label="Show password" tabindex="-1"><img
                                 src="./images/icons/show-password-icon.svg" alt="show password icon"></button>
                     </div>
                     <!-- Done button -->
@@ -194,19 +194,19 @@
                     <!-- Password input -->
                     <div class="input-group">
                         <input type="password" id="sign-up-password" name="sign-up-password" placeholder="••••••••"
-                            required autocomplete="off" />
+                            required autocomplete="off" minlength="8" />
                         <label for="sign-up-password">Password</label>
                         <img src="./images/icons/password-icon.svg" alt="Password field icon" class="input-icon" />
-                        <button type="button" class="show-pass" aria-label="Show password"><img
+                        <button type="button" class="show-pass" aria-label="Show password" tabindex="-1"><img
                                 src="./images/icons/show-password-icon.svg" alt="show password icon"></button>
                     </div>
                     <!-- Confirm Password input -->
                     <div class="input-group">
                         <input type="password" id="sign-up-confirm-password" name="sign-up-confirm-password"
-                            placeholder="••••••••" required autocomplete="off" />
+                            placeholder="••••••••" required autocomplete="off" minlength="8" />
                         <label for="sign-up-confirm-password">Confirm Password</label>
                         <img src="./images/icons/password-icon.svg" alt="Password field icon" class="input-icon" />
-                        <button type="button" class="show-pass" aria-label="Show password"><img
+                        <button type="button" class="show-pass" aria-label="Show password" tabindex="-1"><img
                                 src="./images/icons/show-password-icon.svg" alt="show password icon"></button>
                     </div>
                     <!-- Back - Next button -->
@@ -290,7 +290,8 @@
                     <!-- Phone input -->
                     <div class="input-group">
                         <input type="tel" inputmode="numeric" id="sign-up-phone" name="sign-up-phone"
-                            placeholder="512 345 67 89" required autocomplete="off" maxlength="17" pattern="\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}"/>
+                            placeholder="512 345 67 89" required autocomplete="off" maxlength="17"
+                            pattern="\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}" />
                         <label for="sign-up-phone">Phone</label>
                     </div>
                     <p style="margin-top: 24px; color: #FF9D00;">Optional</p>
@@ -393,6 +394,27 @@
             </div>
         </section>
         <!-- sign up - end -->
+
+        <!-- Confirmation overlay -->
+        <div id="confirmationOverlay" class="overlay hidden">
+            <div class="overlay-content">
+                <p>Do you confirm the information you have entered?</p>
+                <div class="overlay-buttons">
+                    <button type="button" class="btn back-btn">Back</button>
+                    <button type="button" class="btn proceed-btn">Proceed</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Overlay -->
+        <div id="errorOverlay" class="overlay hidden">
+            <div class="overlay-content error-content">
+                <p>Please fill in all required fields correctly.</p>
+                <div class="overlay-buttons">
+                    <button type="button" class="btn back-btn">Close</button>
+                </div>
+            </div>
+        </div>
 
     </main>
 

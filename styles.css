@@ -167,19 +167,6 @@ main {
     box-shadow: 0 0 8px rgba(0, 0, 0, 25%);
 }
 
-.btn {
-    height: auto;
-    padding: 12px 16px;
-    color: white;
-    border-radius: var(--input-radius);
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(142, 142, 142, 0.15);
-    font-size: 22px;
-    line-height: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
 .left,
 .right {
     flex: 1;
@@ -201,7 +188,229 @@ main {
     padding: 54px 64px;
 }
 
-/* input settings */
+/******************************************************** sign in containers - start ********************************************************/
+/* 1 */
+#sign-in-container1 {
+    display: none;
+    /* görünür olduğunda flex olacak */
+    overflow: hidden;
+}
+#sign-in-left1 {
+    position: relative;
+    background: linear-gradient(180deg, #6F7C57, #4793B1);
+    animation: gradientFlowVertical 10s ease-in-out infinite;
+    background-size: 100% 400%;
+}
+/******************************************************** sign in containers - end ********************************************************/
+
+/******************************************************** sign up containers - start ********************************************************/
+/* 1 */
+#sign-up-container1 {
+    display: none;
+    /* görünür olduğunda flex olacak */
+    overflow: hidden;
+}
+
+#sign-up-left1 {
+    background: linear-gradient(to bottom, #BEBC53, #5E47B1);
+    animation: gradientFlowVertical 10s ease-in-out infinite;
+    background-size: 100% 400%;
+
+}
+
+/* 2 */
+#sign-up-container2 {
+    display: none;
+    /* görünür olduğunda flex olacak */
+    overflow: hidden;
+}
+
+#sign-up-left2 {
+    background: linear-gradient(to bottom, #E4E163, #5E47B1);
+    animation: gradientFlowVertical 10s ease-in-out infinite;
+    background-size: 100% 400%;
+}
+
+/* 3 */
+#sign-up-container3 {
+    display: none;
+    /* görünür olduğunda flex olacak */
+    position: relative;
+    overflow: hidden;
+}
+
+#sign-up-left3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #EFED5A, #593CC3);
+    animation: gradientFlowVertical 10s ease-in-out infinite;
+    background-size: 100% 400%;
+    z-index: 0;
+}
+
+#sign-up-right3 {
+    position: relative;
+    flex: none;
+    margin: auto;
+    width: 500px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0 8px rgba(0, 0, 0, 25%);
+    z-index: 500;
+}
+
+/* 4 */
+#sign-up-container4 {
+    display: none;
+    /* görünür olduğunda flex olacak */
+    overflow: hidden;
+}
+
+#sign-up-left4 {
+    background: linear-gradient(to bottom, #E4E163, #5E47B1);
+    animation: gradientFlowVertical 10s ease-in-out infinite;
+    background-size: 100% 400%;
+}
+
+/* 5 */
+#sign-up-container5 {
+    display: none;
+    /* görünür olduğunda flex olacak */
+    overflow: hidden;
+}
+
+#sign-up-left5 {
+    background: linear-gradient(to bottom, #FFFB0D, #4714FF);
+    animation: gradientFlowVertical 10s ease-in-out infinite;
+    background-size: 100% 400%;
+}
+/******************************************************** sign up containers - end ********************************************************/
+
+/******************************************************** forgot pass containers - start ********************************************************/
+/* 1 */
+#forgot-pass-container1 {
+    display: none;
+    /* görünür olduğunda flex olacak */
+    overflow: hidden;
+}
+
+#forgot-pass-left1 {
+    background: linear-gradient(180deg, #62CE94, #55AACC);
+    animation: gradientFlowVertical 10s ease-in-out infinite;
+    background-size: 100% 400%;
+}
+
+/* 2 */
+#forgot-pass-container2 {
+    display: none;
+    /* görünür olduğunda flex olacak */
+    overflow: hidden;
+}
+
+#forgot-pass-left2 {
+    background: linear-gradient(to bottom, #4BD98D, #40ABD5);
+    animation: gradientFlowVertical 10s ease-in-out infinite;
+    background-size: 100% 400%;
+}
+
+/* 3 */
+#forgot-pass-container3 {
+    display: none;
+    /* görünür olduğunda flex olacak */
+    overflow: hidden;
+}
+
+#forgot-pass-left3 {
+    background: linear-gradient(to bottom, #32F48D, #36BFF5);
+    animation: gradientFlowVertical 10s ease-in-out infinite;
+    background-size: 100% 400%;
+}
+
+/* 4 */
+#forgot-pass-container4 {
+    display: none;
+    /* görünür olduğunda flex olacak */
+    max-width: 500px;
+}
+
+#forgot-pass-left4 {
+    padding: 100px 32px;
+    background: linear-gradient(to bottom, #00FF77, #07BDFF);
+    animation: gradientFlowVertical 10s ease-in-out infinite;
+    background-size: 100% 400%;
+    border-radius: 4px;
+}
+/******************************************************** forgot pass containers - end ********************************************************/
+
+
+/***** buttons - start *****/
+.btn {
+    height: auto;
+    padding: 10px 16px;
+    color: white;
+    border-radius: var(--input-radius);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    border: none;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.log-in-btn,
+.next-btn,
+.verify-btn,
+.done-btn {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.proceed-btn {
+    background-color: #00FF5E;
+}
+
+.verify-btn {
+    width: 200px;
+    background-color: #B3B3B3;
+    margin-top: 32px
+}
+
+.sign-in-btn {
+    box-shadow: 0 0 4px rgba(13, 114, 10, 0.5) !important;
+    width: 200px;
+    background-color: #00FF5E;
+    margin-top: 54px;
+}
+
+.done-btn {
+    width: 200px;
+    margin-top: 40px;
+    background-color: #B3B3B3;
+}
+
+.log-in-btn {
+    background-color: #B3B3B3;
+    margin: 16px auto 0;
+    width: 200px;
+}
+
+.back-btn {
+    background-color: #D5D5D5;
+    width: 119px;
+}
+
+.next-btn {
+    background-color: #B3B3B3;
+    width: 199px;
+}
+
+.btn-default { background:#B3B3B3; }
+.btn-typing  { background:#FFBF00; }
+.btn-invalid { background:#FF5100; }
+.btn-valid   { background:#00FF5E; }
+
+/***** buttons - end *****/
+
+/* input settings - start */
 .input-group {
     position: relative;
     margin-top: 24px;
@@ -306,6 +515,12 @@ input:focus-visible {
     outline: none;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 input.typing {
     border-color: #FFBF00;
 }
@@ -317,29 +532,9 @@ input.valid {
 input.invalid {
     border-color: #FF5100;
 }
-
-/* Number input: ok işaretlerini kaldır */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
+/* input settings - end */
 
 /* sign in - start */
-#sign-in-container1 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
-}
-
-#sign-in-left1 {
-    position: relative;
-    background: linear-gradient(180deg, #6F7C57, #4793B1);
-    animation: gradientFlowVertical 10s ease-in-out infinite;
-    background-size: 100% 400%;
-}
-
 .sign-up-text {
     position: absolute;
     bottom: 24px;
@@ -410,29 +605,10 @@ input[type=number]::-webkit-outer-spin-button {
     color: var(--dark-color);
 }
 
-.log-in-btn {
-    background-color: #B3B3B3;
-    padding: 12px 16px;
-    margin: 16px auto 0;
-    width: 200px;
-}
-
 /* sign in - end */
 
 /* forgot password - start */
 /* step1 */
-#forgot-pass-container1 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
-}
-
-#forgot-pass-left1 {
-    background: linear-gradient(180deg, #62CE94, #55AACC);
-    animation: gradientFlowVertical 10s ease-in-out infinite;
-    background-size: 100% 400%;
-}
-
 .forgot-pass-form-buttons {
     display: flex;
     justify-content: center;
@@ -442,104 +618,35 @@ input[type=number]::-webkit-outer-spin-button {
 
 }
 
-.back-btn {
-    background-color: #D5D5D5;
-    width: 119px;
-}
-
-.next-btn {
-    background-color: #B3B3B3;
-    width: 199px;
-}
-
 /* step2 */
-#forgot-pass-container2 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
-}
-
-#forgot-pass-left2 {
-    background: linear-gradient(to bottom, #4BD98D, #40ABD5);
-    animation: gradientFlowVertical 10s ease-in-out infinite;
-    background-size: 100% 400%;
-}
-
-#forgot-pass-verification-code, #sign-up-verification-code, #sign-up-phone-verification-code {
+#forgot-pass-verification-code,
+#sign-up-verification-code,
+#sign-up-phone-verification-code {
     width: 139px;
     padding-left: 32px;
 }
 
-#forgot-pass-verification-code.filled, #sign-up-verification-code.filled, #sign-up-phone-verification-code.filled {
-  border-color: #FFBF00 !important;
+#forgot-pass-verification-code.filled,
+#sign-up-verification-code.filled,
+#sign-up-phone-verification-code.filled {
+    border-color: #FFBF00 !important;
 }
 
-#forgot-pass-verification-code+label, #sign-up-verification-code+label, #sign-up-phone-verification-code+label {
+#forgot-pass-verification-code+label,
+#sign-up-verification-code+label,
+#sign-up-phone-verification-code+label {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
 
 .animate-border {
-  animation: borderPulse 1.5s infinite ease-in-out;
-}
-
-/* step3 */
-#forgot-pass-container3 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
-}
-
-#forgot-pass-left3 {
-    background: linear-gradient(to bottom, #32F48D, #36BFF5);
-    animation: gradientFlowVertical 10s ease-in-out infinite;
-    background-size: 100% 400%;
-}
-
-.done-btn {
-    width: 200px;
-    margin-top: 40px;
-    background-color: #B3B3B3;
-}
-
-/* step4 */
-#forgot-pass-container4 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    max-width: 500px;
-}
-
-#forgot-pass-left4 {
-    padding: 106px 32px;
-    background: linear-gradient(to bottom, #00FF77, #07BDFF);
-    animation: gradientFlowVertical 10s ease-in-out infinite;
-    background-size: 100% 400%;
-    border-radius: 4px;
-}
-
-.sign-in-btn {
-    width: 200px;
-    background-color: #00FF5E;
-    margin-top: 54px;
+    animation: borderPulse 1.5s infinite ease-in-out;
 }
 
 /* forgot password - end */
 
 /* sign up - start */
 /* step1 */
-#sign-up-container1 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
-}
-
-#sign-up-left1 {
-    background: linear-gradient(to bottom, #BEBC53, #5E47B1);
-    animation: gradientFlowVertical 10s ease-in-out infinite;
-    background-size: 100% 400%;
-
-}
-
 .sign-up-buttons {
     display: flex;
     justify-content: center;
@@ -548,55 +655,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 32px;
 }
 
-/* step2 */
-#sign-up-container2 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
-}
-
-#sign-up-left2 {
-    background: linear-gradient(to bottom, #E4E163, #5E47B1);
-    animation: gradientFlowVertical 10s ease-in-out infinite;
-    background-size: 100% 400%;
-}
-
-.verify-btn {
-    width: 200px;
-    background-color: #B3B3B3;
-    margin-top: 32px
-}
-
 /* step3 */
-#sign-up-container3 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    position: relative;
-    overflow: hidden;
-}
-
-#sign-up-left3 {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, #EFED5A, #593CC3);
-    animation: gradientFlowVertical 10s ease-in-out infinite;
-    background-size: 100% 400%;
-    z-index: 0;
-}
-
-#sign-up-right3 {
-    position: relative;
-    flex: none;
-    margin: auto;
-    width: 500px;
-    background-color: #FFFFFF;
-    box-shadow: 0px 0 8px rgba(0, 0, 0, 25%);
-    z-index: 500;
-}
-
-
-
 .sign-up-form3 label {
     left: 20px;
 }
@@ -813,38 +872,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 32px;
 }
 
-/* step4 */
-#sign-up-container4 {
-    display: flex;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
-}
-
-#sign-up-left4 {
-    background: linear-gradient(to bottom, #E4E163, #5E47B1);
-    animation: gradientFlowVertical 10s ease-in-out infinite;
-    background-size: 100% 400%;
-}
-
-.verify-btn {
-    width: 200px;
-    background-color: #B3B3B3;
-    margin-top: 32px
-}
-
 /* step5 */
-#sign-up-container5 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
-}
-
-#sign-up-left5 {
-    background: linear-gradient(to bottom, #FFFB0D, #4714FF);
-    animation: gradientFlowVertical 10s ease-in-out infinite;
-    background-size: 100% 400%;
-}
-
 .checkmark-wrapper {
     display: flex;
     justify-content: center;
@@ -882,6 +910,53 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* sign up - end */
 
+/* confirmation - start */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.hidden {
+    display: none;
+}
+
+.overlay-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    font-family: "Montserrat", sans-serif;
+}
+
+.overlay-buttons {
+    margin-top: 32px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+/* confirmation - end */
+
+/* Error - start */
+.error-content {
+    background: #ffe6e6;
+    /* açık kırmızı */
+    border: 1px solid #ff4d4d;
+    color: #b30000;
+}
+
+/* Error - end */
+
 @keyframes draw-circle {
     to {
         stroke-dashoffset: 0;
@@ -909,13 +984,15 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @keyframes borderPulse {
-  0% {
-    border-color: #FFBF00; /* sarı */
-  }
-  50% {
-    border-color: #00FF5E; /* yeşil */
-  }
-  100% {
-    border-color: #FFBF00;
-  }
+    0% {
+        border-color: #FFBF00;
+    }
+
+    50% {
+        border-color: #00FF5E;
+    }
+
+    100% {
+        border-color: #FFBF00;
+    }
 }
