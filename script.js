@@ -4,19 +4,22 @@ const togglePassButtons = document.querySelectorAll('.show-pass');
 togglePassButtons.forEach((btn) => {
   btn.addEventListener('click', () => {
     const inputGroup = btn.closest('.input-group');
-    const input = inputGroup.querySelector('input');
+    const input = inputGroup?.querySelector('input');
     const icon = btn.querySelector('img');
+    if (!input || !icon) return;
 
-    const isPassword = input.type === 'password';
-    input.type = isPassword ? 'text' : 'password';
-    icon.src = isPassword
+    const toText = input.type === 'password';
+    input.type = toText ? 'text' : 'password';
+    icon.src = toText
       ? './images/icons/hide-password-icon.svg'
       : './images/icons/show-password-icon.svg';
-    icon.alt = isPassword
-      ? 'hide password icon'
-      : 'show password icon';
+    icon.alt = toText ? 'hide password icon' : 'show password icon';
+
+    btn.setAttribute('aria-pressed', String(toText));
+    btn.setAttribute('aria-label', toText ? 'Hide password' : 'Show password');
   });
 });
+
 
 // 🔓 Şifre alanı: yazarken sarı, blur olduğunda sarı-yeşil animasyon
 const passwordInput = document.getElementById("sign-in-password");
@@ -50,14 +53,26 @@ if (passwordInput) {
 
 
 // 🔢 6 haneli doğrulama kodu formatlama (boşlukla ayırma)
-["sign-up-verification-code", "forgot-pass-verification-code"].forEach((id) => {
+["sign-up-verification-code", "forgot-pass-verification-code", "sign-up-phone-verification-code"].forEach((id) => {
   const input = document.getElementById(id);
-  if (input) {
-    input.addEventListener("input", (e) => {
-      const numbers = e.target.value.replace(/\D/g, "").slice(0, 6).split("");
-      e.target.value = numbers.join(" ");
-    });
-  }
+  if (!input) return;
+
+  input.addEventListener("input", (e) => {
+    const raw = e.target.value.replace(/\D/g, "");
+    const numbers = raw.slice(0, 6).split("");
+    e.target.value = numbers.join(" ");
+
+    input.classList.remove("filled", "animate-border");
+    if (raw.length === 6) input.classList.add("animate-border");
+    else if (raw.length > 0) input.classList.add("filled");
+  });
+
+  input.addEventListener("blur", () => {
+    const raw = input.value.replace(/\D/g, "");
+    input.classList.remove("filled", "animate-border");
+    if (raw.length === 6) input.classList.add("animate-border");
+    else if (raw.length > 0) input.classList.add("filled");
+  });
 });
 
 // 📞 Telefon numarası inputu: yalnızca rakam, + ve boşluk kabul edilir
@@ -99,6 +114,7 @@ if (phoneInput) {
     input.value = formatted;
 
     let newCursor = cursor + diff;
+    newCursor = Math.max(0, Math.min(newCursor, formatted.length)); // <-- ekle
     setTimeout(() => {
       input.setSelectionRange(newCursor, newCursor);
     }, 0);
@@ -141,6 +157,8 @@ const monthInput = document.getElementById('sign-up-month');
 const yearInput = document.getElementById('sign-up-year');
 
 function validateDate() {
+  if (!dayInput || !monthInput || !yearInput) return;
+
   const day = parseInt(dayInput.value, 10);
   const month = parseInt(monthInput.value, 10);
   const year = parseInt(yearInput.value, 10);
@@ -154,13 +172,9 @@ function validateDate() {
     }
     return;
   }
-
-  if (month < 1 || month > 12 || year < 1900 || year > 2099) {
-    return;
-  }
+  if (month < 1 || month > 12 || year < 1900 || year > 2099) return;
 
   const date = new Date(year, month - 1, day);
-
   const isValid =
     date.getFullYear() === year &&
     date.getMonth() === month - 1 &&
@@ -174,10 +188,10 @@ function validateDate() {
   }
 }
 
-
-[dayInput, monthInput, yearInput].forEach((input) => {
-  input.addEventListener('input', validateDate);
+[dayInput, monthInput, yearInput].forEach((el) => {
+  if (el) el.addEventListener('input', validateDate);
 });
+
 
 // 📅 Ay inputu (MM): 01–12 arası, geçersizse anında temizle ve uyar
 if (monthInput) {
@@ -267,8 +281,8 @@ function restrictToLetters(input) {
   input.value = input.value.replace(/[^a-zA-ZğüşıöçĞÜŞİÖÇ\s\-]/g, "");
 }
 
-[countryInput, cityInput].forEach((input) => {
-  input.addEventListener("input", () => restrictToLetters(input));
+[countryInput, cityInput].forEach((el) => {
+  if (el) el.addEventListener("input", () => restrictToLetters(el));
 });
 
 
@@ -287,49 +301,33 @@ document.querySelectorAll('input[name="sign-up-gender"]').forEach((radio) => {
 });
 
 // 🖼️ Profil fotoğrafı yükleme ve önizleme (sign up)
-const input = document.getElementById('sign-up-profile-picture');
-const preview = document.getElementById('profile-preview');
-
-input.addEventListener('change', function () {
-  const file = this.files[0];
-  if (file) {
-    const reader = new FileReader();
-
-    reader.addEventListener('load', function () {
-      preview.src = this.result;
-      preview.classList.remove("default");
-      preview.classList.add("uploaded");
-    });
-
-    reader.readAsDataURL(file);
-  }
-});
-
-// 🖼️ Profil fotoğrafı sıfırlama butonu (reset)
-const profileInput = document.getElementById('sign-up-profile-picture');
+const profileFileInput = document.getElementById('sign-up-profile-picture');
 const profilePreview = document.getElementById('profile-preview');
 const resetBtn = document.querySelector('.reset-picture-btn');
 
-profileInput.addEventListener('change', function () {
-  const file = this.files[0];
+if (profileFileInput && profilePreview && resetBtn) {
+  profileFileInput.addEventListener('change', function () {
+    const file = this.files && this.files[0];
+    if (!file) return;
 
-  if (file) {
     const reader = new FileReader();
-    reader.onload = function (e) {
+    reader.onload = (e) => {
       profilePreview.src = e.target.result;
       profilePreview.classList.add('uploaded');
+      profilePreview.classList.remove('default');
       resetBtn.style.display = 'inline';
     };
     reader.readAsDataURL(file);
-  }
-});
+  });
 
-resetBtn.addEventListener('click', () => {
-  profileInput.value = '';
-  profilePreview.src = './images/default-profile-picture.svg';
-  profilePreview.classList.remove('uploaded');
-  resetBtn.style.display = 'none';
-});
+  resetBtn.addEventListener('click', () => {
+    profileFileInput.value = '';
+    profilePreview.src = './images/default-profile-picture.svg';
+    profilePreview.classList.remove('uploaded');
+    resetBtn.style.display = 'none';
+  });
+}
+
 
 // 📧 Tüm email inputlarında yazarken sarı, geçerli formatta anında yeşil, blur'da aynı kontrol
 const emailInputs = document.querySelectorAll('input[type="email"]');
@@ -442,39 +440,6 @@ function setupPasswordValidation(passId, confirmId) {
 setupPasswordValidation('forgot-pass-password', 'forgot-pass-confirm-password');
 setupPasswordValidation('sign-up-password', 'sign-up-confirm-password');
 
-
-// 🔢 6 haneli doğrulama kodları için boşluklu format ve animasyon (sign up & forgot pass)
-["sign-up-verification-code", "forgot-pass-verification-code", "sign-up-phone-verification-code"].forEach((id) => {
-  const input = document.getElementById(id);
-  if (input) {
-    input.addEventListener("input", (e) => {
-      const raw = e.target.value.replace(/\D/g, "");
-      const numbers = raw.slice(0, 6).split("");
-
-      e.target.value = numbers.join(" ");
-
-      input.classList.remove("filled", "animate-border");
-
-      if (raw.length === 6) {
-        input.classList.add("animate-border");
-      } else if (raw.length > 0) {
-        input.classList.add("filled");
-      }
-    });
-
-    input.addEventListener("blur", () => {
-      const raw = input.value.replace(/\D/g, "");
-      input.classList.remove("filled", "animate-border");
-
-      if (raw.length === 6) {
-        input.classList.add("animate-border");
-      } else if (raw.length > 0) {
-        input.classList.add("filled");
-      }
-    });
-  }
-});
-
 // Inputların lk harfini büyük yapar 
 const capitalizeFields = [
   "sign-up-firstname",
@@ -526,45 +491,40 @@ const lastNameInput = document.getElementById("sign-up-lastname");
   if (input) formatNameInput(input);
 });
 
-// Confirmation overlay
-
-// Error overlay
-
 // ========= Button state helpers =========
-const BTN_STATES = ['btn-default','btn-typing','btn-invalid','btn-valid'];
+const BTN_STATES = ['btn-default', 'btn-typing', 'btn-invalid', 'btn-valid'];
 const fieldValidity = (sel) => (form) => {
   const el = form.querySelector(sel);
   return el ? el.checkValidity() : true;
 };
-function setBtnState(btn, state){ // state: 'default'|'typing'|'invalid'|'valid'
-  if(!btn) return;
+function setBtnState(btn, state) {
+  if (!btn) return;
   BTN_STATES.forEach(c => btn.classList.remove(c));
   btn.classList.add(`btn-${state}`);
 }
 
 // Aggregate rule: input/blur eventine göre buton state
-function wireForm({formSel, btnSel, fields, validators}) {
+function wireForm({ formSel, btnSel, fields, validators }) {
   const form = document.querySelector(formSel);
-  if(!form) return;
+  if (!form) return;
   const btn = form.querySelector(btnSel);
   setBtnState(btn, 'default');
 
   const listenTargets = fields.map(sel => form.querySelector(sel)).filter(Boolean);
 
-  function isAllEmpty(){
+  function isAllEmpty() {
     return listenTargets.every(el => (el.value ?? '').trim() === '');
   }
 
-  function runValidators(){
-    // Her validator tüm formu değerlendirir → true/false
+  function runValidators() {
     return validators.every(v => v(form));
   }
 
   // INPUT: yazarken sarı; tüm kurallar tutuyorsa yeşil
-  function onInput(e){
-    if (runValidators()){
+  function onInput(e) {
+    if (runValidators()) {
       setBtnState(btn, 'valid');
-    } else if (isAllEmpty()){
+    } else if (isAllEmpty()) {
       setBtnState(btn, 'default');
     } else {
       setBtnState(btn, 'typing');
@@ -572,10 +532,10 @@ function wireForm({formSel, btnSel, fields, validators}) {
   }
 
   // BLUR: tüm kurallar tamsa yeşil; değilse kırmızı (boşsa gri)
-  function onBlur(e){
-    if (isAllEmpty()){
+  function onBlur(e) {
+    if (isAllEmpty()) {
       setBtnState(btn, 'default');
-    } else if (runValidators()){
+    } else if (runValidators()) {
       setBtnState(btn, 'valid');
     } else {
       setBtnState(btn, 'invalid');
@@ -591,7 +551,7 @@ function wireForm({formSel, btnSel, fields, validators}) {
 // ========= Field validators =========
 const emailOK = (form) => {
   const el = form.querySelector('input[type="email"]');
-  if(!el) return true;
+  if (!el) return true;
   const v = el.value.trim();
   const re = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
   return v !== '' && re.test(v);
@@ -604,14 +564,14 @@ const nonEmpty = (sel) => (form) => {
 
 const otpOK = (sel) => (form) => {
   const el = form.querySelector(sel);
-  if(!el) return true;
-  const digits = el.value.replace(/\D/g,'');
+  if (!el) return true;
+  const digits = el.value.replace(/\D/g, '');
   return digits.length === 6;
 };
 
 const passwordStrong = (sel) => (form) => {
   const el = form.querySelector(sel);
-  if(!el) return true;
+  if (!el) return true;
   const v = el.value.trim();
   const re = /^(?=.*[A-Z])(?=.*\d).{8,}$/; // min 8 + 1 büyük harf + 1 sayı
   return v !== '' && re.test(v);
@@ -620,7 +580,7 @@ const passwordStrong = (sel) => (form) => {
 const passwordsMatch = (passSel, confirmSel) => (form) => {
   const p = form.querySelector(passSel);
   const c = form.querySelector(confirmSel);
-  if(!p || !c) return true;
+  if (!p || !c) return true;
   const pv = p.value.trim();
   const cv = c.value.trim();
   const strong = /^(?=.*[A-Z])(?=.*\d).{8,}$/.test(pv);
@@ -635,11 +595,11 @@ const formRequiredOK = (form) => form.checkValidity(); // required + pattern + m
 wireForm({
   formSel: '.sign-in-form1',
   btnSel: '.log-in-btn',
-  fields: ['#sign-in-email','#sign-in-password'],
+  fields: ['#sign-in-email', '#sign-in-password'],
   validators: [
-  emailOK,
-  fieldValidity('#sign-in-password')  // minlength dahil tüm HTML5 kuralları
-]
+    emailOK,
+    fieldValidity('#sign-in-password')  // minlength dahil tüm HTML5 kuralları
+  ]
 });
 
 // 2) FORGOT PASS STEP 1 (Email)
@@ -647,7 +607,7 @@ wireForm({
   formSel: '.forgot-pass-form1',
   btnSel: '.next-btn',
   fields: ['#forgot-pass-email'],
-  validators: [ emailOK ]
+  validators: [emailOK]
 });
 
 // 3) FORGOT PASS STEP 2 (OTP)
@@ -655,7 +615,7 @@ wireForm({
   formSel: '.forgot-pass-form2',
   btnSel: '.verify-btn',
   fields: ['#forgot-pass-verification-code'],
-  validators: [ otpOK('#forgot-pass-verification-code') ]
+  validators: [otpOK('#forgot-pass-verification-code')]
 });
 
 // 4) FORGOT PASS STEP 3 (Password + Confirm)
@@ -665,7 +625,7 @@ wireForm({
   fields: ['#forgot-pass-password', '#forgot-pass-confirm-password'],
   validators: [
     passwordStrong('#forgot-pass-password'),
-    passwordsMatch('#forgot-pass-password','#forgot-pass-confirm-password')
+    passwordsMatch('#forgot-pass-password', '#forgot-pass-confirm-password')
   ]
 });
 
@@ -673,11 +633,11 @@ wireForm({
 wireForm({
   formSel: '.sign-up-form1',
   btnSel: '.next-btn',
-  fields: ['#sign-up-email','#sign-up-password','#sign-up-confirm-password'],
+  fields: ['#sign-up-email', '#sign-up-password', '#sign-up-confirm-password'],
   validators: [
     emailOK,
     passwordStrong('#sign-up-password'),
-    passwordsMatch('#sign-up-password','#sign-up-confirm-password')
+    passwordsMatch('#sign-up-password', '#sign-up-confirm-password')
   ]
 });
 
@@ -686,7 +646,7 @@ wireForm({
   formSel: '.sign-up-form2',
   btnSel: '.verify-btn',
   fields: ['#sign-up-verification-code'],
-  validators: [ otpOK('#sign-up-verification-code') ]
+  validators: [otpOK('#sign-up-verification-code')]
 });
 
 // 7) SIGN UP STEP 3 (Required alanlar dolu mu?)
@@ -694,11 +654,11 @@ wireForm({
   formSel: '.sign-up-form3',
   btnSel: '.next-btn',
   fields: [
-    '#sign-up-firstname','#sign-up-lastname',
-    '#sign-up-day','#sign-up-month','#sign-up-year',
+    '#sign-up-firstname', '#sign-up-lastname',
+    '#sign-up-day', '#sign-up-month', '#sign-up-year',
     '#sign-up-phone'
   ],
-  validators: [ formRequiredOK ]
+  validators: [formRequiredOK]
 });
 
 // 8) SIGN UP STEP 4 (Phone OTP)
@@ -706,5 +666,33 @@ wireForm({
   formSel: '.sign-up-form4',
   btnSel: '.verify-btn',
   fields: ['#sign-up-phone-verification-code'],
-  validators: [ otpOK('#sign-up-phone-verification-code') ]
+  validators: [otpOK('#sign-up-phone-verification-code')]
 });
+
+// Elemanları seç
+const signUpTextBtn   = document.querySelector('.sign-up-text');
+const signInWrapper   = document.querySelector('#sign-in-container1').closest('.wrapper');
+const signUpWrapper   = document.querySelector('#sign-up-container1').closest('.wrapper');
+const signInContainer = document.querySelector('#sign-in-container1');
+const signUpContainer = document.querySelector('#sign-up-container1');
+
+const delay = ms => new Promise(r => setTimeout(r, ms));
+
+signUpTextBtn.addEventListener('click', async () => {
+  // 1) signuptext fade out
+  signUpTextBtn.classList.add('fading-out');
+
+  // 2) sign-in container'ı merkeze al
+  signInContainer.classList.add('center-mode');
+
+  // 3) 1 sn sonra sign-in gizle, sign-up göster
+  await delay(1000);
+  signInWrapper.classList.add('is-hidden');
+  signUpWrapper.classList.remove('is-hidden');
+
+  // 4) 1 sn sonra her iki container'dan da center-mode'u kaldır
+  await delay(1000);
+  signUpContainer.classList.remove('center-mode');
+  signUpTextBtn.classList.remove('fading-out'); // istersen temizle
+});
+

@@ -38,387 +38,420 @@
     <main>
 
         <!-- sign in - start -->
-        <section id="sign-in-container1" class="container">
-            <div class="left" id="sign-in-left1">
-                <h3>Welcome Back!</h3>
-                <p>We’ve missed you. Let’s get you signed in.</p>
-                <button class="sign-up-text">New here? <span>Create account</span></button>
-            </div>
-            <div class="right" id="sign-in-right1">
-                <h2>Sign In</h2>
-                <form class="form sign-in-form1">
-                    <!-- Email input -->
-                    <div class="input-group">
-                        <input type="email" id="sign-in-email" name="sign-in-email" placeholder="you@example.com"
-                            required autocomplete="off" />
-                        <label for="sign-in-email">Email</label>
-                        <img src="./images/icons/email-icon.svg" alt="Email field icon" class="input-icon" />
-                    </div>
-                    <!-- Password input -->
-                    <div class="input-group">
-                        <input type="password" id="sign-in-password" name="sign-in-password" placeholder="••••••••"
-                            required autocomplete="off" minlength="8" />
-                        <label for="sign-in-password">Password</label>
-                        <img src="./images/icons/password-icon.svg" alt="Password field icon" class="input-icon" />
-                        <button type="button" class="show-pass" aria-label="Show password" tabindex="-1"><img
-                                src="./images/icons/show-password-icon.svg" alt="show password icon"></button>
-                    </div>
-                    <!-- Remember me -->
-                    <div class="remember-me">
-                        <input type="checkbox" id="sign-in-remember" name="sign-in-remember" />
-                        <label for="sign-in-remember">Remember me for 30 days</label>
-                    </div>
-                    <!-- Forgot password -->
-                    <button type="button" class="forgot-pass-text">Forgot password?</button>
-                    <!-- Submit button -->
-                    <button type="submit" class="btn log-in-btn">Log in</button>
-                </form>
-            </div>
-        </section>
+        <div class="wrapper">
+            <section id="sign-in-container1" class="container">
+                <div class="left" id="sign-in-left1">
+                    <h3>Welcome Back!</h3>
+                    <p>We’ve missed you. Let’s get you signed in.</p>
+                    <button class="sign-up-text">New here? <span>Create account</span></button>
+                </div>
+                <div class="right" id="sign-in-right1">
+                    <h2>Sign In</h2>
+                    <form class="form sign-in-form1">
+                        <!-- Email input -->
+                        <div class="input-group">
+                            <input type="email" id="sign-in-email" name="sign-in-email" placeholder="you@example.com"
+                                required autocomplete="off" />
+                            <label for="sign-in-email">Email</label>
+                            <img src="./images/icons/email-icon.svg" alt="Email field icon" class="input-icon" />
+                        </div>
+                        <!-- Password input -->
+                        <div class="input-group">
+                            <input type="password" id="sign-in-password" name="sign-in-password" placeholder="••••••••"
+                                required autocomplete="off" minlength="8" />
+                            <label for="sign-in-password">Password</label>
+                            <img src="./images/icons/password-icon.svg" alt="Password field icon" class="input-icon" />
+                            <button type="button" class="show-pass" aria-label="Show password" tabindex="-1"><img
+                                    src="./images/icons/show-password-icon.svg" alt="show password icon"></button>
+                        </div>
+                        <!-- Remember me -->
+                        <div class="remember-me">
+                            <input type="checkbox" id="sign-in-remember" name="sign-in-remember" />
+                            <label for="sign-in-remember">Remember me for 30 days</label>
+                        </div>
+                        <!-- Forgot password -->
+                        <button type="button" class="forgot-pass-text">Forgot password?</button>
+                        <!-- Submit button -->
+                        <button type="submit" class="btn log-in-btn">Log in</button>
+                    </form>
+                </div>
+            </section>
+        </div>
         <!-- sign in - end -->
 
         <!-- forgot password - start -->
         <!-- step1 -->
-        <section id="forgot-pass-container1" class="container">
-            <div class="left" id="forgot-pass-left1">
-                <h3>No worries at all!</h3>
-                <p>You can easily reset your password in just a few simple steps</p>
-            </div>
-            <div class="right" id="forgot-pass-right1">
-                <h2>Forgot Password</h2>
-                <p>Step 1</p>
-                <p>We'll send you a link to reset your password. Please enter the email linked to your account.</p>
-                <form class="form forgot-pass-form1">
-                    <!-- Email input -->
-                    <div class="input-group">
-                        <input type="email" id="forgot-pass-email" name="forgot-pass-email"
-                            placeholder="you@example.com" required autocomplete="off" />
-                        <label for="forgot-pass-email">Email</label>
-                        <img src="./images/icons/email-icon.svg" alt="Email field icon" class="input-icon" />
-                    </div>
-                    <!-- Back - Next button -->
-                    <div class="forgot-pass-form-buttons">
-                        <button type="button" class="btn back-btn">Back</button>
-                        <button type="submit" class="btn next-btn">Next</button>
-                    </div>
-                </form>
-            </div>
-        </section>
+        <div class="wrapper is-hidden">
+            <section id="forgot-pass-container1" class="container center-mode">
+                <div class="left" id="forgot-pass-left1">
+                    <h3>No worries at all!</h3>
+                    <p>You can easily reset your password in just a few simple steps</p>
+                </div>
+                <div class="right" id="forgot-pass-right1">
+                    <h2>Forgot Password</h2>
+                    <p>Step 1</p>
+                    <p>We'll send you a link to reset your password. Please enter the email linked to your account.</p>
+                    <form class="form forgot-pass-form1">
+                        <!-- Email input -->
+                        <div class="input-group">
+                            <input type="email" id="forgot-pass-email" name="forgot-pass-email"
+                                placeholder="you@example.com" required autocomplete="off" />
+                            <label for="forgot-pass-email">Email</label>
+                            <img src="./images/icons/email-icon.svg" alt="Email field icon" class="input-icon" />
+                        </div>
+                        <!-- Back - Next button -->
+                        <div class="forgot-pass-form-buttons">
+                            <button type="button" class="btn back-btn">Back</button>
+                            <button type="submit" class="btn next-btn">Next</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+
         <!-- step2 -->
-        <section id="forgot-pass-container2" class="container">
-            <div class="left" id="forgot-pass-left2">
-                <h3>Your code is on its way!</h3>
-                <p>For your security, we’ve sent a one-time code to your email address.</p>
-            </div>
-            <div class="right" id="forgot-pass-right2">
-                <h2>Verify Your Email</h2>
-                <p>Step 2</p>
-                <p>We emailed you a code. Please check your inbox or spam folder.</p>
-                <form class="form forgot-pass-form2">
-                    <!-- Code input -->
-                    <div class="input-group">
-                        <input type="text" class="verification-code" id="forgot-pass-verification-code"
-                            name="forgot-pass-verification-code" placeholder="1 2 3 4 5 6" required inputmode="numeric"
-                            pattern="\d{1}( \d{1}){5}" maxlength="11" autocomplete="off" />
-                        <label for="forgot-pass-verification-code">Code</label>
-                    </div>
-                    <!-- Verify button -->
-                    <button type="submit" class="btn verify-btn">Verify</button>
-                </form>
-            </div>
-        </section>
+        <div class="wrapper is-hidden">
+            <section id="forgot-pass-container2" class="container center-mode">
+                <div class="left" id="forgot-pass-left2">
+                    <h3>Your code is on its way!</h3>
+                    <p>For your security, we’ve sent a one-time code to your email address.</p>
+                </div>
+                <div class="right" id="forgot-pass-right2">
+                    <h2>Verify Your Email</h2>
+                    <p>Step 2</p>
+                    <p>We emailed you a code. Please check your inbox or spam folder.</p>
+                    <form class="form forgot-pass-form2">
+                        <!-- Code input -->
+                        <div class="input-group">
+                            <input type="text" class="verification-code" id="forgot-pass-verification-code"
+                                name="forgot-pass-verification-code" placeholder="1 2 3 4 5 6" required
+                                inputmode="numeric" pattern="\d{1}( \d{1}){5}" maxlength="11" autocomplete="off" />
+                            <label for="forgot-pass-verification-code">Code</label>
+                        </div>
+                        <!-- Verify button -->
+                        <button type="submit" class="btn verify-btn">Verify</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
         <!-- step3 -->
-        <section id="forgot-pass-container3" class="container">
-            <div class="left" id="forgot-pass-left3">
-                <h3>You're almost done!</h3>
-                <p>All that’s left is setting a new password. You’re good to go!</p>
-            </div>
-            <div class="right" id="forgot-pass-right3">
-                <h2>Reset Your Password</h2>
-                <p>Step 3</p>
-                <p>Use at least 8 characters with one uppercase letter and one number.</p>
-                <form class="form forgot-pass-form3">
-                    <!-- Password input -->
-                    <div class="input-group">
-                        <input type="password" id="forgot-pass-password" name="forgot-pass-password"
-                            placeholder="••••••••" required autocomplete="off" minlength="8" />
-                        <label for="forgot-pass-password">Password</label>
-                        <img src="./images/icons/password-icon.svg" alt="Password field icon" class="input-icon" />
-                        <button type="button" class="show-pass" aria-label="Show password" tabindex="-1"><img
-                                src="./images/icons/show-password-icon.svg" alt="show password icon"></button>
-                    </div>
-                    <!-- Confirm Password input -->
-                    <div class="input-group">
-                        <input type="password" id="forgot-pass-confirm-password" name="forgot-pass-confirm-password"
-                            placeholder="••••••••" required autocomplete="off" minlength="8" />
-                        <label for="forgot-pass-confirm-password">Confirm Password</label>
-                        <img src="./images/icons/password-icon.svg" alt="Password field icon" class="input-icon" />
-                        <button type="button" class="show-pass" aria-label="Show password" tabindex="-1"><img
-                                src="./images/icons/show-password-icon.svg" alt="show password icon"></button>
-                    </div>
-                    <!-- Done button -->
-                    <button type="submit" class="btn done-btn">Done</button>
-                </form>
-            </div>
-        </section>
+        <div class="wrapper is-hidden">
+            <section id="forgot-pass-container3" class="container center-mode">
+                <div class="left" id="forgot-pass-left3">
+                    <h3>You're almost done!</h3>
+                    <p>All that’s left is setting a new password. You’re good to go!</p>
+                </div>
+                <div class="right" id="forgot-pass-right3">
+                    <h2>Reset Your Password</h2>
+                    <p>Step 3</p>
+                    <p>Use at least 8 characters with one uppercase letter and one number.</p>
+                    <form class="form forgot-pass-form3">
+                        <!-- Password input -->
+                        <div class="input-group">
+                            <input type="password" id="forgot-pass-password" name="forgot-pass-password"
+                                placeholder="••••••••" required autocomplete="off" minlength="8" />
+                            <label for="forgot-pass-password">Password</label>
+                            <img src="./images/icons/password-icon.svg" alt="Password field icon" class="input-icon" />
+                            <button type="button" class="show-pass" aria-label="Show password" tabindex="-1"><img
+                                    src="./images/icons/show-password-icon.svg" alt="show password icon"></button>
+                        </div>
+                        <!-- Confirm Password input -->
+                        <div class="input-group">
+                            <input type="password" id="forgot-pass-confirm-password" name="forgot-pass-confirm-password"
+                                placeholder="••••••••" required autocomplete="off" minlength="8" />
+                            <label for="forgot-pass-confirm-password">Confirm Password</label>
+                            <img src="./images/icons/password-icon.svg" alt="Password field icon" class="input-icon" />
+                            <button type="button" class="show-pass" aria-label="Show password" tabindex="-1"><img
+                                    src="./images/icons/show-password-icon.svg" alt="show password icon"></button>
+                        </div>
+                        <!-- Done button -->
+                        <button type="submit" class="btn done-btn">Done</button>
+                    </form>
+                </div>
+            </section>
+        </div>
         <!-- step4 -->
-        <section id="forgot-pass-container4" class="container">
-            <div class="left" id="forgot-pass-left4">
-                <h3>You’re ready!</h3>
-                <p>Your password has been reset successfully. You can now sign in to your account.</p>
-                <!-- Sign in button -->
-                <button type="submit" class="btn sign-in-btn">Sign In</button>
-            </div>
-        </section>
+        <div class="wrapper is-hidden">
+            <section id="forgot-pass-container4" class="container">
+                <div class="left" id="forgot-pass-left4">
+                    <h3>You’re ready!</h3>
+                    <p>Your password has been reset successfully. You can now sign in to your
+                        account.</p>
+                    <!-- Sign in button -->
+                    <button type="submit" class="btn sign-in-btn">Sign In</button>
+                </div>
+            </section>
+        </div>
+
         <!-- forgot password - end -->
 
         <!-- sign up - start -->
         <!-- step1 -->
-        <section id="sign-up-container1" class="container">
-            <div class="left" id="sign-up-left1">
-                <h3>Let’s get started!</h3>
-                <p>We’re excited to have you with us!</p>
-            </div>
-            <div class="right" id="sign-up-right1">
-                <h2>Create Your Account</h2>
-                <p>Step 1</p>
-                <p>Create your password using at least 8 characters, including one uppercase letter and one number.</p>
-                <form class="form sign-up-form1">
-                    <!-- Email input -->
-                    <div class="input-group">
-                        <input type="email" id="sign-up-email" name="sign-up-email" placeholder="you@example.com"
-                            required autocomplete="off" />
-                        <label for="sign-up-email">Email</label>
-                        <img src="./images/icons/email-icon.svg" alt="Email field icon" class="input-icon" />
-                    </div>
-                    <!-- Password input -->
-                    <div class="input-group">
-                        <input type="password" id="sign-up-password" name="sign-up-password" placeholder="••••••••"
-                            required autocomplete="off" minlength="8" />
-                        <label for="sign-up-password">Password</label>
-                        <img src="./images/icons/password-icon.svg" alt="Password field icon" class="input-icon" />
-                        <button type="button" class="show-pass" aria-label="Show password" tabindex="-1"><img
-                                src="./images/icons/show-password-icon.svg" alt="show password icon"></button>
-                    </div>
-                    <!-- Confirm Password input -->
-                    <div class="input-group">
-                        <input type="password" id="sign-up-confirm-password" name="sign-up-confirm-password"
-                            placeholder="••••••••" required autocomplete="off" minlength="8" />
-                        <label for="sign-up-confirm-password">Confirm Password</label>
-                        <img src="./images/icons/password-icon.svg" alt="Password field icon" class="input-icon" />
-                        <button type="button" class="show-pass" aria-label="Show password" tabindex="-1"><img
-                                src="./images/icons/show-password-icon.svg" alt="show password icon"></button>
-                    </div>
-                    <!-- Back - Next button -->
-                    <div class="sign-up-buttons">
-                        <button type="button" class="btn back-btn">Back</button>
-                        <button type="submit" class="btn next-btn">Next</button>
-                    </div>
-                </form>
-            </div>
-        </section>
+        <div class="wrapper is-hidden">
+            <section id="sign-up-container1" class="container center-mode">
+                <div class="left" id="sign-up-left1">
+                    <h3>Let’s get started!</h3>
+                    <p>We’re excited to have you with us!</p>
+                </div>
+                <div class="right" id="sign-up-right1">
+                    <h2>Create Your Account</h2>
+                    <p>Step 1</p>
+                    <p>Create your password using at least 8 characters, including one
+                        uppercase letter and one number.</p>
+                    <form class="form sign-up-form1">
+                        <!-- Email input -->
+                        <div class="input-group">
+                            <input type="email" id="sign-up-email" name="sign-up-email" placeholder="you@example.com"
+                                required autocomplete="off" />
+                            <label for="sign-up-email">Email</label>
+                            <img src="./images/icons/email-icon.svg" alt="Email field icon" class="input-icon" />
+                        </div>
+                        <!-- Password input -->
+                        <div class="input-group">
+                            <input type="password" id="sign-up-password" name="sign-up-password" placeholder="••••••••"
+                                required autocomplete="off" minlength="8" />
+                            <label for="sign-up-password">Password</label>
+                            <img src="./images/icons/password-icon.svg" alt="Password field icon" class="input-icon" />
+                            <button type="button" class="show-pass" aria-label="Show password" tabindex="-1"><img
+                                    src="./images/icons/show-password-icon.svg" alt="show password icon"></button>
+                        </div>
+                        <!-- Confirm Password input -->
+                        <div class="input-group">
+                            <input type="password" id="sign-up-confirm-password" name="sign-up-confirm-password"
+                                placeholder="••••••••" required autocomplete="off" minlength="8" />
+                            <label for="sign-up-confirm-password">Confirm
+                                Password</label>
+                            <img src="./images/icons/password-icon.svg" alt="Password field icon" class="input-icon" />
+                            <button type="button" class="show-pass" aria-label="Show password" tabindex="-1"><img
+                                    src="./images/icons/show-password-icon.svg" alt="show password icon"></button>
+                        </div>
+                        <!-- Back - Next button -->
+                        <div class="sign-up-buttons">
+                            <button type="button" class="btn back-btn">Back</button>
+                            <button type="submit" class="btn next-btn">Next</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
         <!-- step2 -->
-        <section id="sign-up-container2" class="container">
-            <div class="left" id="sign-up-left2">
-                <h3>Your code is on its way!</h3>
-                <p>For your security, we’ve sent a one-time code to your email address.</p>
-            </div>
-            <div class="right" id="sign-up-right2">
-                <h2>Verify Your Email</h2>
-                <p>Step 2</p>
-                <p>We emailed you a code. Please check your inbox or spam folder.</p>
-                <form class="form sign-up-form2">
-                    <!-- Code input -->
-                    <div class="input-group">
-                        <input type="text" id="sign-up-verification-code" name="sign-up-verification-code"
-                            placeholder="1 2 3 4 5 6" required inputmode="numeric" pattern="\d{1}( \d{1}){5}"
-                            maxlength="11" autocomplete="off" />
-                        <label for="sign-up-verification-code">Code</label>
-                    </div>
-                    <!-- Verify button -->
-                    <button type="submit" class="btn verify-btn">Verify</button>
-                </form>
-            </div>
-        </section>
+        <div class="wrapper is-hidden">
+            <section id="sign-up-container2" class="container center-mode">
+                <div class="left" id="sign-up-left2">
+                    <h3>Your code is on its way!</h3>
+                    <p>For your security, we’ve sent a one-time code to your
+                        email address.</p>
+                </div>
+                <div class="right" id="sign-up-right2">
+                    <h2>Verify Your Email</h2>
+                    <p>Step 2</p>
+                    <p>We emailed you a code. Please check your inbox or spam
+                        folder.</p>
+                    <form class="form sign-up-form2">
+                        <!-- Code input -->
+                        <div class="input-group">
+                            <input type="text" id="sign-up-verification-code" name="sign-up-verification-code"
+                                placeholder="1 2 3 4 5 6" required inputmode="numeric" pattern="\d{1}( \d{1}){5}"
+                                maxlength="11" autocomplete="off" />
+                            <label for="sign-up-verification-code">Code</label>
+                        </div>
+                        <!-- Verify button -->
+                        <button type="submit" class="btn verify-btn">Verify</button>
+                    </form>
+                </div>
+            </section>
+        </div>
         <!-- step3 -->
-        <section id="sign-up-container3" class="container">
-            <div class="left" id="sign-up-left3"></div>
-            <div class="right" id="sign-up-right3">
-                <h2>About You</h2>
-                <p>Step 3</p>
-                <form class="form sign-up-form3">
-                    <p style="color: #FF5100;">Required</p>
-                    <p class="input-section-title">Full Name</p>
-                    <div id="sign-up-fullname">
-                        <!-- Firstname input -->
-                        <div class="input-group">
-                            <input type="text" id="sign-up-firstname" name="sign-up-firstname" placeholder="Taner"
-                                required autocomplete="off" />
-                            <label for="sign-up-firstname">First name</label>
+        <div class="wrapper is-hidden">
+            <section id="sign-up-container3" class="container center-mode">
+                <div class="left" id="sign-up-left3"></div>
+                <div class="right" id="sign-up-right3">
+                    <h2>About You</h2>
+                    <p>Step 3</p>
+                    <form class="form sign-up-form3">
+                        <p style="color: #FF5100;">Required</p>
+                        <p class="input-section-title">Full Name</p>
+                        <div id="sign-up-fullname">
+                            <!-- Firstname input -->
+                            <div class="input-group">
+                                <input type="text" id="sign-up-firstname" name="sign-up-firstname" placeholder="Taner"
+                                    required autocomplete="off" />
+                                <label for="sign-up-firstname">First
+                                    name</label>
+                            </div>
+                            <!-- Lastname input -->
+                            <div class="input-group">
+                                <input type="text" id="sign-up-lastname" name="sign-up-lastname" placeholder="Talas"
+                                    required autocomplete="off" />
+                                <label for="sign-up-lastname">Last
+                                    name</label>
+                            </div>
                         </div>
-                        <!-- Lastname input -->
-                        <div class="input-group">
-                            <input type="text" id="sign-up-lastname" name="sign-up-lastname" placeholder="Talas"
-                                required autocomplete="off" />
-                            <label for="sign-up-lastname">Last name</label>
-                        </div>
-                    </div>
-                    <p class="input-section-title">Birthday</p>
-                    <div id="sign-up-birthday">
-                        <!-- Day input -->
-                        <div class="input-group">
-                            <input type="number" id="sign-up-day" name="sign-up-day" placeholder="27" required
-                                autocomplete="off" min="1" max="31" inputmode="numeric" />
-                            <label for="sign-up-day">Day</label>
-                        </div>
+                        <p class="input-section-title">Birthday</p>
+                        <div id="sign-up-birthday">
+                            <!-- Day input -->
+                            <div class="input-group">
+                                <input type="number" id="sign-up-day" name="sign-up-day" placeholder="27" required
+                                    autocomplete="off" min="1" max="31" inputmode="numeric" />
+                                <label for="sign-up-day">Day</label>
+                            </div>
 
-                        <!-- Month input -->
-                        <div class="input-group">
-                            <input type="text" id="sign-up-month" name="sign-up-month" placeholder="09" required
-                                inputmode="numeric" pattern="^(0[1-9]|1[0-2])$" autocomplete="off" maxlength="2" />
-                            <label for="sign-up-month">Month</label>
-                        </div>
+                            <!-- Month input -->
+                            <div class="input-group">
+                                <input type="text" id="sign-up-month" name="sign-up-month" placeholder="09" required
+                                    inputmode="numeric" pattern="^(0[1-9]|1[0-2])$" autocomplete="off" maxlength="2" />
+                                <label for="sign-up-month">Month</label>
+                            </div>
 
-                        <!-- Year input -->
-                        <div class="input-group">
-                            <input type="number" id="sign-up-year" name="sign-up-year" placeholder="2005" required
-                                autocomplete="off" min="1900" max="2099" inputmode="numeric" />
-                            <label for="sign-up-year">Year</label>
+                            <!-- Year input -->
+                            <div class="input-group">
+                                <input type="number" id="sign-up-year" name="sign-up-year" placeholder="2005" required
+                                    autocomplete="off" min="1900" max="2099" inputmode="numeric" />
+                                <label for="sign-up-year">Year</label>
+                            </div>
                         </div>
-                    </div>
-                    <p class="input-section-title">Phone</p>
-                    <!-- Phone input -->
-                    <div class="input-group">
-                        <input type="tel" inputmode="numeric" id="sign-up-phone" name="sign-up-phone"
-                            placeholder="512 345 67 89" required autocomplete="off" maxlength="17"
-                            pattern="\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}" />
-                        <label for="sign-up-phone">Phone</label>
-                    </div>
-                    <p style="margin-top: 24px; color: #FF9D00;">Optional</p>
-                    <p class="input-section-title">Profile Picture</p>
-                    <!-- Profile picture input -->
-                    <div class="profile-pic-container">
-                        <div class="profile-pic-wrapper">
-                            <label for="sign-up-profile-picture">
-                                <img src="./images/default-profile-picture.svg" alt="Profile" id="profile-preview" />
-                                <img src="./images/icons/edit-icon.svg" alt="Edit Icon" class="edit-icon" />
+                        <p class="input-section-title">Phone</p>
+                        <!-- Phone input -->
+                        <div class="input-group">
+                            <input type="tel" inputmode="numeric" id="sign-up-phone" name="sign-up-phone"
+                                placeholder="512 345 67 89" required autocomplete="off" maxlength="17"
+                                pattern="\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}" />
+                            <label for="sign-up-phone">Phone</label>
+                        </div>
+                        <p style="margin-top: 24px; color: #FF9D00;">
+                            Optional</p>
+                        <p class="input-section-title">Profile Picture
+                        </p>
+                        <!-- Profile picture input -->
+                        <div class="profile-pic-container">
+                            <div class="profile-pic-wrapper">
+                                <label for="sign-up-profile-picture">
+                                    <img src="./images/default-profile-picture.svg" alt="Profile"
+                                        id="profile-preview" />
+                                    <img src="./images/icons/edit-icon.svg" alt="Edit Icon" class="edit-icon" />
+                                </label>
+                                <input type="file" id="sign-up-profile-picture" accept="image/*" />
+                            </div>
+                            <button type="button" class="reset-picture-btn">Remove</button>
+                        </div>
+                        <p class="input-section-title">Gender</p>
+                        <!-- Gender input -->
+                        <div class="gender-group">
+                            <label class="gender-option">
+                                <input type="radio" name="sign-up-gender" value="female" />
+                                <span class="custom-radio"></span>
+                                Female
                             </label>
-                            <input type="file" id="sign-up-profile-picture" accept="image/*" />
-                        </div>
-                        <button type="button" class="reset-picture-btn">Remove</button>
-                    </div>
-                    <p class="input-section-title">Gender</p>
-                    <!-- Gender input -->
-                    <div class="gender-group">
-                        <label class="gender-option">
-                            <input type="radio" name="sign-up-gender" value="female" />
-                            <span class="custom-radio"></span>
-                            Female
-                        </label>
 
-                        <label class="gender-option">
-                            <input type="radio" name="sign-up-gender" value="male" />
-                            <span class="custom-radio"></span>
-                            Male
-                        </label>
-                    </div>
-                    <p class="input-section-title">Location</p>
-                    <!-- Location input -->
-                    <div id="sign-up-location">
-                        <!-- Country input -->
-                        <div class="input-group">
-                            <input type="text" id="sign-up-country" name="sign-up-country" placeholder="Turkey"
-                                autocomplete="off" />
-                            <label for="sign-up-country">Country</label>
+                            <label class="gender-option">
+                                <input type="radio" name="sign-up-gender" value="male" />
+                                <span class="custom-radio"></span>
+                                Male
+                            </label>
                         </div>
-                        <!-- City input -->
-                        <div class="input-group">
-                            <input type="text" id="sign-up-city" name="sign-up-city" placeholder="Istanbul"
-                                autocomplete="off" />
-                            <label for="sign-up-city">City</label>
+                        <p class="input-section-title">Location</p>
+                        <!-- Location input -->
+                        <div id="sign-up-location">
+                            <!-- Country input -->
+                            <div class="input-group">
+                                <input type="text" id="sign-up-country" name="sign-up-country" placeholder="Turkey"
+                                    autocomplete="off" />
+                                <label for="sign-up-country">Country</label>
+                            </div>
+                            <!-- City input -->
+                            <div class="input-group">
+                                <input type="text" id="sign-up-city" name="sign-up-city" placeholder="Istanbul"
+                                    autocomplete="off" />
+                                <label for="sign-up-city">City</label>
+                            </div>
                         </div>
-                    </div>
-                    <p class="input-section-title">Biography</p>
-                    <!-- Bio input -->
-                    <div class="input-group">
-                        <textarea id="sign-up-bio" name="sign-up-bio" placeholder="Work in progress..."
-                            autocomplete="off"></textarea>
-                        <label for="sign-up-bio">Bio</label>
-                    </div>
-                    <!-- Verify button -->
-                    <button type="submit" class="btn next-btn">Next</button>
-                </form>
-            </div>
-        </section>
+                        <p class="input-section-title">Biography</p>
+                        <!-- Bio input -->
+                        <div class="input-group">
+                            <textarea id="sign-up-bio" name="sign-up-bio" placeholder="Work in progress..."
+                                autocomplete="off"></textarea>
+                            <label for="sign-up-bio">Bio</label>
+                        </div>
+                        <!-- Verify button -->
+                        <button type="submit" class="btn next-btn">Next</button>
+                    </form>
+                </div>
+            </section>
+        </div>
         <!-- step4 -->
-        <section id="sign-up-container4" class="container">
-            <div class="left" id="sign-up-left4">
-                <h3>Your verification code is on its way!</h3>
-                <p>To complete your registration, please check your messages for a 6-digit code.</p>
-            </div>
-            <div class="right" id="sign-up-right4">
-                <h2>Verify Your Phone Number</h2>
-                <p>Step 4</p>
-                <p>Please enter the 6-digit code sent to your phone number.</p>
-                <form class="form sign-up-form4">
-                    <!-- Code input -->
-                    <div class="input-group">
-                        <input type="text" id="sign-up-phone-verification-code" name="sign-up-phone-verification-code"
-                            placeholder="1 2 3 4 5 6" required inputmode="numeric" pattern="\d{1}( \d{1}){5}"
-                            maxlength="11" autocomplete="off" />
-                        <label for="sign-up-phone-verification-code">Code</label>
-                    </div>
-                    <!-- Verify button -->
-                    <button type="submit" class="btn verify-btn">Verify</button>
-                </form>
-            </div>
-        </section>
+        <div class="wrapper is-hidden">
+            <section id="sign-up-container4" class="container center-mode">
+                <div class="left" id="sign-up-left4">
+                    <h3>Your verification code is on its way!
+                    </h3>
+                    <p>To complete your registration, please
+                        check your messages for a 6-digit code.
+                    </p>
+                </div>
+                <div class="right" id="sign-up-right4">
+                    <h2>Verify Your Phone Number</h2>
+                    <p>Step 4</p>
+                    <p>Please enter the 6-digit code sent to
+                        your phone number.</p>
+                    <form class="form sign-up-form4">
+                        <!-- Code input -->
+                        <div class="input-group">
+                            <input type="text" id="sign-up-phone-verification-code"
+                                name="sign-up-phone-verification-code" placeholder="1 2 3 4 5 6" required
+                                inputmode="numeric" pattern="\d{1}( \d{1}){5}" maxlength="11" autocomplete="off" />
+                            <label for="sign-up-phone-verification-code">Code</label>
+                        </div>
+                        <!-- Verify button -->
+                        <button type="submit" class="btn verify-btn">Verify</button>
+                    </form>
+                </div>
+            </section>
+        </div>
         <!-- step5 -->
-        <section id="sign-up-container5" class="container">
-            <div class="left" id="sign-up-left5">
-                <h3>Welcome aboard!</h3>
-                <p>Everything’s in place. Let’s log you in and get started!</p>
-            </div>
-            <div class="right" id="sign-up-right5">
-                <h2>You’re All Set!</h2>
-                <p>Step 5</p>
-                <div class="checkmark-wrapper">
-                    <svg class="checkmark" viewBox="0 0 120 120">
-                        <circle class="checkmark-circle" cx="60" cy="60" r="54" fill="none" />
-                        <path class="checkmark-check" fill="none" d="M40 65l15 15 30-30" />
-                    </svg>
+        <div class="wrapper is-hidden">
+            <section id="sign-up-container5" class="container">
+                <div class="left" id="sign-up-left5">
+                    <h3>Welcome aboard!</h3>
+                    <p>Everything’s in place. Let’s log
+                        you in and get started!</p>
                 </div>
-                <p>You can now sign in and start using your account.</p>
-                <!-- Sign in button -->
-                <button type="submit" class="btn sign-in-btn">Sign In</button>
-            </div>
-        </section>
+                <div class="right" id="sign-up-right5">
+                    <h2>You’re All Set!</h2>
+                    <p>Step 5</p>
+                    <div class="checkmark-wrapper">
+                        <svg class="checkmark" viewBox="0 0 120 120">
+                            <circle class="checkmark-circle" cx="60" cy="60" r="54" fill="none" />
+                            <path class="checkmark-check" fill="none" d="M40 65l15 15 30-30" />
+                        </svg>
+                    </div>
+                    <p>You can now sign in and start
+                        using your account.</p>
+                    <!-- Sign in button -->
+                    <button type="submit" class="btn sign-in-btn">Sign
+                        In</button>
+                </div>
+            </section>
+        </div>
         <!-- sign up - end -->
-
-        <!-- Confirmation overlay -->
-        <div id="confirmationOverlay" class="overlay hidden">
-            <div class="overlay-content">
-                <p>Do you confirm the information you have entered?</p>
-                <div class="overlay-buttons">
-                    <button type="button" class="btn back-btn">Back</button>
-                    <button type="button" class="btn proceed-btn">Proceed</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Error Overlay -->
-        <div id="errorOverlay" class="overlay hidden">
-            <div class="overlay-content error-content">
-                <p>Please fill in all required fields correctly.</p>
-                <div class="overlay-buttons">
-                    <button type="button" class="btn back-btn">Close</button>
-                </div>
-            </div>
-        </div>
 
     </main>
 
     <!-- main - end -->
+
+    <!-- confirmation overlay -->
+    <div id="confirmOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-hidden="true"
+        aria-labelledby="confirmTitle">
+        <div class="overlay-panel ov--confirm" tabindex="-1">
+            <button class="overlay-close" aria-label="Kapat">×</button>
+            <h4 id="confirmTitle" class="overlay-title">Girdiğiniz bilgileri onaylıyor musunuz?</h4>
+            <div class="overlay-actions">
+                <button type="button" class="btn back-btn">Back</button>
+                <button type="button" class="btn proceed-btn">Proceed</button>
+            </div>
+        </div>
+    </div>
+
     <script src="./script.js"></script>
 </body>
 

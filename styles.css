@@ -28,6 +28,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 .montserrat-regular {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
@@ -86,8 +90,8 @@ h3+p {
     padding: 0 48px;
     background-color: var(--background-nav);
     z-index: 1000;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 25%);
-    height: auto;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+    height: 64px;
 }
 
 .nav-left,
@@ -145,70 +149,122 @@ h3+p {
 
 /* main - start */
 main {
+    position: relative;
     display: flex;
     margin-top: 64px;
-    min-height: calc(100svh - 88px);
-    overflow: hidden;
-    align-items: center;
+    min-height: calc(100svh - 64px);
+    align-items: flex-start;
     justify-content: center;
-    padding: 32px;
 }
 
 /* sections container settings*/
+.wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease;
+}
 
 .container {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    justify-content: space-between;
-    align-items: stretch;
-    max-width: 1000px;
-    width: 100%;
+    position: relative;
+    display: grid;
+    /* görünür olduğunda grid olacak */
     border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 25%);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+    width: 1000px;
+    grid-template-columns: 500px 500px;
+    place-content: center;
+    gap: 0;
+    margin: 72px 0;
+    transition: opacity .25s ease, transform .4s ease, box-shadow 1s ease;
 }
 
 .left,
 .right {
-    flex: 1;
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    width: 500px;
 }
 
 .left {
+    left: 0;
     color: #FFFFFF;
     padding: 0 32px;
+    z-index: 1;
+    transition: left 0.6s ease, transform 0.6s ease;
 
 }
 
 .right {
+    left: 50%;
     background-color: #FFFFFF;
     padding: 54px 64px;
+    z-index: 0;
+    opacity: 1;
+    transition: right 0.6s ease, transform 0.6s ease, opacity 0.4s ease;
+
+}
+
+.container.center-mode {
+    box-shadow: none;
+}
+
+.container.center-mode .left {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -0%);
+}
+
+.container.center-mode .right {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    pointer-events: none;
+    user-select: none;
+    cursor: default;
+    opacity: 0;
+}
+
+.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 0s linear 1s;
+
 }
 
 /******************************************************** sign in containers - start ********************************************************/
 /* 1 */
 #sign-in-container1 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
+    height: 450px;
+    /* görünür olduğunda grid olacak */
 }
+
 #sign-in-left1 {
-    position: relative;
     background: linear-gradient(180deg, #6F7C57, #4793B1);
     animation: gradientFlowVertical 10s ease-in-out infinite;
     background-size: 100% 400%;
 }
+
+#sign-in-left1,
+#sign-in-right1 {
+    height: 450px;
+}
+
 /******************************************************** sign in containers - end ********************************************************/
 
 /******************************************************** sign up containers - start ********************************************************/
 /* 1 */
 #sign-up-container1 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
+    height: 558px;
+    /* görünür olduğunda grid olacak */
 }
 
 #sign-up-left1 {
@@ -218,11 +274,15 @@ main {
 
 }
 
+#sign-up-left1,
+#sign-up-right1 {
+    height: 558px;
+}
+
 /* 2 */
 #sign-up-container2 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
+    height: 402px;
+    /* görünür olduğunda grid olacak */
 }
 
 #sign-up-left2 {
@@ -231,39 +291,44 @@ main {
     background-size: 100% 400%;
 }
 
+#sign-up-left2,
+#sign-up-right2 {
+    height: 402px;
+}
+
 /* 3 */
 #sign-up-container3 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    position: relative;
-    overflow: hidden;
+    height: 1300px;
+    /* görünür olduğunda grid olacak */
+}
+
+#sign-up-right3,
+#sign-up-left3 {
+    height: 1300px;
 }
 
 #sign-up-left3 {
-    position: absolute;
     width: 100%;
-    height: 100%;
     background: linear-gradient(to bottom, #EFED5A, #593CC3);
     animation: gradientFlowVertical 10s ease-in-out infinite;
     background-size: 100% 400%;
-    z-index: 0;
 }
 
 #sign-up-right3 {
-    position: relative;
-    flex: none;
-    margin: auto;
-    width: 500px;
-    background-color: #FFFFFF;
-    box-shadow: 0px 0 8px rgba(0, 0, 0, 25%);
-    z-index: 500;
+    transform: translateX(-50%);
+    box-shadow: 0px 0 8px rgba(0, 0, 0, 0.25);
+    z-index: 2;
 }
 
 /* 4 */
 #sign-up-container4 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
+    height: 358px;
+    /* görünür olduğunda grid olacak */
+}
+
+#sign-up-right4,
+#sign-up-left4 {
+    height: 358px;
 }
 
 #sign-up-left4 {
@@ -274,9 +339,13 @@ main {
 
 /* 5 */
 #sign-up-container5 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
+    height: 517px;
+    /* görünür olduğunda grid olacak */
+}
+
+#sign-up-right5,
+#sign-up-left5 {
+    height: 517px;
 }
 
 #sign-up-left5 {
@@ -284,14 +353,19 @@ main {
     animation: gradientFlowVertical 10s ease-in-out infinite;
     background-size: 100% 400%;
 }
+
 /******************************************************** sign up containers - end ********************************************************/
 
 /******************************************************** forgot pass containers - start ********************************************************/
 /* 1 */
 #forgot-pass-container1 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
+    height: 358px;
+    /* görünür olduğunda grid olacak */
+}
+
+#forgot-pass-left1,
+#forgot-pass-right1 {
+    height: 358px;
 }
 
 #forgot-pass-left1 {
@@ -302,9 +376,13 @@ main {
 
 /* 2 */
 #forgot-pass-container2 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
+    height: 358px;
+    /* görünür olduğunda grid olacak */
+}
+
+#forgot-pass-left2,
+#forgot-pass-right2 {
+    height: 358px;
 }
 
 #forgot-pass-left2 {
@@ -315,9 +393,12 @@ main {
 
 /* 3 */
 #forgot-pass-container3 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    overflow: hidden;
+    height: 443px;
+}
+
+#forgot-pass-left3,
+#forgot-pass-right3 {
+    height: 443px;
 }
 
 #forgot-pass-left3 {
@@ -327,19 +408,17 @@ main {
 }
 
 /* 4 */
-#forgot-pass-container4 {
-    display: none;
-    /* görünür olduğunda flex olacak */
-    max-width: 500px;
-}
 
 #forgot-pass-left4 {
+    left: 50%;
+    transform: translateX(-50%);
     padding: 100px 32px;
     background: linear-gradient(to bottom, #00FF77, #07BDFF);
     animation: gradientFlowVertical 10s ease-in-out infinite;
     background-size: 100% 400%;
     border-radius: 4px;
 }
+
 /******************************************************** forgot pass containers - end ********************************************************/
 
 
@@ -361,7 +440,7 @@ main {
 .next-btn,
 .verify-btn,
 .done-btn {
-  transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .proceed-btn {
@@ -403,10 +482,21 @@ main {
     width: 199px;
 }
 
-.btn-default { background:#B3B3B3; }
-.btn-typing  { background:#FFBF00; }
-.btn-invalid { background:#FF5100; }
-.btn-valid   { background:#00FF5E; }
+.btn-default {
+    background: #B3B3B3;
+}
+
+.btn-typing {
+    background: #FFBF00;
+}
+
+.btn-invalid {
+    background: #FF5100;
+}
+
+.btn-valid {
+    background: #00FF5E;
+}
 
 /***** buttons - end *****/
 
@@ -478,22 +568,30 @@ input:-webkit-autofill+label,
     height: 24px;
     transform: translateY(-50%);
     pointer-events: none;
+    transition: filter 0.3s ease;
 }
 
 .show-pass {
     position: absolute;
-    top: 50%;
+    top: 52%;
     right: 18px;
     transform: translateY(-50%);
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
+    transition: transform 120ms ease;
 }
 
 .show-pass img {
     width: 24px;
     height: 24px;
+    transition: filter 120ms ease;
+}
+
+.show-pass:hover,
+.show-pass:focus-visible {
+    transform: translateY(-50%) scale(1.05);
 }
 
 .input-group input[type="password"] {
@@ -532,6 +630,35 @@ input.valid {
 input.invalid {
     border-color: #FF5100;
 }
+
+.animate-border {
+    animation: borderPulse 2s infinite ease-in-out;
+}
+
+input:focus~.input-icon {
+    filter: brightness(0) saturate(100%);
+}
+
+input.typing~.input-icon {
+    filter: brightness(0) saturate(100%) invert(64%) sepia(78%) saturate(1040%) hue-rotate(1deg) brightness(103%) contrast(103%);
+}
+
+input.valid~.input-icon {
+    filter: brightness(0) saturate(100%) invert(61%) sepia(68%) saturate(467%) hue-rotate(75deg) brightness(110%) contrast(105%);
+}
+
+input.invalid~.input-icon {
+    filter: brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(7440%) hue-rotate(2deg) brightness(105%) contrast(116%);
+}
+
+.animate-border~.input-icon {
+    animation: iconPulse 2s infinite ease-in-out;
+}
+
+input:focus~.show-pass img {
+    filter: brightness(0) saturate(100%);
+}
+
 /* input settings - end */
 
 /* sign in - start */
@@ -547,6 +674,12 @@ input.invalid {
     cursor: pointer;
     padding: 0;
     text-align: center;
+    transition: opacity .25s;
+}
+
+.sign-up-text.fading-out {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .sign-up-text span {
@@ -637,10 +770,6 @@ input.invalid {
 #sign-up-phone-verification-code+label {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-}
-
-.animate-border {
-    animation: borderPulse 1.5s infinite ease-in-out;
 }
 
 /* forgot password - end */
@@ -910,49 +1039,82 @@ input.invalid {
 
 /* sign up - end */
 
-/* confirmation - start */
+/* overlay - start */
+
 .overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.55);
+    inset: 0;
+    z-index: 3000;
     display: flex;
-    align-items: center;
     justify-content: center;
-    z-index: 9999;
+    align-items: flex-start;
+    background: rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease;
 }
 
-.hidden {
+.overlay.hidden {
     display: none;
 }
 
-.overlay-content {
-    background: #fff;
-    border-radius: 12px;
-    padding: 24px;
-    max-width: 400px;
+.overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.overlay-panel {
+    width: min(720px, 94vw);
+    margin-top: 24px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    padding: 32px;
+    transform: translateY(-6px);
+    transition: transform 200ms ease;
+    outline: none;
+    position: relative;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    font-family: "Montserrat", sans-serif;
 }
 
-.overlay-buttons {
-    margin-top: 32px;
+.ov--confirm {
+    background: #fff;
+    color: #000;
+}
+
+.overlay.open .overlay-panel {
+    transform: translateY(0);
+}
+
+.overlay-title {
+    font-size: 18px;
+    margin: 0 0 32px;
+    font-weight: 500;
+}
+
+.overlay-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: transparent;
+    border: 0;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    color: currentColor;
+    z-index: 1010;
+    padding: 8px;
+}
+
+.overlay-actions {
     display: flex;
-    gap: 12px;
     justify-content: center;
+    gap: 64px;
 }
 
-/* confirmation - end */
 
-/* Error - start */
-.error-content {
-    background: #ffe6e6;
-    /* açık kırmızı */
-    border: 1px solid #ff4d4d;
-    color: #b30000;
+.proceed-btn {
+    background: #00FF5E;
+    color: #fff;
 }
 
 /* Error - end */
@@ -994,5 +1156,19 @@ input.invalid {
 
     100% {
         border-color: #FFBF00;
+    }
+}
+
+@keyframes iconPulse {
+    0% {
+        filter: brightness(0) saturate(100%) invert(64%) sepia(78%) saturate(1040%) hue-rotate(1deg) brightness(103%) contrast(103%);
+    }
+
+    50% {
+        filter: brightness(0) saturate(100%) invert(61%) sepia(68%) saturate(467%) hue-rotate(75deg) brightness(110%) contrast(105%);
+    }
+
+    100% {
+        filter: brightness(0) saturate(100%) invert(64%) sepia(78%) saturate(1040%) hue-rotate(1deg) brightness(103%) contrast(103%);
     }
 }
