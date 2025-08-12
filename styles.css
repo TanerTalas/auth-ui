@@ -215,6 +215,7 @@ main {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0%);
+    height: 450px;
 }
 
 .container.center-mode .right {
@@ -268,10 +269,6 @@ main {
     height: 558px;
 }
 
-.center-mode #sign-up-left1 {
-    height: 450px;
-}
-
 #sign-up-left1 {
     background: linear-gradient(to bottom, #BEBC53, #5E47B1);
     animation: gradientFlowVertical 10s ease-in-out infinite;
@@ -286,10 +283,6 @@ main {
 #sign-up-left2,
 #sign-up-right2 {
     height: 402px;
-}
-
-.center-mode #sign-up-left2 {
-    height: 450px;
 }
 
 #sign-up-left2 {
@@ -310,7 +303,6 @@ main {
 
 .center-mode #sign-up-left3 {
     width: 500px;
-    height: 450px;
 }
 
 #sign-up-left3 {
@@ -339,10 +331,6 @@ main {
     height: 358px;
 }
 
-.center-mode #sign-up-left4 {
-    height: 450px;
-}
-
 #sign-up-left4 {
     background: linear-gradient(to bottom, #E4E163, #5E47B1);
     animation: gradientFlowVertical 10s ease-in-out infinite;
@@ -352,10 +340,6 @@ main {
 /* 5 */
 #sign-up-container5 {
     height: 517px;
-}
-
-.center-mode #sign-up-left5 {
-    height: 450px;
 }
 
 #sign-up-right5,
@@ -423,9 +407,9 @@ main {
 /* 4 */
 
 #forgot-pass-left4 {
+    height: 450px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 100px 32px;
     background: linear-gradient(to bottom, #00FF77, #07BDFF);
     animation: gradientFlowVertical 10s ease-in-out infinite;
     background-size: 100% 400%;
@@ -471,6 +455,7 @@ main {
     width: 200px;
     background-color: #00FF5E;
     margin-top: 54px;
+    transition: opacity .25s;
 }
 
 .done-btn {
@@ -690,7 +675,7 @@ input:focus~.show-pass img {
     transition: opacity .25s;
 }
 
-.sign-up-text.fading-out {
+.fading-out {
     opacity: 0;
     pointer-events: none;
 }

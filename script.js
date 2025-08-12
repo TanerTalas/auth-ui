@@ -729,5 +729,33 @@ $('.sign-up-form4')?.addEventListener('submit', (e) => {
 
 // sign-up5 → sign-in
 $('#sign-up-container5 .sign-in-btn')?.addEventListener('click', () => {
-  swapPanels('sign-up-container5', 'sign-in-container1', 1000, { fadeBtn: $('#sign-up-container5 .sign-in-btn') });
+  swapPanels('sign-up-container5', 'sign-in-container1', 1000, { fadeBtn: $('.sign-in-btn') });
+});
+
+// sign-in → forgot-pass1
+$('#sign-in-container1 .forgot-pass-text')?.addEventListener('click', () => {
+  swapPanels('sign-in-container1', 'forgot-pass-container1', 1000, { fadeBtn: $('.sign-up-text') });
+});
+
+// forgot-pass1 → forgot-pass2
+$('.forgot-pass-form1')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  swapPanels('forgot-pass-container1', 'forgot-pass-container2');
+});
+
+// forgot-pass2 → forgot-pass3
+$('.forgot-pass-form2')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  swapPanels('forgot-pass-container2', 'forgot-pass-container3');
+});
+
+// forgot-pass3 → forgot-pass4
+$('.forgot-pass-form3')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  swapPanels('forgot-pass-container3', 'forgot-pass-container4');
+});
+
+// forgot-pass4 → sign-in
+$('#forgot-pass-container4 .sign-in-btn')?.addEventListener('click', () => {
+  swapPanels('forgot-pass-container4', 'sign-in-container1', 1000, { fadeBtn: $('.sign-in-btn') } );
 });
