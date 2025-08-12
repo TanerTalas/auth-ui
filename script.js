@@ -669,30 +669,65 @@ wireForm({
   validators: [otpOK('#sign-up-phone-verification-code')]
 });
 
-// Elemanları seç
-const signUpTextBtn   = document.querySelector('.sign-up-text');
-const signInWrapper   = document.querySelector('#sign-in-container1').closest('.wrapper');
-const signUpWrapper   = document.querySelector('#sign-up-container1').closest('.wrapper');
-const signInContainer = document.querySelector('#sign-in-container1');
-const signUpContainer = document.querySelector('#sign-up-container1');
+// yardımcılar
+const $ = (s) => document.querySelector(s);
+const delay = (ms) => new Promise(r => setTimeout(r, ms));
 
-const delay = ms => new Promise(r => setTimeout(r, ms));
+async function swapPanels(fromId, toId, step = 1000, { fadeBtn = null } = {}) {
+  const from = document.getElementById(fromId);
+  const to   = document.getElementById(toId);
+  const fromWrap = from.closest('.wrapper');
+  const toWrap   = to.closest('.wrapper');
 
-signUpTextBtn.addEventListener('click', async () => {
-  // 1) signuptext fade out
-  signUpTextBtn.classList.add('fading-out');
+  if (fadeBtn) fadeBtn.classList.add('fading-out');
 
-  // 2) sign-in container'ı merkeze al
-  signInContainer.classList.add('center-mode');
+  // 1) from container'ı merkeze al
+  from.classList.add('center-mode');
 
-  // 3) 1 sn sonra sign-in gizle, sign-up göster
-  await delay(1000);
-  signInWrapper.classList.add('is-hidden');
-  signUpWrapper.classList.remove('is-hidden');
+  // 2) 1 sn sonra from'u gizle, to'yu göster
+  await delay(step);
+  fromWrap.classList.add('is-hidden');
+  toWrap.classList.remove('is-hidden');
 
-  // 4) 1 sn sonra her iki container'dan da center-mode'u kaldır
-  await delay(1000);
-  signUpContainer.classList.remove('center-mode');
-  signUpTextBtn.classList.remove('fading-out'); // istersen temizle
+  // 3) 1 sn sonra to'dan center-mode'u kaldır
+  await delay(step);
+  to.classList.remove('center-mode');
+
+  if (fadeBtn) fadeBtn.classList.remove('fading-out');
+}
+
+// KULLANIMLAR
+
+// sign-in → sign-up1
+$('.sign-up-text')?.addEventListener('click', () => {
+  swapPanels('sign-in-container1', 'sign-up-container1', 1000, { fadeBtn: $('.sign-up-text') });
 });
 
+// sign-up1 → sign-up2
+$('.sign-up-form1')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  swapPanels('sign-up-container1', 'sign-up-container2');
+});
+
+// sign-up2 → sign-up3
+$('.sign-up-form2')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  swapPanels('sign-up-container2', 'sign-up-container3');
+});
+
+// sign-up3 → sign-up4
+$('.sign-up-form3')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  swapPanels('sign-up-container3', 'sign-up-container4');
+});
+
+// sign-up4 → sign-up5
+$('.sign-up-form4')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  swapPanels('sign-up-container4', 'sign-up-container5');
+});
+
+// sign-up5 → sign-in
+$('#sign-up-container5 .sign-in-btn')?.addEventListener('click', () => {
+  swapPanels('sign-up-container5', 'sign-in-container1', 1000, { fadeBtn: $('#sign-up-container5 .sign-in-btn') });
+});

@@ -170,14 +170,9 @@ main {
 
 .container {
     position: relative;
-    display: grid;
-    /* görünür olduğunda grid olacak */
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
     width: 1000px;
-    grid-template-columns: 500px 500px;
-    place-content: center;
-    gap: 0;
     margin: 72px 0;
     transition: opacity .25s ease, transform .4s ease, box-shadow 1s ease;
 }
@@ -198,8 +193,8 @@ main {
     color: #FFFFFF;
     padding: 0 32px;
     z-index: 1;
-    transition: left 0.6s ease, transform 0.6s ease;
-
+    transition: left 0.6s ease, transform 0.6s ease, height 0.4s ease;
+    will-change: height;
 }
 
 .right {
@@ -208,7 +203,7 @@ main {
     padding: 54px 64px;
     z-index: 0;
     opacity: 1;
-    transition: right 0.6s ease, transform 0.6s ease, opacity 0.4s ease;
+    transition: left 0.6s ease, transform 0.6s ease, opacity 0.4s ease;
 
 }
 
@@ -216,16 +211,16 @@ main {
     box-shadow: none;
 }
 
-.container.center-mode .left {
+.container.center-mode:not(#sign-up-container3) .left {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -0%);
+    transform: translate(-50%, 0%);
 }
 
 .container.center-mode .right {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -0%);
+    transform: translate(-50%, 0%);
     pointer-events: none;
     user-select: none;
     cursor: default;
@@ -237,14 +232,21 @@ main {
     pointer-events: none;
     visibility: hidden;
     transition: opacity 1s ease, visibility 0s linear 1s;
+}
 
+.is-hidden .left {
+    will-change: auto;
 }
 
 /******************************************************** sign in containers - start ********************************************************/
 /* 1 */
 #sign-in-container1 {
     height: 450px;
-    /* görünür olduğunda grid olacak */
+}
+
+#sign-in-left1,
+#sign-in-right1 {
+    height: 450px;
 }
 
 #sign-in-left1 {
@@ -253,25 +255,12 @@ main {
     background-size: 100% 400%;
 }
 
-#sign-in-left1,
-#sign-in-right1 {
-    height: 450px;
-}
-
 /******************************************************** sign in containers - end ********************************************************/
 
 /******************************************************** sign up containers - start ********************************************************/
 /* 1 */
 #sign-up-container1 {
     height: 558px;
-    /* görünür olduğunda grid olacak */
-}
-
-#sign-up-left1 {
-    background: linear-gradient(to bottom, #BEBC53, #5E47B1);
-    animation: gradientFlowVertical 10s ease-in-out infinite;
-    background-size: 100% 400%;
-
 }
 
 #sign-up-left1,
@@ -279,10 +268,28 @@ main {
     height: 558px;
 }
 
+.center-mode #sign-up-left1 {
+    height: 450px;
+}
+
+#sign-up-left1 {
+    background: linear-gradient(to bottom, #BEBC53, #5E47B1);
+    animation: gradientFlowVertical 10s ease-in-out infinite;
+    background-size: 100% 400%;
+}
+
 /* 2 */
 #sign-up-container2 {
     height: 402px;
-    /* görünür olduğunda grid olacak */
+}
+
+#sign-up-left2,
+#sign-up-right2 {
+    height: 402px;
+}
+
+.center-mode #sign-up-left2 {
+    height: 450px;
 }
 
 #sign-up-left2 {
@@ -291,15 +298,9 @@ main {
     background-size: 100% 400%;
 }
 
-#sign-up-left2,
-#sign-up-right2 {
-    height: 402px;
-}
-
 /* 3 */
 #sign-up-container3 {
     height: 1300px;
-    /* görünür olduğunda grid olacak */
 }
 
 #sign-up-right3,
@@ -307,11 +308,19 @@ main {
     height: 1300px;
 }
 
+.center-mode #sign-up-left3 {
+    width: 500px;
+    height: 450px;
+}
+
 #sign-up-left3 {
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
     background: linear-gradient(to bottom, #EFED5A, #593CC3);
     animation: gradientFlowVertical 10s ease-in-out infinite;
     background-size: 100% 400%;
+    transition: width 0.4s ease, height 0.4s ease;
 }
 
 #sign-up-right3 {
@@ -323,12 +332,15 @@ main {
 /* 4 */
 #sign-up-container4 {
     height: 358px;
-    /* görünür olduğunda grid olacak */
 }
 
 #sign-up-right4,
 #sign-up-left4 {
     height: 358px;
+}
+
+.center-mode #sign-up-left4 {
+    height: 450px;
 }
 
 #sign-up-left4 {
@@ -340,7 +352,10 @@ main {
 /* 5 */
 #sign-up-container5 {
     height: 517px;
-    /* görünür olduğunda grid olacak */
+}
+
+.center-mode #sign-up-left5 {
+    height: 450px;
 }
 
 #sign-up-right5,
@@ -360,7 +375,6 @@ main {
 /* 1 */
 #forgot-pass-container1 {
     height: 358px;
-    /* görünür olduğunda grid olacak */
 }
 
 #forgot-pass-left1,
@@ -377,7 +391,6 @@ main {
 /* 2 */
 #forgot-pass-container2 {
     height: 358px;
-    /* görünür olduğunda grid olacak */
 }
 
 #forgot-pass-left2,
@@ -1109,12 +1122,6 @@ input:focus~.show-pass img {
     display: flex;
     justify-content: center;
     gap: 64px;
-}
-
-
-.proceed-btn {
-    background: #00FF5E;
-    color: #fff;
 }
 
 /* Error - end */
