@@ -691,12 +691,13 @@ input:focus~.show-pass img {
     cursor: pointer;
     padding: 0;
     text-align: center;
-    transition: opacity .25s;
+    transition: opacity 0.4s ease;
 }
 
-.fading-out {
-    opacity: 0;
-    pointer-events: none;
+.container.center-mode .sign-up-text {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
 
 .sign-up-text span {
@@ -1055,6 +1056,18 @@ input:focus~.show-pass img {
 }
 
 /* sign up - end */
+
+.info-banner {
+  background: #fff3cd;
+  color: #856404;
+  font-size: 14px;
+  padding: 8px 12px;
+  border: 1px solid #ffeeba;
+  border-radius: 6px;
+  margin: 16px auto;
+  max-width: 600px;
+  text-align: center;
+}
 
 /* footer - start */
 .mini-footer {

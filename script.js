@@ -557,11 +557,6 @@ const emailOK = (form) => {
   return v !== '' && re.test(v);
 };
 
-const nonEmpty = (sel) => (form) => {
-  const el = form.querySelector(sel);
-  return el && el.value.trim() !== '';
-};
-
 const otpOK = (sel) => (form) => {
   const el = form.querySelector(sel);
   if (!el) return true;
@@ -669,6 +664,47 @@ wireForm({
   validators: [otpOK('#sign-up-phone-verification-code')]
 });
 
+// ==== Overlay refs ====
+const overlay = document.getElementById("confirmOverlay");
+const overlayPanel = overlay?.querySelector(".overlay-panel");
+const proceedBtn = overlay?.querySelector(".proceed-btn");
+const backBtn = overlay?.querySelector(".back-btn");
+
+function openConfirmOverlay() {
+  overlay?.classList.remove("hidden");
+  overlay?.removeAttribute("aria-hidden");
+
+  requestAnimationFrame(() => {
+    overlay?.classList.add("open");
+    document.body.classList.add("no-scroll");
+    overlayPanel?.setAttribute("tabindex", "-1");
+    overlayPanel?.focus();
+  });
+}
+
+function closeConfirmOverlay() {
+  overlay?.classList.remove("open");
+  overlay?.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("no-scroll");
+
+  const onEnd = (e) => {
+    if (e.target !== overlay || e.propertyName !== "opacity") return;
+    overlay?.removeEventListener("transitionend", onEnd);
+    overlay?.classList.add("hidden");
+  };
+  overlay?.addEventListener("transitionend", onEnd);
+}
+
+overlay?.addEventListener("click", (e) => {
+  if (e.target === overlay) closeConfirmOverlay();
+});
+
+overlay?.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeConfirmOverlay();
+});
+
+backBtn?.addEventListener("click", closeConfirmOverlay);
+
 // yardımcılar
 const $ = (s) => document.querySelector(s);
 const delay = (ms) => new Promise(r => setTimeout(r, ms));
@@ -696,128 +732,169 @@ async function swapPanels(fromId, toId, step = 1000, { fadeBtn = null } = {}) {
   if (fadeBtn) fadeBtn.classList.remove('fading-out');
 }
 
+function canProceed(formSel, validators = []) {
+  const form = document.querySelector(formSel);
+  if (!form) return false;
+
+  const html5OK = form.checkValidity();
+
+  const customOK = validators.every(v => v(form));
+
+  if (!html5OK || !customOK) {
+    form.reportValidity?.();
+    return false;
+  }
+  return true;
+}
+
+function bumpInvalid(formSel, btnSel) {
+  const form = document.querySelector(formSel);
+  const btn  = form?.querySelector(btnSel);
+  if (btn) {
+    BTN_STATES.forEach(c => btn.classList.remove(c));
+    btn.classList.add('btn-invalid');
+  }
+}
+
+function setBtnState(btn, state) {
+  if (!btn) return;
+  BTN_STATES.forEach(c => btn.classList.remove(c));
+  btn.classList.add(`btn-${state}`);
+  btn.disabled = state !== 'valid';
+}
+
+const step3RequiredOK = (form) => {
+  const req = [
+    '#sign-up-firstname','#sign-up-lastname',
+    '#sign-up-day','#sign-up-month','#sign-up-year',
+    '#sign-up-phone'
+  ];
+  return req.every(sel => {
+    const el = form.querySelector(sel);
+    return el && el.checkValidity();
+  });
+};
 // KULLANIMLAR
 
 // sign-in → sign-up1
-$('.sign-up-text')?.addEventListener('click', () => {
-  swapPanels('sign-in-container1', 'sign-up-container1', 1000, { fadeBtn: $('.sign-up-text') });
+document.querySelector('.sign-up-text')?.addEventListener('click', (e) => {
+  e.preventDefault();
+  swapPanels('sign-in-container1', 'sign-up-container1', 1000, { fadeBtn: e.currentTarget });
+});
+
+// step1 → sign-in (Back)
+const step1BackBtn = document.querySelector('#sign-up-container1 .back-btn');
+step1BackBtn?.addEventListener('click', async (e) => {
+  e.preventDefault();
+  await swapPanels('sign-up-container1', 'sign-in-container1');
 });
 
 // sign-up1 → sign-up2
-$('.sign-up-form1')?.addEventListener('submit', (e) => {
+document.querySelector('.sign-up-form1')?.addEventListener('submit', (e) => {
   e.preventDefault();
+  const ok = canProceed('.sign-up-form1', [
+    emailOK,
+    passwordStrong('#sign-up-password'),
+    passwordsMatch('#sign-up-password', '#sign-up-confirm-password')
+  ]);
+  if (!ok) { bumpInvalid('.sign-up-form1', '.next-btn'); return; }
   swapPanels('sign-up-container1', 'sign-up-container2');
 });
 
-// sign-up1 back → sign in
-$('#sign-up-container1 .back-btn')?.addEventListener('click', (e) => {
-  e.preventDefault();
-  swapPanels('sign-up-container1', 'sign-in-container1');
-});
-
 // sign-up2 → sign-up3
-$('.sign-up-form2')?.addEventListener('submit', (e) => {
+document.querySelector('.sign-up-form2')?.addEventListener('submit', (e) => {
   e.preventDefault();
+  const ok = canProceed('.sign-up-form2', [
+    otpOK('#sign-up-verification-code')
+  ]);
+  if (!ok) { bumpInvalid('.sign-up-form2', '.verify-btn'); return; }
   swapPanels('sign-up-container2', 'sign-up-container3');
 });
 
-// sign-up4 → sign-up5
-$('.sign-up-form4')?.addEventListener('submit', (e) => {
+// sign-up3 → overlay
+document.querySelector('.sign-up-form3')?.addEventListener('submit', (e) => {
   e.preventDefault();
+  const ok = canProceed('.sign-up-form3', [step3RequiredOK]);
+  if (!ok) { bumpInvalid('.sign-up-form3', '.next-btn'); return; }
+  openConfirmOverlay();
+});
+
+// overlay Proceed → sign-up4
+proceedBtn?.addEventListener('click', async () => {
+  closeConfirmOverlay();
+  await delay(200);
+  swapPanels('sign-up-container3', 'sign-up-container4');
+});
+
+// sign-up4 → sign-up5
+document.querySelector('.sign-up-form4')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const ok = canProceed('.sign-up-form4', [
+    otpOK('#sign-up-phone-verification-code')
+  ]);
+  if (!ok) { bumpInvalid('.sign-up-form4', '.verify-btn'); return; }
   swapPanels('sign-up-container4', 'sign-up-container5');
 });
 
-// sign-up5 → sign-in
-$('#sign-up-container5 .sign-in-btn')?.addEventListener('click', () => {
-  swapPanels('sign-up-container5', 'sign-in-container1', 1000, { fadeBtn: $('.sign-in-btn') });
+// step5 → sign-in
+document.querySelector('#sign-up-container5 .sign-in-btn')?.addEventListener('click', async () => {
+  await swapPanels('sign-up-container5', 'sign-in-container1');
+});
+
+
+// sign-in submit
+document.querySelector('.sign-in-form1')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const ok = canProceed('.sign-in-form1', [
+    emailOK,
+    fieldValidity('#sign-in-password')
+  ]);
+  if (!ok) { bumpInvalid('.sign-in-form1', '.log-in-btn'); return; }
 });
 
 // sign-in → forgot-pass1
-$('#sign-in-container1 .forgot-pass-text')?.addEventListener('click', () => {
-  swapPanels('sign-in-container1', 'forgot-pass-container1', 1000, { fadeBtn: $('.sign-up-text') });
+document.querySelector('.forgot-pass-text')?.addEventListener('click', (e) => {
+  e.preventDefault();
+  swapPanels('sign-in-container1', 'forgot-pass-container1', 1000, { fadeBtn: e.currentTarget });
 });
 
-// forgot-pass1 → forgot-pass2
-$('.forgot-pass-form1')?.addEventListener('submit', (e) => {
+// forgot-pass1 → sign-in
+document.querySelector('#forgot-pass-container1 .back-btn')?.addEventListener('click', (e) => {
   e.preventDefault();
+  swapPanels('forgot-pass-container1', 'sign-in-container1', 1000, { fadeBtn: e.currentTarget });
+});
+
+// forgot-pass1 → 2
+document.querySelector('.forgot-pass-form1')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const ok = canProceed('.forgot-pass-form1', [emailOK]);
+  if (!ok) { bumpInvalid('.forgot-pass-form1', '.next-btn'); return; }
   swapPanels('forgot-pass-container1', 'forgot-pass-container2');
 });
 
-// forgot-pass1 back → sign in
-$('#forgot-pass-container1 .back-btn')?.addEventListener('click', (e) => {
+// forgot-pass2 → 3
+document.querySelector('.forgot-pass-form2')?.addEventListener('submit', (e) => {
   e.preventDefault();
-  swapPanels('forgot-pass-container1', 'sign-in-container1');
-});
-
-// forgot-pass2 → forgot-pass3
-$('.forgot-pass-form2')?.addEventListener('submit', (e) => {
-  e.preventDefault();
+  const ok = canProceed('.forgot-pass-form2', [
+    otpOK('#forgot-pass-verification-code')
+  ]);
+  if (!ok) { bumpInvalid('.forgot-pass-form2', '.verify-btn'); return; }
   swapPanels('forgot-pass-container2', 'forgot-pass-container3');
 });
 
-// forgot-pass3 → forgot-pass4
-$('.forgot-pass-form3')?.addEventListener('submit', (e) => {
+// forgot-pass3 → 4
+document.querySelector('.forgot-pass-form3')?.addEventListener('submit', (e) => {
   e.preventDefault();
+  const ok = canProceed('.forgot-pass-form3', [
+    passwordStrong('#forgot-pass-password'),
+    passwordsMatch('#forgot-pass-password', '#forgot-pass-confirm-password')
+  ]);
+  if (!ok) { bumpInvalid('.forgot-pass-form3', '.done-btn'); return; }
   swapPanels('forgot-pass-container3', 'forgot-pass-container4');
 });
 
 // forgot-pass4 → sign-in
-$('#forgot-pass-container4 .sign-in-btn')?.addEventListener('click', () => {
-  swapPanels('forgot-pass-container4', 'sign-in-container1', 1000, { fadeBtn: $('.sign-in-btn') } );
-});
-
-// ==== Overlay refs ====
-const overlay      = $('#confirmOverlay');
-const overlayPanel = overlay?.querySelector('.overlay-panel');
-const proceedBtn   = overlay?.querySelector('.proceed-btn');
-const backBtn      = overlay?.querySelector('.back-btn');
-
-// Aç
-function openConfirmOverlay() {
-  // display:none'ı kaldır
-  overlay?.classList.remove('hidden');
-  overlay?.removeAttribute('aria-hidden');
-
-  // bir frame sonra .open ekle ki fade-in çalışsın
-  requestAnimationFrame(() => {
-    overlay?.classList.add('open');
-    document.body.classList.add('no-scroll');
-    overlayPanel?.setAttribute('tabindex', '-1');
-    overlayPanel?.focus();
-  });
-}
-
-// Kapat
-function closeConfirmOverlay() {
-  overlay?.classList.remove('open');
-  overlay?.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('no-scroll');
-
-  // fade-out bitince tekrar display:none yap
-  const onEnd = (e) => {
-    if (e.target !== overlay || e.propertyName !== 'opacity') return;
-    overlay?.removeEventListener('transitionend', onEnd);
-    overlay?.classList.add('hidden');
-  };
-  overlay?.addEventListener('transitionend', onEnd);
-}
-
-// dışarı tıkla / ESC
-overlay?.addEventListener('click', (e) => { if (e.target === overlay) closeConfirmOverlay(); });
-overlay?.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeConfirmOverlay(); });
-
-// Step 3 submit → overlay
-$('.sign-up-form3')?.addEventListener('submit', (e) => {
+document.querySelector('#forgot-pass-container4 .sign-in-btn')?.addEventListener('click', (e) => {
   e.preventDefault();
-  openConfirmOverlay();
+  swapPanels('forgot-pass-container4', 'sign-in-container1', 1000, { fadeBtn: e.currentTarget });
 });
-
-// Proceed → kapat + step4
-proceedBtn?.addEventListener('click', async () => {
-  closeConfirmOverlay();
-  await delay(200); // CSS'te 180ms; güvenli pay
-  swapPanels('sign-up-container3', 'sign-up-container4');
-});
-
-// Back → sadece kapat
-backBtn?.addEventListener('click', closeConfirmOverlay);
