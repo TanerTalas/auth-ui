@@ -709,16 +709,16 @@ $('.sign-up-form1')?.addEventListener('submit', (e) => {
   swapPanels('sign-up-container1', 'sign-up-container2');
 });
 
+// sign-up1 back → sign in
+$('#sign-up-container1 .back-btn')?.addEventListener('click', (e) => {
+  e.preventDefault();
+  swapPanels('sign-up-container1', 'sign-in-container1');
+});
+
 // sign-up2 → sign-up3
 $('.sign-up-form2')?.addEventListener('submit', (e) => {
   e.preventDefault();
   swapPanels('sign-up-container2', 'sign-up-container3');
-});
-
-// sign-up3 → sign-up4
-$('.sign-up-form3')?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  swapPanels('sign-up-container3', 'sign-up-container4');
 });
 
 // sign-up4 → sign-up5
@@ -743,6 +743,12 @@ $('.forgot-pass-form1')?.addEventListener('submit', (e) => {
   swapPanels('forgot-pass-container1', 'forgot-pass-container2');
 });
 
+// forgot-pass1 back → sign in
+$('#forgot-pass-container1 .back-btn')?.addEventListener('click', (e) => {
+  e.preventDefault();
+  swapPanels('forgot-pass-container1', 'sign-in-container1');
+});
+
 // forgot-pass2 → forgot-pass3
 $('.forgot-pass-form2')?.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -759,3 +765,59 @@ $('.forgot-pass-form3')?.addEventListener('submit', (e) => {
 $('#forgot-pass-container4 .sign-in-btn')?.addEventListener('click', () => {
   swapPanels('forgot-pass-container4', 'sign-in-container1', 1000, { fadeBtn: $('.sign-in-btn') } );
 });
+
+// ==== Overlay refs ====
+const overlay      = $('#confirmOverlay');
+const overlayPanel = overlay?.querySelector('.overlay-panel');
+const proceedBtn   = overlay?.querySelector('.proceed-btn');
+const backBtn      = overlay?.querySelector('.back-btn');
+
+// Aç
+function openConfirmOverlay() {
+  // display:none'ı kaldır
+  overlay?.classList.remove('hidden');
+  overlay?.removeAttribute('aria-hidden');
+
+  // bir frame sonra .open ekle ki fade-in çalışsın
+  requestAnimationFrame(() => {
+    overlay?.classList.add('open');
+    document.body.classList.add('no-scroll');
+    overlayPanel?.setAttribute('tabindex', '-1');
+    overlayPanel?.focus();
+  });
+}
+
+// Kapat
+function closeConfirmOverlay() {
+  overlay?.classList.remove('open');
+  overlay?.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+
+  // fade-out bitince tekrar display:none yap
+  const onEnd = (e) => {
+    if (e.target !== overlay || e.propertyName !== 'opacity') return;
+    overlay?.removeEventListener('transitionend', onEnd);
+    overlay?.classList.add('hidden');
+  };
+  overlay?.addEventListener('transitionend', onEnd);
+}
+
+// dışarı tıkla / ESC
+overlay?.addEventListener('click', (e) => { if (e.target === overlay) closeConfirmOverlay(); });
+overlay?.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeConfirmOverlay(); });
+
+// Step 3 submit → overlay
+$('.sign-up-form3')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  openConfirmOverlay();
+});
+
+// Proceed → kapat + step4
+proceedBtn?.addEventListener('click', async () => {
+  closeConfirmOverlay();
+  await delay(200); // CSS'te 180ms; güvenli pay
+  swapPanels('sign-up-container3', 'sign-up-container4');
+});
+
+// Back → sadece kapat
+backBtn?.addEventListener('click', closeConfirmOverlay);

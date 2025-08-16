@@ -179,7 +179,7 @@
                     <p>Your password has been reset successfully. You can now sign in to your
                         account.</p>
                     <!-- Sign in button -->
-                    <button type="submit" class="btn sign-in-btn">Sign In</button>
+                    <button type="button" class="btn sign-in-btn">Sign In</button>
                 </div>
             </section>
         </div>
@@ -315,7 +315,7 @@
                         <!-- Phone input -->
                         <div class="input-group">
                             <input type="tel" inputmode="numeric" id="sign-up-phone" name="sign-up-phone"
-                                placeholder="512 345 67 89" required autocomplete="off" maxlength="17"
+                                placeholder="+90 5xx xxx xx xx" required autocomplete="off" maxlength="17"
                                 pattern="\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}" />
                             <label for="sign-up-phone">Phone</label>
                         </div>
@@ -428,12 +428,18 @@
                     <p>You can now sign in and start
                         using your account.</p>
                     <!-- Sign in button -->
-                    <button type="submit" class="btn sign-in-btn">Sign
+                    <button type="button" class="btn sign-in-btn">Sign
                         In</button>
                 </div>
             </section>
         </div>
         <!-- sign up - end -->
+
+        <!-- footer - start -->
+        <footer class="mini-footer">
+            <p>Designed &amp; coded by Taner</p>
+        </footer>
+        <!-- footer - end -->
 
     </main>
 
@@ -443,8 +449,7 @@
     <div id="confirmOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-hidden="true"
         aria-labelledby="confirmTitle">
         <div class="overlay-panel ov--confirm" tabindex="-1">
-            <button class="overlay-close" aria-label="Kapat">×</button>
-            <h4 id="confirmTitle" class="overlay-title">Girdiğiniz bilgileri onaylıyor musunuz?</h4>
+            <p id="confirmTitle" class="overlay-title">Girdiğiniz bilgileri onaylıyor musunuz?</p>
             <div class="overlay-actions">
                 <button type="button" class="btn back-btn">Back</button>
                 <button type="button" class="btn proceed-btn">Proceed</button>

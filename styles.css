@@ -26,6 +26,29 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
+        --c1: #efed5a;
+    --c2: #593cc3;
+    --c3: #00ff5e;
+    --c4: #4714ff;
+    position: relative;
+    min-height: 100svh;
+    isolation: isolate;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    z-index: -1;
+    background: conic-gradient(from 180deg at 50% 50%,
+            var(--c1), var(--c2), var(--c3), var(--c4), var(--c1));
+    filter: blur(30px) saturate(120%);
+    animation: spin 60s linear infinite;
+    opacity: .5;
+    border-radius: 16px;
 }
 
 body.no-scroll {
@@ -303,6 +326,7 @@ main {
 
 .center-mode #sign-up-left3 {
     width: 500px;
+    height: 450px;
 }
 
 #sign-up-left3 {
@@ -421,6 +445,7 @@ main {
 
 /***** buttons - start *****/
 .btn {
+    background-color: #B3B3B3;
     height: auto;
     padding: 10px 16px;
     color: white;
@@ -431,13 +456,7 @@ main {
     line-height: 28px;
     font-weight: bold;
     cursor: pointer;
-}
-
-.log-in-btn,
-.next-btn,
-.verify-btn,
-.done-btn {
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, filter 0.3s ease;
 }
 
 .proceed-btn {
@@ -446,7 +465,6 @@ main {
 
 .verify-btn {
     width: 200px;
-    background-color: #B3B3B3;
     margin-top: 32px
 }
 
@@ -461,11 +479,9 @@ main {
 .done-btn {
     width: 200px;
     margin-top: 40px;
-    background-color: #B3B3B3;
 }
 
 .log-in-btn {
-    background-color: #B3B3B3;
     margin: 16px auto 0;
     width: 200px;
 }
@@ -476,7 +492,6 @@ main {
 }
 
 .next-btn {
-    background-color: #B3B3B3;
     width: 199px;
 }
 
@@ -494,6 +509,10 @@ main {
 
 .btn-valid {
     background: #00FF5E;
+}
+
+.btn:hover {
+    filter: brightness(1.05);
 }
 
 /***** buttons - end *****/
@@ -1037,6 +1056,19 @@ input:focus~.show-pass img {
 
 /* sign up - end */
 
+/* footer - start */
+.mini-footer {
+    position: fixed;
+    right: 16px;
+    bottom: 12px;
+    font-size: 14px;
+    color: #888;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+/* footer - end */
+
 /* overlay - start */
 
 .overlay {
@@ -1062,7 +1094,7 @@ input:focus~.show-pass img {
 }
 
 .overlay-panel {
-    width: min(720px, 94vw);
+    width: min(520px, 94vw);
     margin-top: 24px;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
@@ -1086,21 +1118,6 @@ input:focus~.show-pass img {
 .overlay-title {
     font-size: 18px;
     margin: 0 0 32px;
-    font-weight: 500;
-}
-
-.overlay-close {
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    background: transparent;
-    border: 0;
-    font-size: 22px;
-    line-height: 1;
-    cursor: pointer;
-    color: currentColor;
-    z-index: 1010;
-    padding: 8px;
 }
 
 .overlay-actions {
@@ -1109,7 +1126,7 @@ input:focus~.show-pass img {
     gap: 64px;
 }
 
-/* Error - end */
+/* overlay - end */
 
 @keyframes draw-circle {
     to {
@@ -1162,5 +1179,11 @@ input:focus~.show-pass img {
 
     100% {
         filter: brightness(0) saturate(100%) invert(64%) sepia(78%) saturate(1040%) hue-rotate(1deg) brightness(103%) contrast(103%);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
     }
 }
