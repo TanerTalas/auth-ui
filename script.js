@@ -1,3 +1,19 @@
+// Mode switch
+const modeSwitch = document.getElementById("modeSwitch");
+
+modeSwitch?.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  const darkMode = document.body.classList.contains("dark");
+  localStorage.setItem("theme", darkMode ? "dark" : "light");
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const saved = localStorage.getItem("theme");
+  if (saved === "dark") {
+    document.body.classList.add("dark");
+  }
+});
+
 // 🔐 Şifre göster/gizle butonu (göz ikonu)
 const togglePassButtons = document.querySelectorAll('.show-pass');
 
@@ -708,28 +724,37 @@ backBtn?.addEventListener("click", closeConfirmOverlay);
 // yardımcılar
 const $ = (s) => document.querySelector(s);
 const delay = (ms) => new Promise(r => setTimeout(r, ms));
+let isTransitioning = false;
 
 async function swapPanels(fromId, toId, step = 1000, { fadeBtn = null } = {}) {
+  if (isTransitioning) return;  // 👉 zaten geçiş oluyorsa yeni tıklamayı engelle
+  isTransitioning = true;
   const from = document.getElementById(fromId);
-  const to   = document.getElementById(toId);
+  const to = document.getElementById(toId);
   const fromWrap = from.closest('.wrapper');
-  const toWrap   = to.closest('.wrapper');
+  const toWrap = to.closest('.wrapper');
 
   if (fadeBtn) fadeBtn.classList.add('fading-out');
 
-  // 1) from container'ı merkeze al
   from.classList.add('center-mode');
 
-  // 2) 1 sn sonra from'u gizle, to'yu göster
   await delay(step);
   fromWrap.classList.add('is-hidden');
   toWrap.classList.remove('is-hidden');
 
-  // 3) 1 sn sonra to'dan center-mode'u kaldır
   await delay(step);
   to.classList.remove('center-mode');
 
   if (fadeBtn) fadeBtn.classList.remove('fading-out');
+
+  if (toId.startsWith("sign-in")) {
+    activateNav(signInBtn);
+  } else if (toId.startsWith("sign-up")) {
+    activateNav(signUpBtn);
+  } else if (toId.startsWith("forgot-pass")) {
+    activateNav(null); 
+  }
+  isTransitioning = false;
 }
 
 function canProceed(formSel, validators = []) {
@@ -749,7 +774,7 @@ function canProceed(formSel, validators = []) {
 
 function bumpInvalid(formSel, btnSel) {
   const form = document.querySelector(formSel);
-  const btn  = form?.querySelector(btnSel);
+  const btn = form?.querySelector(btnSel);
   if (btn) {
     BTN_STATES.forEach(c => btn.classList.remove(c));
     btn.classList.add('btn-invalid');
@@ -765,8 +790,8 @@ function setBtnState(btn, state) {
 
 const step3RequiredOK = (form) => {
   const req = [
-    '#sign-up-firstname','#sign-up-lastname',
-    '#sign-up-day','#sign-up-month','#sign-up-year',
+    '#sign-up-firstname', '#sign-up-lastname',
+    '#sign-up-day', '#sign-up-month', '#sign-up-year',
     '#sign-up-phone'
   ];
   return req.every(sel => {
@@ -774,6 +799,11 @@ const step3RequiredOK = (form) => {
     return el && el.checkValidity();
   });
 };
+
+function getCurrentPanelId() {
+  const visible = document.querySelector(".wrapper:not(.is-hidden) .container");
+  return visible ? visible.id : null;
+}
 // KULLANIMLAR
 
 // sign-in → sign-up1
@@ -898,3 +928,33 @@ document.querySelector('#forgot-pass-container4 .sign-in-btn')?.addEventListener
   e.preventDefault();
   swapPanels('forgot-pass-container4', 'sign-in-container1', 1000, { fadeBtn: e.currentTarget });
 });
+
+const signInBtn = document.getElementById("openSignIn");
+const signUpBtn = document.getElementById("openSignUp");
+
+function activateNav(activeBtn) {
+  [signInBtn, signUpBtn].forEach(btn => btn?.classList.remove("active"));
+  if (activeBtn) activeBtn.classList.add("active");
+}
+
+
+// Sign In butonu
+signInBtn?.addEventListener("click", () => {
+  const current = getCurrentPanelId();
+  if (current && current !== "sign-in-container1") {
+    swapPanels(current, "sign-in-container1");
+  }
+  activateNav(signInBtn);
+});
+
+// Sign Up butonu
+signUpBtn?.addEventListener("click", () => {
+  const current = getCurrentPanelId();
+  if (current && current !== "sign-up-container1") {
+    swapPanels(current, "sign-up-container1");
+  }
+  activateNav(signUpBtn);
+});
+
+// Sayfa yüklenince default Sign In aktif olsun
+activateNav(signInBtn);

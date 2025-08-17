@@ -13,35 +13,52 @@ html {
 }
 
 :root {
-    --background-nav: #E7E3FF;
-    --gray-color: #8E8E8E;
-    --dark-color: #000000;
-    --input-radius: 8px;
-    --transition-fast: 0.2s ease;
-}
-
-.dark {
-    --background-nav: #06002D;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-        --c1: #efed5a;
+    --background-color: #fff;
+    --c1: #efed5a;
     --c2: #593cc3;
     --c3: #00ff5e;
     --c4: #4714ff;
+    --background-nav-color: #E7E3FF;
+    --nav-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+    --nav-link-color: #000;
+    --nav-active-link-background-color: #06002D;
+    --nav-active-link-color: #FFF;
+    --gray-color: #8E8E8E;
+    --dark-color: #000000;
+    --input-radius: 8px;
+    --icon-filter: invert(0);
+}
+
+.dark {
+    --background-color: #000;
+    --c1: #ff9f1c;
+    --c2: #2ec4b6;
+    --c3: #e71d36;
+    --c4: #ffbf69;
+    --background-nav-color: #06002D;
+    --nav-shadow: 0 2px 3px rgba(255, 255, 255, 0.124);
+    --nav-link-color: #FFF;
+    --nav-active-link-background-color: #E7E3FF;
+    --nav-active-link-color: #000;
+    --icon-filter: brightness(0) invert(1);
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: 'Roboto', sans-serif;
     position: relative;
     min-height: 100svh;
     isolation: isolate;
+    transition: background-color 0.4s ease;
 }
 
 body::before {
     content: "";
     position: fixed;
-    top: 10%;
+    top: calc(10% + 64px / 2);
     left: 10%;
     right: 10%;
-    bottom: 10%;
+    bottom: calc(10% - 64px / 2);
     z-index: -1;
     background: conic-gradient(from 180deg at 50% 50%,
             var(--c1), var(--c2), var(--c3), var(--c4), var(--c1));
@@ -49,6 +66,7 @@ body::before {
     animation: spin 60s linear infinite;
     opacity: .5;
     border-radius: 16px;
+    transition: background 0.4s ease;
 }
 
 body.no-scroll {
@@ -66,7 +84,8 @@ body.no-scroll {
 p,
 ::placeholder,
 input,
-label {
+label,
+.navbar .nav-link {
     font-size: 1rem;
     line-height: 1.5;
     letter-spacing: 0.15px;
@@ -111,10 +130,11 @@ h3+p {
     justify-content: space-between;
     align-items: center;
     padding: 0 48px;
-    background-color: var(--background-nav);
+    background-color: var(--background-nav-color);
     z-index: 1000;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--nav-shadow);
     height: 64px;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .nav-left,
@@ -124,6 +144,11 @@ h3+p {
     gap: 8px;
 }
 
+#navbarLogo {
+    filter: var(--icon-filter);
+    transition: filter 0.4s ease;
+}
+
 #navbarLogo,
 #themeIcon {
     width: 48px;
@@ -131,15 +156,22 @@ h3+p {
     margin: 0 16px;
 }
 
-.navbar a {
+.navbar a,
+.navbar .nav-link {
     position: relative;
     text-decoration: none;
-    color: #000;
-    padding: 20px 16px;
-    transition: color var(--transition-fast), transform var(--transition-fast);
+    color: var(--nav-link-color);
+    padding: 24px 16px;
+    transition: color 0.4s ease, background-color 0.4s ease, transform 0.4s ease;
+    font: inherit;
+    line-height: 1;
+    cursor: pointer;
+    background: none;
+    border: none;
 }
 
-.navbar a::before {
+.navbar a::before,
+.navbar .nav-link::before {
     content: "";
     position: absolute;
     top: 0;
@@ -148,16 +180,24 @@ h3+p {
     height: 0%;
     background-color: rgba(142, 132, 255, 0.1);
     z-index: -1;
-    transition: height var(--transition-fast);
+    transition: height 0.4s ease;
 }
 
-.navbar a:hover::before {
+.navbar a:hover::before,
+.navbar .nav-link:hover::before {
     height: 100%;
 }
 
-.navbar a:hover {
-    color: var(--dark-color);
+.navbar a:hover,
+.navbar .nav-link:hover {
     transform: scale(1.05);
+}
+
+.nav-link.active {
+    background-color: var(--nav-active-link-background-color);
+    color: var(--nav-active-link-color);
+    cursor: default;
+    pointer-events: none;
 }
 
 #modeSwitch {
@@ -166,7 +206,41 @@ h3+p {
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;
+    perspective: 600px;
+    /* 3D görünüm için */
 }
+
+.icon-wrapper {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+.icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 48px;
+    backface-visibility: hidden;
+}
+
+.sun {
+    transform: rotateX(0deg);
+}
+
+.moon {
+    transform: rotateX(180deg);
+}
+
+/* dark mode aktif olunca wrapper döner */
+body.dark .icon-wrapper {
+    transform: rotateX(180deg);
+}
+
 
 /* nav - end */
 
@@ -222,7 +296,7 @@ main {
 
 .right {
     left: 50%;
-    background-color: #FFFFFF;
+    background-color: #FFF;
     padding: 54px 64px;
     z-index: 0;
     opacity: 1;
@@ -531,7 +605,7 @@ main {
     border-radius: var(--input-radius);
     outline: none;
     font-family: inherit;
-    transition: border-color var(--transition-fast);
+    transition: border-color 0.4s ease;
 }
 
 .input-group textarea {
@@ -560,7 +634,7 @@ main {
     pointer-events: none;
     background: #fff;
     padding: 0 8px;
-    transition: var(--transition-fast);
+    transition: 0.2s ease;
 }
 
 .input-group textarea+label {
@@ -695,9 +769,9 @@ input:focus~.show-pass img {
 }
 
 .container.center-mode .sign-up-text {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
 }
 
 .sign-up-text span {
@@ -1058,15 +1132,15 @@ input:focus~.show-pass img {
 /* sign up - end */
 
 .info-banner {
-  background: #fff3cd;
-  color: #856404;
-  font-size: 14px;
-  padding: 8px 12px;
-  border: 1px solid #ffeeba;
-  border-radius: 6px;
-  margin: 16px auto;
-  max-width: 600px;
-  text-align: center;
+    background: #fff3cd;
+    color: #856404;
+    font-size: 14px;
+    padding: 8px 12px;
+    border: 1px solid #ffeeba;
+    border-radius: 6px;
+    margin: 16px auto;
+    max-width: 600px;
+    text-align: center;
 }
 
 /* footer - start */
