@@ -517,6 +517,7 @@ function setBtnState(btn, state) {
   if (!btn) return;
   BTN_STATES.forEach(c => btn.classList.remove(c));
   btn.classList.add(`btn-${state}`);
+  btn.disabled = state !== 'valid';
 }
 
 // Aggregate rule: input/blur eventine göre buton state
@@ -752,8 +753,11 @@ async function swapPanels(fromId, toId, step = 1000, { fadeBtn = null } = {}) {
   } else if (toId.startsWith("sign-up")) {
     activateNav(signUpBtn);
   } else if (toId.startsWith("forgot-pass")) {
-    activateNav(null); 
+    activateNav(null);
   }
+
+  updateProgressFromDOM();
+
   isTransitioning = false;
 }
 
@@ -779,13 +783,6 @@ function bumpInvalid(formSel, btnSel) {
     BTN_STATES.forEach(c => btn.classList.remove(c));
     btn.classList.add('btn-invalid');
   }
-}
-
-function setBtnState(btn, state) {
-  if (!btn) return;
-  BTN_STATES.forEach(c => btn.classList.remove(c));
-  btn.classList.add(`btn-${state}`);
-  btn.disabled = state !== 'valid';
 }
 
 const step3RequiredOK = (form) => {
@@ -958,3 +955,104 @@ signUpBtn?.addEventListener("click", () => {
 
 // Sayfa yüklenince default Sign In aktif olsun
 activateNav(signInBtn);
+
+
+// ---------- Progress Bar Controller ----------
+const flowProgressEl = document.getElementById('flowProgress');
+const lpDone = flowProgressEl?.querySelector('.lp-done');
+const lpCurrent = flowProgressEl?.querySelector('.lp-current');
+
+// Akışların toplam adım sayıları
+const FLOWS = {
+  forgot: 4,     // Forgot Password: step1..step4
+  signup: 5      // Sign Up: step1..step5
+};
+
+// stepIndex: 1..totalSteps (aktif adım)
+function setProgress(flow, stepIndex) {
+  if (!flowProgressEl || !lpDone || !lpCurrent) return;
+
+  const total = FLOWS[flow];
+  if (!total) {
+    // Bilinmeyen akış -> gizle
+    showProgressBar(false);
+    return;
+  }
+
+  // Sınırlandırma
+  const step = Math.min(Math.max(stepIndex, 1), total);
+
+  // Tamamlanan adım sayısı (aktif adım hariç)
+  const completed = step - 1;
+
+  // Yüzdeler
+  const completedRatio = completed / total; // yeşil genişliği
+  const currentLeftRatio = completedRatio;  // sarı'nın sol konumu
+  const currentWidthRatio = 1 / total;      // sarı genişliği (tek dilim)
+
+  // Uygula
+  lpDone.style.transform = `scaleX(${completedRatio})`;
+  lpCurrent.style.left = `${currentLeftRatio * 100}%`;
+  lpCurrent.style.transform = `scaleX(${currentWidthRatio})`;
+
+  // Görünür yap
+  showProgressBar(true);
+}
+
+// Bu yardımcı, hangi ekrânda olduğuna göre progress'i otomatik ayarlar.
+// Kendi step-change mantığına bağlayabilir veya buton clicklerinde manuel çağırabilirsin.
+function updateProgressFromDOM() {
+  // Forgot Password (wrapper'lar -> step1..step4)
+  const forgotWrappers = [
+    document.querySelector('#forgot-pass-container1')?.closest('.wrapper'),
+    document.querySelector('#forgot-pass-container2')?.closest('.wrapper'),
+    document.querySelector('#forgot-pass-container3')?.closest('.wrapper'),
+    document.querySelector('#forgot-pass-container4')?.closest('.wrapper'),
+  ];
+
+  const signUpWrappers = [
+    document.querySelector('#sign-up-container1')?.closest('.wrapper'),
+    document.querySelector('#sign-up-container2')?.closest('.wrapper'),
+    document.querySelector('#sign-up-container3')?.closest('.wrapper'),
+    document.querySelector('#sign-up-container4')?.closest('.wrapper'),
+    document.querySelector('#sign-up-container5')?.closest('.wrapper'),
+  ];
+
+  // .is-hidden sınıfı görünmezlik için kullanılıyor
+  const isVisible = el => el && !el.classList.contains('is-hidden');
+
+  // Önce forgot kontrolü
+  const forgotIndex = forgotWrappers.findIndex(isVisible);
+  if (forgotIndex !== -1) {
+    setProgress('forgot', forgotIndex + 1); // 0-based -> 1-based
+    return;
+  }
+
+  // Sonra sign up kontrolü
+  const signUpIndex = signUpWrappers.findIndex(isVisible);
+  if (signUpIndex !== -1) {
+    setProgress('signup', signUpIndex + 1);
+    return;
+  }
+
+  // Hiçbiri değilse (ör. Sign In) -> gizle
+  showProgressBar(false);
+}
+
+// İlk yüklemede bir kez çalıştır
+document.addEventListener('DOMContentLoaded', () => {
+  updateProgressFromDOM();
+});
+
+function showProgressBar(show = true) {
+  if (!flowProgressEl) return;
+
+  if (show) {
+    flowProgressEl.classList.add("show");
+    flowProgressEl.setAttribute("aria-hidden", "false");
+  } else {
+    flowProgressEl.classList.remove("show");
+    flowProgressEl.setAttribute("aria-hidden", "true");
+  }
+}
+

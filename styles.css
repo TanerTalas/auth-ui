@@ -27,6 +27,10 @@ html {
     --dark-color: #000000;
     --input-radius: 8px;
     --icon-filter: invert(0);
+
+    --lp-bg: #d1d5db;
+    --lp-done: #00c853;
+    --lp-active: #ffd700;
 }
 
 .dark {
@@ -41,6 +45,10 @@ html {
     --nav-active-link-background-color: #E7E3FF;
     --nav-active-link-color: #000;
     --icon-filter: brightness(0) invert(1);
+
+    --lp-bg: #2a2a2a;
+    --lp-done: #25d366;
+    --lp-active: #ffdf5a;
 }
 
 body {
@@ -1214,6 +1222,75 @@ input:focus~.show-pass img {
 }
 
 /* overlay - end */
+
+/* progress bar - start */
+
+.linear-progress {
+    position: absolute;
+    top: 58px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 6px;
+    overflow: hidden;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.linear-progress.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lp-bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    transform-origin: left center;
+    will-change: transform, left, width;
+}
+
+.lp-base {
+    left: 0;
+    width: 100%;
+    background: var(--lp-bg);
+    transition: background 0.4s ease;
+}
+
+.lp-done {
+    left: 0;
+    width: 100%;
+    background: var(--lp-done);
+    transform: scaleX(0);
+    transition: transform 420ms ease;
+}
+
+.lp-current {
+    background:
+        linear-gradient(90deg, var(--lp-done), var(--lp-active)),
+        linear-gradient(90deg, transparent, rgba(255, 255, 255, .25), transparent);
+    width: 100%;
+    transform: scaleX(0);
+    transition: transform 420ms ease, left 420ms ease;
+    background-size: 100% 100%, 200% 100%;
+    background-position: 0 0, 200% 0;
+    animation: shimmer 1.2s linear infinite;
+}
+
+
+/* progress bar - end */
+
+@keyframes shimmer {
+    from {
+        background-position: 0 0, 200% 0;
+    }
+
+    to {
+        background-position: 0 0, -200% 0;
+    }
+}
 
 @keyframes draw-circle {
     to {
