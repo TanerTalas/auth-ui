@@ -249,8 +249,41 @@ body.dark .icon-wrapper {
     transform: rotateX(180deg);
 }
 
-
 /* nav - end */
+
+/* language - start */
+.lang-switcher {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 1100;
+}
+
+.lang-btn {
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.lang-btn:hover {
+    background: #e0e0e0;
+    transform: scale(1.05);
+}
+
+.lang-btn.active {
+    background: #593cc3;
+    color: #fff;
+    border-color: #593cc3;
+}
+
+/* language - end */
 
 /* main - start */
 main {
@@ -782,7 +815,7 @@ input:focus~.show-pass img {
     transition: opacity 0.4s ease;
 }
 
-.sign-up-text span {
+.sign-up-text .cta-action {
     margin-left: 8px;
     display: inline-block;
     color: #FF44F3;
@@ -790,7 +823,7 @@ input:focus~.show-pass img {
     transition: transform 0.4s ease;
 }
 
-.sign-up-text:hover span {
+.sign-up-text:hover .cta-action {
     transform: scale(1.1);
 }
 
@@ -1044,8 +1077,12 @@ input:focus~.show-pass img {
     position: relative;
 }
 
-.gender-option input[type="radio"] {
-    display: none;
+.gender-group input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
 }
 
 .custom-radio {
@@ -1055,17 +1092,18 @@ input:focus~.show-pass img {
     border-radius: 50%;
     display: inline-block;
     position: relative;
+    background: #fff;
     transition: border-color 0.4s ease;
 }
 
-.gender-option input[type="radio"]:checked+.custom-radio::after {
+.gender-group input[type="radio"]:checked+label .custom-radio {
+    border-color: var(--dark-color);
+}
+
+.gender-group input[type="radio"]:checked+label .custom-radio::after {
     background-color: #000;
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
-}
-
-.gender-option input[type="radio"]:checked+.custom-radio {
-    border-color: var(--dark-color);
 }
 
 .custom-radio::after {
@@ -1081,6 +1119,12 @@ input:focus~.show-pass img {
     opacity: 0;
     transition: transform 0.4s ease, background-color 0.4s ease, opacity 0.4s ease;
 }
+
+.gender-group input[type="radio"]:focus-visible+label .custom-radio {
+    outline: 2px solid var(--dark-color);
+    outline-offset: 2px;
+}
+
 
 /* Location input */
 #sign-up-location {
