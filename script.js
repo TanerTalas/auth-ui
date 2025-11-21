@@ -1,3 +1,16 @@
+// Mobil uyarı
+function checkScreen() {
+  if (window.innerWidth <= 548) {
+    document.getElementById("mobile-warning").style.display = "flex";
+  } else {
+    document.getElementById("mobile-warning").style.display = "none";
+  }
+}
+
+window.addEventListener("resize", checkScreen);
+window.addEventListener("load", checkScreen);
+
+
 // Mode switch
 const modeSwitch = document.getElementById("modeSwitch");
 
@@ -14,7 +27,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// 🔐 Şifre göster/gizle butonu (göz ikonu)
+// Şifre göster/gizle butonu (göz ikonu)
 const togglePassButtons = document.querySelectorAll('.show-pass');
 
 togglePassButtons.forEach((btn) => {
@@ -37,7 +50,7 @@ togglePassButtons.forEach((btn) => {
 });
 
 
-// 🔓 Şifre alanı: yazarken sarı, blur olduğunda sarı-yeşil animasyon
+// Şifre alanı: yazarken sarı, blur olduğunda sarı-yeşil animasyon
 const passwordInput = document.getElementById("sign-in-password");
 
 if (passwordInput) {
@@ -68,7 +81,7 @@ if (passwordInput) {
 
 
 
-// 🔢 6 haneli doğrulama kodu formatlama (boşlukla ayırma)
+// 6 haneli doğrulama kodu formatlama (boşlukla ayırma)
 ["sign-up-verification-code", "forgot-pass-verification-code", "sign-up-phone-verification-code"].forEach((id) => {
   const input = document.getElementById(id);
   if (!input) return;
@@ -91,7 +104,7 @@ if (passwordInput) {
   });
 });
 
-// 📞 Telefon numarası inputu: yalnızca rakam, + ve boşluk kabul edilir
+// Telefon numarası inputu: yalnızca rakam, + ve boşluk kabul edilir
 const phoneInput = document.getElementById("sign-up-phone");
 
 if (phoneInput) {
@@ -130,7 +143,7 @@ if (phoneInput) {
     input.value = formatted;
 
     let newCursor = cursor + diff;
-    newCursor = Math.max(0, Math.min(newCursor, formatted.length)); // <-- ekle
+    newCursor = Math.max(0, Math.min(newCursor, formatted.length));
     setTimeout(() => {
       input.setSelectionRange(newCursor, newCursor);
     }, 0);
@@ -167,7 +180,7 @@ if (phoneInput) {
 
 }
 
-// 📅 Doğum tarihi: geçersiz gün girişini engelle
+// Doğum tarihi: geçersiz gün girişini engelle
 const dayInput = document.getElementById('sign-up-day');
 const monthInput = document.getElementById('sign-up-month');
 const yearInput = document.getElementById('sign-up-year');
@@ -209,7 +222,7 @@ function validateDate() {
 });
 
 
-// 📅 Ay inputu (MM): 01–12 arası, geçersizse anında temizle ve uyar
+// Ay inputu (MM): 01–12 arası, geçersizse anında temizle ve uyar
 if (monthInput) {
   monthInput.addEventListener("input", function () {
     this.value = this.value.replace(/[^0-9]/g, '');
@@ -243,7 +256,7 @@ if (monthInput) {
   });
 }
 
-// 📅 Gün inputu (DD): tek basamaklıysa başına 0 ekle, geçersizse temizle
+// Gün inputu (DD): tek basamaklıysa başına 0 ekle, geçersizse temizle
 if (dayInput) {
   dayInput.addEventListener("input", function () {
     this.value = this.value.replace(/[^0-9]/g, '');
@@ -264,7 +277,7 @@ if (dayInput) {
   });
 }
 
-// 📅 Yıl inputu: 4 basamaklı değilseg geçersiz kıl
+// Yıl inputu: 4 basamaklı değilseg geçersiz kıl
 if (yearInput) {
   yearInput.addEventListener("input", function () {
     this.value = this.value.replace(/[^0-9]/g, "");
@@ -302,7 +315,7 @@ function restrictToLetters(input) {
 });
 
 
-// 🚻 Cinsiyet seçiminde aynı butona tekrar tıklanırsa seçimi kaldır
+// Cinsiyet seçiminde aynı butona tekrar tıklanırsa seçimi kaldır
 let lastSelectedRadio = null;
 
 document.querySelectorAll('input[name="sign-up-gender"]').forEach((radio) => {
@@ -316,7 +329,7 @@ document.querySelectorAll('input[name="sign-up-gender"]').forEach((radio) => {
   });
 });
 
-// 🖼️ Profil fotoğrafı yükleme ve önizleme (sign up)
+// Profil fotoğrafı yükleme ve önizleme (sign up)
 const profileFileInput = document.getElementById('sign-up-profile-picture');
 const profilePreview = document.getElementById('profile-preview');
 const resetBtn = document.querySelector('.reset-picture-btn');
@@ -345,7 +358,7 @@ if (profileFileInput && profilePreview && resetBtn) {
 }
 
 
-// 📧 Tüm email inputlarında yazarken sarı, geçerli formatta anında yeşil, blur'da aynı kontrol
+// Tüm email inputlarında yazarken sarı, geçerli formatta anında yeşil, blur'da aynı kontrol
 const emailInputs = document.querySelectorAll('input[type="email"]');
 
 emailInputs.forEach((emailInput) => {
@@ -456,7 +469,7 @@ function setupPasswordValidation(passId, confirmId) {
 setupPasswordValidation('forgot-pass-password', 'forgot-pass-confirm-password');
 setupPasswordValidation('sign-up-password', 'sign-up-confirm-password');
 
-// Inputların lk harfini büyük yapar 
+// Inputların ilk harfini büyük yapar 
 const capitalizeFields = [
   "sign-up-firstname",
   "sign-up-lastname",
@@ -601,7 +614,7 @@ const passwordsMatch = (passSel, confirmSel) => (form) => {
 
 const formRequiredOK = (form) => form.checkValidity(); // required + pattern + min/max vs.
 
-// ========= Wiring (senin HTML’ine göre) =========
+// ========= Wiring =========
 
 // 1) SIGN IN
 wireForm({

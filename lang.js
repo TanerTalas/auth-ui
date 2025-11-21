@@ -10,8 +10,7 @@
 
             /* nav */
             nav: {
-                portfolio: "Portfolio",
-                projects: "Projects",
+                portfolio: "Portfolio"
             },
 
             /* sign in */
@@ -67,8 +66,8 @@
                 },
                 /* step 4 */
                 step4: {
-                    left: {
-                        h2: "You’re ready!",
+                    right: {
+                        h3: "You’re ready!",
                         p: "Your password has been reset successfully. You can now sign in to your account."
                     }
                 }
@@ -183,6 +182,11 @@
                     s3: "Step 3",
                     s4: "Step 4"
                 }
+            },
+
+            warn: {
+                h2: "Designed for Large Screens Only",
+                p: "This project is designed for desktop and other large-screen devices. For a better experience, please view it on a desktop device."
             }
         },
 
@@ -194,8 +198,7 @@
             },
 
             nav: {
-                portfolio: "Portföy",
-                projects: "Projeler"
+                portfolio: "Portföy"
             },
 
             signin: {
@@ -248,8 +251,8 @@
                 },
                 /* adım 4 */
                 step4: {
-                    left: {
-                        h2: "Hazırsınız!",
+                    right: {
+                        h3: "Hazırsınız!",
                         p: "Şifreniz başarıyla sıfırlandı. Artık hesabınıza giriş yapabilirsiniz."
                     }
                 }
@@ -355,6 +358,11 @@
                 done: "Tamam",
                 proceed: "Devam Et",
                 steps: { s1: "Adım 1", s2: "Adım 2", s3: "Adım 3", s4: "Adım 4" }
+            },
+
+            warn: {
+                h2: "Yalnızca Geniş Ekranlar için Tasarlanmıştır",
+                p: "Bu proje bilgisayar gibi geniş ekranlı cihazlar için tasarlanmıştır. Daha iyi bir deneyim için lütfen masaüstü bir cihazdan göz atınız."
             }
         }
     };
