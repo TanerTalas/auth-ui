@@ -1,41 +1,64 @@
-# Auth UI
+# 🚀 Taner Talas | Auth UI Project
 
-A responsive and modern authentication form interface built with HTML, CSS, and JavaScript.  
-This project includes Sign In, Forgot Password, and Sign Up flows — all within a single page structure.
+## 🇬🇧 English
 
----
+A colorful and interactive single-page authentication project built with HTML, CSS, and JavaScript.  
+It includes Sign In, Sign Up, and Forgot Password sections, featuring animated form transitions, animated form validations, day & night themes, and dynamic, animated backgrounds.
 
-## 🔨 Status
-
-🚧 **Currently under development**  
-New sections and transitions are being added progressively. UI components are being prototyped before full integration.
+⚠️ **Note:** This project is designed for devices with large screens (desktop/laptop).
 
 ---
 
-## 📁 Features (Planned)
+🔨 Built with:
+- HTML5
+- CSS3
+- JavaScript
+  
+✨ Features 
+- Animated form validation 
+- Animated multi-step forms 
+- Day & Night mode
+- Turkish/English language support
+- Animated backgrounds
+- Mobile warning message
 
-- [x] Sign In form with password visibility toggle  
-- [ ] Forgot password flow (step-based)  
-- [ ] Sign Up form  
-- [ ] Theme switcher (light/dark)  
-- [ ] Animated panel transitions (JS)
-
----
-
-## 🧠 Technologies Used
-
-- HTML5  
-- CSS3 (with custom properties and transitions)  
-- Vanilla JavaScript  
-
----
-
-## 📸 Preview
-
-Screenshots will be added once the core UI is completed.
+🔗 **Live Demo**: [tanertalas.github.io/auth-ui](https://tanertalas.github.io/auth-ui)
 
 ---
 
-## License
+## 🇹🇷 Türkçe
+
+HTML, CSS ve JavaScript ile oluşturulmuş, renkli ve etkileşimli tek sayfalık bir kimlik doğrulama projesi.
+Giriş Yap, Kaydol ve Şifremi Unuttum bölümlerinin yanı sıra animasyonlu form geçişleri, animasyonlu form doğrulamaları, gece ve gündüz temaları ve dinamik, animasyonlu arka planlar içerir.
+
+⚠️ **Not:** Bu proje büyük ekranlı cihazlar (masaüstü/dizüstü) için tasarlanmıştır..
+
+---
+
+🔨 Kullanılan Teknolojiler:
+- HTML5
+- CSS3
+- JavaScript
+  
+✨ Özellikler: 
+- Animasyonlu form doğrulama
+- Animasyonlu çok adımlı formlar
+- Gündüz ve Gece modu
+- Türkçe/İngilizce dil desteği
+- Animasyonlu arka planlar
+- Mobil uyarı mesajı
+
+🔗 **Canlı Site**: [tanertalas.github.io/auth-ui](https://tanertalas.github.io/auth-ui)
+
+---
+
+## 📸 Preview / Önizleme
+
+Screenshots will be added later on.
+
+---
+
+## License / Lisans
 
 This project is licensed under the MIT License.  
+Bu proje MIT lisansı ile lisanslanmıştır.
