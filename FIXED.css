@@ -124,7 +124,8 @@ nav button,
 .createAccount-btn,
 ::placeholder,
 input,
-label, .forgotPassword-btn {
+label,
+.forgotPassword-btn {
   font-size: 1rem;
   letter-spacing: 0.15px;
   font-weight: 400;
@@ -313,7 +314,6 @@ body.dark .themeIcon-wrapper {
 
 /* ******************** SECTION SETTINGS - START ******************** */
 section {
-
 }
 
 section > div {
@@ -408,6 +408,27 @@ section > div {
 /* ******************** BUTTON SETTINGS - END ******************** */
 
 /* ******************** INPUT SETTINGS - START ******************** */
+#forgotPass-verificationCode,
+#signUp-verificationCode,
+#sign-up-phone-verification-code {
+  max-width: 140px;
+  padding-left: 12px;
+  text-align: center;
+}
+
+#forgotPass-verificationCode.filled,
+#signUp-verificationCode.filled,
+#sign-up-phone-verification-code.filled {
+  border-color: #ffbf00 !important;
+}
+
+#forgotPass-verificationCode + label,
+#signUp-verificationCode + label,
+#sign-up-phone-verification-code + label {
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
 .input-group {
   position: relative;
   margin-bottom: 16px;
@@ -644,24 +665,6 @@ form {
 /* ******************** SIGN IN - END ******************** */
 
 /* ******************** FORGOT PASSWORD - START ******************** */
-#forgotPass-verificationCode,
-#sign-up-verification-code,
-#sign-up-phone-verification-code {
-  max-width: 140px;
-}
-
-#forgotPass-verificationCode.filled,
-#sign-up-verification-code.filled,
-#sign-up-phone-verification-code.filled {
-  border-color: #ffbf00 !important;
-}
-
-#forgotPass-verificationCode + label,
-#sign-up-verification-code + label,
-#sign-up-phone-verification-code + label {
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-}
 /* ********** FORGOT PASSWORD 1 - START ********** */
 .forgotPass-1 {
   position: relative;
@@ -716,7 +719,7 @@ form {
 .content {
   margin: auto 0;
 }
-/* FORGOT PASSWORD 3 RIGHT */ 
+/* FORGOT PASSWORD 3 RIGHT */
 .forgotPass-3 .done-btn {
 }
 /* ********** FORGOT PASSWORD 3 - END ********** */
@@ -728,7 +731,7 @@ form {
   width: 100%;
   max-width: 500px;
 }
-/* FORGOT PASSWORD 4 RIGHT */ 
+/* FORGOT PASSWORD 4 RIGHT */
 .forgotPass-4 h3 + p {
   margin-bottom: 16px;
 }
@@ -769,177 +772,97 @@ form {
   padding-right: 36px;
 }
 /* ********** SIGN UP 1 - END ********** */
-/* ******************** SIGN UP - END ******************** */
-
-/***** buttons - start *****/
-.proceed-btn {
-  background-color: #00ff5e;
-}
-
-/***** buttons - end *****/
-
-/* sign up - start */
-
-/* step3 */
-.sign-up-form3 label {
-  left: 20px;
-}
-
-.sign-up-form3 input {
-  padding-left: 20px;
-}
-
-.input-section-title {
-  margin-top: 24px;
-  font-weight: 500;
-}
-
-/* Fullname input */
-#sign-up-fullname {
-  display: flex;
-  gap: 8px;
-}
-
-#sign-up-fullname .input-group {
-  margin-top: 8px;
-}
-
-#sign-up-fullname input {
-  width: 182px;
-}
-
-/* Birthday input */
-#sign-up-birthday {
-  display: flex;
-  gap: 28px;
-}
-
-#sign-up-birthday input {
-  width: 106px;
-  text-align: center;
-  padding-left: 8px;
-}
-
-#sign-up-birthday label {
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-}
-
-/* Profile picture input */
-.profile-pic-container {
+/* ********** SIGN UP 2 - START ********** */
+.signUp-2 {
   position: relative;
-  width: fit-content;
-  margin: 0 auto;
+  display: flex;
+  box-shadow: 0 0 8px #0000005c;
+  width: 100%;
+  max-width: 1000px;
 }
-
-.profile-pic-wrapper {
+/* SIGN UP 2 LEFT */
+.content {
+  margin: auto 0;
+}
+/* ********** SIGN UP 2 - END ********** */
+/* ********** SIGN UP 3 - START ********** */
+.signUp-3 {
   position: relative;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid #ccc;
-  margin: 8px auto 0;
-  overflow: hidden;
-}
-
-.profile-pic-wrapper label {
-  left: -1px;
-  bottom: 3px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 120px;
-  height: 120px;
-  cursor: pointer;
-  position: relative;
-}
-
-#profile-preview {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 52px;
-  height: 63px;
-  object-fit: contain;
-  z-index: 1;
-}
-
-.reset-picture-btn {
-  display: none;
-  /* sadece resim yüklendiğinde gösterilecek */
-  top: 50%;
-  left: 136px;
-  transform: translateY(-50%);
-  position: absolute;
-  background: none;
-  border: none;
-  color: #ff5100;
-  cursor: pointer;
-  padding: 0;
-  transition: color 0.3s ease;
-}
-
-.reset-picture-btn:hover {
-  color: var(--dark-color);
-}
-
-/* Kullanıcı görseli yüklediğinde geçerli olacak sınıf */
-#profile-preview.uploaded {
+  box-shadow: 0 0 8px #0000005c;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+  max-width: 1000px;
+}
+/* SIGN UP 3 RIGHT */
+/* SIGN UP 3 RIGHT - SETTINGS */
+/* REQUIRED */
+.required::after {
+  content: " *";
+  color: #e63946;
 }
 
-.edit-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 24px;
-  height: 24px;
-  border-radius: 8px;
-  background-color: #ffffff;
-  padding: 4px;
-  z-index: 2;
-  transition: transform 0.4s ease;
-  transform-origin: center center;
+.required, .optional {
+  margin-bottom: 8px;
 }
 
-.profile-pic-wrapper:hover .edit-icon {
-  transform: translate(-50%, -50%) scale(1.2);
+.signUp-fullname > div > .input-group,
+.signUp-birthday > div > .input-group,
+.signUp-location > div > .input-group,
+.signUp-bio > .input-group {
+  flex: 1;
+  margin-bottom: 0;
 }
 
-#sign-up-profile-picture {
-  display: none;
+.signUp-fullname > div,
+.signUp-birthday > div,
+.signUp-location > div,
+.signUp-bio > .input-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.signUp-fullname input,
+.signUp-birthday input,
+.signUp-phone input,
+.signUp-location input,
+.signUp-bio textarea {
+  padding-left: 12px;
 }
 
-/* Gender input */
+.signUp-fullname label,
+.signUp-birthday label,
+.signUp-phone label,
+.signUp-location label,
+.signUp-bio label {
+  left: 12px;
+}
+/* OPTIONAL */
+.optional-p {
+  color: #ff9d00;
+  margin-bottom: 8px;
+}
+
+/* GENDER */
 .gender-group {
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  max-width: 372px;
-  margin-top: 8px;
 }
 
 .gender-option {
-  left: 0 !important;
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 1rem;
   color: var(--gray-color);
   cursor: pointer;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .gender-group input[type="radio"] {
   position: absolute;
   opacity: 0;
-  width: 1px;
-  height: 1px;
   pointer-events: none;
 }
 
@@ -952,16 +875,6 @@ form {
   position: relative;
   background: #fff;
   transition: border-color 0.4s ease;
-}
-
-.gender-group input[type="radio"]:checked + label .custom-radio {
-  border-color: var(--dark-color);
-}
-
-.gender-group input[type="radio"]:checked + label .custom-radio::after {
-  background-color: #000;
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 1;
 }
 
 .custom-radio::after {
@@ -981,29 +894,34 @@ form {
     opacity 0.4s ease;
 }
 
-.gender-group input[type="radio"]:focus-visible + label .custom-radio {
-  outline: 2px solid var(--dark-color);
-  outline-offset: 2px;
+.gender-group input[type="radio"]:checked + label {
+  color: black;
 }
 
-/* Location input */
-#sign-up-location {
-  display: flex;
-  gap: 91px;
+.gender-group input[type="radio"]:checked + label .custom-radio {
+  border-color: var(--dark-color);
 }
 
-#sign-up-location input {
-  width: 140px;
+.gender-group input[type="radio"]:checked + label .custom-radio::after {
+  background-color: #000;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
 }
-
-/* Bio input */
+/* BIO */
 #sign-up-bio {
-  height: 200px;
+  height: 140px;
+  resize: vertical;
 }
 
-.sign-up-form3 .next-btn {
-  margin-top: 32px;
+/* ********** SIGN UP 3 - END ********** */
+/* ******************** SIGN UP - END ******************** */
+
+/***** buttons - start *****/
+.proceed-btn {
+  background-color: #00ff5e;
 }
+
+/***** buttons - end *****/
 
 /* step5 */
 .checkmark-wrapper {

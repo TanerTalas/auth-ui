@@ -529,6 +529,299 @@
         </div>
       </div>
       <!-- SIGN UP - 1 - END -->
+      <!-- SIGN UP - 2 - START -->
+      <div>
+        <div class="signUp-2">
+          <!-- SIGN UP - 2 - LEFT -->
+          <div class="left" id="signUp-2-left">
+            <div class="content">
+              <h3 data-i18n="signup.step2.left.h3">Your code is on its way!</h3>
+              <p data-i18n="signup.step2.left.p">
+                For your security, we’ve sent a one-time code to your email
+                address.
+              </p>
+            </div>
+          </div>
+          <!-- SIGN UP - 2 - RIGHT -->
+          <div class="right" id="signUp-2-right">
+            <h2 data-i18n="signup.step2.right.h2">Verify Your Email</h2>
+            <p data-i18n="common.steps.s2">Step 2</p>
+            <p data-i18n="signup.step2.right.p">
+              We emailed you a code. Please check your inbox or spam folder.
+            </p>
+            <form class="form sign-up-form2">
+              <!-- SIGN_UP_2_RIGHT - CODE INPUT -->
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="signUp-verificationCode"
+                  name="sign-up-verification-code"
+                  placeholder="1 2 3 4 5 6"
+                  required
+                  inputmode="numeric"
+                  pattern="\d{1}( \d{1}){5}"
+                  maxlength="11"
+                  autocomplete="off"
+                />
+                <label for="signUp-verificationCode" data-i18n="common.code"
+                  >Code</label
+                >
+              </div>
+              <!-- SIGN_UP_2_RIGHT - VERIFY INPUT -->
+              <button
+                type="submit"
+                class="btn verify-btn"
+                data-i18n="common.verify"
+              >
+                Verify
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- SIGN UP - 2 - END -->
+      <!-- SIGN UP - 3 - START -->
+      <div>
+        <div class="signUp-3">
+          <!-- SIGN UP - 3 - RIGHT -->
+          <div class="right" id="signUp-3-right">
+            <h2 data-i18n="signup.step3.right.h2">About You</h2>
+            <p data-i18n="common.steps.s3">Step 3</p>
+            <form>
+              <!-- SIGN_UP_3_RIGHT - FULLNAME -->
+              <div class="signUp-fullname">
+                <p class="required" data-i18n="signup.step3.right.full_name">
+                  Full Name
+                </p>
+                <div>
+                  <!-- SIGN_UP_3_RIGHT - FIRST_NAME INPUT -->
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="sign-up-firstname"
+                      name="sign-up-firstname"
+                      placeholder="Taner"
+                      required
+                      autocomplete="off"
+                    />
+                    <label
+                      for="sign-up-firstname"
+                      data-i18n="signup.step3.right.first_name"
+                      >First name</label
+                    >
+                  </div>
+                  <!-- SIGN_UP_3_RIGHT - LAST_NAME INPUT -->
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="sign-up-lastname"
+                      name="sign-up-lastname"
+                      placeholder="Talas"
+                      required
+                      autocomplete="off"
+                    />
+                    <label
+                      for="sign-up-lastname"
+                      data-i18n="signup.step3.right.last_name"
+                      >Last name</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- SIGN_UP_3_RIGHT - BIRTHDAY -->
+              <div class="signUp-birthday">
+                <p class="required" data-i18n="signup.step3.right.birthday">
+                  Birthday
+                </p>
+                <div>
+                  <!-- SIGN_UP_3_RIGHT - DAY -->
+                  <div class="input-group">
+                    <input
+                      type="number"
+                      id="sign-up-day"
+                      name="sign-up-day"
+                      placeholder="27"
+                      required
+                      autocomplete="off"
+                      min="1"
+                      max="31"
+                      inputmode="numeric"
+                    />
+                    <label for="sign-up-day" data-i18n="signup.step3.right.day"
+                      >Day</label
+                    >
+                  </div>
+                  <!-- SIGN_UP_3_RIGHT - MONTH -->
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="sign-up-month"
+                      name="sign-up-month"
+                      placeholder="09"
+                      required
+                      inputmode="numeric"
+                      pattern="^(0[1-9]|1[0-2])$"
+                      autocomplete="off"
+                      maxlength="2"
+                    />
+                    <label
+                      for="sign-up-month"
+                      data-i18n="signup.step3.right.month"
+                      >Month</label
+                    >
+                  </div>
+                  <!-- SIGN_UP_3_RIGHT - YEAR -->
+                  <div class="input-group">
+                    <input
+                      type="number"
+                      id="sign-up-year"
+                      name="sign-up-year"
+                      placeholder="2005"
+                      required
+                      autocomplete="off"
+                      min="1900"
+                      max="2099"
+                      inputmode="numeric"
+                    />
+                    <label
+                      for="sign-up-year"
+                      data-i18n="signup.step3.right.year"
+                      >Year</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- SIGN_UP_3_RIGHT - PHONE -->
+              <div class="signUp-phone" style="margin-bottom: 32px">
+                <p class="required" data-i18n="signup.step3.right.phone">
+                  Phone
+                </p>
+                <div class="input-group">
+                  <input
+                    type="tel"
+                    inputmode="numeric"
+                    id="sign-up-phone"
+                    name="sign-up-phone"
+                    placeholder="+90 5xx xxx xx xx"
+                    required
+                    autocomplete="off"
+                    maxlength="17"
+                    pattern="\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}"
+                  />
+                  <label
+                    for="sign-up-phone"
+                    data-i18n="signup.step3.right.phone"
+                    >Phone</label
+                  >
+                </div>
+              </div>
+
+              <p class="optional-p" data-i18n="signup.step3.right.optional">
+                Optional
+              </p>
+              <!-- SIGN_UP_3_RIGHT - GENDER -->
+              <div class="signUp-gender">
+                <p class="optional" data-i18n="signup.step3.right.gender">
+                  Gender
+                </p>
+                <div class="gender-group">
+                  <input
+                    type="radio"
+                    id="gender-female"
+                    name="sign-up-gender"
+                    value="female"
+                  />
+                  <label for="gender-female" class="gender-option">
+                    <span class="custom-radio"></span>
+                    <span data-i18n="signup.step3.right.female">Female</span>
+                  </label>
+
+                  <input
+                    type="radio"
+                    id="gender-male"
+                    name="sign-up-gender"
+                    value="male"
+                  />
+                  <label for="gender-male" class="gender-option">
+                    <span class="custom-radio"></span>
+                    <span data-i18n="signup.step3.right.male">Male</span>
+                  </label>
+                </div>
+              </div>
+              <!-- SIGN_UP_3_RIGHT - LOCATION -->
+              <div class="signUp-location">
+                <p class="optional" data-i18n="signup.step3.right.location">
+                  Location
+                </p>
+                <div>
+                  <!-- SIGN_UP_3_RIGHT - COUNTRY -->
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="sign-up-country"
+                      name="sign-up-country"
+                      placeholder="Turkey"
+                      autocomplete="off"
+                      data-i18n-placeholder="signup.step3.right.turkey"
+                    />
+                    <label
+                      for="sign-up-country"
+                      data-i18n="signup.step3.right.country"
+                      >Country</label
+                    >
+                  </div>
+                  <!-- SIGN_UP_3_RIGHT - CITY -->
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="sign-up-city"
+                      name="sign-up-city"
+                      placeholder="Istanbul"
+                      autocomplete="off"
+                      data-i18n-placeholder="signup.step3.right.istanbul"
+                    />
+                    <label
+                      for="sign-up-city"
+                      data-i18n="signup.step3.right.city"
+                      >City</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- SIGN_UP_3_RIGHT - BIO -->
+              <div class="signUp-bio">
+                <p
+                  class="optional"
+                  data-i18n="signup.step3.right.biography"
+                >
+                  Biography
+                </p>
+                <div class="input-group">
+                  <textarea
+                    id="sign-up-bio"
+                    name="sign-up-bio"
+                    placeholder="Work in progress..."
+                    autocomplete="off"
+                    data-i18n-placeholder="signup.step3.right.bio_text"
+                  ></textarea>
+                  <label for="sign-up-bio" data-i18n="signup.step3.right.bio"
+                    >Bio</label
+                  >
+                </div>
+              </div>
+              <!-- SIGN_UP_3_RIGHT - NEXT BUTTON -->
+              <button
+                type="submit"
+                class="btn next-btn"
+                data-i18n="common.next"
+              >
+                Next
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- SIGN UP - 3 - END -->
     </section>
     <!-- SIGN UP - END -->
   </body>
