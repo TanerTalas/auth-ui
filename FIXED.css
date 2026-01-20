@@ -704,6 +704,40 @@ form {
 }
 
 /* ********** FORGOT PASSWORD 2 - END ********** */
+/* ********** FORGOT PASSWORD 3 - START ********** */
+.forgotPass-3 {
+  position: relative;
+  display: flex;
+  box-shadow: 0 0 8px #0000005c;
+  width: 100%;
+  max-width: 1000px;
+}
+/* FORGOT PASSWORD 3 LEFT */
+.content {
+  margin: auto 0;
+}
+/* FORGOT PASSWORD 3 RIGHT */ 
+.forgotPass-3 .done-btn {
+}
+/* ********** FORGOT PASSWORD 3 - END ********** */
+/* ********** FORGOT PASSWORD 4 - START ********** */
+.forgotPass-4 {
+  position: relative;
+  display: flex;
+  box-shadow: 0 0 8px #0000005c;
+  width: 100%;
+  max-width: 500px;
+}
+/* FORGOT PASSWORD 4 RIGHT */ 
+.forgotPass-4 h3 + p {
+  margin-bottom: 16px;
+}
+
+.signIn-btn {
+  background-color: #00ff5e;
+  transition: opacity 0.25s;
+}
+/* ********** FORGOT PASSWORD 4 - END ********** */
 /* ******************** FORGOT PASSWORD - END ******************** */
 
 /***** buttons - start *****/
@@ -711,26 +745,9 @@ form {
   background-color: #00ff5e;
 }
 
-.sign-in-btn {
-  box-shadow: 0 0 4px rgba(13, 114, 10, 0.5) !important;
-  width: 200px;
-  background-color: #00ff5e;
-  margin-top: 54px;
-  transition: opacity 0.25s;
-}
 
-.done-btn {
-  width: 200px;
-  margin-top: 40px;
-}
 
 /***** buttons - end *****/
-
-/* forgot password - start */
-/* step2 */
-
-
-/* forgot password - end */
 
 /* sign up - start */
 /* step1 */

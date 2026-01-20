@@ -64,6 +64,7 @@
                 We’ve missed you. Let’s get you signed in.
               </p>
             </div>
+            <!-- SIGN_IN_1_LEFT - CREATE ACCOUNT LINK & BUTTON -->
             <button class="createAccount-btn" type="button">
               <span class="CA-BTN-leftText" data-i18n="signin.left.cta_prefix"
                 >New here?</span
@@ -77,7 +78,7 @@
           <div class="right" id="signIn-1-right">
             <h2 data-i18n="signin.right.h2">Sign In</h2>
             <form class="form sign-in-form1">
-              <!-- Email -->
+              <!-- SIGN_IN_1_RIGHT - EMAIL INPUT -->
               <div class="input-group">
                 <input
                   type="email"
@@ -97,7 +98,7 @@
                   class="input-icon"
                 />
               </div>
-              <!-- Password -->
+              <!-- SIGN_IN_1_RIGHT - PASSWORD INPUT -->
               <div class="input-group">
                 <input
                   type="password"
@@ -128,7 +129,7 @@
                   />
                 </button>
               </div>
-              <!-- Remember me -->
+              <!-- SIGN_IN_1_RIGHT - REMEMBER ME INPUT -->
               <div class="remember-me">
                 <input
                   type="checkbox"
@@ -139,7 +140,7 @@
                   >Remember me for 30 days</label
                 >
               </div>
-              <!-- Forgot password -->
+              <!-- SIGN_IN_1_RIGHT - FORGOT PASSWORD LINK & BUTTON -->
               <button
                 type="button"
                 class="forgotPassword-btn"
@@ -147,7 +148,7 @@
               >
                 Forgot password?
               </button>
-              <!-- Submit -->
+              <!-- SIGN_IN_1_RIGHT - LOG IN BUTTON -->
               <button
                 type="submit"
                 class="btn logIn-btn"
@@ -186,7 +187,7 @@
               email linked to your account.
             </p>
             <form class="form forgot-pass-form1">
-              <!-- Email input -->
+              <!-- FORGOT_PASS_1_RIGHT - EMAIL INPUT -->
               <div class="input-group">
                 <input
                   type="email"
@@ -206,7 +207,7 @@
                   class="input-icon"
                 />
               </div>
-              <!-- Back - Next button -->
+              <!-- FORGOT_PASS_1_RIGHT - BACK_NEXT BUTTON -->
               <div class="button-group">
                 <button
                   type="button"
@@ -247,7 +248,7 @@
               We emailed you a code. Please check your inbox or spam folder.
             </p>
             <form class="form forgot-pass-form2">
-              <!-- Code input -->
+              <!-- FORGOT_PASS_2_RIGHT - CODE INPUT -->
               <div class="input-group">
                 <input
                   type="text"
@@ -261,13 +262,11 @@
                   maxlength="11"
                   autocomplete="off"
                 />
-                <label
-                  for="forgotPass-verificationCode"
-                  data-i18n="common.code"
+                <label for="forgotPass-verificationCode" data-i18n="common.code"
                   >Code</label
                 >
               </div>
-              <!-- Verify button -->
+              <!-- FORGOT_PASS_2_RIGHT - VERIFY BUTTON -->
               <button
                 type="submit"
                 class="btn verify-btn"
@@ -280,6 +279,124 @@
         </div>
       </div>
       <!-- FORGOT PASSWORD - 2 - END -->
+      <!-- FORGOT PASSWORD - 3 - START -->
+      <div>
+        <div class="forgotPass-3">
+          <div class="left" id="forgotPass-3-left">
+            <div class="content">
+              <h3 data-i18n="forgot.step3.left.h3">You're almost done!</h3>
+              <p data-i18n="forgot.step3.left.p">
+                All that’s left is setting a new password. You’re good to go!
+              </p>
+            </div>
+          </div>
+          <div class="right" id="forgotPass-3-right">
+            <h2 data-i18n="forgot.step3.right.h2">Reset Your Password</h2>
+            <p data-i18n="common.steps.s3">Step 3</p>
+            <p data-i18n="forgot.step3.right.p">
+              Use at least 8 characters with one uppercase letter and one
+              number.
+            </p>
+            <form class="form forgot-pass-form3">
+              <!-- FORGOT_PASS_3_RIGHT - PASSWORD INPUT -->
+              <div class="input-group">
+                <input
+                  type="password"
+                  id="forgot-pass-password"
+                  name="forgot-pass-password"
+                  placeholder="••••••••"
+                  required
+                  autocomplete="off"
+                  minlength="8"
+                />
+                <label for="forgot-pass-password" data-i18n="common.password"
+                  >Password</label
+                >
+                <img
+                  src="./images/icons/password-icon.svg"
+                  alt="Password field icon"
+                  class="input-icon"
+                />
+                <button
+                  type="button"
+                  class="show-pass"
+                  aria-label="Show password"
+                  tabindex="-1"
+                >
+                  <img
+                    src="./images/icons/show-password-icon.svg"
+                    alt="show password icon"
+                  />
+                </button>
+              </div>
+              <!-- FORGOT_PASS_3_RIGHT - CONFIRM PASSWORD INPUT -->
+              <div class="input-group">
+                <input
+                  type="password"
+                  id="forgot-pass-confirm-password"
+                  name="forgot-pass-confirm-password"
+                  placeholder="••••••••"
+                  required
+                  autocomplete="off"
+                  minlength="8"
+                />
+                <label
+                  for="forgot-pass-confirm-password"
+                  data-i18n="common.confirm_password"
+                  >Confirm Password</label
+                >
+                <img
+                  src="./images/icons/password-icon.svg"
+                  alt="Password field icon"
+                  class="input-icon"
+                />
+                <button
+                  type="button"
+                  class="show-pass"
+                  aria-label="Show password"
+                  tabindex="-1"
+                >
+                  <img
+                    src="./images/icons/show-password-icon.svg"
+                    alt="show password icon"
+                  />
+                </button>
+              </div>
+              <!-- FORGOT_PASS_3_RIGHT - DONE BUTTON -->
+              <button
+                type="submit"
+                class="btn done-btn"
+                data-i18n="common.done"
+              >
+                Done
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- FORGOT PASSWORD - 3 - END -->
+      <!-- FORGOT PASSWORD - 4 - START -->
+      <div>
+        <div class="forgotPass-4">
+            <!-- FORGOT PASSWORD - 4 - RIGHT -->
+          <div class="right" id="forgotPass-4-right">
+            <h3 data-i18n="forgot.step4.right.h3">You’re ready!</h3>
+            <p data-i18n="forgot.step4.right.p">
+              Your password has been reset successfully. You can now sign in to
+              your account.
+            </p>
+            <!-- FORGOT_PASSWORD_4_RIGHT - SIGN IN BUTTON -->
+            <button
+              type="button"
+              class="btn signIn-btn"
+              data-i18n="common.sign_in"
+            >
+              Sign In
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- FORGOT PASSWORD - 4 - END -->
     </section>
     <!-- FORGOT PASSWORD - END -->
   </body>
