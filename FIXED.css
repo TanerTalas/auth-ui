@@ -740,24 +740,45 @@ form {
 /* ********** FORGOT PASSWORD 4 - END ********** */
 /* ******************** FORGOT PASSWORD - END ******************** */
 
+/* ******************** SIGN UP - START ******************** */
+/* ********** SIGN UP 1 - START ********** */
+.signUp-1 {
+  position: relative;
+  display: flex;
+  box-shadow: 0 0 8px #0000005c;
+  width: 100%;
+  max-width: 1000px;
+}
+/* SIGN UP 1 LEFT */
+.content {
+  margin: auto 0;
+}
+
+/* SIGN UP 1 RIGHT */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signUp-1 .back-btn {
+  background-color: #d5d5d5;
+}
+
+.signUp-1 .next-btn {
+  padding-left: 36px;
+  padding-right: 36px;
+}
+/* ********** SIGN UP 1 - END ********** */
+/* ******************** SIGN UP - END ******************** */
+
 /***** buttons - start *****/
 .proceed-btn {
   background-color: #00ff5e;
 }
 
-
-
 /***** buttons - end *****/
 
 /* sign up - start */
-/* step1 */
-.sign-up-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 54px;
-  margin-top: 32px;
-}
 
 /* step3 */
 .sign-up-form3 label {
@@ -766,10 +787,6 @@ form {
 
 .sign-up-form3 input {
   padding-left: 20px;
-}
-
-.sign-up-form3 .input-group {
-  margin-top: 8px;
 }
 
 .input-section-title {

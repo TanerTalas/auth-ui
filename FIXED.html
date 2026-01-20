@@ -378,7 +378,7 @@
       <!-- FORGOT PASSWORD - 4 - START -->
       <div>
         <div class="forgotPass-4">
-            <!-- FORGOT PASSWORD - 4 - RIGHT -->
+          <!-- FORGOT PASSWORD - 4 - RIGHT -->
           <div class="right" id="forgotPass-4-right">
             <h3 data-i18n="forgot.step4.right.h3">You’re ready!</h3>
             <p data-i18n="forgot.step4.right.p">
@@ -399,5 +399,137 @@
       <!-- FORGOT PASSWORD - 4 - END -->
     </section>
     <!-- FORGOT PASSWORD - END -->
+
+    <!-- SIGN UP - START -->
+    <section>
+      <!-- SIGN UP - 1 - START -->
+      <div>
+        <div class="signUp-1">
+          <!-- SIGN UP - 1 - LEFT -->
+          <div class="left" id="signUp-1-left">
+            <div class="content">
+              <h3 data-i18n="signup.step1.left.h3">Let’s get started!</h3>
+              <p data-i18n="signup.step1.left.p">
+                We’re excited to have you with us!
+              </p>
+            </div>
+          </div>
+          <!-- SIGN UP - 1 - RIGHT -->
+          <div class="right" id="signUp-1-right">
+            <h2 data-i18n="signup.step1.right.h2">Create Your Account</h2>
+            <p data-i18n="common.steps.s1">Step 1</p>
+            <p data-i18n="signup.step1.right.p">
+              Create your password using at least 8 characters, including one
+              uppercase letter and one number.
+            </p>
+            <form class="form sign-up-form1">
+              <!-- SIGN_UP_1_RIGHT - EMAIL INPUT -->
+              <div class="input-group">
+                <input
+                  type="email"
+                  id="sign-up-email"
+                  name="sign-up-email"
+                  placeholder="you@example.com"
+                  required
+                  autocomplete="off"
+                  data-i18n-placeholder="common.email.placeholder"
+                />
+                <label for="sign-up-email" data-i18n="common.email.label"
+                  >Email</label
+                >
+                <img
+                  src="./images/icons/email-icon.svg"
+                  alt="Email field icon"
+                  class="input-icon"
+                />
+              </div>
+              <!-- SIGN_UP_1_RIGHT - PASSWORD INPUT -->
+              <div class="input-group">
+                <input
+                  type="password"
+                  id="sign-up-password"
+                  name="sign-up-password"
+                  placeholder="••••••••"
+                  required
+                  autocomplete="off"
+                  minlength="8"
+                />
+                <label for="sign-up-password" data-i18n="common.password"
+                  >Password</label
+                >
+                <img
+                  src="./images/icons/password-icon.svg"
+                  alt="Password field icon"
+                  class="input-icon"
+                />
+                <button
+                  type="button"
+                  class="show-pass"
+                  aria-label="Show password"
+                  tabindex="-1"
+                >
+                  <img
+                    src="./images/icons/show-password-icon.svg"
+                    alt="show password icon"
+                  />
+                </button>
+              </div>
+              <!-- SIGN_UP_1_RIGHT - REPEAT PASSWORD INPUT -->
+              <div class="input-group">
+                <input
+                  type="password"
+                  id="sign-up-confirm-password"
+                  name="sign-up-confirm-password"
+                  placeholder="••••••••"
+                  required
+                  autocomplete="off"
+                  minlength="8"
+                />
+                <label
+                  for="sign-up-confirm-password"
+                  data-i18n="common.confirm_password"
+                  >Confirm Password</label
+                >
+                <img
+                  src="./images/icons/password-icon.svg"
+                  alt="Password field icon"
+                  class="input-icon"
+                />
+                <button
+                  type="button"
+                  class="show-pass"
+                  aria-label="Show password"
+                  tabindex="-1"
+                >
+                  <img
+                    src="./images/icons/show-password-icon.svg"
+                    alt="show password icon"
+                  />
+                </button>
+              </div>
+              <!-- SIGN_UP_1_RIGHT - BACK_NEXT BUTTON -->
+              <div class="button-group">
+                <button
+                  type="button"
+                  class="btn back-btn"
+                  data-i18n="common.back"
+                >
+                  Back
+                </button>
+                <button
+                  type="submit"
+                  class="btn next-btn"
+                  data-i18n="common.next"
+                >
+                  Next
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- SIGN UP - 1 - END -->
+    </section>
+    <!-- SIGN UP - END -->
   </body>
 </html>
