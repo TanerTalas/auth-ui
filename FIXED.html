@@ -56,7 +56,7 @@
     <section aria-hidden="false">
       <div>
         <div class="signIn-1">
-          <!-- SIGN IN - LEFT -->
+          <!-- SIGN IN - 1 - LEFT -->
           <div class="left" id="signIn-1-left">
             <div class="content">
               <h3 data-i18n="signin.left.h3">Welcome Back!</h3>
@@ -73,7 +73,7 @@
               >
             </button>
           </div>
-          <!-- SIGN IN - RIGHT -->
+          <!-- SIGN IN - 1 - RIGHT -->
           <div class="right" id="signIn-1-right">
             <h2 data-i18n="signin.right.h2">Sign In</h2>
             <form class="form sign-in-form1">
@@ -168,6 +168,7 @@
       <!-- FORGOT PASSWORD - 1 - START -->
       <div>
         <div class="forgotPass-1">
+          <!-- FORGOT PASSWORD - 1 - LEFT -->
           <div class="left" id="forgotPass-1-left">
             <div class="content">
               <h3 data-i18n="forgot.step1.left.h3">No worries at all!</h3>
@@ -176,6 +177,7 @@
               </p>
             </div>
           </div>
+          <!-- FORGOT PASSWORD - 1 - RIGHT -->
           <div class="right" id="forgotPass-1-right">
             <h2 data-i18n="forgot.step1.right.h2">Forgot Password</h2>
             <p data-i18n="common.steps.s1">Step 1</p>
@@ -227,8 +229,56 @@
       </div>
       <!-- FORGOT PASSWORD - 1 - END -->
       <!-- FORGOT PASSWORD - 2 - START -->
-
-      <div></div>
+      <div>
+        <div class="forgotPass-2">
+          <div class="left" id="forgotPass-2-left">
+            <div class="content">
+              <h3 data-i18n="forgot.step2.left.h3">Your code is on its way!</h3>
+              <p data-i18n="forgot.step2.left.p">
+                For your security, we’ve sent a one-time code to your email
+                address.
+              </p>
+            </div>
+          </div>
+          <div class="right" id="forgotPass-2-right">
+            <h2 data-i18n="forgot.step2.right.h2">Verify Your Email</h2>
+            <p data-i18n="common.steps.s2">Step 2</p>
+            <p data-i18n="forgot.step2.right.p">
+              We emailed you a code. Please check your inbox or spam folder.
+            </p>
+            <form class="form forgot-pass-form2">
+              <!-- Code input -->
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="verification-code"
+                  id="forgotPass-verificationCode"
+                  name="forgot-pass-verification-code"
+                  placeholder="1 2 3 4 5 6"
+                  required
+                  inputmode="numeric"
+                  pattern="\d{1}( \d{1}){5}"
+                  maxlength="11"
+                  autocomplete="off"
+                />
+                <label
+                  for="forgotPass-verificationCode"
+                  data-i18n="common.code"
+                  >Code</label
+                >
+              </div>
+              <!-- Verify button -->
+              <button
+                type="submit"
+                class="btn verify-btn"
+                data-i18n="common.verify"
+              >
+                Verify
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
       <!-- FORGOT PASSWORD - 2 - END -->
     </section>
     <!-- FORGOT PASSWORD - END -->

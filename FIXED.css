@@ -644,6 +644,24 @@ form {
 /* ******************** SIGN IN - END ******************** */
 
 /* ******************** FORGOT PASSWORD - START ******************** */
+#forgotPass-verificationCode,
+#sign-up-verification-code,
+#sign-up-phone-verification-code {
+  max-width: 140px;
+}
+
+#forgotPass-verificationCode.filled,
+#sign-up-verification-code.filled,
+#sign-up-phone-verification-code.filled {
+  border-color: #ffbf00 !important;
+}
+
+#forgotPass-verificationCode + label,
+#sign-up-verification-code + label,
+#sign-up-phone-verification-code + label {
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
 /* ********** FORGOT PASSWORD 1 - START ********** */
 .forgotPass-1 {
   position: relative;
@@ -673,116 +691,24 @@ form {
 }
 /* ********** FORGOT PASSWORD 1 - END ********** */
 /* ********** FORGOT PASSWORD 2 - START ********** */
+.forgotPass-2 {
+  position: relative;
+  display: flex;
+  box-shadow: 0 0 8px #0000005c;
+  width: 100%;
+  max-width: 1000px;
+}
+/* FORGOT PASSWORD 2 LEFT */
+.content {
+  margin: auto 0;
+}
 
 /* ********** FORGOT PASSWORD 2 - END ********** */
 /* ******************** FORGOT PASSWORD - END ******************** */
 
-/******************************************************** sign up containers - start ********************************************************/
-/* 1 */
-#sign-up-container1 {
-  height: 558px;
-}
-
-#sign-up-left1,
-#sign-up-right1 {
-  height: 558px;
-}
-
-#sign-up-left1 {
-  background: linear-gradient(to bottom, #bebc53, #5e47b1);
-  animation: gradientFlowVertical 10s ease-in-out infinite;
-  background-size: 100% 400%;
-}
-
-/* 2 */
-
-#sign-up-left2 {
-  background: linear-gradient(to bottom, #e4e163, #5e47b1);
-  animation: gradientFlowVertical 10s ease-in-out infinite;
-  background-size: 100% 400%;
-}
-
-/* 3 */
-#sign-up-left3 {
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  background: linear-gradient(to bottom, #efed5a, #593cc3);
-  animation: gradientFlowVertical 10s ease-in-out infinite;
-  background-size: 100% 400%;
-  transition:
-    width 0.4s ease,
-    height 0.4s ease;
-}
-
-#sign-up-right3 {
-  transform: translateX(-50%);
-  box-shadow: 0px 0 8px rgba(0, 0, 0, 0.25);
-  z-index: 2;
-}
-
-/* 4 */
-#sign-up-left4 {
-  background: linear-gradient(to bottom, #e4e163, #5e47b1);
-  animation: gradientFlowVertical 10s ease-in-out infinite;
-  background-size: 100% 400%;
-}
-
-/* 5 */
-#sign-up-left5 {
-  background: linear-gradient(to bottom, #fffb0d, #4714ff);
-  animation: gradientFlowVertical 10s ease-in-out infinite;
-  background-size: 100% 400%;
-}
-
-/******************************************************** sign up containers - end ********************************************************/
-
-/******************************************************** forgot pass containers - start ********************************************************/
-/* 1 */
-
-#forgot-pass-left1 {
-  background: linear-gradient(180deg, #62ce94, #55aacc);
-  animation: gradientFlowVertical 10s ease-in-out infinite;
-  background-size: 100% 400%;
-}
-
-/* 2 */
-#forgot-pass-left2 {
-  background: linear-gradient(to bottom, #4bd98d, #40abd5);
-  animation: gradientFlowVertical 10s ease-in-out infinite;
-  background-size: 100% 400%;
-}
-
-/* 3 */
-#forgot-pass-left3 {
-  background: linear-gradient(to bottom, #32f48d, #36bff5);
-  animation: gradientFlowVertical 10s ease-in-out infinite;
-  background-size: 100% 400%;
-}
-
-/* 4 */
-
-#forgot-pass-right4 {
-  height: 450px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(to bottom, #00ff77, #07bdff);
-  animation: gradientFlowVertical 10s ease-in-out infinite;
-  background-size: 100% 400%;
-  border-radius: 4px;
-  color: white;
-}
-
-/******************************************************** forgot pass containers - end ********************************************************/
-
 /***** buttons - start *****/
 .proceed-btn {
   background-color: #00ff5e;
-}
-
-.verify-btn {
-  width: 200px;
-  margin-top: 32px;
 }
 
 .sign-in-btn {
@@ -802,25 +728,7 @@ form {
 
 /* forgot password - start */
 /* step2 */
-#forgot-pass-verification-code,
-#sign-up-verification-code,
-#sign-up-phone-verification-code {
-  width: 139px;
-  padding-left: 32px;
-}
 
-#forgot-pass-verification-code.filled,
-#sign-up-verification-code.filled,
-#sign-up-phone-verification-code.filled {
-  border-color: #ffbf00 !important;
-}
-
-#forgot-pass-verification-code + label,
-#sign-up-verification-code + label,
-#sign-up-phone-verification-code + label {
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-}
 
 /* forgot password - end */
 
