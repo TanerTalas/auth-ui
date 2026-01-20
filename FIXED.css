@@ -95,12 +95,16 @@ h2 {
   font-size: 2rem;
   line-height: 1.5;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 h2 + p {
   margin-bottom: 16px;
   font-weight: 500;
+}
+
+h2 + p + p {
+  margin-bottom: 16px;
 }
 
 h3 {
@@ -120,7 +124,7 @@ nav button,
 .createAccount-btn,
 ::placeholder,
 input,
-label {
+label, .forgotPassword-btn {
   font-size: 1rem;
   letter-spacing: 0.15px;
   font-weight: 400;
@@ -309,11 +313,15 @@ body.dark .themeIcon-wrapper {
 
 /* ******************** SECTION SETTINGS - START ******************** */
 section {
+
+}
+
+section > div {
   min-height: 100vh;
   align-items: center;
   display: flex;
   justify-content: center;
-  padding: 0 12px;
+  padding: 0 24px;
 }
 
 .left,
@@ -327,7 +335,7 @@ section {
 
   width: 100%;
   max-width: 500px;
-  padding: 64px;
+  padding: 38px;
 }
 
 .left {
@@ -565,7 +573,7 @@ input:focus ~ .show-pass img {
   width: 100%;
   max-width: 1000px;
 }
-/* SIGN IN LEFT */
+/* SIGN IN 1 LEFT */
 .content {
   margin: auto 0;
 }
@@ -594,7 +602,7 @@ input:focus ~ .show-pass img {
   transform: scale(1.1);
 }
 
-/* SIGN IN RIGHT */
+/* SIGN IN 1 RIGHT */
 
 form {
   width: 100%;
@@ -621,14 +629,11 @@ form {
   background: none;
   border: none;
   display: block;
-  font-size: 16px;
-  line-height: 24px;
   color: black;
   cursor: pointer;
-  font-weight: 400;
   text-decoration: underline;
-  transition: color 0.4s ease;
   margin: 0 auto 16px auto;
+  transition: color 0.4s ease;
 }
 
 .forgotPassword-btn:hover {
@@ -637,6 +642,40 @@ form {
 
 /* ********** SIGN IN 1 - END ********** */
 /* ******************** SIGN IN - END ******************** */
+
+/* ******************** FORGOT PASSWORD - START ******************** */
+/* ********** FORGOT PASSWORD 1 - START ********** */
+.forgotPass-1 {
+  position: relative;
+  display: flex;
+  box-shadow: 0 0 8px #0000005c;
+  width: 100%;
+  max-width: 1000px;
+}
+/* FORGOT PASSWORD 1 LEFT */
+.content {
+  margin: auto 0;
+}
+
+/* FORGOT PASSWORD 1 RIGHT */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.forgotPass-1 .back-btn {
+  background-color: #d5d5d5;
+}
+
+.forgotPass-1 .next-btn {
+  padding-left: 36px;
+  padding-right: 36px;
+}
+/* ********** FORGOT PASSWORD 1 - END ********** */
+/* ********** FORGOT PASSWORD 2 - START ********** */
+
+/* ********** FORGOT PASSWORD 2 - END ********** */
+/* ******************** FORGOT PASSWORD - END ******************** */
 
 /******************************************************** sign up containers - start ********************************************************/
 /* 1 */
@@ -656,14 +695,6 @@ form {
 }
 
 /* 2 */
-#sign-up-container2 {
-  height: 402px;
-}
-
-#sign-up-left2,
-#sign-up-right2 {
-  height: 402px;
-}
 
 #sign-up-left2 {
   background: linear-gradient(to bottom, #e4e163, #5e47b1);
@@ -672,20 +703,6 @@ form {
 }
 
 /* 3 */
-#sign-up-container3 {
-  height: 1300px;
-}
-
-#sign-up-right3,
-#sign-up-left3 {
-  height: 1300px;
-}
-
-.center-mode #sign-up-left3 {
-  width: 500px;
-  height: 450px;
-}
-
 #sign-up-left3 {
   left: 50%;
   transform: translateX(-50%);
@@ -705,15 +722,6 @@ form {
 }
 
 /* 4 */
-#sign-up-container4 {
-  height: 358px;
-}
-
-#sign-up-right4,
-#sign-up-left4 {
-  height: 358px;
-}
-
 #sign-up-left4 {
   background: linear-gradient(to bottom, #e4e163, #5e47b1);
   animation: gradientFlowVertical 10s ease-in-out infinite;
@@ -721,15 +729,6 @@ form {
 }
 
 /* 5 */
-#sign-up-container5 {
-  height: 517px;
-}
-
-#sign-up-right5,
-#sign-up-left5 {
-  height: 517px;
-}
-
 #sign-up-left5 {
   background: linear-gradient(to bottom, #fffb0d, #4714ff);
   animation: gradientFlowVertical 10s ease-in-out infinite;
@@ -740,14 +739,6 @@ form {
 
 /******************************************************** forgot pass containers - start ********************************************************/
 /* 1 */
-#forgot-pass-container1 {
-  height: 358px;
-}
-
-#forgot-pass-left1,
-#forgot-pass-right1 {
-  height: 358px;
-}
 
 #forgot-pass-left1 {
   background: linear-gradient(180deg, #62ce94, #55aacc);
@@ -756,15 +747,6 @@ form {
 }
 
 /* 2 */
-#forgot-pass-container2 {
-  height: 358px;
-}
-
-#forgot-pass-left2,
-#forgot-pass-right2 {
-  height: 358px;
-}
-
 #forgot-pass-left2 {
   background: linear-gradient(to bottom, #4bd98d, #40abd5);
   animation: gradientFlowVertical 10s ease-in-out infinite;
@@ -772,15 +754,6 @@ form {
 }
 
 /* 3 */
-#forgot-pass-container3 {
-  height: 443px;
-}
-
-#forgot-pass-left3,
-#forgot-pass-right3 {
-  height: 443px;
-}
-
 #forgot-pass-left3 {
   background: linear-gradient(to bottom, #32f48d, #36bff5);
   animation: gradientFlowVertical 10s ease-in-out infinite;
@@ -825,27 +798,9 @@ form {
   margin-top: 40px;
 }
 
-.back-btn {
-  background-color: #d5d5d5;
-  width: 119px;
-}
-
-.next-btn {
-  width: 199px;
-}
-
 /***** buttons - end *****/
 
 /* forgot password - start */
-/* step1 */
-.forgot-pass-form-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 54px;
-  margin-top: 32px;
-}
-
 /* step2 */
 #forgot-pass-verification-code,
 #sign-up-verification-code,

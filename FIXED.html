@@ -9,7 +9,7 @@
     <script href="./script.js"></script>
   </head>
   <body>
-    <!-- nav - start -->
+    <!-- NAVIGATION - START -->
     <nav>
       <div class="nav-container">
         <div id="nav-logo">
@@ -43,7 +43,7 @@
       </div>
     </nav>
 
-    <!-- nav - end -->
+    <!-- NAVIGATION - END -->
 
     <!-- language switcher -->
     <div class="lang-switcher">
@@ -54,111 +54,183 @@
     <!-- SIGN IN - START -->
     <!-- SIGN IN - 1 - START -->
     <section aria-hidden="false">
-      <div class="signIn-1">
-        <!-- SIGN IN - LEFT -->
-        <div class="left" id="signIn-1-left">
-          <div class="content">
-            <h3 data-i18n="signin.left.h3">Welcome Back!</h3>
-            <p data-i18n="signin.left.p">
-              We’ve missed you. Let’s get you signed in.
-            </p>
-          </div>
-          <button class="createAccount-btn" type="button">
-            <span class="CA-BTN-leftText" data-i18n="signin.left.cta_prefix"
-              >New here?</span
-            >
-            <span class="CA-BTN-rightText" data-i18n="signin.left.cta_action"
-              >Create account</span
-            >
-          </button>
-        </div>
-        <!-- SIGN IN - RIGHT -->
-        <div class="right" id="signIn-1-right">
-          <h2 data-i18n="signin.right.h2">Sign In</h2>
-          <form class="form sign-in-form1">
-            <!-- Email -->
-            <div class="input-group">
-              <input
-                type="email"
-                id="sign-in-email"
-                name="sign-in-email"
-                placeholder="you@example.com"
-                required
-                autocomplete="off"
-                data-i18n-placeholder="common.email.placeholder"
-              />
-              <label for="sign-in-email" data-i18n="common.email.label"
-                >Email</label
-              >
-              <img
-                src="./images/icons/email-icon.svg"
-                alt="Email field icon"
-                class="input-icon"
-              />
+      <div>
+        <div class="signIn-1">
+          <!-- SIGN IN - LEFT -->
+          <div class="left" id="signIn-1-left">
+            <div class="content">
+              <h3 data-i18n="signin.left.h3">Welcome Back!</h3>
+              <p data-i18n="signin.left.p">
+                We’ve missed you. Let’s get you signed in.
+              </p>
             </div>
-            <!-- Password -->
-            <div class="input-group">
-              <input
-                type="password"
-                id="sign-in-password"
-                name="sign-in-password"
-                placeholder="••••••••"
-                required
-                autocomplete="off"
-                minlength="8"
-              />
-              <label for="sign-in-password" data-i18n="common.password"
-                >Password</label
+            <button class="createAccount-btn" type="button">
+              <span class="CA-BTN-leftText" data-i18n="signin.left.cta_prefix"
+                >New here?</span
               >
-              <img
-                src="./images/icons/password-icon.svg"
-                alt="Password field icon"
-                class="input-icon"
-              />
+              <span class="CA-BTN-rightText" data-i18n="signin.left.cta_action"
+                >Create account</span
+              >
+            </button>
+          </div>
+          <!-- SIGN IN - RIGHT -->
+          <div class="right" id="signIn-1-right">
+            <h2 data-i18n="signin.right.h2">Sign In</h2>
+            <form class="form sign-in-form1">
+              <!-- Email -->
+              <div class="input-group">
+                <input
+                  type="email"
+                  id="sign-in-email"
+                  name="sign-in-email"
+                  placeholder="you@example.com"
+                  required
+                  autocomplete="off"
+                  data-i18n-placeholder="common.email.placeholder"
+                />
+                <label for="sign-in-email" data-i18n="common.email.label"
+                  >Email</label
+                >
+                <img
+                  src="./images/icons/email-icon.svg"
+                  alt="Email field icon"
+                  class="input-icon"
+                />
+              </div>
+              <!-- Password -->
+              <div class="input-group">
+                <input
+                  type="password"
+                  id="sign-in-password"
+                  name="sign-in-password"
+                  placeholder="••••••••"
+                  required
+                  autocomplete="off"
+                  minlength="8"
+                />
+                <label for="sign-in-password" data-i18n="common.password"
+                  >Password</label
+                >
+                <img
+                  src="./images/icons/password-icon.svg"
+                  alt="Password field icon"
+                  class="input-icon"
+                />
+                <button
+                  type="button"
+                  class="show-pass"
+                  aria-label="Show password"
+                  tabindex="-1"
+                >
+                  <img
+                    src="./images/icons/show-password-icon.svg"
+                    alt="show password icon"
+                  />
+                </button>
+              </div>
+              <!-- Remember me -->
+              <div class="remember-me">
+                <input
+                  type="checkbox"
+                  id="sign-in-remember"
+                  name="sign-in-remember"
+                />
+                <label for="sign-in-remember" data-i18n="signin.right.remember"
+                  >Remember me for 30 days</label
+                >
+              </div>
+              <!-- Forgot password -->
               <button
                 type="button"
-                class="show-pass"
-                aria-label="Show password"
-                tabindex="-1"
+                class="forgotPassword-btn"
+                data-i18n="signin.right.forgot"
               >
-                <img
-                  src="./images/icons/show-password-icon.svg"
-                  alt="show password icon"
-                />
+                Forgot password?
               </button>
-            </div>
-            <!-- Remember me -->
-            <div class="remember-me">
-              <input
-                type="checkbox"
-                id="sign-in-remember"
-                name="sign-in-remember"
-              />
-              <label for="sign-in-remember" data-i18n="signin.right.remember"
-                >Remember me for 30 days</label
+              <!-- Submit -->
+              <button
+                type="submit"
+                class="btn logIn-btn"
+                data-i18n="common.log_in"
               >
-            </div>
-            <!-- Forgot password -->
-            <button
-              type="button"
-              class="forgotPassword-btn"
-              data-i18n="signin.right.forgot"
-            >
-              Forgot password?
-            </button>
-            <!-- Submit -->
-            <button
-              type="submit"
-              class="btn log-in-btn"
-              data-i18n="common.log_in"
-            >
-              Log in
-            </button>
-          </form>
+                Log in
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
     <!-- SIGN IN - 1 - END -->
     <!-- SIGN IN - END -->
+
+    <!-- FORGOT PASSWORD - START -->
+    <section>
+      <!-- FORGOT PASSWORD - 1 - START -->
+      <div>
+        <div class="forgotPass-1">
+          <div class="left" id="forgotPass-1-left">
+            <div class="content">
+              <h3 data-i18n="forgot.step1.left.h3">No worries at all!</h3>
+              <p data-i18n="forgot.step1.left.p">
+                You can easily reset your password in just a few simple steps
+              </p>
+            </div>
+          </div>
+          <div class="right" id="forgotPass-1-right">
+            <h2 data-i18n="forgot.step1.right.h2">Forgot Password</h2>
+            <p data-i18n="common.steps.s1">Step 1</p>
+            <p data-i18n="forgot.step1.right.p">
+              We'll send you a link to reset your password. Please enter the
+              email linked to your account.
+            </p>
+            <form class="form forgot-pass-form1">
+              <!-- Email input -->
+              <div class="input-group">
+                <input
+                  type="email"
+                  id="forgot-pass-email"
+                  name="forgot-pass-email"
+                  placeholder="you@example.com"
+                  required
+                  autocomplete="off"
+                  data-i18n-placeholder="common.email.placeholder"
+                />
+                <label for="forgot-pass-email" data-i18n="common.email.label"
+                  >Email</label
+                >
+                <img
+                  src="./images/icons/email-icon.svg"
+                  alt="Email field icon"
+                  class="input-icon"
+                />
+              </div>
+              <!-- Back - Next button -->
+              <div class="button-group">
+                <button
+                  type="button"
+                  class="btn back-btn"
+                  data-i18n="common.back"
+                >
+                  Back
+                </button>
+                <button
+                  type="submit"
+                  class="btn next-btn"
+                  data-i18n="common.next"
+                >
+                  Next
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- FORGOT PASSWORD - 1 - END -->
+      <!-- FORGOT PASSWORD - 2 - START -->
+
+      <div></div>
+      <!-- FORGOT PASSWORD - 2 - END -->
+    </section>
+    <!-- FORGOT PASSWORD - END -->
   </body>
 </html>
