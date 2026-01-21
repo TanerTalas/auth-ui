@@ -802,7 +802,8 @@ form {
   color: #e63946;
 }
 
-.required, .optional {
+.required,
+.optional {
   margin-bottom: 8px;
 }
 
@@ -927,21 +928,24 @@ form {
   margin: auto 0;
 }
 /* ********** SIGN UP 4 - END ********** */
-/* ******************** SIGN UP - END ******************** */
-
-/***** buttons - start *****/
-.proceed-btn {
-  background-color: #00ff5e;
+/* ********** SIGN UP 5 - START ********** */
+.signUp-5 {
+  position: relative;
+  display: flex;
+  box-shadow: 0 0 8px #0000005c;
+  width: 100%;
+  max-width: 1000px;
 }
-
-/***** buttons - end *****/
-
-/* step5 */
+/* SIGN UP 5 LEFT */
+.content {
+  margin: auto 0;
+}
+/* SIGN UP 5 RIGHT */
 .checkmark-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px 0;
+  margin-bottom: 16px;
 }
 
 .checkmark {
@@ -968,11 +972,30 @@ form {
   animation: draw-check 0.5s ease-out 0.8s forwards;
 }
 
-#sign-up-right5 .sign-in-btn {
-  margin-top: 32px !important;
+@keyframes draw-circle {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
-/* sign up - end */
+@keyframes draw-check {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+#signUp-5-right > p {
+  margin-bottom: 16px;
+}
+/* ********** SIGN UP 5 - END ********** */
+/* ******************** SIGN UP - END ******************** */
+
+/***** buttons - start *****/
+.proceed-btn {
+  background-color: #00ff5e;
+}
+
+/***** buttons - end *****/
 
 .info-banner {
   background: #fff3cd;
@@ -1158,18 +1181,6 @@ form {
     background-position:
       0 0,
       -200% 0;
-  }
-}
-
-@keyframes draw-circle {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes draw-check {
-  to {
-    stroke-dashoffset: 0;
   }
 }
 
