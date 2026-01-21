@@ -313,9 +313,6 @@ body.dark .themeIcon-wrapper {
 /* ******************** NAVIGATION - END ******************** */
 
 /* ******************** SECTION SETTINGS - START ******************** */
-section {
-}
-
 section > div {
   min-height: 100vh;
   align-items: center;
@@ -1072,40 +1069,42 @@ footer > div {
   text-align: center;
 }
 
-/* progress bar - start */
-
-.linear-progress {
-  position: absolute;
-  top: 58px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1000px;
-  height: 6px;
-  overflow: hidden;
-  z-index: 3;
-  opacity: 0;
+/* ******************** PROGRESS BAR - START ******************** */
+.progress-wrapper {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   pointer-events: none;
-  transition: opacity 0.4s ease;
+  z-index: 3;
+  padding: 0 24px;
 }
 
-.linear-progress.show {
+.linear-progress {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 6px;
   opacity: 1;
-  pointer-events: auto;
+  transition: opacity 0.4s ease;
 }
 
 .lp-bar {
   position: absolute;
   top: 0;
   bottom: 0;
+  width: 100%;
   transform-origin: left center;
-  will-change: transform, left, width;
 }
 
 .lp-base {
   left: 0;
+  top: 0;
+  bottom: 0;
   width: 100%;
   background: var(--lp-bg);
-  transition: background 0.4s ease;
 }
 
 .lp-done {
@@ -1123,57 +1122,10 @@ footer > div {
   width: 100%;
   transform: scaleX(0);
   transition:
-    transform 420ms ease,
-    left 420ms ease;
-  background-size:
-    100% 100%,
-    200% 100%;
-  background-position:
-    0 0,
-    200% 0;
-  animation: shimmer 1.2s linear infinite;
+    transform 0.42s ease,
+    left 0.42s ease;
 }
-
-/* progress bar - end */
-
-/* mobile warning - start */
-#mobile-warning {
-  position: fixed;
-  inset: 0;
-  background: #000000cc;
-  color: white;
-  display: none;
-  /* normalde gizli */
-  justify-content: center;
-  align-items: center;
-  padding: 24px;
-  text-align: center;
-  z-index: 99999;
-}
-
-#mobile-warning .warning-box {
-  max-width: 380px;
-  background: #111;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
-}
-
-/* mobile warning - end */
-
-@keyframes shimmer {
-  from {
-    background-position:
-      0 0,
-      200% 0;
-  }
-
-  to {
-    background-position:
-      0 0,
-      -200% 0;
-  }
-}
+/* ******************** PROGRESS BAR - END ******************** */
 
 @keyframes gradientFlowVertical {
   0% {
@@ -1224,15 +1176,6 @@ footer > div {
   to {
     transform: rotate(360deg);
   }
-}
-
-@media (max-width: 1048px) {
-  /* progress bar - start */
-  .linear-progress {
-    width: 500px;
-  }
-
-  /* progress bar - end */
 }
 
 @media (max-width: 548px) {
