@@ -149,10 +149,42 @@ nav {
 }
 
 .nav-container {
+  position: relative;
   padding: 0 24px;
   width: 100%;
   max-width: 1248px;
   display: flex;
+}
+
+/* Language  */
+.lang-switcher {
+  position: absolute;
+  top: 58px;
+  right: 0;
+  padding: 24px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.lang-btn {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.lang-btn:hover {
+  background-color: rgb(242, 242, 242);
+}
+
+.lang-btn.active {
+  background: #593cc3;
+  color: #fff;
+  border-color: #593cc3;
 }
 
 /* active link */
@@ -174,7 +206,6 @@ li.active {
   height: 48px;
   transition: filter 0.4s ease;
 }
-
 /* Nav links and buttons */
 .navbar {
   display: flex;
@@ -276,42 +307,6 @@ body.dark .themeIcon-wrapper {
 }
 
 /* ******************** NAVIGATION - END ******************** */
-
-/* language - start  DEĞİŞEECEEKKKKKKKKKK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-.lang-switcher {
-  position: fixed;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  z-index: 999999;
-}
-
-.lang-btn {
-  background: #f1f1f1;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 6px 12px;
-  font-size: 14px;
-  cursor: pointer;
-  transition:
-    background 0.3s ease,
-    transform 0.2s ease;
-}
-
-.lang-btn:hover {
-  background: #e0e0e0;
-  transform: scale(1.05);
-}
-
-.lang-btn.active {
-  background: #593cc3;
-  color: #fff;
-  border-color: #593cc3;
-}
-/* ******************** NAVIGATION - END ******************** */
-
 /* ******************** SECTION SETTINGS - START ******************** */
 section > div {
   min-height: 100vh;
