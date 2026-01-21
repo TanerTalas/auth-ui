@@ -989,9 +989,10 @@ footer {
   justify-content: center;
   width: 100%;
   bottom: 0;
-  color: #888;
+  color: black;
   opacity: 0.8;
   pointer-events: none;
+  z-index: 500;
 }
 
 footer > div {
@@ -999,20 +1000,10 @@ footer > div {
   max-width: 1248px;
   padding: 24px;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
+  gap: 16px;
 }
 /* ******************** FOOTER - END ******************** */
-.info-banner {
-  background: #fff3cd;
-  color: #856404;
-  font-size: 14px;
-  padding: 8px 12px;
-  border: 1px solid #ffeeba;
-  border-radius: 6px;
-  margin: 16px auto;
-  max-width: 600px;
-  text-align: center;
-}
 
 /* ******************** PROGRESS BAR - START ******************** */
 .progress-wrapper {
