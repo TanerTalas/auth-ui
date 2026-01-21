@@ -58,18 +58,14 @@ body {
   background-color: var(--background-color);
   font-family: "Roboto", sans-serif;
   position: relative;
-  min-height: 100svh;
   isolation: isolate;
-  transition: background-color 0.4s ease;
+  overflow-x: hidden;
 }
 
 body::before {
   content: "";
   position: fixed;
-  top: calc(10% + 64px / 2);
-  left: 10%;
-  right: 10%;
-  bottom: calc(10% - 64px / 2);
+  inset: 96px;
   z-index: -1;
   background: conic-gradient(
     from 180deg at 50% 50%,
@@ -86,8 +82,10 @@ body::before {
   transition: background 0.4s ease;
 }
 
-body.no-scroll {
-  overflow: hidden;
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ******************** FONT SETTINGS - START ******************** */
@@ -136,6 +134,10 @@ label,
   font-weight: 600;
 }
 
+.lang-btn {
+  font-size: 0.9rem;
+}
+
 /* ******************** FONT SETTINGS - END ******************** */
 
 /* ******************** NAVIGATION - START ******************** */
@@ -146,6 +148,8 @@ nav {
   display: flex;
   justify-content: center;
   z-index: 999;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .nav-container {
@@ -172,7 +176,6 @@ nav {
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 8px 12px;
-  font-size: 0.9rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -201,7 +204,7 @@ li.active {
 }
 
 #nav-logo > img {
-  filter: var(--logoIcon-filter); /* GÖZ AT */
+  filter: var(--logoIcon-filter);
   width: 48px;
   height: 48px;
   transition: filter 0.4s ease;
@@ -307,68 +310,13 @@ body.dark .themeIcon-wrapper {
 }
 
 /* ******************** NAVIGATION - END ******************** */
-/* ******************** SECTION SETTINGS - START ******************** */
-section > div {
-  min-height: 100vh;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  padding: 0 24px;
-}
-
-.left,
-.right {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  width: 100%;
-  max-width: 500px;
-  padding: 64px;
-}
-
-.left {
-  color: #ffffff;
-  background: linear-gradient(180deg, #6f7c57, #4793b1);
-  animation: gradientFlowVertical 10s ease-in-out infinite;
-  background-size: 100% 400%;
-  left: 0;
-  transition:
-    left 0.4s ease,
-    transform 0.4s ease;
-  z-index: 1;
-}
-
-.right {
-  background-color: white;
-  right: 0;
-  transition:
-    right 0.4s ease,
-    transform 0.4s ease;
-  z-index: 0;
-}
-
-.centered .left {
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.centered .right {
-  right: 50%;
-  transform: translateX(50%);
-}
-/* ******************** SECTION SETTINGS - END ******************** */
 
 /* ******************** BUTTON SETTINGS - START ******************** */
 .btn {
   border: none;
   cursor: pointer;
-
-  background-color: #b3b3b3;
   padding: 12px 24px;
+  background-color: transparent;
   color: white;
   border-radius: 4px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
@@ -376,6 +324,23 @@ section > div {
     background-color 0.3s ease,
     color 0.3s ease,
     filter 0.3s ease;
+}
+
+.forgotPass-1 .next-btn {
+  padding-left: 36px;
+  padding-right: 36px;
+}
+
+.signUp-1 .next-btn {
+  padding-left: 36px;
+  padding-right: 36px;
+}
+.overlay .proceed-btn {
+  background-color: #00ff5e;
+}
+
+.btn-secondary {
+  background-color: #d5d5d5;
 }
 
 .btn-default {
@@ -395,28 +360,28 @@ section > div {
 }
 
 .btn:hover {
-  filter: brightness(1.05);
+  filter: brightness(0.95) saturate(1.05);
 }
 /* ******************** BUTTON SETTINGS - END ******************** */
 
 /* ******************** INPUT SETTINGS - START ******************** */
-#forgotPass-verificationCode,
-#signUp-verificationCode,
-#sign-up-phone-verification-code {
+#forgotPass-2-verificationCode,
+#signUp-2-verificationCode,
+#signUp-4-verificationCode {
   max-width: 140px;
   padding-left: 12px;
   text-align: center;
 }
 
-#forgotPass-verificationCode.filled,
-#signUp-verificationCode.filled,
-#sign-up-phone-verification-code.filled {
+#forgotPass-2-verificationCode.filled,
+#signUp-2-verificationCode.filled,
+#signUp-4-verificationCode.filled {
   border-color: #ffbf00 !important;
 }
 
-#forgotPass-verificationCode + label,
-#signUp-verificationCode + label,
-#sign-up-phone-verification-code + label {
+#forgotPass-2-verificationCode + label,
+#signUp-2-verificationCode + label,
+#signUp-4-verificationCode + label {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
@@ -487,12 +452,11 @@ input:-webkit-autofill + label,
 
 .show-pass {
   position: absolute;
-  top: 52%;
-  right: 16px;
-  transform: translateY(-50%);
+  right: 0;
+  height: 100%;
+  padding-right: 16px;
   background: none;
   border: none;
-  padding: 0;
   cursor: pointer;
   transition: transform 120ms ease;
 }
@@ -500,12 +464,12 @@ input:-webkit-autofill + label,
 .show-pass img {
   width: 24px;
   height: 24px;
-  transition: filter 120ms ease;
+  transition: filter 0.12s ease;
 }
 
 .show-pass:hover,
 .show-pass:focus-visible {
-  transform: translateY(-50%) scale(1.05);
+  transform: scale(1.05);
 }
 
 .input-group input[type="password"] {
@@ -575,22 +539,139 @@ input.invalid ~ .input-icon {
 input:focus ~ .show-pass img {
   filter: brightness(0) saturate(100%);
 }
+
+
+@keyframes borderPulse {
+  0% {
+    border-color: #ffbf00;
+  }
+
+  50% {
+    border-color: #00ff5e;
+  }
+
+  100% {
+    border-color: #ffbf00;
+  }
+}
+
+@keyframes iconPulse {
+  0% {
+    filter: brightness(0) saturate(100%) invert(64%) sepia(78%) saturate(1040%)
+      hue-rotate(1deg) brightness(103%) contrast(103%);
+  }
+
+  50% {
+    filter: brightness(0) saturate(100%) invert(61%) sepia(68%) saturate(467%)
+      hue-rotate(75deg) brightness(110%) contrast(105%);
+  }
+
+  100% {
+    filter: brightness(0) saturate(100%) invert(64%) sepia(78%) saturate(1040%)
+      hue-rotate(1deg) brightness(103%) contrast(103%);
+  }
+}
 /* ******************** INPUT SETTINGS - END ******************** */
 
-/* ******************** SIGN IN - START ******************** */
-/* ********** SIGN IN 1 - START ********** */
-.signIn-1 {
+/* ******************** SECTION SETTINGS - START ******************** */
+section > div {
+  min-height: 100vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0 24px;
+}
+
+.signIn-1,
+.forgotPass-1,
+.forgotPass-2,
+.forgotPass-3,
+.signUp-1,
+.signUp-2,
+.signUp-4,
+.signUp-5 {
   position: relative;
   display: flex;
-  box-shadow: 0 0 8px #0000005c;
   width: 100%;
   max-width: 1000px;
 }
-/* SIGN IN 1 LEFT */
+
+.forgotPass-4,
+.signUp-3 {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+}
+
+.left,
+.right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  width: 100%;
+  max-width: 500px;
+  padding: 64px;
+  flex: 1;
+}
+
+.left {
+  color: #ffffff;
+  background: linear-gradient(180deg, #6f7c57, #4793b1);
+  background-size: 100% 400%;
+  left: 0;
+  transition:
+    left 0.4s ease,
+    transform 0.4s ease;
+  z-index: 1;
+  animation: gradientFlowVertical 10s ease-in-out infinite;
+}
+
+@keyframes gradientFlowVertical {
+  0% {
+    background-position: 50% 0%;
+  }
+
+  50% {
+    background-position: 50% 100%;
+  }
+
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
 .content {
   margin: auto 0;
 }
 
+.right {
+  background-color: white;
+  right: 0;
+  transition:
+    right 0.4s ease,
+    transform 0.4s ease;
+  z-index: 0;
+}
+
+.centered .left {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.centered .right {
+  right: 50%;
+  transform: translateX(50%);
+}
+/* ******************** SECTION SETTINGS - END ******************** */
+
+/* ******************** SIGN IN - START ******************** */
+/* ********** SIGN IN 1 - START ********** */
+/* SIGN IN 1 LEFT */
 .createAccount-btn {
   display: inline-block;
   background: none;
@@ -616,7 +697,6 @@ input:focus ~ .show-pass img {
 }
 
 /* SIGN IN 1 RIGHT */
-
 form {
   width: 100%;
   max-width: 320px;
@@ -658,134 +738,31 @@ form {
 
 /* ******************** FORGOT PASSWORD - START ******************** */
 /* ********** FORGOT PASSWORD 1 - START ********** */
-.forgotPass-1 {
-  position: relative;
-  display: flex;
-  box-shadow: 0 0 8px #0000005c;
-  width: 100%;
-  max-width: 1000px;
-}
-/* FORGOT PASSWORD 1 LEFT */
-.content {
-  margin: auto 0;
-}
-
 /* FORGOT PASSWORD 1 RIGHT */
 .button-group {
   display: flex;
   justify-content: space-between;
 }
-
-.forgotPass-1 .back-btn {
-  background-color: #d5d5d5;
-}
-
-.forgotPass-1 .next-btn {
-  padding-left: 36px;
-  padding-right: 36px;
-}
 /* ********** FORGOT PASSWORD 1 - END ********** */
-/* ********** FORGOT PASSWORD 2 - START ********** */
-.forgotPass-2 {
-  position: relative;
-  display: flex;
-  box-shadow: 0 0 8px #0000005c;
-  width: 100%;
-  max-width: 1000px;
-}
-/* FORGOT PASSWORD 2 LEFT */
-.content {
-  margin: auto 0;
-}
 
-/* ********** FORGOT PASSWORD 2 - END ********** */
-/* ********** FORGOT PASSWORD 3 - START ********** */
-.forgotPass-3 {
-  position: relative;
-  display: flex;
-  box-shadow: 0 0 8px #0000005c;
-  width: 100%;
-  max-width: 1000px;
-}
-/* FORGOT PASSWORD 3 LEFT */
-.content {
-  margin: auto 0;
-}
-/* FORGOT PASSWORD 3 RIGHT */
-.forgotPass-3 .done-btn {
-}
-/* ********** FORGOT PASSWORD 3 - END ********** */
 /* ********** FORGOT PASSWORD 4 - START ********** */
-.forgotPass-4 {
-  position: relative;
-  display: flex;
-  box-shadow: 0 0 8px #0000005c;
-  width: 100%;
-  max-width: 500px;
-}
 /* FORGOT PASSWORD 4 RIGHT */
 .forgotPass-4 h3 + p {
   margin-bottom: 16px;
-}
-
-.signIn-btn {
-  background-color: #00ff5e;
-  transition: opacity 0.25s;
 }
 /* ********** FORGOT PASSWORD 4 - END ********** */
 /* ******************** FORGOT PASSWORD - END ******************** */
 
 /* ******************** SIGN UP - START ******************** */
 /* ********** SIGN UP 1 - START ********** */
-.signUp-1 {
-  position: relative;
-  display: flex;
-  box-shadow: 0 0 8px #0000005c;
-  width: 100%;
-  max-width: 1000px;
-}
-/* SIGN UP 1 LEFT */
-.content {
-  margin: auto 0;
-}
-
 /* SIGN UP 1 RIGHT */
 .button-group {
   display: flex;
   justify-content: space-between;
 }
-
-.signUp-1 .back-btn {
-  background-color: #d5d5d5;
-}
-
-.signUp-1 .next-btn {
-  padding-left: 36px;
-  padding-right: 36px;
-}
 /* ********** SIGN UP 1 - END ********** */
-/* ********** SIGN UP 2 - START ********** */
-.signUp-2 {
-  position: relative;
-  display: flex;
-  box-shadow: 0 0 8px #0000005c;
-  width: 100%;
-  max-width: 1000px;
-}
-/* SIGN UP 2 LEFT */
-.content {
-  margin: auto 0;
-}
-/* ********** SIGN UP 2 - END ********** */
+
 /* ********** SIGN UP 3 - START ********** */
-.signUp-3 {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 0 8px #0000005c;
-  width: 100%;
-  max-width: 1000px;
-}
 /* SIGN UP 3 RIGHT */
 /* SIGN UP 3 RIGHT - SETTINGS */
 /* REQUIRED */
@@ -953,36 +930,9 @@ form {
   justify-content: space-around;
 }
 
-.proceed-btn {
-  background-color: #00ff5e;
-}
-
 /* ********** SIGN UP 3 CONFIRMATION - END ********** */
-/* ********** SIGN UP 4 - START ********** */
-.signUp-4 {
-  position: relative;
-  display: flex;
-  box-shadow: 0 0 8px #0000005c;
-  width: 100%;
-  max-width: 1000px;
-}
-/* SIGN UP 4 LEFT */
-.content {
-  margin: auto 0;
-}
-/* ********** SIGN UP 4 - END ********** */
+
 /* ********** SIGN UP 5 - START ********** */
-.signUp-5 {
-  position: relative;
-  display: flex;
-  box-shadow: 0 0 8px #0000005c;
-  width: 100%;
-  max-width: 1000px;
-}
-/* SIGN UP 5 LEFT */
-.content {
-  margin: auto 0;
-}
 /* SIGN UP 5 RIGHT */
 .checkmark-wrapper {
   display: flex;
@@ -1044,7 +994,7 @@ footer {
   pointer-events: none;
 }
 
-footer > div { 
+footer > div {
   width: 100%;
   max-width: 1248px;
   padding: 24px;
@@ -1121,57 +1071,6 @@ footer > div {
     left 0.42s ease;
 }
 /* ******************** PROGRESS BAR - END ******************** */
-
-@keyframes gradientFlowVertical {
-  0% {
-    background-position: 50% 0%;
-  }
-
-  50% {
-    background-position: 50% 100%;
-  }
-
-  100% {
-    background-position: 50% 0%;
-  }
-}
-
-@keyframes borderPulse {
-  0% {
-    border-color: #ffbf00;
-  }
-
-  50% {
-    border-color: #00ff5e;
-  }
-
-  100% {
-    border-color: #ffbf00;
-  }
-}
-
-@keyframes iconPulse {
-  0% {
-    filter: brightness(0) saturate(100%) invert(64%) sepia(78%) saturate(1040%)
-      hue-rotate(1deg) brightness(103%) contrast(103%);
-  }
-
-  50% {
-    filter: brightness(0) saturate(100%) invert(61%) sepia(68%) saturate(467%)
-      hue-rotate(75deg) brightness(110%) contrast(105%);
-  }
-
-  100% {
-    filter: brightness(0) saturate(100%) invert(64%) sepia(78%) saturate(1040%)
-      hue-rotate(1deg) brightness(103%) contrast(103%);
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 @media (max-width: 548px) {
   html {

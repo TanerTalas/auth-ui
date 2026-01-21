@@ -92,14 +92,14 @@
               <div class="input-group">
                 <input
                   type="email"
-                  id="sign-in-email"
-                  name="sign-in-email"
+                  id="signIn-email"
+                  name="signIn-email"
                   placeholder="you@example.com"
                   required
                   autocomplete="off"
                   data-i18n-placeholder="common.email.placeholder"
                 />
-                <label for="sign-in-email" data-i18n="common.email.label"
+                <label for="signIn-email" data-i18n="common.email.label"
                   >Email</label
                 >
                 <img
@@ -112,14 +112,14 @@
               <div class="input-group">
                 <input
                   type="password"
-                  id="sign-in-password"
-                  name="sign-in-password"
+                  id="signIn-password"
+                  name="signIn-password"
                   placeholder="••••••••"
                   required
                   autocomplete="off"
                   minlength="8"
                 />
-                <label for="sign-in-password" data-i18n="common.password"
+                <label for="signIn-password" data-i18n="common.password"
                   >Password</label
                 >
                 <img
@@ -131,7 +131,6 @@
                   type="button"
                   class="show-pass"
                   aria-label="Show password"
-                  tabindex="-1"
                 >
                   <img
                     src="./images/icons/show-password-icon.svg"
@@ -143,10 +142,10 @@
               <div class="remember-me">
                 <input
                   type="checkbox"
-                  id="sign-in-remember"
-                  name="sign-in-remember"
+                  id="signIn-remember"
+                  name="signIn-remember"
                 />
-                <label for="sign-in-remember" data-i18n="signin.right.remember"
+                <label for="signIn-remember" data-i18n="signin.right.remember"
                   >Remember me for 30 days</label
                 >
               </div>
@@ -161,7 +160,7 @@
               <!-- SIGN_IN_1_RIGHT - LOG IN BUTTON -->
               <button
                 type="submit"
-                class="btn logIn-btn"
+                class="btn btn-default"
                 data-i18n="common.log_in"
               >
                 Log in
@@ -201,14 +200,14 @@
               <div class="input-group">
                 <input
                   type="email"
-                  id="forgot-pass-email"
-                  name="forgot-pass-email"
+                  id="forgotPass-1-email"
+                  name="forgotPass-1-email"
                   placeholder="you@example.com"
                   required
                   autocomplete="off"
                   data-i18n-placeholder="common.email.placeholder"
                 />
-                <label for="forgot-pass-email" data-i18n="common.email.label"
+                <label for="forgotPass-1-email" data-i18n="common.email.label"
                   >Email</label
                 >
                 <img
@@ -221,14 +220,14 @@
               <div class="button-group">
                 <button
                   type="button"
-                  class="btn back-btn"
+                  class="btn btn-secondary"
                   data-i18n="common.back"
                 >
                   Back
                 </button>
                 <button
                   type="submit"
-                  class="btn next-btn"
+                  class="btn btn-default"
                   data-i18n="common.next"
                 >
                   Next
@@ -263,8 +262,8 @@
                 <input
                   type="text"
                   class="verification-code"
-                  id="forgotPass-verificationCode"
-                  name="forgot-pass-verification-code"
+                  id="forgotPass-2-verificationCode"
+                  name="forgotPass-2-verificationCode"
                   placeholder="1 2 3 4 5 6"
                   required
                   inputmode="numeric"
@@ -272,14 +271,14 @@
                   maxlength="11"
                   autocomplete="off"
                 />
-                <label for="forgotPass-verificationCode" data-i18n="common.code"
+                <label for="forgotPass-2-verificationCode" data-i18n="common.code"
                   >Code</label
                 >
               </div>
               <!-- FORGOT_PASS_2_RIGHT - VERIFY BUTTON -->
               <button
                 type="submit"
-                class="btn verify-btn"
+                class="btn btn-default"
                 data-i18n="common.verify"
               >
                 Verify
@@ -312,14 +311,14 @@
               <div class="input-group">
                 <input
                   type="password"
-                  id="forgot-pass-password"
-                  name="forgot-pass-password"
+                  id="forgotPass-3-password"
+                  name="forgotPass-3-password"
                   placeholder="••••••••"
                   required
                   autocomplete="off"
                   minlength="8"
                 />
-                <label for="forgot-pass-password" data-i18n="common.password"
+                <label for="forgotPass-3-password" data-i18n="common.password"
                   >Password</label
                 >
                 <img
@@ -331,7 +330,6 @@
                   type="button"
                   class="show-pass"
                   aria-label="Show password"
-                  tabindex="-1"
                 >
                   <img
                     src="./images/icons/show-password-icon.svg"
@@ -343,15 +341,15 @@
               <div class="input-group">
                 <input
                   type="password"
-                  id="forgot-pass-confirm-password"
-                  name="forgot-pass-confirm-password"
+                  id="forgotPass-3-confirmPassword"
+                  name="forgotPass-3-confirmPassword"
                   placeholder="••••••••"
                   required
                   autocomplete="off"
                   minlength="8"
                 />
                 <label
-                  for="forgot-pass-confirm-password"
+                  for="forgotPass-3-confirmPassword"
                   data-i18n="common.confirm_password"
                   >Confirm Password</label
                 >
@@ -368,14 +366,14 @@
                 >
                   <img
                     src="./images/icons/show-password-icon.svg"
-                    alt="show password icon"
+                    alt="Show password icon"
                   />
                 </button>
               </div>
               <!-- FORGOT_PASS_3_RIGHT - DONE BUTTON -->
               <button
                 type="submit"
-                class="btn done-btn"
+                class="btn btn-default"
                 data-i18n="common.done"
               >
                 Done
@@ -398,7 +396,7 @@
             <!-- FORGOT_PASSWORD_4_RIGHT - SIGN IN BUTTON -->
             <button
               type="button"
-              class="btn signIn-btn"
+              class="btn btn-valid"
               data-i18n="common.sign_in"
             >
               Sign In
@@ -437,14 +435,14 @@
               <div class="input-group">
                 <input
                   type="email"
-                  id="sign-up-email"
-                  name="sign-up-email"
+                  id="signUp-1-email"
+                  name="signUp-1-email"
                   placeholder="you@example.com"
                   required
                   autocomplete="off"
                   data-i18n-placeholder="common.email.placeholder"
                 />
-                <label for="sign-up-email" data-i18n="common.email.label"
+                <label for="signUp-1-email" data-i18n="common.email.label"
                   >Email</label
                 >
                 <img
@@ -457,14 +455,14 @@
               <div class="input-group">
                 <input
                   type="password"
-                  id="sign-up-password"
-                  name="sign-up-password"
+                  id="signUp-1-password"
+                  name="signUp-1-password"
                   placeholder="••••••••"
                   required
                   autocomplete="off"
                   minlength="8"
                 />
-                <label for="sign-up-password" data-i18n="common.password"
+                <label for="signUp-1-password" data-i18n="common.password"
                   >Password</label
                 >
                 <img
@@ -476,7 +474,6 @@
                   type="button"
                   class="show-pass"
                   aria-label="Show password"
-                  tabindex="-1"
                 >
                   <img
                     src="./images/icons/show-password-icon.svg"
@@ -488,15 +485,15 @@
               <div class="input-group">
                 <input
                   type="password"
-                  id="sign-up-confirm-password"
-                  name="sign-up-confirm-password"
+                  id="signUp-1-confirmPassword"
+                  name="signUp-1-confirmPassword"
                   placeholder="••••••••"
                   required
                   autocomplete="off"
                   minlength="8"
                 />
                 <label
-                  for="sign-up-confirm-password"
+                  for="signUp-1-confirmPassword"
                   data-i18n="common.confirm_password"
                   >Confirm Password</label
                 >
@@ -509,11 +506,10 @@
                   type="button"
                   class="show-pass"
                   aria-label="Show password"
-                  tabindex="-1"
                 >
                   <img
                     src="./images/icons/show-password-icon.svg"
-                    alt="show password icon"
+                    alt="Show password icon"
                   />
                 </button>
               </div>
@@ -521,14 +517,14 @@
               <div class="button-group">
                 <button
                   type="button"
-                  class="btn back-btn"
+                  class="btn btn-secondary"
                   data-i18n="common.back"
                 >
                   Back
                 </button>
                 <button
                   type="submit"
-                  class="btn next-btn"
+                  class="btn btn-default"
                   data-i18n="common.next"
                 >
                   Next
@@ -564,8 +560,8 @@
               <div class="input-group">
                 <input
                   type="text"
-                  id="signUp-verificationCode"
-                  name="sign-up-verification-code"
+                  id="signUp-2-verificationCode"
+                  name="signUp-2-verificationCode"
                   placeholder="1 2 3 4 5 6"
                   required
                   inputmode="numeric"
@@ -573,14 +569,14 @@
                   maxlength="11"
                   autocomplete="off"
                 />
-                <label for="signUp-verificationCode" data-i18n="common.code"
+                <label for="signUp-2-verificationCode" data-i18n="common.code"
                   >Code</label
                 >
               </div>
               <!-- SIGN_UP_2_RIGHT - VERIFY INPUT -->
               <button
                 type="submit"
-                class="btn verify-btn"
+                class="btn btn-default"
                 data-i18n="common.verify"
               >
                 Verify
@@ -609,14 +605,14 @@
                   <div class="input-group">
                     <input
                       type="text"
-                      id="sign-up-firstname"
-                      name="sign-up-firstname"
+                      id="signUp-3-firstName"
+                      name="signUp-3-firstName"
                       placeholder="Taner"
                       required
                       autocomplete="off"
                     />
                     <label
-                      for="sign-up-firstname"
+                      for="signUp-3-firstName"
                       data-i18n="signup.step3.right.first_name"
                       >First name</label
                     >
@@ -625,14 +621,14 @@
                   <div class="input-group">
                     <input
                       type="text"
-                      id="sign-up-lastname"
-                      name="sign-up-lastname"
+                      id="signUp-3-lastName"
+                      name="signUp-3-lastName"
                       placeholder="Talas"
                       required
                       autocomplete="off"
                     />
                     <label
-                      for="sign-up-lastname"
+                      for="signUp-3-lastName"
                       data-i18n="signup.step3.right.last_name"
                       >Last name</label
                     >
@@ -649,8 +645,8 @@
                   <div class="input-group">
                     <input
                       type="number"
-                      id="sign-up-day"
-                      name="sign-up-day"
+                      id="signUp-3-day"
+                      name="signUp-3-day"
                       placeholder="27"
                       required
                       autocomplete="off"
@@ -658,7 +654,7 @@
                       max="31"
                       inputmode="numeric"
                     />
-                    <label for="sign-up-day" data-i18n="signup.step3.right.day"
+                    <label for="signUp-3-day" data-i18n="signup.step3.right.day"
                       >Day</label
                     >
                   </div>
@@ -666,8 +662,8 @@
                   <div class="input-group">
                     <input
                       type="text"
-                      id="sign-up-month"
-                      name="sign-up-month"
+                      id="signUp-3-month"
+                      name="signUp-3-month"
                       placeholder="09"
                       required
                       inputmode="numeric"
@@ -676,7 +672,7 @@
                       maxlength="2"
                     />
                     <label
-                      for="sign-up-month"
+                      for="signUp-3-month"
                       data-i18n="signup.step3.right.month"
                       >Month</label
                     >
@@ -685,8 +681,8 @@
                   <div class="input-group">
                     <input
                       type="number"
-                      id="sign-up-year"
-                      name="sign-up-year"
+                      id="signUp-3-year"
+                      name="signUp-3-year"
                       placeholder="2005"
                       required
                       autocomplete="off"
@@ -695,7 +691,7 @@
                       inputmode="numeric"
                     />
                     <label
-                      for="sign-up-year"
+                      for="signUp-3-year"
                       data-i18n="signup.step3.right.year"
                       >Year</label
                     >
@@ -711,8 +707,8 @@
                   <input
                     type="tel"
                     inputmode="numeric"
-                    id="sign-up-phone"
-                    name="sign-up-phone"
+                    id="signUp-3-phone"
+                    name="signUp-3-phone"
                     placeholder="+90 5xx xxx xx xx"
                     required
                     autocomplete="off"
@@ -720,7 +716,7 @@
                     pattern="\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}"
                   />
                   <label
-                    for="sign-up-phone"
+                    for="signUp-3-phone"
                     data-i18n="signup.step3.right.phone"
                     >Phone</label
                   >
@@ -738,22 +734,22 @@
                 <div class="gender-group">
                   <input
                     type="radio"
-                    id="gender-female"
-                    name="sign-up-gender"
+                    id="signUp-3-genderFemale"
+                    name="signUp-3-gender"
                     value="female"
                   />
-                  <label for="gender-female" class="gender-option">
+                  <label for="signUp-3-genderFemale" class="gender-option">
                     <span class="custom-radio"></span>
                     <span data-i18n="signup.step3.right.female">Female</span>
                   </label>
 
                   <input
                     type="radio"
-                    id="gender-male"
-                    name="sign-up-gender"
+                    id="signUp-3-genderMale"
+                    name="signUp-3-gender"
                     value="male"
                   />
-                  <label for="gender-male" class="gender-option">
+                  <label for="signUp-3-genderMale" class="gender-option">
                     <span class="custom-radio"></span>
                     <span data-i18n="signup.step3.right.male">Male</span>
                   </label>
@@ -769,14 +765,14 @@
                   <div class="input-group">
                     <input
                       type="text"
-                      id="sign-up-country"
-                      name="sign-up-country"
+                      id="signUp-3-country"
+                      name="signUp-3-country"
                       placeholder="Turkey"
                       autocomplete="off"
                       data-i18n-placeholder="signup.step3.right.turkey"
                     />
                     <label
-                      for="sign-up-country"
+                      for="signUp-3-country"
                       data-i18n="signup.step3.right.country"
                       >Country</label
                     >
@@ -785,14 +781,14 @@
                   <div class="input-group">
                     <input
                       type="text"
-                      id="sign-up-city"
-                      name="sign-up-city"
+                      id="signUp-3-city"
+                      name="signUp-3-city"
                       placeholder="Istanbul"
                       autocomplete="off"
                       data-i18n-placeholder="signup.step3.right.istanbul"
                     />
                     <label
-                      for="sign-up-city"
+                      for="signUp-3-city"
                       data-i18n="signup.step3.right.city"
                       >City</label
                     >
@@ -806,13 +802,13 @@
                 </p>
                 <div class="input-group">
                   <textarea
-                    id="sign-up-bio"
-                    name="sign-up-bio"
+                    id="signUp-3-bio"
+                    name="signUp-3-bio"
                     placeholder="Work in progress..."
                     autocomplete="off"
                     data-i18n-placeholder="signup.step3.right.bio_text"
                   ></textarea>
-                  <label for="sign-up-bio" data-i18n="signup.step3.right.bio"
+                  <label for="signUp-3-bio" data-i18n="signup.step3.right.bio"
                     >Bio</label
                   >
                 </div>
@@ -820,7 +816,7 @@
               <!-- SIGN_UP_3_RIGHT - NEXT BUTTON -->
               <button
                 type="submit"
-                class="btn next-btn"
+                class="btn btn-default"
                 data-i18n="common.next"
               >
                 Next
@@ -843,12 +839,12 @@
             Do you confirm the information you entered?
           </p>
           <div class="overlay-buttons">
-            <button type="button" class="btn back-btn" data-i18n="common.back">
+            <button type="button" class="btn btn-secondary" data-i18n="common.back">
               Back
             </button>
             <button
               type="button"
-              class="btn proceed-btn"
+              class="btn btn-valid"
               data-i18n="common.proceed"
             >
               Proceed
@@ -884,8 +880,8 @@
               <div class="input-group">
                 <input
                   type="text"
-                  id="sign-up-phone-verification-code"
-                  name="sign-up-phone-verification-code"
+                  id="signUp-4-verificationCode"
+                  name="signUp-4-verificationCode"
                   placeholder="1 2 3 4 5 6"
                   required
                   inputmode="numeric"
@@ -894,7 +890,7 @@
                   autocomplete="off"
                 />
                 <label
-                  for="sign-up-phone-verification-code"
+                  for="signUp-4-verificationCode"
                   data-i18n="common.code"
                   >Code</label
                 >
@@ -902,7 +898,7 @@
               <!-- SIGN_UP_4_RIGHT - VERIFY BUTTON -->
               <button
                 type="submit"
-                class="btn verify-btn"
+                class="btn btn-default"
                 data-i18n="common.verify"
               >
                 Verify
@@ -950,7 +946,7 @@
             <!-- SIGN_UP_5_RIGHT - SIGN IN BUTTON -->
             <button
               type="button"
-              class="btn to-signIn-btn"
+              class="btn btn-valid"
               data-i18n="common.sign_in"
             >
               Sign In
