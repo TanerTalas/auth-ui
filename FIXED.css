@@ -335,7 +335,7 @@ section > div {
 
   width: 100%;
   max-width: 500px;
-  padding: 38px;
+  padding: 64px;
 }
 
 .left {
@@ -915,6 +915,57 @@ form {
 }
 
 /* ********** SIGN UP 3 - END ********** */
+/* ********** SIGN UP 3 CONFIRMATION - START ********** */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.18s ease;
+}
+
+.overlay.close {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay-panel {
+  text-align: center;
+  background-color: white;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 4px;
+  padding: 32px;
+  margin-top: 24px;
+  position: relative;
+  transform: translateY(0);
+  transition: transform 0.2s ease;
+}
+
+.overlay.close .overlay-panel {
+  transform: translateY(-12px);
+}
+
+.overlay-title {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.overlay-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.proceed-btn {
+  background-color: #00ff5e;
+}
+
+/* ********** SIGN UP 3 CONFIRMATION - END ********** */
 /* ********** SIGN UP 4 - START ********** */
 .signUp-4 {
   position: relative;
@@ -990,13 +1041,6 @@ form {
 /* ********** SIGN UP 5 - END ********** */
 /* ******************** SIGN UP - END ******************** */
 
-/***** buttons - start *****/
-.proceed-btn {
-  background-color: #00ff5e;
-}
-
-/***** buttons - end *****/
-
 .info-banner {
   background: #fff3cd;
   color: #856404;
@@ -1021,65 +1065,6 @@ form {
 }
 
 /* footer - end */
-
-/* overlay - start */
-
-.overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 3000;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  background: rgba(0, 0, 0, 0.55);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 180ms ease;
-}
-
-.overlay.hidden {
-  display: none;
-}
-
-.overlay.open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.overlay-panel {
-  width: min(520px, 94vw);
-  margin-top: 24px;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  padding: 32px;
-  transform: translateY(-6px);
-  transition: transform 200ms ease;
-  outline: none;
-  position: relative;
-  text-align: center;
-}
-
-.ov--confirm {
-  background: #fff;
-  color: #000;
-}
-
-.overlay.open .overlay-panel {
-  transform: translateY(0);
-}
-
-.overlay-title {
-  font-size: 18px;
-  margin: 0 0 32px;
-}
-
-.overlay-actions {
-  display: flex;
-  justify-content: center;
-  gap: 64px;
-}
-
-/* overlay - end */
 
 /* progress bar - start */
 
