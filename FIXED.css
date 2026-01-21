@@ -914,6 +914,19 @@ form {
 }
 
 /* ********** SIGN UP 3 - END ********** */
+/* ********** SIGN UP 4 - START ********** */
+.signUp-4 {
+  position: relative;
+  display: flex;
+  box-shadow: 0 0 8px #0000005c;
+  width: 100%;
+  max-width: 1000px;
+}
+/* SIGN UP 4 LEFT */
+.content {
+  margin: auto 0;
+}
+/* ********** SIGN UP 4 - END ********** */
 /* ******************** SIGN UP - END ******************** */
 
 /***** buttons - start *****/

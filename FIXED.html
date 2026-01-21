@@ -583,6 +583,7 @@
       <!-- SIGN UP - 3 - START -->
       <div>
         <div class="signUp-3">
+          <!-- SIGN UP - 3 - LEFT İLE BACKGROUND -->
           <!-- SIGN UP - 3 - RIGHT -->
           <div class="right" id="signUp-3-right">
             <h2 data-i18n="signup.step3.right.h2">About You</h2>
@@ -790,10 +791,7 @@
               </div>
               <!-- SIGN_UP_3_RIGHT - BIO -->
               <div class="signUp-bio">
-                <p
-                  class="optional"
-                  data-i18n="signup.step3.right.biography"
-                >
+                <p class="optional" data-i18n="signup.step3.right.biography">
                   Biography
                 </p>
                 <div class="input-group">
@@ -822,6 +820,61 @@
         </div>
       </div>
       <!-- SIGN UP - 3 - END -->
+      <!-- SIGN UP - 4 - START -->
+      <div>
+        <div class="signUp-4">
+          <!-- SIGN UP - 4 - LEFT -->
+          <div class="left" id="signUp-4-left">
+            <div class="content">
+              <h3 data-i18n="signup.step4.left.h3">
+                Your verification code is on its way!
+              </h3>
+              <p data-i18n="signup.step4.left.p">
+                To complete your registration, please check your messages for a
+                6-digit code.
+              </p>
+            </div>
+          </div>
+          <!-- SIGN UP - 4 - RIGHT -->
+          <div class="right" id="signUp-4-right">
+            <h2 data-i18n="signup.step4.right.h2">Verify Your Phone Number</h2>
+            <p data-i18n="common.steps.s4">Step 4</p>
+            <p data-i18n="signup.step4.right.p">
+              Please enter the 6-digit code sent to your phone number.
+            </p>
+            <form class="form sign-up-form4">
+              <!-- SIGN_UP_4_RIGHT - CODE INPUT -->
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="sign-up-phone-verification-code"
+                  name="sign-up-phone-verification-code"
+                  placeholder="1 2 3 4 5 6"
+                  required
+                  inputmode="numeric"
+                  pattern="\d{1}( \d{1}){5}"
+                  maxlength="11"
+                  autocomplete="off"
+                />
+                <label
+                  for="sign-up-phone-verification-code"
+                  data-i18n="common.code"
+                  >Code</label
+                >
+              </div>
+              <!-- SIGN_UP_4_RIGHT - VERIFY BUTTON -->
+              <button
+                type="submit"
+                class="btn verify-btn"
+                data-i18n="common.verify"
+              >
+                Verify
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- SIGN UP - 4 - END -->
     </section>
     <!-- SIGN UP - END -->
   </body>
