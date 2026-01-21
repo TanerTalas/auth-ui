@@ -149,9 +149,9 @@ nav {
 }
 
 .nav-container {
-  padding: 0 12px;
+  padding: 0 24px;
   width: 100%;
-  max-width: 1224px;
+  max-width: 1248px;
   display: flex;
 }
 
@@ -1040,7 +1040,26 @@ form {
 }
 /* ********** SIGN UP 5 - END ********** */
 /* ******************** SIGN UP - END ******************** */
+/* ******************** FOOTER - START ******************** */
+footer {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  bottom: 0;
+  color: #888;
+  opacity: 0.8;
+  pointer-events: none;
+}
 
+footer > div { 
+  width: 100%;
+  max-width: 1248px;
+  padding: 24px;
+  display: flex;
+  justify-content: end;
+}
+/* ******************** FOOTER - END ******************** */
 .info-banner {
   background: #fff3cd;
   color: #856404;
@@ -1052,19 +1071,6 @@ form {
   max-width: 600px;
   text-align: center;
 }
-
-/* footer - start */
-.mini-footer {
-  position: fixed;
-  right: 16px;
-  bottom: 12px;
-  font-size: 14px;
-  color: #888;
-  opacity: 0.8;
-  pointer-events: none;
-}
-
-/* footer - end */
 
 /* progress bar - start */
 

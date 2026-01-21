@@ -161,7 +161,7 @@
                 sign_up: "Sign Up",
                 info_banner:
                     "This page was created for project purposes. You may enter random data.",
-                designed_by: "Designed & coded by Taner",
+                designed_by: "Designed & coded by Taner Talas",
                 overlay: "Do you confirm the information you entered?",
                 email: {
                     label: "Email",
@@ -345,7 +345,7 @@
                 sign_in: "Giriş Yap",
                 sign_up: "Kayıt Ol",
                 info_banner: "Bu sayfa proje amaçlı oluşturulmuştur. Rastgele veri girebilirsiniz.",
-                designed_by: "Tasarım & kodlama: Taner",
+                designed_by: "Tasarım & kodlama: Taner Talas",
                 overlay: "Girdiğiniz bilgileri onaylıyor musunuz?",
                 email: { label: "E-posta", placeholder: "ornek@eposta.com" },
                 password: "Şifre",
