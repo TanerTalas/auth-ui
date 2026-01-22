@@ -4,119 +4,196 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TESTING</title>
-    <link rel="stylesheet" href="./test.css" />
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./FIXED.css" />
+    <script src="./TEST.js"></script>
+    <script src="./FIXED_lang.js"></script>
   </head>
   <body>
-    <section aria-hidden="false">
-      <div class="signIn-1">
-        <!-- Sign in - Left -->
-        <div class="left" id="signIn-1-left">
-          <div class="content">
-            <h3 data-i18n="signin.left.h3">Welcome Back!</h3>
-            <p data-i18n="signin.left.p">
-              We’ve missed you. Let’s get you signed in.
-            </p>
-          </div>
-          <button class="createAccount-btn" type="button">
-            <span class="CA-BTN-leftText" data-i18n="signin.left.cta_prefix"
-              >New here?</span
-            >
-            <span class="CA-BTN-rightText" data-i18n="signin.left.cta_action"
-              >Create account</span
-            >
-          </button>
+    <!-- NAVIGATION - START -->
+    <nav>
+      <div class="nav-container">
+        <!-- LANGUAGE SWITCHER -->
+        <div class="lang-switcher">
+          <button type="button" class="lang-btn" data-lang="TR">TR</button>
+          <button type="button" class="lang-btn" data-lang="EN">EN</button>
         </div>
-        <!-- Sign in - Right -->
-        <div class="right" id="signIn-1-right">
-          <h2 data-i18n="signin.right.h2">Sign In</h2>
-          <form class="form sign-in-form1">
-            <!-- Email input -->
-            <div class="input-group">
-              <input
-                type="email"
-                id="sign-in-email"
-                name="sign-in-email"
-                placeholder="you@example.com"
-                required
-                autocomplete="off"
-                data-i18n-placeholder="common.email.placeholder"
-              />
-              <label for="sign-in-email" data-i18n="common.email.label"
-                >Email</label
-              >
-              <img
-                src="./images/icons/email-icon.svg"
-                alt="Email field icon"
-                class="input-icon"
-              />
+        <!-- NAV LOGO -->
+        <div id="nav-logo">
+          <img src="./images/icons/logo-icon.svg" alt="Taner Talas's logo" />
+        </div>
+        <!-- NAV MENU -->
+        <ul class="navbar">
+          <li id="portfolio-link" class="nav-link">
+            <a href="https://tanertalas.github.io" data-i18n="nav.portfolio"
+              >Portfolio</a
+            >
+          </li>
+          <li class="nav-button">
+            <button type="button" id="openSignIn" data-i18n="nav.signIn">
+              Sign In
+            </button>
+          </li>
+          <li class="nav-button">
+            <button type="button" id="openSignUp" data-i18n="nav.signUp">
+              Sign Up
+            </button>
+          </li>
+        </ul>
+        <!-- NAV THEME SWITCHER -->
+        <button id="themeButton" aria-label="Toggle light / dark mode">
+          <span class="themeIcon-wrapper">
+            <img src="./images/sun.svg" alt="" class="themeIcon sun" />
+            <img src="./images/moon.svg" alt="" class="themeIcon moon" />
+          </span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- NAVIGATION - END -->
+
+    <!-- PROGRESS BAR - START -->
+    <div class="progress-wrapper">
+      <div id="flowProgress" class="linear-progress" aria-hidden="true">
+        <span class="lp-bar lp-base"></span>
+        <span class="lp-bar lp-done"></span>
+        <span class="lp-bar lp-current"></span>
+      </div>
+    </div>
+    <!-- PROGRESS BAR - END -->
+
+    <!-- SIGN IN - START -->
+    <!-- SIGN IN - 1 - START -->
+    <section aria-hidden="false">
+      <div>
+        <div class="signIn-1">
+          <!-- SIGN IN - 1 - LEFT -->
+          <div class="left" id="signIn-1-left">
+            <div class="content">
+              <h3 data-i18n="signIn.step1.left.h3">Welcome Back!</h3>
+              <p data-i18n="signIn.step1.left.p">
+                We’ve missed you. Let’s get you signed in.
+              </p>
             </div>
-            <!-- Password input -->
-            <div class="input-group">
-              <input
-                type="password"
-                id="sign-in-password"
-                name="sign-in-password"
-                placeholder="••••••••"
-                required
-                autocomplete="off"
-                minlength="8"
-              />
-              <label for="sign-in-password" data-i18n="common.password"
-                >Password</label
+            <!-- SIGN_IN_1_LEFT - CREATE ACCOUNT LINK & BUTTON -->
+            <button class="createAccount-btn" type="button">
+              <span
+                class="CA-BTN-leftText"
+                data-i18n="signIn.step1.left.CA_BTN_leftText"
+                >New here?</span
               >
-              <img
-                src="./images/icons/password-icon.svg"
-                alt="Password field icon"
-                class="input-icon"
-              />
+              <span
+                class="CA-BTN-rightText"
+                data-i18n="signIn.step1.left.CA_BTN_rightText"
+                >Create account</span
+              >
+            </button>
+          </div>
+          <!-- SIGN IN - 1 - RIGHT -->
+          <div class="right" id="signIn-1-right">
+            <h2 data-i18n="signIn.step1.right.h2">Sign In</h2>
+            <form class="form sign-in-form1">
+              <!-- SIGN_IN_1_RIGHT - EMAIL INPUT -->
+              <div class="input-group">
+                <input
+                  type="email"
+                  id="signIn-email"
+                  name="signIn-email"
+                  placeholder="you@example.com"
+                  required
+                  autocomplete="off"
+                  data-i18n-placeholder="input.email.placeholder"
+                />
+                <label for="signIn-email" data-i18n="input.email.label"
+                  >Email</label
+                >
+                <img
+                  src="./images/icons/email-icon.svg"
+                  alt="Email field icon"
+                  class="input-icon"
+                />
+              </div>
+              <!-- SIGN_IN_1_RIGHT - PASSWORD INPUT -->
+              <div class="input-group">
+                <input
+                  type="password"
+                  id="signIn-password"
+                  name="signIn-password"
+                  placeholder="••••••••"
+                  required
+                  autocomplete="off"
+                  minlength="8"
+                />
+                <label for="signIn-password" data-i18n="input.password"
+                  >Password</label
+                >
+                <img
+                  src="./images/icons/password-icon.svg"
+                  alt="Password field icon"
+                  class="input-icon"
+                />
+                <button
+                  type="button"
+                  class="show-pass"
+                  aria-label="Show password"
+                >
+                  <img
+                    src="./images/icons/show-password-icon.svg"
+                    alt="show password icon"
+                  />
+                </button>
+              </div>
+              <!-- SIGN_IN_1_RIGHT - REMEMBER ME INPUT -->
+              <div class="remember-me">
+                <input
+                  type="checkbox"
+                  id="signIn-remember"
+                  name="signIn-remember"
+                />
+                <label
+                  for="signIn-remember"
+                  data-i18n="signIn.step1.right.rememberMe"
+                  >Remember me for 30 days</label
+                >
+              </div>
+              <!-- SIGN_IN_1_RIGHT - FORGOT PASSWORD LINK & BUTTON -->
               <button
                 type="button"
-                class="show-pass"
-                aria-label="Show password"
-                tabindex="-1"
+                class="forgotPassword-btn"
+                data-i18n="signIn.step1.right.forgotPassword"
               >
-                <img
-                  src="./images/icons/show-password-icon.svg"
-                  alt="show password icon"
-                />
+                Forgot password?
               </button>
-            </div>
-            <!-- Remember me -->
-            <div class="remember-me">
-              <input
-                type="checkbox"
-                id="sign-in-remember"
-                name="sign-in-remember"
-              />
-              <label for="sign-in-remember" data-i18n="signin.right.remember"
-                >Remember me for 30 days</label
+              <!-- SIGN_IN_1_RIGHT - LOG IN BUTTON -->
+              <button
+                type="submit"
+                class="btn btn-default"
+                data-i18n="buttons.logIn"
               >
-            </div>
-            <!-- Forgot password -->
-            <button
-              type="button"
-              class="forgotPassword-btn"
-              data-i18n="signin.right.forgot"
-            >
-              Forgot password?
-            </button>
-            <!-- Submit button -->
-            <button
-              type="submit"
-              class="btn log-in-btn"
-              data-i18n="common.log_in"
-            >
-              Log in
-            </button>
-          </form>
+                Log In
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
+    <!-- SIGN IN - 1 - END -->
+    <!-- SIGN IN - END -->
+    <!-- FOOTER - START -->
+    <footer>
+      <div>
+        <p data-i18n="footer.fp">
+          This is a portfolio project. Any information you enter is not stored.
+        </p>
+        <p data-i18n="footer.sp">Designed &amp; coded by Taner Talas</p>
+      </div>
+    </footer>
+    <!-- FOOTER - END -->
   </body>
 </html>

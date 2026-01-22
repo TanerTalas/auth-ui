@@ -13,49 +13,46 @@ html {
 }
 
 :root {
-  --logoIcon-filter: invert(0);
-  --navActiveLink-color: #fff;
-  --navActiveLink-background-color: #06002d;
-  --navLinks-color: #000;
+  --body-backgroundColor: #fff;
 
-  --background-color: #fff;
+  --nav-color: black;
+  --logoIcon-filter: invert(0);
+  --navActive-color: #fff;
+  --navActive-backgroundColor: #06002d;
+  --navHover-backgroundColor: rgba(0, 8, 255, 0.1);
+  --footer-color: black;
+
   --c1: #efed5a;
   --c2: #593cc3;
   --c3: #00ff5e;
   --c4: #4714ff;
-  --background-nav-color: #e7e3ff;
-  --nav-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
 
   --gray-color: #8e8e8e;
   --dark-color: #000000;
-  --input-radius: 8px;
 
-  --lp-bg: #d1d5db;
-  --lp-done: #00c853;
-  --lp-active: #ffd700;
+  --lpBase-backgroundColor: #d1d5db;
+  --lpDone-backgroundColor: #00c853;
+  --lpActive-backgroundColor: #ffd700;
 }
 
 .dark {
-  --logoIcon-filter: invert(1);
-  --navActiveLink-color: #000;
-  --navActiveLink-background-color: #e7e3ff;
-  --navLinks-color: #fff;
+  --body-backgroundColor: #000;
 
-  --background-color: #000;
+  --nav-color: white;
+  --logoIcon-filter: invert(1);
+  --navActive-color: #000;
+  --navActive-backgroundColor: #e7e3ff;
+  --navHover-backgroundColor: rgba(0, 8, 255, 0.2);
+  --footer-color: white;
+
   --c1: #ff9f1c;
   --c2: #2ec4b6;
   --c3: #e71d36;
   --c4: #ffbf69;
-  --background-nav-color: #06002d;
-  --nav-shadow: 0 2px 3px rgba(255, 255, 255, 0.124);
-
-  --lp-bg: #2a2a2a;
-  --lp-done: #25d366;
-  --lp-active: #ffdf5a;
 }
 
 body {
-  background-color: var(--background-color);
+  background-color: var(--body-backgroundColor);
   font-family: "Roboto", sans-serif;
   position: relative;
   isolation: isolate;
@@ -114,6 +111,7 @@ h3 {
 h3 + p {
   font-size: 1.5rem;
   line-height: 1.3;
+  font-weight: 300;
 }
 
 p,
@@ -174,14 +172,14 @@ nav {
 .lang-btn {
   background-color: white;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 2px;
   padding: 8px 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: filter 0.4s ease;
 }
 
 .lang-btn:hover {
-  background-color: rgb(242, 242, 242);
+  filter: brightness(0.95) saturate(1.05);
 }
 
 .lang-btn.active {
@@ -192,8 +190,8 @@ nav {
 
 /* active link */
 li.active {
-  background-color: var(--navActiveLink-background-color);
-  color: var(--navActiveLink-color);
+  background-color: var(--navActive-backgroundColor);
+  color: var(--navActive-color);
   cursor: default;
   pointer-events: none;
 }
@@ -226,12 +224,12 @@ li.active {
 .nav-button > button {
   position: relative;
   padding: 0 16px;
-  color: var(--navLinks-color);
+  color: var(--nav-color);
+  transition: color 0.4s ease;
 }
 
 .nav-link > a {
   text-decoration: none;
-  transition: color 0.4s ease;
   display: flex;
   align-items: center;
   height: 100%;
@@ -243,9 +241,6 @@ li.active {
 }
 
 .nav-button > button {
-  transition:
-    background-color 0.4s ease,
-    transform 0.4s ease;
   background: none;
   border: none;
   cursor: inherit;
@@ -257,7 +252,7 @@ li.active {
   top: 0;
   width: 100%;
   height: 0%;
-  background-color: rgba(142, 132, 255, 0.1);
+  background-color: var(--navHover-backgroundColor);
   border-radius: 0 0 4px 4px;
   z-index: -1;
   transition: height 0.4s ease;
@@ -284,7 +279,11 @@ li:hover::before {
   width: 48px;
   height: 48px;
   transform-style: preserve-3d;
-  transition: transform 0.6s ease;
+  transition: transform 0.4s ease;
+}
+
+.dark .themeIcon-wrapper {
+  transform: rotateX(180deg);
 }
 
 .themeIcon {
@@ -319,7 +318,7 @@ body.dark .themeIcon-wrapper {
   background-color: transparent;
   color: white;
   border-radius: 4px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
@@ -452,6 +451,9 @@ input:-webkit-autofill + label,
 
 .show-pass {
   position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
   right: 0;
   height: 100%;
   padding-right: 16px;
@@ -469,7 +471,7 @@ input:-webkit-autofill + label,
 
 .show-pass:hover,
 .show-pass:focus-visible {
-  transform: scale(1.05);
+  filter: brightness(0);
 }
 
 .input-group input[type="password"] {
@@ -989,10 +991,11 @@ footer {
   justify-content: center;
   width: 100%;
   bottom: 0;
-  color: black;
+  color: var(--footer-color);
   opacity: 0.8;
   pointer-events: none;
   z-index: 500;
+  transition: color 0.4s ease;
 }
 
 footer > div {
@@ -1040,20 +1043,20 @@ footer > div {
   top: 0;
   bottom: 0;
   width: 100%;
-  background: var(--lp-bg);
+  background: var(--lpBase-backgroundColor);
 }
 
 .lp-done {
   left: 0;
   width: 100%;
-  background: var(--lp-done);
+  background: var(--lpDone-backgroundColor);
   transform: scaleX(0);
   transition: transform 420ms ease;
 }
 
 .lp-current {
   background:
-    linear-gradient(90deg, var(--lp-done), var(--lp-active)),
+    linear-gradient(90deg, var(--lpDone-backgroundColor), var(--lpActive-backgroundColor)),
     linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
   width: 100%;
   transform: scaleX(0);

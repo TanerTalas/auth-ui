@@ -113,7 +113,7 @@ if (phoneInput) {
   phoneInput.addEventListener("focus", function () {
     if (!hasInitialized) {
       this.value = "+90 ";
-      hasInitialized = true;
+      hasInitialized = true; 
     }
   });
 

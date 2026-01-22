@@ -3,16 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="meta.title">Test</title>
+    <title data-i18n="meta.title">CSS Authentication</title>
     <meta name="author" content="Taner Talas" />
     <meta
       name="description"
       content="A modern multi-step authentication UI featuring sign-in, sign-up, and password recovery flows with smooth animations and responsive design."
       data-i18n="meta.description"
     />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./FIXED.css" />
-    <script src="./TEST.js"></script>
     <script src="./FIXED_lang.js"></script>
+    <script src="./FIXED_script.js"></script>
   </head>
   <body>
     <!-- NAVIGATION - START -->
@@ -193,7 +200,9 @@
           <!-- FORGOT PASSWORD - 1 - LEFT -->
           <div class="left" id="forgotPass-1-left">
             <div class="content">
-              <h3 data-i18n="forgotPassword.step1.left.h3">No Worries at All!</h3>
+              <h3 data-i18n="forgotPassword.step1.left.h3">
+                No Worries at All!
+              </h3>
               <p data-i18n="forgotPassword.step1.left.p">
                 You can easily reset your password in just a few simple steps.
               </p>
@@ -255,7 +264,9 @@
         <div class="forgotPass-2">
           <div class="left" id="forgotPass-2-left">
             <div class="content">
-              <h3 data-i18n="forgotPassword.step2.left.h3">Your Code is on its Way!</h3>
+              <h3 data-i18n="forgotPassword.step2.left.h3">
+                Your Code is on its Way!
+              </h3>
               <p data-i18n="forgotPassword.step2.left.p">
                 For your security, we’ve sent a one-time code to your email
                 address.
@@ -307,14 +318,18 @@
         <div class="forgotPass-3">
           <div class="left" id="forgotPass-3-left">
             <div class="content">
-              <h3 data-i18n="forgotPassword.step3.left.h3">You're Almost Done!</h3>
+              <h3 data-i18n="forgotPassword.step3.left.h3">
+                You're Almost Done!
+              </h3>
               <p data-i18n="forgotPassword.step3.left.p">
                 All that’s left is setting a new password. You’re good to go!
               </p>
             </div>
           </div>
           <div class="right" id="forgotPass-3-right">
-            <h2 data-i18n="forgotPassword.step3.right.h2">Reset Your Password</h2>
+            <h2 data-i18n="forgotPassword.step3.right.h2">
+              Reset Your Password
+            </h2>
             <p data-i18n="steps.step3">Step 3</p>
             <p data-i18n="forgotPassword.step3.right.p">
               Use at least 8 characters with one uppercase letter and one
@@ -376,7 +391,6 @@
                   type="button"
                   class="show-pass"
                   aria-label="Show password"
-                  tabindex="-1"
                 >
                   <img
                     src="./images/icons/show-password-icon.svg"
@@ -625,9 +639,7 @@
                       required
                       autocomplete="off"
                     />
-                    <label
-                      for="signUp-3-firstName"
-                      data-i18n="input.firstName"
+                    <label for="signUp-3-firstName" data-i18n="input.firstName"
                       >First name</label
                     >
                   </div>
@@ -641,9 +653,7 @@
                       required
                       autocomplete="off"
                     />
-                    <label
-                      for="signUp-3-lastName"
-                      data-i18n="input.lastName"
+                    <label for="signUp-3-lastName" data-i18n="input.lastName"
                       >Last name</label
                     >
                   </div>
@@ -668,9 +678,7 @@
                       max="31"
                       inputmode="numeric"
                     />
-                    <label for="signUp-3-day" data-i18n="input.day"
-                      >Day</label
-                    >
+                    <label for="signUp-3-day" data-i18n="input.day">Day</label>
                   </div>
                   <!-- SIGN_UP_3_RIGHT - MONTH -->
                   <div class="input-group">
@@ -685,9 +693,7 @@
                       autocomplete="off"
                       maxlength="2"
                     />
-                    <label
-                      for="signUp-3-month"
-                      data-i18n="input.month"
+                    <label for="signUp-3-month" data-i18n="input.month"
                       >Month</label
                     >
                   </div>
@@ -704,9 +710,7 @@
                       max="2099"
                       inputmode="numeric"
                     />
-                    <label
-                      for="signUp-3-year"
-                      data-i18n="input.year"
+                    <label for="signUp-3-year" data-i18n="input.year"
                       >Year</label
                     >
                   </div>
@@ -718,7 +722,7 @@
                   Phone
                 </p>
                 <div class="input-group">
-                  <input
+                  <input 
                     type="tel"
                     inputmode="numeric"
                     id="signUp-3-phone"
@@ -729,9 +733,7 @@
                     maxlength="17"
                     pattern="\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}"
                   />
-                  <label
-                    for="signUp-3-phone"
-                    data-i18n="input.phone"
+                  <label for="signUp-3-phone" data-i18n="input.phone"
                     >Phone</label
                   >
                 </div>
@@ -800,9 +802,7 @@
                       autocomplete="off"
                       data-i18n-placeholder="input.city.placeholder"
                     />
-                    <label
-                      for="signUp-3-city"
-                      data-i18n="input.city.label"
+                    <label for="signUp-3-city" data-i18n="input.city.label"
                       >City</label
                     >
                   </div>
@@ -848,7 +848,11 @@
         aria-hidden="true"
       >
         <div class="overlay-panel" tabindex="-1">
-          <p id="confirmTitle" class="overlay-title" data-i18n="signUp.step3.overlay">
+          <p
+            id="confirmTitle"
+            class="overlay-title"
+            data-i18n="signUp.step3.overlay"
+          >
             Do you confirm the information you entered?
           </p>
           <div class="overlay-buttons">
@@ -978,9 +982,7 @@
         <p data-i18n="footer.fp">
           This is a portfolio project. Any information you enter is not stored.
         </p>
-        <p data-i18n="footer.sp">
-          Designed &amp; coded by Taner Talas
-        </p>
+        <p data-i18n="footer.sp">Designed &amp; coded by Taner Talas</p>
       </div>
     </footer>
     <!-- FOOTER - END -->
