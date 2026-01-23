@@ -262,6 +262,16 @@ li:hover::before {
   height: 100%;
 }
 
+.active {
+  background-color: #000 !important;
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+.active button {
+  color: white !important;
+}
+
 /* Theme Button */
 #themeButton {
   background: none;
@@ -383,6 +393,10 @@ body.dark .themeIcon-wrapper {
 #signUp-4-verificationCode + label {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+}
+
+.input-group textarea {
+  resize: vertical;
 }
 
 .input-group {
@@ -576,12 +590,13 @@ input:focus ~ .show-pass img {
 
 /* ******************** SECTION SETTINGS - START ******************** */
 main {
-  margin-top: 68px; 
+  margin-top: 68px;
 }
+
 section {
   position: relative;
-  
 }
+
 section > div {
   position: absolute;
   left: 50%;
@@ -636,12 +651,12 @@ section > div {
   background: linear-gradient(180deg, #6f7c57, #4793b1);
   background-size: 100% 400%;
   left: 0;
+  z-index: 2;
+  animation: gradientFlowVertical 10s ease-in-out infinite;
   transition:
     left 0.4s ease,
     transform 0.4s ease,
     opacity 1s ease;
-  z-index: 1;
-  animation: gradientFlowVertical 10s ease-in-out infinite;
 }
 
 @keyframes gradientFlowVertical {
@@ -665,10 +680,23 @@ section > div {
 .right {
   background-color: white;
   right: 0;
+  z-index: 1;
   transition:
     right 0.4s ease,
-    transform 0.4s ease;
-  z-index: 0;
+    transform 0.4s ease,
+    opacity 1s ease;
+}
+
+.right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: white;
+  z-index: 3;
+  will-change: transform;
+  transform: scale(0);
+  transform-origin: center;
+  transition: transform 0.4s ease;
 }
 
 .centered .left {
@@ -681,9 +709,18 @@ section > div {
   transform: translateX(50%);
 }
 
+.centered .right::after {
+  transform: scale(1);
+}
+
+.centered .createAccount-btn {
+  display: none;
+}
+
 .hideWith-opacity .left,
 .hideWith-opacity .right {
   opacity: 0;
+  pointer-events: none;
 }
 
 .hideWith-display {

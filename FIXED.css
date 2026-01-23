@@ -385,6 +385,10 @@ body.dark .themeIcon-wrapper {
   transform: translateX(-50%) translateY(-50%);
 }
 
+.input-group textarea {
+  resize: vertical;
+}
+
 .input-group {
   position: relative;
   margin-bottom: 16px;
