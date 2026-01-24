@@ -726,6 +726,11 @@ section > div {
 .hideWith-display {
   display: none;
 }
+
+.centered #signUp-3-right {
+  right: 0;
+  transform: translateX(0);
+}
 /* ******************** SECTION SETTINGS - END ******************** */
 
 /* ******************** SIGN IN - START ******************** */

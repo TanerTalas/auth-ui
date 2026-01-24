@@ -196,7 +196,10 @@
       <!-- FORGOT PASSWORD - START -->
       <section class="forgotPass-section hideWith-display" aria-hidden="true">
         <!-- FORGOT PASSWORD - 1 - START -->
-        <div class="forgotPass-1-section centered hideWith-opacity hideWith-display" aria-hidden="true">
+        <div
+          class="forgotPass-1-section centered hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
           <div class="forgotPass-1">
             <!-- FORGOT PASSWORD - 1 - LEFT -->
             <div class="left" id="forgotPass-1-left">
@@ -249,6 +252,7 @@
                   </button>
                   <button
                     type="submit"
+                    id="btn-forgotPass-1"
                     class="btn btn-default"
                     data-i18n="buttons.next"
                   >
@@ -261,7 +265,10 @@
         </div>
         <!-- FORGOT PASSWORD - 1 - END -->
         <!-- FORGOT PASSWORD - 2 - START -->
-        <div class="forgotPass-2-section centered hideWith-opacity hideWith-display" aria-hidden="true">
+        <div
+          class="forgotPass-2-section centered hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
           <div class="forgotPass-2">
             <!-- FORGOT PASSWORD - 2 - LEFT -->
             <div class="left" id="forgotPass-2-left">
@@ -319,7 +326,10 @@
         </div>
         <!-- FORGOT PASSWORD - 2 - END -->
         <!-- FORGOT PASSWORD - 3 - START -->
-        <div class="forgotPass-3-section centered hideWith-opacity hideWith-display" aria-hidden="true">
+        <div
+          class="forgotPass-3-section centered hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
           <div class="forgotPass-3">
             <!-- FORGOT PASSWORD - 3 - LEFT -->
             <div class="left" id="forgotPass-3-left">
@@ -348,7 +358,7 @@
                   <input
                     type="password"
                     id="forgotPass-3-password"
-                    name="forgotPass-3-password"
+                    name="password"
                     placeholder="••••••••"
                     required
                     autocomplete="off"
@@ -378,7 +388,7 @@
                   <input
                     type="password"
                     id="forgotPass-3-confirmPassword"
-                    name="forgotPass-3-confirmPassword"
+                    name="confirmPassword"
                     placeholder="••••••••"
                     required
                     autocomplete="off"
@@ -419,7 +429,10 @@
         </div>
         <!-- FORGOT PASSWORD - 3 - END -->
         <!-- FORGOT PASSWORD - 4 - START -->
-        <div class="forgotPass-4-section hideWith-opacity hideWith-display" aria-hidden="true">
+        <div
+          class="forgotPass-4-section hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
           <div class="forgotPass-4">
             <!-- FORGOT PASSWORD - 4 - RIGHT -->
             <div class="right" id="forgotPass-4-right">
@@ -446,7 +459,10 @@
       <!-- SIGN UP - START -->
       <section class="signUp-section hideWith-display" aria-hidden="true">
         <!-- SIGN UP - 1 - START -->
-        <div class="signUp-1-section centered hideWith-opacity hideWith-display" aria-hidden="true">
+        <div
+          class="signUp-1-section centered hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
           <div class="signUp-1">
             <!-- SIGN UP - 1 - LEFT -->
             <div class="left" id="signUp-1-left">
@@ -491,7 +507,7 @@
                   <input
                     type="password"
                     id="signUp-1-password"
-                    name="signUp-1-password"
+                    name="password"
                     placeholder="••••••••"
                     required
                     autocomplete="off"
@@ -521,7 +537,7 @@
                   <input
                     type="password"
                     id="signUp-1-confirmPassword"
-                    name="signUp-1-confirmPassword"
+                    name="confirmPassword"
                     placeholder="••••••••"
                     required
                     autocomplete="off"
@@ -559,6 +575,7 @@
                   </button>
                   <button
                     type="submit"
+                    id="btn-signUp-1"
                     class="btn btn-default"
                     data-i18n="buttons.next"
                   >
@@ -571,7 +588,10 @@
         </div>
         <!-- SIGN UP - 1 - END -->
         <!-- SIGN UP - 2 - START -->
-        <div class="signUp-2-section centered hideWith-opacity hideWith-display" aria-hidden="true">
+        <div
+          class="signUp-2-section centered hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
           <div class="signUp-2">
             <!-- SIGN UP - 2 - LEFT -->
             <div class="left" id="signUp-2-left">
@@ -613,6 +633,7 @@
                 <!-- SIGN_UP_2_RIGHT - VERIFY INPUT -->
                 <button
                   type="submit"
+                  id="btn-signUp-2"
                   class="btn btn-default"
                   data-i18n="buttons.verify"
                 >
@@ -624,7 +645,10 @@
         </div>
         <!-- SIGN UP - 2 - END -->
         <!-- SIGN UP - 3 - START -->
-        <div class="signUp-3-section hideWith-opacity hideWith-display" aria-hidden="true">
+        <div
+          class="signUp-3-section hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
           <div class="signUp-3">
             <!-- SIGN UP - 3 - LEFT İLE BACKGROUND -->
             <!-- SIGN UP - 3 - RIGHT -->
@@ -842,6 +866,7 @@
                 <!-- SIGN_UP_3_RIGHT - NEXT BUTTON -->
                 <button
                   type="submit"
+                  id="btn-signUp-3-1"
                   class="btn btn-default"
                   data-i18n="buttons.next"
                 >
@@ -852,43 +877,11 @@
           </div>
         </div>
         <!-- SIGN UP - 3 - END -->
-        <!-- SIGN UP - 3 - CONFIRMATION - START -->
+        <!-- SIGN UP - 4 - START -->
         <div
-          id="confirmOverlay"
-          class="overlay close"
-          role="dialog"
-          aria-modal="true"
+          class="signUp-4-section centered hideWith-opacity hideWith-display"
           aria-hidden="true"
         >
-          <div class="overlay-panel" tabindex="-1">
-            <p
-              id="confirmTitle"
-              class="overlay-title"
-              data-i18n="signUp.step3.overlay"
-            >
-              Do you confirm the information you entered?
-            </p>
-            <div class="overlay-buttons">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-i18n="buttons.back"
-              >
-                Back
-              </button>
-              <button
-                type="button"
-                class="btn btn-valid"
-                data-i18n="buttons.proceed"
-              >
-                Proceed
-              </button>
-            </div>
-          </div>
-        </div>
-        <!-- SIGN UP - 3 - CONFIRMATION - END -->
-        <!-- SIGN UP - 4 - START -->
-        <div class="signUp-4-section centered hideWith-opacity hideWith-display" aria-hidden="true">
           <div class="signUp-4">
             <!-- SIGN UP - 4 - LEFT -->
             <div class="left" id="signUp-4-left">
@@ -932,6 +925,7 @@
                 <!-- SIGN_UP_4_RIGHT - VERIFY BUTTON -->
                 <button
                   type="submit"
+                  id="btn-signUp-4"
                   class="btn btn-default"
                   data-i18n="buttons.verify"
                 >
@@ -943,7 +937,10 @@
         </div>
         <!-- SIGN UP - 4 - END -->
         <!-- SIGN UP - 5 - START -->
-        <div class="signUp-5-section centered hideWith-opacity hideWith-display" aria-hidden="true">
+        <div
+          class="signUp-5-section centered hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
           <div class="signUp-5">
             <!-- SIGN UP - 5 - LEFT -->
             <div class="left" id="signUp-5-left">
@@ -980,6 +977,7 @@
               <!-- SIGN_UP_5_RIGHT - SIGN IN BUTTON -->
               <button
                 type="button"
+                id="btn-signUp-5"
                 class="btn btn-valid"
                 data-i18n="buttons.signIn"
               >
@@ -992,6 +990,43 @@
       </section>
       <!-- SIGN UP - END -->
     </main>
+    <!-- SIGN UP - 3 - CONFIRMATION - START -->
+    <div
+      id="confirmOverlay"
+      class="overlay close"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <div class="overlay-panel">
+        <p
+          id="confirmTitle"
+          class="overlay-title"
+          data-i18n="signUp.step3.overlay"
+        >
+          Do you confirm the information you entered?
+        </p>
+        <div class="overlay-buttons">
+          <button
+            type="button"
+            id="back-btn-signUp-3-overlay"
+            class="btn btn-secondary"
+            data-i18n="buttons.back"
+          >
+            Back
+          </button>
+          <button
+            type="button"
+            id="btn-signUp-3-2"
+            class="btn btn-valid"
+            data-i18n="buttons.proceed"
+          >
+            Proceed
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- SIGN UP - 3 - CONFIRMATION - END -->
     <!-- FOOTER - START -->
     <footer>
       <div>

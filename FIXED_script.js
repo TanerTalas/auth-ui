@@ -425,17 +425,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // PASSWORD MATCH RULE (PER FORM)
     const passwordsMatch = () => {
-      const pwFields = [...form.querySelectorAll('input[type="password"]')];
+      const password = form.querySelector('input[name="password"]');
+      const confirm = form.querySelector('input[name="confirmPassword"]');
 
-      if (pwFields.length < 2) return true;
+      if (!password || !confirm) return true;
 
-      const [password, confirm] = pwFields;
+      const pw = password.value.trim();
+      const cpw = confirm.value.trim();
 
-      return (
-        password.value.trim() !== "" &&
-        confirm.value.trim() !== "" &&
-        password.value === confirm.value
-      );
+      if (!pw || !cpw) return false;
+
+      return PASSWORD_REGEX.test(pw) && pw === cpw;
     };
 
     // CHECK ALL INPUTS VALIDITY
@@ -473,6 +473,4 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
-
-  
 });
