@@ -170,6 +170,7 @@ nav {
 }
 
 .lang-btn {
+  color: black;
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 2px;
@@ -1099,5 +1100,10 @@ footer > div {
 @media (max-width: 548px) {
   html {
     font-size: 14px;
+  }
+
+  .nav-link > a,
+  .nav-button > button {
+    padding: 0 12px;
   }
 }
