@@ -3,7 +3,7 @@
     EN: {
       /* EN - META */
       meta: {
-        title: "CSS Authentication",
+        title: "CSS Authentication UI",
         description:
           "A modern multi-step authentication UI featuring sign-in, sign-up, and password recovery flows with smooth animations and responsive design.",
       },
@@ -197,7 +197,7 @@
     TR: {
       /* TR - META */
       meta: {
-        title: "CSS Kimlik Doğrulama",
+        title: "CSS Kimlik Doğrulama UI",
         description:
           "Giriş yapma, kayıt olma ve parola kurtarma işlemlerini akıcı animasyonlar ve duyarlı tasarımla birleştiren modern, çok adımlı bir kimlik doğrulama arayüzü.",
       },
