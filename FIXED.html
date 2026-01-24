@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./FIXED.css" />
     <script src="./FIXED_lang.js"></script>
     <script src="./FIXED_script.js"></script>
+    <script src="./wiringForms.js"></script>
   </head>
   <body>
     <!-- NAVIGATION - START -->
@@ -41,7 +42,7 @@
               >Portfolio</a
             >
           </li>
-          <li class="nav-button">
+          <li class="nav-button active">
             <button type="button" id="openSignIn" data-i18n="nav.signIn">
               Sign In
             </button>
@@ -64,918 +65,969 @@
 
     <!-- NAVIGATION - END -->
 
-    <!-- PROGRESS BAR - START -->
-    <div class="progress-wrapper">
-      <div id="flowProgress" class="linear-progress" aria-hidden="true">
-        <span class="lp-bar lp-base"></span>
-        <span class="lp-bar lp-done"></span>
-        <span class="lp-bar lp-current"></span>
-      </div>
-    </div>
-    <!-- PROGRESS BAR - END -->
-
-    <!-- SIGN IN - START -->
-    <!-- SIGN IN - 1 - START -->
-    <section aria-hidden="false">
-      <div>
-        <div class="signIn-1">
-          <!-- SIGN IN - 1 - LEFT -->
-          <div class="left" id="signIn-1-left">
-            <div class="content">
-              <h3 data-i18n="signIn.step1.left.h3">Welcome Back!</h3>
-              <p data-i18n="signIn.step1.left.p">
-                We’ve missed you. Let’s get you signed in.
-              </p>
-            </div>
-            <!-- SIGN_IN_1_LEFT - CREATE ACCOUNT LINK & BUTTON -->
-            <button class="createAccount-btn" type="button">
-              <span
-                class="CA-BTN-leftText"
-                data-i18n="signIn.step1.left.CA_BTN_leftText"
-                >New here?</span
-              >
-              <span
-                class="CA-BTN-rightText"
-                data-i18n="signIn.step1.left.CA_BTN_rightText"
-                >Create account</span
-              >
-            </button>
-          </div>
-          <!-- SIGN IN - 1 - RIGHT -->
-          <div class="right" id="signIn-1-right">
-            <h2 data-i18n="signIn.step1.right.h2">Sign In</h2>
-            <form class="form sign-in-form1">
-              <!-- SIGN_IN_1_RIGHT - EMAIL INPUT -->
-              <div class="input-group">
-                <input
-                  type="email"
-                  id="signIn-email"
-                  name="signIn-email"
-                  placeholder="you@example.com"
-                  required
-                  autocomplete="off"
-                  data-i18n-placeholder="input.email.placeholder"
-                />
-                <label for="signIn-email" data-i18n="input.email.label"
-                  >Email</label
-                >
-                <img
-                  src="./images/icons/email-icon.svg"
-                  alt="Email field icon"
-                  class="input-icon"
-                />
-              </div>
-              <!-- SIGN_IN_1_RIGHT - PASSWORD INPUT -->
-              <div class="input-group">
-                <input
-                  type="password"
-                  id="signIn-password"
-                  name="signIn-password"
-                  placeholder="••••••••"
-                  required
-                  autocomplete="off"
-                  minlength="8"
-                />
-                <label for="signIn-password" data-i18n="input.password"
-                  >Password</label
-                >
-                <img
-                  src="./images/icons/password-icon.svg"
-                  alt="Password field icon"
-                  class="input-icon"
-                />
-                <button
-                  type="button"
-                  class="show-pass"
-                  aria-label="Show password"
-                >
-                  <img
-                    src="./images/icons/show-password-icon.svg"
-                    alt="show password icon"
-                  />
-                </button>
-              </div>
-              <!-- SIGN_IN_1_RIGHT - REMEMBER ME INPUT -->
-              <div class="remember-me">
-                <input
-                  type="checkbox"
-                  id="signIn-remember"
-                  name="signIn-remember"
-                />
-                <label
-                  for="signIn-remember"
-                  data-i18n="signIn.step1.right.rememberMe"
-                  >Remember me for 30 days</label
-                >
-              </div>
-              <!-- SIGN_IN_1_RIGHT - FORGOT PASSWORD LINK & BUTTON -->
-              <button
-                type="button"
-                class="forgotPassword-btn"
-                data-i18n="signIn.step1.right.forgotPassword"
-              >
-                Forgot password?
-              </button>
-              <!-- SIGN_IN_1_RIGHT - LOG IN BUTTON -->
-              <button
-                type="submit"
-                class="btn btn-default"
-                data-i18n="buttons.logIn"
-              >
-                Log In
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- SIGN IN - 1 - END -->
-    <!-- SIGN IN - END -->
-
-    <!-- FORGOT PASSWORD - START -->
-    <section>
-      <!-- FORGOT PASSWORD - 1 - START -->
-      <div>
-        <div class="forgotPass-1">
-          <!-- FORGOT PASSWORD - 1 - LEFT -->
-          <div class="left" id="forgotPass-1-left">
-            <div class="content">
-              <h3 data-i18n="forgotPassword.step1.left.h3">
-                No Worries at All!
-              </h3>
-              <p data-i18n="forgotPassword.step1.left.p">
-                You can easily reset your password in just a few simple steps.
-              </p>
-            </div>
-          </div>
-          <!-- FORGOT PASSWORD - 1 - RIGHT -->
-          <div class="right" id="forgotPass-1-right">
-            <h2 data-i18n="forgotPassword.step1.right.h2">Forgot Password</h2>
-            <p data-i18n="steps.step1">Step 1</p>
-            <p data-i18n="forgotPassword.step1.right.p">
-              We'll send you a link to reset your password. Please enter the
-              email linked to your account.
-            </p>
-            <form class="form forgot-pass-form1">
-              <!-- FORGOT_PASS_1_RIGHT - EMAIL INPUT -->
-              <div class="input-group">
-                <input
-                  type="email"
-                  id="forgotPass-1-email"
-                  name="forgotPass-1-email"
-                  placeholder="you@example.com"
-                  required
-                  autocomplete="off"
-                  data-i18n-placeholder="input.email.placeholder"
-                />
-                <label for="forgotPass-1-email" data-i18n="input.email.label"
-                  >Email</label
-                >
-                <img
-                  src="./images/icons/email-icon.svg"
-                  alt="Email field icon"
-                  class="input-icon"
-                />
-              </div>
-              <!-- FORGOT_PASS_1_RIGHT - BACK_NEXT BUTTON -->
-              <div class="button-group">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-i18n="buttons.back"
-                >
-                  Back
-                </button>
-                <button
-                  type="submit"
-                  class="btn btn-default"
-                  data-i18n="buttons.next"
-                >
-                  Next
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <!-- FORGOT PASSWORD - 1 - END -->
-      <!-- FORGOT PASSWORD - 2 - START -->
-      <div>
-        <div class="forgotPass-2">
-          <div class="left" id="forgotPass-2-left">
-            <div class="content">
-              <h3 data-i18n="forgotPassword.step2.left.h3">
-                Your Code is on its Way!
-              </h3>
-              <p data-i18n="forgotPassword.step2.left.p">
-                For your security, we’ve sent a one-time code to your email
-                address.
-              </p>
-            </div>
-          </div>
-          <div class="right" id="forgotPass-2-right">
-            <h2 data-i18n="forgotPassword.step2.right.h2">Verify Your Email</h2>
-            <p data-i18n="steps.step2">Step 2</p>
-            <p data-i18n="forgotPassword.step2.right.p">
-              We emailed you a code. Please check your inbox or spam folder.
-            </p>
-            <form class="form forgot-pass-form2">
-              <!-- FORGOT_PASS_2_RIGHT - CODE INPUT -->
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="verification-code"
-                  id="forgotPass-2-verificationCode"
-                  name="forgotPass-2-verificationCode"
-                  placeholder="1 2 3 4 5 6"
-                  required
-                  inputmode="numeric"
-                  pattern="\d{1}( \d{1}){5}"
-                  maxlength="11"
-                  autocomplete="off"
-                />
-                <label
-                  for="forgotPass-2-verificationCode"
-                  data-i18n="input.code"
-                  >Code</label
-                >
-              </div>
-              <!-- FORGOT_PASS_2_RIGHT - VERIFY BUTTON -->
-              <button
-                type="submit"
-                class="btn btn-default"
-                data-i18n="buttons.verify"
-              >
-                Verify
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <!-- FORGOT PASSWORD - 2 - END -->
-      <!-- FORGOT PASSWORD - 3 - START -->
-      <div>
-        <div class="forgotPass-3">
-          <div class="left" id="forgotPass-3-left">
-            <div class="content">
-              <h3 data-i18n="forgotPassword.step3.left.h3">
-                You're Almost Done!
-              </h3>
-              <p data-i18n="forgotPassword.step3.left.p">
-                All that’s left is setting a new password. You’re good to go!
-              </p>
-            </div>
-          </div>
-          <div class="right" id="forgotPass-3-right">
-            <h2 data-i18n="forgotPassword.step3.right.h2">
-              Reset Your Password
-            </h2>
-            <p data-i18n="steps.step3">Step 3</p>
-            <p data-i18n="forgotPassword.step3.right.p">
-              Use at least 8 characters with one uppercase letter and one
-              number.
-            </p>
-            <form class="form forgot-pass-form3">
-              <!-- FORGOT_PASS_3_RIGHT - PASSWORD INPUT -->
-              <div class="input-group">
-                <input
-                  type="password"
-                  id="forgotPass-3-password"
-                  name="forgotPass-3-password"
-                  placeholder="••••••••"
-                  required
-                  autocomplete="off"
-                  minlength="8"
-                />
-                <label for="forgotPass-3-password" data-i18n="input.password"
-                  >Password</label
-                >
-                <img
-                  src="./images/icons/password-icon.svg"
-                  alt="Password field icon"
-                  class="input-icon"
-                />
-                <button
-                  type="button"
-                  class="show-pass"
-                  aria-label="Show password"
-                >
-                  <img
-                    src="./images/icons/show-password-icon.svg"
-                    alt="show password icon"
-                  />
-                </button>
-              </div>
-              <!-- FORGOT_PASS_3_RIGHT - CONFIRM PASSWORD INPUT -->
-              <div class="input-group">
-                <input
-                  type="password"
-                  id="forgotPass-3-confirmPassword"
-                  name="forgotPass-3-confirmPassword"
-                  placeholder="••••••••"
-                  required
-                  autocomplete="off"
-                  minlength="8"
-                />
-                <label
-                  for="forgotPass-3-confirmPassword"
-                  data-i18n="input.confirmPassword"
-                  >Confirm Password</label
-                >
-                <img
-                  src="./images/icons/password-icon.svg"
-                  alt="Password field icon"
-                  class="input-icon"
-                />
-                <button
-                  type="button"
-                  class="show-pass"
-                  aria-label="Show password"
-                >
-                  <img
-                    src="./images/icons/show-password-icon.svg"
-                    alt="Show password icon"
-                  />
-                </button>
-              </div>
-              <!-- FORGOT_PASS_3_RIGHT - DONE BUTTON -->
-              <button
-                type="submit"
-                class="btn btn-default"
-                data-i18n="buttons.done"
-              >
-                Done
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <!-- FORGOT PASSWORD - 3 - END -->
-      <!-- FORGOT PASSWORD - 4 - START -->
-      <div>
-        <div class="forgotPass-4">
-          <!-- FORGOT PASSWORD - 4 - RIGHT -->
-          <div class="right" id="forgotPass-4-right">
-            <h3 data-i18n="forgotPassword.step4.right.h3">You’re Ready!</h3>
-            <p data-i18n="forgotPassword.step4.right.p">
-              Your password has been reset successfully. You can now sign in to
-              your account.
-            </p>
-            <!-- FORGOT_PASSWORD_4_RIGHT - SIGN IN BUTTON -->
-            <button
-              type="button"
-              class="btn btn-valid"
-              data-i18n="buttons.signIn"
-            >
-              Sign In
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- FORGOT PASSWORD - 4 - END -->
-    </section>
-    <!-- FORGOT PASSWORD - END -->
-
-    <!-- SIGN UP - START -->
-    <section>
-      <!-- SIGN UP - 1 - START -->
-      <div>
-        <div class="signUp-1">
-          <!-- SIGN UP - 1 - LEFT -->
-          <div class="left" id="signUp-1-left">
-            <div class="content">
-              <h3 data-i18n="signUp.step1.left.h3">Let’s Get Started!</h3>
-              <p data-i18n="signUp.step1.left.p">
-                We’re excited to have you with us!
-              </p>
-            </div>
-          </div>
-          <!-- SIGN UP - 1 - RIGHT -->
-          <div class="right" id="signUp-1-right">
-            <h2 data-i18n="signUp.step1.right.h2">Create Your Account</h2>
-            <p data-i18n="steps.step1">Step 1</p>
-            <p data-i18n="signUp.step1.right.p">
-              Create your password using at least 8 characters, including one
-              uppercase letter and one number.
-            </p>
-            <form class="form sign-up-form1">
-              <!-- SIGN_UP_1_RIGHT - EMAIL INPUT -->
-              <div class="input-group">
-                <input
-                  type="email"
-                  id="signUp-1-email"
-                  name="signUp-1-email"
-                  placeholder="you@example.com"
-                  required
-                  autocomplete="off"
-                  data-i18n-placeholder="input.email.placeholder"
-                />
-                <label for="signUp-1-email" data-i18n="input.email.label"
-                  >Email</label
-                >
-                <img
-                  src="./images/icons/email-icon.svg"
-                  alt="Email field icon"
-                  class="input-icon"
-                />
-              </div>
-              <!-- SIGN_UP_1_RIGHT - PASSWORD INPUT -->
-              <div class="input-group">
-                <input
-                  type="password"
-                  id="signUp-1-password"
-                  name="signUp-1-password"
-                  placeholder="••••••••"
-                  required
-                  autocomplete="off"
-                  minlength="8"
-                />
-                <label for="signUp-1-password" data-i18n="input.password"
-                  >Password</label
-                >
-                <img
-                  src="./images/icons/password-icon.svg"
-                  alt="Password field icon"
-                  class="input-icon"
-                />
-                <button
-                  type="button"
-                  class="show-pass"
-                  aria-label="Show password"
-                >
-                  <img
-                    src="./images/icons/show-password-icon.svg"
-                    alt="show password icon"
-                  />
-                </button>
-              </div>
-              <!-- SIGN_UP_1_RIGHT - REPEAT PASSWORD INPUT -->
-              <div class="input-group">
-                <input
-                  type="password"
-                  id="signUp-1-confirmPassword"
-                  name="signUp-1-confirmPassword"
-                  placeholder="••••••••"
-                  required
-                  autocomplete="off"
-                  minlength="8"
-                />
-                <label
-                  for="signUp-1-confirmPassword"
-                  data-i18n="input.confirmPassword"
-                  >Confirm Password</label
-                >
-                <img
-                  src="./images/icons/password-icon.svg"
-                  alt="Password field icon"
-                  class="input-icon"
-                />
-                <button
-                  type="button"
-                  class="show-pass"
-                  aria-label="Show password"
-                >
-                  <img
-                    src="./images/icons/show-password-icon.svg"
-                    alt="Show password icon"
-                  />
-                </button>
-              </div>
-              <!-- SIGN_UP_1_RIGHT - BACK_NEXT BUTTON -->
-              <div class="button-group">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-i18n="buttons.back"
-                >
-                  Back
-                </button>
-                <button
-                  type="submit"
-                  class="btn btn-default"
-                  data-i18n="buttons.next"
-                >
-                  Next
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <!-- SIGN UP - 1 - END -->
-      <!-- SIGN UP - 2 - START -->
-      <div>
-        <div class="signUp-2">
-          <!-- SIGN UP - 2 - LEFT -->
-          <div class="left" id="signUp-2-left">
-            <div class="content">
-              <h3 data-i18n="signUp.step2.left.h3">Your Code is on its Way!</h3>
-              <p data-i18n="signUp.step2.left.p">
-                For your security, we’ve sent a one-time code to your email
-                address.
-              </p>
-            </div>
-          </div>
-          <!-- SIGN UP - 2 - RIGHT -->
-          <div class="right" id="signUp-2-right">
-            <h2 data-i18n="signUp.step2.right.h2">Verify Your Email</h2>
-            <p data-i18n="steps.step2">Step 2</p>
-            <p data-i18n="signUp.step2.right.p">
-              We emailed you a code. Please check your inbox or spam folder.
-            </p>
-            <form class="form sign-up-form2">
-              <!-- SIGN_UP_2_RIGHT - CODE INPUT -->
-              <div class="input-group">
-                <input
-                  type="text"
-                  id="signUp-2-verificationCode"
-                  name="signUp-2-verificationCode"
-                  placeholder="1 2 3 4 5 6"
-                  required
-                  inputmode="numeric"
-                  pattern="\d{1}( \d{1}){5}"
-                  maxlength="11"
-                  autocomplete="off"
-                />
-                <label for="signUp-2-verificationCode" data-i18n="input.code"
-                  >Code</label
-                >
-              </div>
-              <!-- SIGN_UP_2_RIGHT - VERIFY INPUT -->
-              <button
-                type="submit"
-                class="btn btn-default"
-                data-i18n="buttons.verify"
-              >
-                Verify
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <!-- SIGN UP - 2 - END -->
-      <!-- SIGN UP - 3 - START -->
-      <div>
-        <div class="signUp-3">
-          <!-- SIGN UP - 3 - LEFT İLE BACKGROUND -->
-          <!-- SIGN UP - 3 - RIGHT -->
-          <div class="right" id="signUp-3-right">
-            <h2 data-i18n="signUp.step3.right.h2">About You</h2>
-            <p data-i18n="steps.step3">Step 3</p>
-            <form>
-              <!-- SIGN_UP_3_RIGHT - FULLNAME -->
-              <div class="signUp-fullname">
-                <p class="required" data-i18n="signUp.step3.right.fullName">
-                  Full Name
+    <main>
+      <!-- SIGN IN - START -->
+      <section class="signIn-section" aria-hidden="false">
+        <!-- SIGN IN - 1 - START -->
+        <div class="signIn-1-section" aria-hidden="false">
+          <div class="signIn-1">
+            <!-- SIGN IN - 1 - LEFT -->
+            <div class="left" id="signIn-1-left">
+              <div class="content">
+                <h3 data-i18n="signIn.step1.left.h3">Welcome Back!</h3>
+                <p data-i18n="signIn.step1.left.p">
+                  We’ve missed you. Let’s get you signed in.
                 </p>
-                <div>
-                  <!-- SIGN_UP_3_RIGHT - FIRST_NAME INPUT -->
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      id="signUp-3-firstName"
-                      name="signUp-3-firstName"
-                      placeholder="Taner"
-                      required
-                      autocomplete="off"
-                    />
-                    <label for="signUp-3-firstName" data-i18n="input.firstName"
-                      >First name</label
-                    >
-                  </div>
-                  <!-- SIGN_UP_3_RIGHT - LAST_NAME INPUT -->
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      id="signUp-3-lastName"
-                      name="signUp-3-lastName"
-                      placeholder="Talas"
-                      required
-                      autocomplete="off"
-                    />
-                    <label for="signUp-3-lastName" data-i18n="input.lastName"
-                      >Last name</label
-                    >
-                  </div>
-                </div>
               </div>
-              <!-- SIGN_UP_3_RIGHT - BIRTHDAY -->
-              <div class="signUp-birthday">
-                <p class="required" data-i18n="signUp.step3.right.birthday">
-                  Birthday
-                </p>
-                <div>
-                  <!-- SIGN_UP_3_RIGHT - DAY -->
-                  <div class="input-group">
-                    <input
-                      type="number"
-                      id="signUp-3-day"
-                      name="signUp-3-day"
-                      placeholder="27"
-                      required
-                      autocomplete="off"
-                      min="1"
-                      max="31"
-                      inputmode="numeric"
-                    />
-                    <label for="signUp-3-day" data-i18n="input.day">Day</label>
-                  </div>
-                  <!-- SIGN_UP_3_RIGHT - MONTH -->
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      id="signUp-3-month"
-                      name="signUp-3-month"
-                      placeholder="09"
-                      required
-                      inputmode="numeric"
-                      pattern="^(0[1-9]|1[0-2])$"
-                      autocomplete="off"
-                      maxlength="2"
-                    />
-                    <label for="signUp-3-month" data-i18n="input.month"
-                      >Month</label
-                    >
-                  </div>
-                  <!-- SIGN_UP_3_RIGHT - YEAR -->
-                  <div class="input-group">
-                    <input
-                      type="number"
-                      id="signUp-3-year"
-                      name="signUp-3-year"
-                      placeholder="2005"
-                      required
-                      autocomplete="off"
-                      min="1900"
-                      max="2099"
-                      inputmode="numeric"
-                    />
-                    <label for="signUp-3-year" data-i18n="input.year"
-                      >Year</label
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- SIGN_UP_3_RIGHT - PHONE -->
-              <div class="signUp-phone" style="margin-bottom: 32px">
-                <p class="required" data-i18n="signUp.step3.right.phone">
-                  Phone
-                </p>
+              <!-- SIGN_IN_1_LEFT - CREATE ACCOUNT LINK & BUTTON -->
+              <button class="createAccount-btn" type="button">
+                <span
+                  class="CA-BTN-leftText"
+                  data-i18n="signIn.step1.left.CA_BTN_leftText"
+                  >New here?</span
+                >
+                <span
+                  class="CA-BTN-rightText"
+                  data-i18n="signIn.step1.left.CA_BTN_rightText"
+                  >Create account</span
+                >
+              </button>
+            </div>
+            <!-- SIGN IN - 1 - RIGHT -->
+            <div class="right" id="signIn-1-right">
+              <h2 data-i18n="signIn.step1.right.h2">Sign In</h2>
+              <form class="form sign-in-form1">
+                <!-- SIGN_IN_1_RIGHT - EMAIL INPUT -->
                 <div class="input-group">
-                  <input 
-                    type="tel"
-                    inputmode="numeric"
-                    id="signUp-3-phone"
-                    name="signUp-3-phone"
-                    placeholder="+90 5xx xxx xx xx"
+                  <input
+                    type="email"
+                    id="signIn-email"
+                    name="signIn-email"
+                    placeholder="you@example.com"
                     required
                     autocomplete="off"
-                    maxlength="17"
-                    pattern="\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}"
+                    data-i18n-placeholder="input.email.placeholder"
                   />
-                  <label for="signUp-3-phone" data-i18n="input.phone"
-                    >Phone</label
+                  <label for="signIn-email" data-i18n="input.email.label"
+                    >Email</label
                   >
-                </div>
-              </div>
-
-              <p class="optional-p" data-i18n="signUp.step3.right.optional">
-                Optional
-              </p>
-              <!-- SIGN_UP_3_RIGHT - GENDER -->
-              <div class="signUp-gender">
-                <p class="optional" data-i18n="signUp.step3.right.gender">
-                  Gender
-                </p>
-                <div class="gender-group">
-                  <input
-                    type="radio"
-                    id="signUp-3-genderMale"
-                    name="signUp-3-gender"
-                    value="male"
+                  <img
+                    src="./images/icons/email-icon.svg"
+                    alt="Email field icon"
+                    class="input-icon"
                   />
-                  <label for="signUp-3-genderMale" class="gender-option">
-                    <span class="custom-radio"></span>
-                    <span data-i18n="input.male">Male</span>
-                  </label>
-                  <input
-                    type="radio"
-                    id="signUp-3-genderFemale"
-                    name="signUp-3-gender"
-                    value="female"
-                  />
-                  <label for="signUp-3-genderFemale" class="gender-option">
-                    <span class="custom-radio"></span>
-                    <span data-i18n="input.female">Female</span>
-                  </label>
                 </div>
-              </div>
-              <!-- SIGN_UP_3_RIGHT - LOCATION -->
-              <div class="signUp-location">
-                <p class="optional" data-i18n="signUp.step3.right.location">
-                  Location
-                </p>
-                <div>
-                  <!-- SIGN_UP_3_RIGHT - COUNTRY -->
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      id="signUp-3-country"
-                      name="signUp-3-country"
-                      placeholder="Turkey"
-                      autocomplete="off"
-                      data-i18n-placeholder="input.country.placeholder"
-                    />
-                    <label
-                      for="signUp-3-country"
-                      data-i18n="input.country.label"
-                      >Country</label
-                    >
-                  </div>
-                  <!-- SIGN_UP_3_RIGHT - CITY -->
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      id="signUp-3-city"
-                      name="signUp-3-city"
-                      placeholder="Istanbul"
-                      autocomplete="off"
-                      data-i18n-placeholder="input.city.placeholder"
-                    />
-                    <label for="signUp-3-city" data-i18n="input.city.label"
-                      >City</label
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- SIGN_UP_3_RIGHT - BIO -->
-              <div class="signUp-bio">
-                <p class="optional" data-i18n="signUp.step3.right.bio">
-                  Biography
-                </p>
+                <!-- SIGN_IN_1_RIGHT - PASSWORD INPUT -->
                 <div class="input-group">
-                  <textarea
-                    id="signUp-3-bio"
-                    name="signUp-3-bio"
-                    placeholder="Work in progress..."
+                  <input
+                    type="password"
+                    id="signIn-password"
+                    name="signIn-password"
+                    placeholder="••••••••"
+                    required
                     autocomplete="off"
-                    data-i18n-placeholder="input.bio.placeholder"
-                  ></textarea>
-                  <label for="signUp-3-bio" data-i18n="input.bio.label"
-                    >Bio</label
+                    minlength="8"
+                  />
+                  <label for="signIn-password" data-i18n="input.password"
+                    >Password</label
+                  >
+                  <img
+                    src="./images/icons/password-icon.svg"
+                    alt="Password field icon"
+                    class="input-icon"
+                  />
+                  <button
+                    type="button"
+                    class="show-pass"
+                    aria-label="Show password"
+                    tabindex="-1"
+                  >
+                    <img
+                      src="./images/icons/show-password-icon.svg"
+                      alt="show password icon"
+                    />
+                  </button>
+                </div>
+                <!-- SIGN_IN_1_RIGHT - REMEMBER ME INPUT -->
+                <div class="remember-me">
+                  <input
+                    type="checkbox"
+                    id="signIn-remember"
+                    name="signIn-remember"
+                  />
+                  <label
+                    for="signIn-remember"
+                    data-i18n="signIn.step1.right.rememberMe"
+                    >Remember me for 30 days</label
                   >
                 </div>
-              </div>
-              <!-- SIGN_UP_3_RIGHT - NEXT BUTTON -->
-              <button
-                type="submit"
-                class="btn btn-default"
-                data-i18n="buttons.next"
-              >
-                Next
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <!-- SIGN UP - 3 - END -->
-      <!-- SIGN UP - 3 - CONFIRMATION - START -->
-      <div
-        id="confirmOverlay"
-        class="overlay close"
-        role="dialog"
-        aria-modal="true"
-        aria-hidden="true"
-      >
-        <div class="overlay-panel" tabindex="-1">
-          <p
-            id="confirmTitle"
-            class="overlay-title"
-            data-i18n="signUp.step3.overlay"
-          >
-            Do you confirm the information you entered?
-          </p>
-          <div class="overlay-buttons">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-i18n="buttons.back"
-            >
-              Back
-            </button>
-            <button
-              type="button"
-              class="btn btn-valid"
-              data-i18n="buttons.proceed"
-            >
-              Proceed
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- SIGN UP - 3 - CONFIRMATION - END -->
-      <!-- SIGN UP - 4 - START -->
-      <div>
-        <div class="signUp-4">
-          <!-- SIGN UP - 4 - LEFT -->
-          <div class="left" id="signUp-4-left">
-            <div class="content">
-              <h3 data-i18n="signUp.step4.left.h3">
-                Your Verification Code is on its Way!
-              </h3>
-              <p data-i18n="signUp.step4.left.p">
-                To complete your registration, please check your messages for a
-                6-digit code.
-              </p>
-            </div>
-          </div>
-          <!-- SIGN UP - 4 - RIGHT -->
-          <div class="right" id="signUp-4-right">
-            <h2 data-i18n="signUp.step4.right.h2">Verify Your Phone Number</h2>
-            <p data-i18n="steps.step4">Step 4</p>
-            <p data-i18n="signUp.step4.right.p">
-              Please enter the 6-digit code sent to your phone number.
-            </p>
-            <form class="form sign-up-form4">
-              <!-- SIGN_UP_4_RIGHT - CODE INPUT -->
-              <div class="input-group">
-                <input
-                  type="text"
-                  id="signUp-4-verificationCode"
-                  name="signUp-4-verificationCode"
-                  placeholder="1 2 3 4 5 6"
-                  required
-                  inputmode="numeric"
-                  pattern="\d{1}( \d{1}){5}"
-                  maxlength="11"
-                  autocomplete="off"
-                />
-                <label for="signUp-4-verificationCode" data-i18n="input.code"
-                  >Code</label
+                <!-- SIGN_IN_1_RIGHT - FORGOT PASSWORD LINK & BUTTON -->
+                <button
+                  type="button"
+                  class="forgotPassword-btn"
+                  data-i18n="signIn.step1.right.forgotPassword"
                 >
+                  Forgot password?
+                </button>
+                <!-- SIGN_IN_1_RIGHT - LOG IN BUTTON -->
+                <button
+                  type="submit"
+                  class="btn btn-default"
+                  data-i18n="buttons.logIn"
+                >
+                  Log In
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- SIGN IN - 1 - END -->
+      </section>
+      <!-- SIGN IN - END -->
+
+      <!-- FORGOT PASSWORD - START -->
+      <section class="forgotPass-section hideWith-display" aria-hidden="true">
+        <!-- FORGOT PASSWORD - 1 - START -->
+        <div
+          class="forgotPass-1-section centered hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
+          <div class="forgotPass-1">
+            <!-- FORGOT PASSWORD - 1 - LEFT -->
+            <div class="left" id="forgotPass-1-left">
+              <div class="content">
+                <h3 data-i18n="forgotPassword.step1.left.h3">
+                  No Worries at All!
+                </h3>
+                <p data-i18n="forgotPassword.step1.left.p">
+                  You can easily reset your password in just a few simple steps.
+                </p>
               </div>
-              <!-- SIGN_UP_4_RIGHT - VERIFY BUTTON -->
-              <button
-                type="submit"
-                class="btn btn-default"
-                data-i18n="buttons.verify"
-              >
-                Verify
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <!-- SIGN UP - 4 - END -->
-      <!-- SIGN UP - 5 - START -->
-      <div>
-        <div class="signUp-5">
-          <!-- SIGN UP - 5 - LEFT -->
-          <div class="left" id="signUp-5-left">
-            <div class="content">
-              <h3 data-i18n="signUp.step5.left.h3">Welcome Aboard!</h3>
-              <p data-i18n="signUp.step5.left.p">
-                Everything’s in place. Let’s log you in and get started!
+            </div>
+            <!-- FORGOT PASSWORD - 1 - RIGHT -->
+            <div class="right" id="forgotPass-1-right">
+              <h2 data-i18n="forgotPassword.step1.right.h2">Forgot Password</h2>
+              <p data-i18n="steps.s1">Step 1</p>
+              <p data-i18n="forgotPassword.step1.right.p">
+                We'll send you a link to reset your password. Please enter the
+                email linked to your account.
               </p>
+              <form class="form forgot-pass-form1">
+                <!-- FORGOT_PASS_1_RIGHT - EMAIL INPUT -->
+                <div class="input-group">
+                  <input
+                    type="email"
+                    id="forgotPass-1-email"
+                    name="forgotPass-1-email"
+                    placeholder="you@example.com"
+                    required
+                    autocomplete="off"
+                    data-i18n-placeholder="input.email.placeholder"
+                  />
+                  <label for="forgotPass-1-email" data-i18n="input.email.label"
+                    >Email</label
+                  >
+                  <img
+                    src="./images/icons/email-icon.svg"
+                    alt="Email field icon"
+                    class="input-icon"
+                  />
+                </div>
+                <!-- FORGOT_PASS_1_RIGHT - BACK_NEXT BUTTON -->
+                <div class="button-group">
+                  <button
+                    type="button"
+                    id="forgotPass-1-back-btn"
+                    class="btn btn-secondary"
+                    data-i18n="buttons.back"
+                  >
+                    Back
+                  </button>
+                  <button
+                    type="submit"
+                    id="btn-forgotPass-1"
+                    class="btn btn-default"
+                    data-i18n="buttons.next"
+                  >
+                    Next
+                  </button>
+                </div>
+              </form>
             </div>
-          </div>
-          <!-- SIGN UP - 5 - RIGHT -->
-          <div class="right" id="signUp-5-right">
-            <h2 data-i18n="signUp.step5.right.h2">You’re All Set!</h2>
-            <!-- SIGN_UP_5_RIGHT - CHECKMARK -->
-            <div class="checkmark-wrapper">
-              <svg class="checkmark" viewBox="0 0 120 120">
-                <circle
-                  class="checkmark-circle"
-                  cx="60"
-                  cy="60"
-                  r="54"
-                  fill="none"
-                />
-                <path
-                  class="checkmark-check"
-                  fill="none"
-                  d="M40 65l15 15 30-30"
-                />
-              </svg>
-            </div>
-            <p data-i18n="signUp.step5.right.p">
-              You can now sign in and start using your account.
-            </p>
-            <!-- SIGN_UP_5_RIGHT - SIGN IN BUTTON -->
-            <button
-              type="button"
-              class="btn btn-valid"
-              data-i18n="buttons.signIn"
-            >
-              Sign In
-            </button>
           </div>
         </div>
+        <!-- FORGOT PASSWORD - 1 - END -->
+        <!-- FORGOT PASSWORD - 2 - START -->
+        <div
+          class="forgotPass-2-section centered hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
+          <div class="forgotPass-2">
+            <!-- FORGOT PASSWORD - 2 - LEFT -->
+            <div class="left" id="forgotPass-2-left">
+              <div class="content">
+                <h3 data-i18n="forgotPassword.step2.left.h3">
+                  Your Code is on its Way!
+                </h3>
+                <p data-i18n="forgotPassword.step2.left.p">
+                  For your security, we’ve sent a one-time code to your email
+                  address.
+                </p>
+              </div>
+            </div>
+            <!-- FORGOT PASSWORD - 2 - RIGHT -->
+            <div class="right" id="forgotPass-2-right">
+              <h2 data-i18n="forgotPassword.step2.right.h2">
+                Verify Your Email
+              </h2>
+              <p data-i18n="steps.s2">Step 2</p>
+              <p data-i18n="forgotPassword.step2.right.p">
+                We emailed you a code. Please check your inbox or spam folder.
+              </p>
+              <form class="form forgot-pass-form2">
+                <!-- FORGOT_PASS_2_RIGHT - CODE INPUT -->
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="verification-code"
+                    id="forgotPass-2-verificationCode"
+                    name="forgotPass-2-verificationCode"
+                    placeholder="1 2 3 4 5 6"
+                    required
+                    inputmode="numeric"
+                    pattern="\d{1}( \d{1}){5}"
+                    maxlength="11"
+                    autocomplete="off"
+                  />
+                  <label
+                    for="forgotPass-2-verificationCode"
+                    data-i18n="input.code"
+                    >Code</label
+                  >
+                </div>
+                <!-- FORGOT_PASS_2_RIGHT - VERIFY BUTTON -->
+                <button
+                  type="submit"
+                  id="btn-forgotPass-2"
+                  class="btn btn-default"
+                  data-i18n="buttons.verify"
+                >
+                  Verify
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- FORGOT PASSWORD - 2 - END -->
+        <!-- FORGOT PASSWORD - 3 - START -->
+        <div
+          class="forgotPass-3-section centered hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
+          <div class="forgotPass-3">
+            <!-- FORGOT PASSWORD - 3 - LEFT -->
+            <div class="left" id="forgotPass-3-left">
+              <div class="content">
+                <h3 data-i18n="forgotPassword.step3.left.h3">
+                  You're Almost Done!
+                </h3>
+                <p data-i18n="forgotPassword.step3.left.p">
+                  All that’s left is setting a new password. You’re good to go!
+                </p>
+              </div>
+            </div>
+            <!-- FORGOT PASSWORD - 3 - RIGHT -->
+            <div class="right" id="forgotPass-3-right">
+              <h2 data-i18n="forgotPassword.step3.right.h2">
+                Reset Your Password
+              </h2>
+              <p data-i18n="steps.s3">Step 3</p>
+              <p data-i18n="forgotPassword.step3.right.p">
+                Use at least 8 characters with one uppercase letter and one
+                number.
+              </p>
+              <form class="form forgot-pass-form3">
+                <!-- FORGOT_PASS_3_RIGHT - PASSWORD INPUT -->
+                <div class="input-group">
+                  <input
+                    type="password"
+                    id="forgotPass-3-password"
+                    name="password"
+                    placeholder="••••••••"
+                    required
+                    autocomplete="off"
+                    minlength="8"
+                  />
+                  <label for="forgotPass-3-password" data-i18n="input.password"
+                    >Password</label
+                  >
+                  <img
+                    src="./images/icons/password-icon.svg"
+                    alt="Password field icon"
+                    class="input-icon"
+                  />
+                  <button
+                    type="button"
+                    class="show-pass"
+                    aria-label="Show password"
+                    tabindex="-1"
+                  >
+                    <img
+                      src="./images/icons/show-password-icon.svg"
+                      alt="show password icon"
+                    />
+                  </button>
+                </div>
+                <!-- FORGOT_PASS_3_RIGHT - CONFIRM PASSWORD INPUT -->
+                <div class="input-group">
+                  <input
+                    type="password"
+                    id="forgotPass-3-confirmPassword"
+                    name="confirmPassword"
+                    placeholder="••••••••"
+                    required
+                    autocomplete="off"
+                    minlength="8"
+                  />
+                  <label
+                    for="forgotPass-3-confirmPassword"
+                    data-i18n="input.confirmPassword"
+                    >Confirm Password</label
+                  >
+                  <img
+                    src="./images/icons/password-icon.svg"
+                    alt="Password field icon"
+                    class="input-icon"
+                  />
+                  <button
+                    type="button"
+                    class="show-pass"
+                    aria-label="Show password"
+                    tabindex="-1"
+                  >
+                    <img
+                      src="./images/icons/show-password-icon.svg"
+                      alt="Show password icon"
+                    />
+                  </button>
+                </div>
+                <!-- FORGOT_PASS_3_RIGHT - DONE BUTTON -->
+                <button
+                  type="submit"
+                  id="btn-forgotPass-3"
+                  class="btn btn-default"
+                  data-i18n="buttons.done"
+                >
+                  Done
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- FORGOT PASSWORD - 3 - END -->
+        <!-- FORGOT PASSWORD - 4 - START -->
+        <div
+          class="forgotPass-4-section hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
+          <div class="forgotPass-4">
+            <!-- FORGOT PASSWORD - 4 - RIGHT -->
+            <div class="right" id="forgotPass-4-right">
+              <h3 data-i18n="forgotPassword.step4.right.h3">You’re Ready!</h3>
+              <p data-i18n="forgotPassword.step4.right.p">
+                Your password has been reset successfully. You can now sign in
+                to your account.
+              </p>
+              <!-- FORGOT_PASSWORD_4_RIGHT - SIGN IN BUTTON -->
+              <button
+                type="button"
+                id="btn-forgotPass-4"
+                class="btn btn-valid"
+                data-i18n="buttons.signIn"
+              >
+                Sign In
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- FORGOT PASSWORD - 4 - END -->
+      </section>
+      <!-- FORGOT PASSWORD - END -->
+
+      <!-- SIGN UP - START -->
+      <section class="signUp-section hideWith-display" aria-hidden="true">
+        <!-- SIGN UP - 1 - START -->
+        <div
+          class="signUp-1-section centered hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
+          <div class="signUp-1">
+            <!-- SIGN UP - 1 - LEFT -->
+            <div class="left" id="signUp-1-left">
+              <div class="content">
+                <h3 data-i18n="signUp.step1.left.h3">Let’s Get Started!</h3>
+                <p data-i18n="signUp.step1.left.p">
+                  We’re excited to have you with us!
+                </p>
+              </div>
+            </div>
+            <!-- SIGN UP - 1 - RIGHT -->
+            <div class="right" id="signUp-1-right">
+              <h2 data-i18n="signUp.step1.right.h2">Create Your Account</h2>
+              <p data-i18n="steps.s1">Step 1</p>
+              <p data-i18n="signUp.step1.right.p">
+                Create your password using at least 8 characters, including one
+                uppercase letter and one number.
+              </p>
+              <form class="form sign-up-form1">
+                <!-- SIGN_UP_1_RIGHT - EMAIL INPUT -->
+                <div class="input-group">
+                  <input
+                    type="email"
+                    id="signUp-1-email"
+                    name="signUp-1-email"
+                    placeholder="you@example.com"
+                    required
+                    autocomplete="off"
+                    data-i18n-placeholder="input.email.placeholder"
+                  />
+                  <label for="signUp-1-email" data-i18n="input.email.label"
+                    >Email</label
+                  >
+                  <img
+                    src="./images/icons/email-icon.svg"
+                    alt="Email field icon"
+                    class="input-icon"
+                  />
+                </div>
+                <!-- SIGN_UP_1_RIGHT - PASSWORD INPUT -->
+                <div class="input-group">
+                  <input
+                    type="password"
+                    id="signUp-1-password"
+                    name="password"
+                    placeholder="••••••••"
+                    required
+                    autocomplete="off"
+                    minlength="8"
+                  />
+                  <label for="signUp-1-password" data-i18n="input.password"
+                    >Password</label
+                  >
+                  <img
+                    src="./images/icons/password-icon.svg"
+                    alt="Password field icon"
+                    class="input-icon"
+                  />
+                  <button
+                    type="button"
+                    class="show-pass"
+                    aria-label="Show password"
+                    tabindex="-1"
+                  >
+                    <img
+                      src="./images/icons/show-password-icon.svg"
+                      alt="show password icon"
+                    />
+                  </button>
+                </div>
+                <!-- SIGN_UP_1_RIGHT - REPEAT PASSWORD INPUT -->
+                <div class="input-group">
+                  <input
+                    type="password"
+                    id="signUp-1-confirmPassword"
+                    name="confirmPassword"
+                    placeholder="••••••••"
+                    required
+                    autocomplete="off"
+                    minlength="8"
+                  />
+                  <label
+                    for="signUp-1-confirmPassword"
+                    data-i18n="input.confirmPassword"
+                    >Confirm Password</label
+                  >
+                  <img
+                    src="./images/icons/password-icon.svg"
+                    alt="Password field icon"
+                    class="input-icon"
+                  />
+                  <button
+                    type="button"
+                    class="show-pass"
+                    aria-label="Show password"
+                    tabindex="-1"
+                  >
+                    <img
+                      src="./images/icons/show-password-icon.svg"
+                      alt="Show password icon"
+                    />
+                  </button>
+                </div>
+                <!-- SIGN_UP_1_RIGHT - BACK_NEXT BUTTON -->
+                <div class="button-group">
+                  <button
+                    type="button"
+                    id="signUp-1-back-btn"
+                    class="btn btn-secondary"
+                    data-i18n="buttons.back"
+                  >
+                    Back
+                  </button>
+                  <button
+                    type="submit"
+                    id="btn-signUp-1"
+                    class="btn btn-default"
+                    data-i18n="buttons.next"
+                  >
+                    Next
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- SIGN UP - 1 - END -->
+        <!-- SIGN UP - 2 - START -->
+        <div
+          class="signUp-2-section centered hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
+          <div class="signUp-2">
+            <!-- SIGN UP - 2 - LEFT -->
+            <div class="left" id="signUp-2-left">
+              <div class="content">
+                <h3 data-i18n="signUp.step2.left.h3">
+                  Your Code is on its Way!
+                </h3>
+                <p data-i18n="signUp.step2.left.p">
+                  For your security, we’ve sent a one-time code to your email
+                  address.
+                </p>
+              </div>
+            </div>
+            <!-- SIGN UP - 2 - RIGHT -->
+            <div class="right" id="signUp-2-right">
+              <h2 data-i18n="signUp.step2.right.h2">Verify Your Email</h2>
+              <p data-i18n="steps.s2">Step 2</p>
+              <p data-i18n="signUp.step2.right.p">
+                We emailed you a code. Please check your inbox or spam folder.
+              </p>
+              <form class="form sign-up-form2">
+                <!-- SIGN_UP_2_RIGHT - CODE INPUT -->
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="signUp-2-verificationCode"
+                    name="signUp-2-verificationCode"
+                    placeholder="1 2 3 4 5 6"
+                    required
+                    inputmode="numeric"
+                    pattern="\d{1}( \d{1}){5}"
+                    maxlength="11"
+                    autocomplete="off"
+                  />
+                  <label for="signUp-2-verificationCode" data-i18n="input.code"
+                    >Code</label
+                  >
+                </div>
+                <!-- SIGN_UP_2_RIGHT - VERIFY INPUT -->
+                <button
+                  type="submit"
+                  id="btn-signUp-2"
+                  class="btn btn-default"
+                  data-i18n="buttons.verify"
+                >
+                  Verify
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- SIGN UP - 2 - END -->
+        <!-- SIGN UP - 3 - START -->
+        <div
+          class="signUp-3-section hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
+          <div class="signUp-3">
+            <!-- SIGN UP - 3 - LEFT İLE BACKGROUND -->
+            <!-- SIGN UP - 3 - RIGHT -->
+            <div class="right" id="signUp-3-right">
+              <h2 data-i18n="signUp.step3.right.h2">About You</h2>
+              <p data-i18n="steps.s3">Step 3</p>
+              <form>
+                <!-- SIGN_UP_3_RIGHT - FULLNAME -->
+                <div class="signUp-fullname">
+                  <p class="required" data-i18n="signUp.step3.right.fullName">
+                    Full Name
+                  </p>
+                  <div>
+                    <!-- SIGN_UP_3_RIGHT - FIRST_NAME INPUT -->
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        id="signUp-3-firstName"
+                        name="signUp-3-firstName"
+                        placeholder="Taner"
+                        required
+                        autocomplete="off"
+                      />
+                      <label
+                        for="signUp-3-firstName"
+                        data-i18n="input.firstName"
+                        >First name</label
+                      >
+                    </div>
+                    <!-- SIGN_UP_3_RIGHT - LAST_NAME INPUT -->
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        id="signUp-3-lastName"
+                        name="signUp-3-lastName"
+                        placeholder="Talas"
+                        required
+                        autocomplete="off"
+                      />
+                      <label for="signUp-3-lastName" data-i18n="input.lastName"
+                        >Last name</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- SIGN_UP_3_RIGHT - BIRTHDAY -->
+                <div class="signUp-birthday">
+                  <p class="required" data-i18n="signUp.step3.right.birthday">
+                    Birthday
+                  </p>
+                  <div>
+                    <!-- SIGN_UP_3_RIGHT - DAY -->
+                    <div class="input-group">
+                      <input
+                        type="number"
+                        id="signUp-3-day"
+                        name="signUp-3-day"
+                        placeholder="27"
+                        required
+                        autocomplete="off"
+                        min="1"
+                        max="31"
+                        inputmode="numeric"
+                      />
+                      <label for="signUp-3-day" data-i18n="input.day"
+                        >Day</label
+                      >
+                    </div>
+                    <!-- SIGN_UP_3_RIGHT - MONTH -->
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        id="signUp-3-month"
+                        name="signUp-3-month"
+                        placeholder="09"
+                        required
+                        inputmode="numeric"
+                        pattern="^(0[1-9]|1[0-2])$"
+                        autocomplete="off"
+                        maxlength="2"
+                      />
+                      <label for="signUp-3-month" data-i18n="input.month"
+                        >Month</label
+                      >
+                    </div>
+                    <!-- SIGN_UP_3_RIGHT - YEAR -->
+                    <div class="input-group">
+                      <input
+                        type="number"
+                        id="signUp-3-year"
+                        name="signUp-3-year"
+                        placeholder="2005"
+                        required
+                        autocomplete="off"
+                        min="1900"
+                        max="2099"
+                        inputmode="numeric"
+                      />
+                      <label for="signUp-3-year" data-i18n="input.year"
+                        >Year</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- SIGN_UP_3_RIGHT - PHONE -->
+                <div class="signUp-phone" style="margin-bottom: 32px">
+                  <p class="required" data-i18n="signUp.step3.right.phone">
+                    Phone
+                  </p>
+                  <div class="input-group">
+                    <input
+                      type="tel"
+                      inputmode="numeric"
+                      id="signUp-3-phone"
+                      name="signUp-3-phone"
+                      placeholder="+90 5xx xxx xx xx"
+                      required
+                      autocomplete="off"
+                      maxlength="17"
+                      pattern="\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}"
+                    />
+                    <label for="signUp-3-phone" data-i18n="input.phone"
+                      >Phone</label
+                    >
+                  </div>
+                </div>
+
+                <p class="optional-p" data-i18n="signUp.step3.right.optional">
+                  Optional
+                </p>
+                <!-- SIGN_UP_3_RIGHT - GENDER -->
+                <div class="signUp-gender">
+                  <p class="optional" data-i18n="signUp.step3.right.gender">
+                    Gender
+                  </p>
+                  <div class="gender-group">
+                    <input
+                      type="radio"
+                      id="signUp-3-genderMale"
+                      name="signUp-3-gender"
+                      value="male"
+                    />
+                    <label for="signUp-3-genderMale" class="gender-option">
+                      <span class="custom-radio"></span>
+                      <span data-i18n="input.male">Male</span>
+                    </label>
+                    <input
+                      type="radio"
+                      id="signUp-3-genderFemale"
+                      name="signUp-3-gender"
+                      value="female"
+                    />
+                    <label for="signUp-3-genderFemale" class="gender-option">
+                      <span class="custom-radio"></span>
+                      <span data-i18n="input.female">Female</span>
+                    </label>
+                  </div>
+                </div>
+                <!-- SIGN_UP_3_RIGHT - LOCATION -->
+                <div class="signUp-location">
+                  <p class="optional" data-i18n="signUp.step3.right.location">
+                    Location
+                  </p>
+                  <div>
+                    <!-- SIGN_UP_3_RIGHT - COUNTRY -->
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        id="signUp-3-country"
+                        name="signUp-3-country"
+                        placeholder="Turkey"
+                        autocomplete="off"
+                        data-i18n-placeholder="input.country.placeholder"
+                      />
+                      <label
+                        for="signUp-3-country"
+                        data-i18n="input.country.label"
+                        >Country</label
+                      >
+                    </div>
+                    <!-- SIGN_UP_3_RIGHT - CITY -->
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        id="signUp-3-city"
+                        name="signUp-3-city"
+                        placeholder="Istanbul"
+                        autocomplete="off"
+                        data-i18n-placeholder="input.city.placeholder"
+                      />
+                      <label for="signUp-3-city" data-i18n="input.city.label"
+                        >City</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- SIGN_UP_3_RIGHT - BIO -->
+                <div class="signUp-bio">
+                  <p class="optional" data-i18n="signUp.step3.right.bio">
+                    Biography
+                  </p>
+                  <div class="input-group">
+                    <textarea
+                      id="signUp-3-bio"
+                      name="signUp-3-bio"
+                      placeholder="Work in progress..."
+                      autocomplete="off"
+                      data-i18n-placeholder="input.bio.placeholder"
+                    ></textarea>
+                    <label for="signUp-3-bio" data-i18n="input.bio.label"
+                      >Bio</label
+                    >
+                  </div>
+                </div>
+                <!-- SIGN_UP_3_RIGHT - NEXT BUTTON -->
+                <button
+                  type="submit"
+                  id="btn-signUp-3-1"
+                  class="btn btn-default"
+                  data-i18n="buttons.next"
+                >
+                  Next
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- SIGN UP - 3 - END -->
+        <!-- SIGN UP - 4 - START -->
+        <div
+          class="signUp-4-section centered hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
+          <div class="signUp-4">
+            <!-- SIGN UP - 4 - LEFT -->
+            <div class="left" id="signUp-4-left">
+              <div class="content">
+                <h3 data-i18n="signUp.step4.left.h3">
+                  Your Verification Code is on its Way!
+                </h3>
+                <p data-i18n="signUp.step4.left.p">
+                  To complete your registration, please check your messages for
+                  a 6-digit code.
+                </p>
+              </div>
+            </div>
+            <!-- SIGN UP - 4 - RIGHT -->
+            <div class="right" id="signUp-4-right">
+              <h2 data-i18n="signUp.step4.right.h2">
+                Verify Your Phone Number
+              </h2>
+              <p data-i18n="steps.s4">Step 4</p>
+              <p data-i18n="signUp.step4.right.p">
+                Please enter the 6-digit code sent to your phone number.
+              </p>
+              <form class="form sign-up-form4">
+                <!-- SIGN_UP_4_RIGHT - CODE INPUT -->
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="signUp-4-verificationCode"
+                    name="signUp-4-verificationCode"
+                    placeholder="1 2 3 4 5 6"
+                    required
+                    inputmode="numeric"
+                    pattern="\d{1}( \d{1}){5}"
+                    maxlength="11"
+                    autocomplete="off"
+                  />
+                  <label for="signUp-4-verificationCode" data-i18n="input.code"
+                    >Code</label
+                  >
+                </div>
+                <!-- SIGN_UP_4_RIGHT - VERIFY BUTTON -->
+                <button
+                  type="submit"
+                  id="btn-signUp-4"
+                  class="btn btn-default"
+                  data-i18n="buttons.verify"
+                >
+                  Verify
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- SIGN UP - 4 - END -->
+        <!-- SIGN UP - 5 - START -->
+        <div
+          class="signUp-5-section centered hideWith-opacity hideWith-display"
+          aria-hidden="true"
+        >
+          <div class="signUp-5">
+            <!-- SIGN UP - 5 - LEFT -->
+            <div class="left" id="signUp-5-left">
+              <div class="content">
+                <h3 data-i18n="signUp.step5.left.h3">Welcome Aboard!</h3>
+                <p data-i18n="signUp.step5.left.p">
+                  Everything’s in place. Let’s log you in and get started!
+                </p>
+              </div>
+            </div>
+            <!-- SIGN UP - 5 - RIGHT -->
+            <div class="right" id="signUp-5-right">
+              <h2 data-i18n="signUp.s5.right.h2">You’re All Set!</h2>
+              <!-- SIGN_UP_5_RIGHT - CHECKMARK -->
+              <div class="checkmark-wrapper">
+                <svg class="checkmark" viewBox="0 0 120 120">
+                  <circle
+                    class="checkmark-circle"
+                    cx="60"
+                    cy="60"
+                    r="54"
+                    fill="none"
+                  />
+                  <path
+                    class="checkmark-check"
+                    fill="none"
+                    d="M40 65l15 15 30-30"
+                  />
+                </svg>
+              </div>
+              <p data-i18n="signUp.step5.right.p">
+                You can now sign in and start using your account.
+              </p>
+              <!-- SIGN_UP_5_RIGHT - SIGN IN BUTTON -->
+              <button
+                type="button"
+                id="btn-signUp-5"
+                class="btn btn-valid"
+                data-i18n="buttons.signIn"
+              >
+                Sign In
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- SIGN UP - 5 - END -->
+      </section>
+      <!-- SIGN UP - END -->
+    </main>
+    <!-- SIGN UP - 3 - CONFIRMATION - START -->
+    <div
+      id="confirmOverlay"
+      class="overlay close"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <div class="overlay-panel">
+        <p
+          id="confirmTitle"
+          class="overlay-title"
+          data-i18n="signUp.step3.overlay"
+        >
+          Do you confirm the information you entered?
+        </p>
+        <div class="overlay-buttons">
+          <button
+            type="button"
+            id="back-btn-signUp-3-overlay"
+            class="btn btn-secondary"
+            data-i18n="buttons.back"
+          >
+            Back
+          </button>
+          <button
+            type="button"
+            id="btn-signUp-3-2"
+            class="btn btn-valid"
+            data-i18n="buttons.proceed"
+          >
+            Proceed
+          </button>
+        </div>
       </div>
-      <!-- SIGN UP - 5 - END -->
-    </section>
-    <!-- SIGN UP - END -->
+    </div>
+    <!-- SIGN UP - 3 - CONFIRMATION - END -->
     <!-- FOOTER - START -->
     <footer>
       <div>

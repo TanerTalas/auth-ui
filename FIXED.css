@@ -262,6 +262,16 @@ li:hover::before {
   height: 100%;
 }
 
+.active {
+  background-color: #000 !important;
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+.active button {
+  color: white !important;
+}
+
 /* Theme Button */
 #themeButton {
   background: none;
@@ -546,7 +556,6 @@ input:focus ~ .show-pass img {
   filter: brightness(0) saturate(100%);
 }
 
-
 @keyframes borderPulse {
   0% {
     border-color: #ffbf00;
@@ -580,12 +589,24 @@ input:focus ~ .show-pass img {
 /* ******************** INPUT SETTINGS - END ******************** */
 
 /* ******************** SECTION SETTINGS - START ******************** */
+main {
+  margin-top: 68px;
+}
+
+section {
+  position: relative;
+}
+
 section > div {
-  min-height: 100vh;
-  align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  min-height: calc(100vh - 68px);
+  width: 100%;
   display: flex;
   justify-content: center;
-  padding: 0 24px;
+  align-items: center;
+  padding: 32px 24px;
 }
 
 .signIn-1,
@@ -630,11 +651,12 @@ section > div {
   background: linear-gradient(180deg, #6f7c57, #4793b1);
   background-size: 100% 400%;
   left: 0;
+  z-index: 2;
+  animation: gradientFlowVertical 10s ease-in-out infinite;
   transition:
     left 0.4s ease,
-    transform 0.4s ease;
-  z-index: 1;
-  animation: gradientFlowVertical 10s ease-in-out infinite;
+    transform 0.4s ease,
+    opacity 1s ease;
 }
 
 @keyframes gradientFlowVertical {
@@ -658,10 +680,23 @@ section > div {
 .right {
   background-color: white;
   right: 0;
+  z-index: 1;
   transition:
     right 0.4s ease,
-    transform 0.4s ease;
-  z-index: 0;
+    transform 0.4s ease,
+    opacity 1s ease;
+}
+
+.right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: white;
+  z-index: 3;
+  will-change: transform;
+  transform: scale(0);
+  transform-origin: center;
+  transition: transform 0.4s ease;
 }
 
 .centered .left {
@@ -671,7 +706,31 @@ section > div {
 
 .centered .right {
   right: 50%;
-  transform: translateX(50%);
+  transform: scale(0) translateX(50%);
+}
+
+.centered .right::after {
+  transform: scale(1);
+}
+
+.centered .createAccount-btn {
+  display: none;
+}
+
+.hideWith-opacity .left,
+.hideWith-opacity .right {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hideWith-display {
+  display: none;
+}
+
+.centered #signUp-3-right,
+.centered #forgotPass-4-right {
+  right: 0;
+  transform: translateX(0);
 }
 /* ******************** SECTION SETTINGS - END ******************** */
 
@@ -779,7 +838,7 @@ form {
 
 .required,
 .optional {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .signUp-fullname > div > .input-group,
@@ -893,6 +952,7 @@ form {
 /* ********** SIGN UP 3 CONFIRMATION - START ********** */
 .overlay {
   position: fixed;
+  padding: 24px;
   inset: 0;
   z-index: 3000;
   display: flex;
@@ -1011,64 +1071,30 @@ footer > div {
   gap: 16px;
 }
 /* ******************** FOOTER - END ******************** */
+@media (max-width: 991.98px) {
+  .left {
+    display: none;
+  }
 
-/* ******************** PROGRESS BAR - START ******************** */
-.progress-wrapper {
-  position: fixed;
-  top: 68px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  pointer-events: none;
-  z-index: 3;
-  padding: 0 24px;
-}
+  .signIn-1,
+  .forgotPass-1,
+  .forgotPass-2,
+  .forgotPass-3,
+  .signUp-1,
+  .signUp-2,
+  .signUp-4,
+  .signUp-5 {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+  }
 
-.linear-progress {
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-  height: 6px;
-  opacity: 1;
-  transition: opacity 0.4s ease;
+  .centered .right {
+    right: 0;
+    transform: scale(0);
+  }
 }
-
-.lp-bar {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  transform-origin: left center;
-}
-
-.lp-base {
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  background: var(--lpBase-backgroundColor);
-}
-
-.lp-done {
-  left: 0;
-  width: 100%;
-  background: var(--lpDone-backgroundColor);
-  transform: scaleX(0);
-  transition: transform 420ms ease;
-}
-
-.lp-current {
-  background:
-    linear-gradient(90deg, var(--lpDone-backgroundColor), var(--lpActive-backgroundColor)),
-    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-  width: 100%;
-  transform: scaleX(0);
-  transition:
-    transform 0.42s ease,
-    left 0.42s ease;
-}
-/* ******************** PROGRESS BAR - END ******************** */
 
 @media (max-width: 548px) {
   html {
