@@ -21,7 +21,7 @@ It includes Sign In, Sign Up, and Forgot Password sections, featuring animated f
 - Animated backgrounds
 - Responsive design
 
-🔗 **Live Demo**: [tanertalas.github.io/auth-ui/](https://tanertalas.github.io/auth-ui/)
+🔗 **Live Demo**: [tanertalas.github.io/CSS-Authentication-UI/](https://tanertalas.github.io/CSS-Authentication-UI/)
 
 ---
 
@@ -46,7 +46,7 @@ Giriş Yap, Kaydol ve Şifremi Unuttum bölümlerinin yanı sıra animasyonlu fo
 - Animasyonlu arka planlar
 - Ekrana duyarlı tasarım
 
-🔗 **Canlı Site**: [tanertalas.github.io/auth-ui/](https://tanertalas.github.io/auth-ui/)
+🔗 **Canlı Site**: [tanertalas.github.io/CSS-Authentication-UI/](https://tanertalas.github.io/CSS-Authentication-UI/)
 
 ---
 
