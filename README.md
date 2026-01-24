@@ -3,9 +3,8 @@
 ## 🇬🇧 English
 
 A colorful and interactive single-page authentication project built with HTML, CSS, and JavaScript.  
-It includes Sign In, Sign Up, and Forgot Password sections, featuring animated form transitions, animated form validations, day & night themes, and dynamic, animated backgrounds.
+It includes Sign In, Sign Up, and Forgot Password sections, featuring animated form transitions, animated form validations, day & night themes, and animated backgrounds.
 
-⚠️ **Note:** This project is designed for devices with large screens (desktop/laptop).
 
 ---
 
@@ -20,18 +19,17 @@ It includes Sign In, Sign Up, and Forgot Password sections, featuring animated f
 - Day & Night mode
 - Turkish/English language support
 - Animated backgrounds
-- Mobile warning message
+- Responsive design
 
-🔗 **Live Demo**: [tanertalas.github.io/auth-ui](https://tanertalas.github.io/auth-ui)
+🔗 **Live Demo**: [tanertalas.github.io/auth-ui/](https://tanertalas.github.io/auth-ui/)
 
 ---
 
 ## 🇹🇷 Türkçe
 
 HTML, CSS ve JavaScript ile oluşturulmuş, renkli ve etkileşimli tek sayfalık bir kimlik doğrulama projesi.
-Giriş Yap, Kaydol ve Şifremi Unuttum bölümlerinin yanı sıra animasyonlu form geçişleri, animasyonlu form doğrulamaları, gece ve gündüz temaları ve dinamik, animasyonlu arka planlar içerir.
+Giriş Yap, Kaydol ve Şifremi Unuttum bölümlerinin yanı sıra animasyonlu form geçişleri, animasyonlu form doğrulamaları, gece ve gündüz temaları ve animasyonlu arka planlar içerir.
 
-⚠️ **Not:** Bu proje büyük ekranlı cihazlar (masaüstü/dizüstü) için tasarlanmıştır..
 
 ---
 
@@ -46,15 +44,9 @@ Giriş Yap, Kaydol ve Şifremi Unuttum bölümlerinin yanı sıra animasyonlu fo
 - Gündüz ve Gece modu
 - Türkçe/İngilizce dil desteği
 - Animasyonlu arka planlar
-- Mobil uyarı mesajı
+- Ekrana duyarlı tasarım
 
-🔗 **Canlı Site**: [tanertalas.github.io/auth-ui](https://tanertalas.github.io/auth-ui)
-
----
-
-## 📸 Preview / Önizleme
-
-Screenshots will be added later on.
+🔗 **Canlı Site**: [tanertalas.github.io/auth-ui/](https://tanertalas.github.io/auth-ui/)
 
 ---
 
