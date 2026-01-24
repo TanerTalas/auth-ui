@@ -184,9 +184,22 @@ nav {
 }
 
 .lang-btn.active {
-  background: #593cc3;
-  color: #fff;
-  border-color: #593cc3;
+  background: black;
+  color: white;
+  border-color: black;
+  pointer-events: none;
+}
+
+.dark .lang-btn {
+  color: white;
+  background-color: transparent;
+  border: 1px solid #ccc;
+}
+
+.dark .lang-btn.active {
+  background: white;
+  color: black;
+  border-color: white;
 }
 
 /* active link */
@@ -263,14 +276,22 @@ li:hover::before {
   height: 100%;
 }
 
-.active {
+li.active {
   background-color: #000 !important;
   pointer-events: none !important;
   cursor: default !important;
 }
 
-.active button {
+li.active button {
   color: white !important;
+}
+
+.dark li.active {
+  background-color: white !important;
+}
+
+.dark li.active button {
+  color: black !important;
 }
 
 /* Theme Button */
