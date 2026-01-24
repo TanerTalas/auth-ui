@@ -33,23 +33,57 @@ document.addEventListener("DOMContentLoaded", () => {
     attributeFilter: ["class"],
   });
   // ********** SECTION CHANGER **********
+  let isTransitioning = false;
+
+  function bindStepButton(selector, section, target) {
+    $(selector)?.addEventListener("click", (e) => {
+      if (!e.currentTarget.classList.contains("btn-valid")) return;
+      switchStep(section, target);
+    });
+  }
+
+  function bindSectionSwitch(selector, section, div) {
+    $(selector)?.addEventListener("click", () => {
+      switchSection(section, div);
+    });
+  }
+
+  function blurActiveElement() {
+    const active = document.activeElement;
+    if (active && typeof active.blur === "function") {
+      active.blur();
+    }
+  }
+
+  function blurIfInside(container, focusBody = false) {
+    const active = document.activeElement;
+    if (container && active && container.contains(active)) {
+      active.blur();
+      if (focusBody) document.body.focus();
+    }
+  }
+
+  function openOverlay(fromSection) {
+    blurIfInside(fromSection);
+    fromSection.setAttribute("aria-hidden", "true");
+
+    overlay.classList.remove("close");
+    overlay.setAttribute("aria-hidden", "false");
+    overlay.querySelector("button, input, [tabindex]")?.focus();
+  }
+
+  function closeOverlay(backToSection) {
+    blurIfInside(overlay);
+
+    overlay.classList.add("close");
+    overlay.setAttribute("aria-hidden", "true");
+
+    backToSection.setAttribute("aria-hidden", "false");
+    backToSection.querySelector("input, button, [tabindex]")?.focus();
+  }
+
   const $ = (s, root = document) => root.querySelector(s);
   const $$ = (s, root = document) => [...root.querySelectorAll(s)];
-  function blurIfFocusedInside(container) {
-    const active = document.activeElement;
-    if (container && active && container.contains(active)) {
-      active.blur();
-    }
-  }
-
-  function blurIfInside(container) {
-    const active = document.activeElement;
-    if (container && active && container.contains(active)) {
-      active.blur();
-
-      document.body.focus();
-    }
-  }
 
   function getActiveSection() {
     return $$("section").find(
@@ -108,6 +142,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function switchSection(targetSectionSelector, targetDivSelector) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+
     const activeSection = getActiveSection();
     const activeDiv = getActiveDiv(activeSection);
 
@@ -121,43 +158,56 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       openSection(targetSection, targetDiv);
     }, 1200);
+
+    setTimeout(() => {
+      isTransitioning = false;
+    }, 2400);
   }
   // SWITCHS
-  $("#openSignIn").addEventListener("click", () => {
-    switchSection(".signIn-section", ".signIn-1-section");
-  });
+  bindSectionSwitch("#openSignIn", ".signIn-section", ".signIn-1-section");
+  bindSectionSwitch("#openSignUp", ".signUp-section", ".signUp-1-section");
+  bindSectionSwitch(
+    ".createAccount-btn",
+    ".signUp-section",
+    ".signUp-1-section",
+  );
+  bindSectionSwitch(
+    ".forgotPassword-btn",
+    ".forgotPass-section",
+    ".forgotPass-1-section",
+  );
 
-  $("#openSignUp").addEventListener("click", () => {
-    switchSection(".signUp-section", ".signUp-1-section");
-  });
-
-  $(".createAccount-btn").addEventListener("click", () => {
-    switchSection(".signUp-section", ".signUp-1-section");
-  });
+  bindSectionSwitch(
+    "#forgotPass-1-back-btn",
+    ".signIn-section",
+    ".signIn-1-section",
+  );
+  bindSectionSwitch(
+    "#signUp-1-back-btn",
+    ".signIn-section",
+    ".signIn-1-section",
+  );
+  bindSectionSwitch("#btn-signUp-5", ".signIn-section", ".signIn-1-section");
+  bindSectionSwitch(
+    "#btn-forgotPass-4",
+    ".signIn-section",
+    ".signIn-1-section",
+  );
 
   // SWITCH STEPS
   function switchStep(sectionSelector, targetDivSelector) {
     blurActiveElement();
-    function blurActiveElement() {
-      const active = document.activeElement;
-      if (active && typeof active.blur === "function") {
-        active.blur();
-      }
-    }
+
     const section = $(sectionSelector);
     if (!section) return;
 
     const activeDiv = getActiveDiv(section);
     const targetDiv = $(targetDivSelector, section);
-
     if (!activeDiv || !targetDiv || activeDiv === targetDiv) return;
 
     activeDiv.classList.add("centered");
 
-    setTimeout(() => {
-      activeDiv.classList.add("hideWith-opacity");
-    }, 500);
-
+    setTimeout(() => activeDiv.classList.add("hideWith-opacity"), 500);
     setTimeout(() => {
       activeDiv.classList.add("hideWith-display");
       activeDiv.setAttribute("aria-hidden", "true");
@@ -168,95 +218,46 @@ document.addEventListener("DOMContentLoaded", () => {
       targetDiv.setAttribute("aria-hidden", "false");
     }, 1200);
 
-    setTimeout(() => {
-      targetDiv.classList.remove("hideWith-opacity");
-    }, 1300);
-
-    setTimeout(() => {
-      targetDiv.classList.remove("centered");
-    }, 2300);
+    setTimeout(() => targetDiv.classList.remove("hideWith-opacity"), 1300);
+    setTimeout(() => targetDiv.classList.remove("centered"), 2300);
   }
-  // SIGN UP SWITCHS
-  // TO SIGN UP 2
-  $("#btn-signUp-1").addEventListener("click", (e) => {
-    const btn = e.currentTarget;
 
-    if (!btn.classList.contains("btn-valid")) return;
+  bindStepButton("#btn-signUp-1", ".signUp-section", ".signUp-2-section");
+  bindStepButton("#btn-signUp-2", ".signUp-section", ".signUp-3-section");
+  bindStepButton("#btn-signUp-4", ".signUp-section", ".signUp-5-section");
 
-    switchStep(".signUp-section", ".signUp-2-section");
-  });
-  // TO SIGN UP 3
-  $("#btn-signUp-2").addEventListener("click", (e) => {
-    const btn = e.currentTarget;
-
-    if (!btn.classList.contains("btn-valid")) return;
-
-    switchStep(".signUp-section", ".signUp-3-section");
-  });
+  bindStepButton(
+    "#btn-forgotPass-1",
+    ".forgotPass-section",
+    ".forgotPass-2-section",
+  );
+  bindStepButton(
+    "#btn-forgotPass-2",
+    ".forgotPass-section",
+    ".forgotPass-3-section",
+  );
+  bindStepButton(
+    "#btn-forgotPass-3",
+    ".forgotPass-section",
+    ".forgotPass-4-section",
+  );
 
   const overlay = document.getElementById("confirmOverlay");
 
   // STEP 3 → OVERLAY
   $("#btn-signUp-3-1").addEventListener("click", (e) => {
-    const btn = e.currentTarget;
-    if (!btn.classList.contains("btn-valid")) return;
-
-    const signUp3 = $(".signUp-3-section");
-
-    blurIfFocusedInside(signUp3);
-
-    signUp3.setAttribute("aria-hidden", "true");
-
-    overlay.classList.remove("close");
-    overlay.setAttribute("aria-hidden", "false");
-
-    overlay.querySelector("button, input, [tabindex]")?.focus();
+    if (!e.currentTarget.classList.contains("btn-valid")) return;
+    openOverlay($(".signUp-3-section"));
   });
 
   // CLOSE OVERLAY
-  const backBtn = document.getElementById("back-btn-signUp-3-overlay");
-  backBtn.addEventListener("click", () => {
-    const signUp3 = $(".signUp-3-section");
-
-    blurIfFocusedInside(overlay);
-
-    overlay.classList.add("close");
-    overlay.setAttribute("aria-hidden", "true");
-
-    signUp3.setAttribute("aria-hidden", "false");
-
-    signUp3.querySelector("input, button, [tabindex]")?.focus();
+  $("#back-btn-signUp-3-overlay").addEventListener("click", () => {
+    closeOverlay($(".signUp-3-section"));
   });
 
   // TO SIGN UP 4
   $("#btn-signUp-3-2").addEventListener("click", () => {
-    const signUp3 = $(".signUp-3-section");
-
-    overlay.classList.add("close");
-    overlay.setAttribute("aria-hidden", "true");
-
-    signUp3.setAttribute("aria-hidden", "false");
-
-    signUp3.classList.remove("hideWith-display");
-
+    closeOverlay($(".signUp-3-section"));
     switchStep(".signUp-section", ".signUp-4-section");
-  });
-
-  // TO SIGN UP 5
-  $("#btn-signUp-4").addEventListener("click", (e) => {
-    const btn = e.currentTarget;
-
-    if (!btn.classList.contains("btn-valid")) return;
-
-    switchStep(".signUp-section", ".signUp-5-section");
-  });
-
-  // SIGN UP 5 → SIGN IN
-  $("#btn-signUp-5").addEventListener("click", () => {
-    const btn = e.currentTarget;
-
-    if (!btn.classList.contains("btn-valid")) return;
-    
-    switchSection(".signIn-section", ".signIn-1-section");
   });
 });

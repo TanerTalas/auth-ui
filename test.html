@@ -65,15 +65,6 @@
 
     <!-- NAVIGATION - END -->
 
-    <!-- PROGRESS BAR - START -->
-    <div class="progress-wrapper">
-      <div id="flowProgress" class="linear-progress" aria-hidden="true">
-        <span class="lp-bar lp-base"></span>
-        <span class="lp-bar lp-done"></span>
-        <span class="lp-bar lp-current"></span>
-      </div>
-    </div>
-    <!-- PROGRESS BAR - END -->
     <main>
       <!-- SIGN IN - START -->
       <section class="signIn-section" aria-hidden="false">
@@ -149,6 +140,7 @@
                     type="button"
                     class="show-pass"
                     aria-label="Show password"
+                    tabindex="-1"
                   >
                     <img
                       src="./images/icons/show-password-icon.svg"
@@ -215,7 +207,7 @@
             <!-- FORGOT PASSWORD - 1 - RIGHT -->
             <div class="right" id="forgotPass-1-right">
               <h2 data-i18n="forgotPassword.step1.right.h2">Forgot Password</h2>
-              <p data-i18n="steps.step1">Step 1</p>
+              <p data-i18n="steps.s1">Step 1</p>
               <p data-i18n="forgotPassword.step1.right.p">
                 We'll send you a link to reset your password. Please enter the
                 email linked to your account.
@@ -245,6 +237,7 @@
                 <div class="button-group">
                   <button
                     type="button"
+                    id="forgotPass-1-back-btn"
                     class="btn btn-secondary"
                     data-i18n="buttons.back"
                   >
@@ -287,7 +280,7 @@
               <h2 data-i18n="forgotPassword.step2.right.h2">
                 Verify Your Email
               </h2>
-              <p data-i18n="steps.step2">Step 2</p>
+              <p data-i18n="steps.s2">Step 2</p>
               <p data-i18n="forgotPassword.step2.right.p">
                 We emailed you a code. Please check your inbox or spam folder.
               </p>
@@ -315,6 +308,7 @@
                 <!-- FORGOT_PASS_2_RIGHT - VERIFY BUTTON -->
                 <button
                   type="submit"
+                  id="btn-forgotPass-2"
                   class="btn btn-default"
                   data-i18n="buttons.verify"
                 >
@@ -347,7 +341,7 @@
               <h2 data-i18n="forgotPassword.step3.right.h2">
                 Reset Your Password
               </h2>
-              <p data-i18n="steps.step3">Step 3</p>
+              <p data-i18n="steps.s3">Step 3</p>
               <p data-i18n="forgotPassword.step3.right.p">
                 Use at least 8 characters with one uppercase letter and one
                 number.
@@ -376,6 +370,7 @@
                     type="button"
                     class="show-pass"
                     aria-label="Show password"
+                    tabindex="-1"
                   >
                     <img
                       src="./images/icons/show-password-icon.svg"
@@ -408,6 +403,7 @@
                     type="button"
                     class="show-pass"
                     aria-label="Show password"
+                    tabindex="-1"
                   >
                     <img
                       src="./images/icons/show-password-icon.svg"
@@ -418,6 +414,7 @@
                 <!-- FORGOT_PASS_3_RIGHT - DONE BUTTON -->
                 <button
                   type="submit"
+                  id="btn-forgotPass-3"
                   class="btn btn-default"
                   data-i18n="buttons.done"
                 >
@@ -444,6 +441,7 @@
               <!-- FORGOT_PASSWORD_4_RIGHT - SIGN IN BUTTON -->
               <button
                 type="button"
+                id="btn-forgotPass-4"
                 class="btn btn-valid"
                 data-i18n="buttons.signIn"
               >
@@ -476,7 +474,7 @@
             <!-- SIGN UP - 1 - RIGHT -->
             <div class="right" id="signUp-1-right">
               <h2 data-i18n="signUp.step1.right.h2">Create Your Account</h2>
-              <p data-i18n="steps.step1">Step 1</p>
+              <p data-i18n="steps.s1">Step 1</p>
               <p data-i18n="signUp.step1.right.p">
                 Create your password using at least 8 characters, including one
                 uppercase letter and one number.
@@ -525,6 +523,7 @@
                     type="button"
                     class="show-pass"
                     aria-label="Show password"
+                    tabindex="-1"
                   >
                     <img
                       src="./images/icons/show-password-icon.svg"
@@ -557,6 +556,7 @@
                     type="button"
                     class="show-pass"
                     aria-label="Show password"
+                    tabindex="-1"
                   >
                     <img
                       src="./images/icons/show-password-icon.svg"
@@ -568,6 +568,7 @@
                 <div class="button-group">
                   <button
                     type="button"
+                    id="signUp-1-back-btn"
                     class="btn btn-secondary"
                     data-i18n="buttons.back"
                   >
@@ -608,7 +609,7 @@
             <!-- SIGN UP - 2 - RIGHT -->
             <div class="right" id="signUp-2-right">
               <h2 data-i18n="signUp.step2.right.h2">Verify Your Email</h2>
-              <p data-i18n="steps.step2">Step 2</p>
+              <p data-i18n="steps.s2">Step 2</p>
               <p data-i18n="signUp.step2.right.p">
                 We emailed you a code. Please check your inbox or spam folder.
               </p>
@@ -654,7 +655,7 @@
             <!-- SIGN UP - 3 - RIGHT -->
             <div class="right" id="signUp-3-right">
               <h2 data-i18n="signUp.step3.right.h2">About You</h2>
-              <p data-i18n="steps.step3">Step 3</p>
+              <p data-i18n="steps.s3">Step 3</p>
               <form>
                 <!-- SIGN_UP_3_RIGHT - FULLNAME -->
                 <div class="signUp-fullname">
@@ -900,7 +901,7 @@
               <h2 data-i18n="signUp.step4.right.h2">
                 Verify Your Phone Number
               </h2>
-              <p data-i18n="steps.step4">Step 4</p>
+              <p data-i18n="steps.s4">Step 4</p>
               <p data-i18n="signUp.step4.right.p">
                 Please enter the 6-digit code sent to your phone number.
               </p>
@@ -953,7 +954,7 @@
             </div>
             <!-- SIGN UP - 5 - RIGHT -->
             <div class="right" id="signUp-5-right">
-              <h2 data-i18n="signUp.step5.right.h2">You’re All Set!</h2>
+              <h2 data-i18n="signUp.s5.right.h2">You’re All Set!</h2>
               <!-- SIGN_UP_5_RIGHT - CHECKMARK -->
               <div class="checkmark-wrapper">
                 <svg class="checkmark" viewBox="0 0 120 120">
